@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ExtraHoursRewardType extends Model
+{
+    protected $table = 'extra_hours_reward_type';
+    protected $primaryKey = 'id';
+    public $timestamps = false;
+    protected $guarded = [];
+
+    public function calendarEvents()
+    {
+        return $this->hasMany(CalendarEvent::class, 'calendar_event_extra_hours_reward_type', 'id');
+    }
+}

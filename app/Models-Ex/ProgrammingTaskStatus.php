@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class ProgrammingTaskStatus extends Model
+{
+    use HasFactory;
+
+    protected $table = 'programming_task_status';
+    protected $primaryKey = 'programming_task_status_id';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'programming_task_status_name',
+        'programming_task_status_sort',
+    ];
+}
