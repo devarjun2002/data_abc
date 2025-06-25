@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyAreaUnit extends Model
 {
     protected $table = 'property_area_unit';
     protected $primaryKey = 'property_area_unit_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'property_area_unit_name',
@@ -16,5 +18,9 @@ class PropertyAreaUnit extends Model
         'property_area_unit_name_short'
     ];
 
-    // Add relationships once the related models are created
+    // Relationships
+    public function propertyRooms(): HasMany
+    {
+        return $this->hasMany(PropertyRoom::class, 'property_room_area_unit', 'property_area_unit_id');
+    }
 }

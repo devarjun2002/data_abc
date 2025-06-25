@@ -12,6 +12,7 @@ class LettingTaskStatus extends Model
     protected $table = 'letting_task_status';
     protected $primaryKey = 'letting_task_status_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'letting_task_status_name',

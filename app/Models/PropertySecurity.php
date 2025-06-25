@@ -11,8 +11,12 @@ class PropertySecurity extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function properties()
+    protected $fillable = [
+        'property_security_name',
+    ];
+
+    public function propertyToSecurity(): HasMany
     {
-        return $this->hasMany(Property::class, 'property_security_id', 'property_security_id');
+        return $this->hasMany(PropertyToSecurity::class, 'property_security_id', 'property_security_id');
     }
 }

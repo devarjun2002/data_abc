@@ -9,10 +9,11 @@ class ReferralStatus extends Model
     protected $table = 'referral_status';
     protected $primaryKey = 'referral_status_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
 
-    public function referrals()
-    {
-        return $this->hasMany(Referral::class, 'referral_status_id', 'referral_status_id');
-    }
+    protected $fillable = [
+        'referral_status_name',
+        'referral_status_sort'
+    ];
+
 }

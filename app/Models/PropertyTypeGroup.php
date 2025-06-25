@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyTypeGroup extends Model
 {
     protected $table = 'property_type_group';
     protected $primaryKey = 'property_type_group_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'property_type_group_name',
@@ -16,12 +18,8 @@ class PropertyTypeGroup extends Model
         'property_type_group_sort'
     ];
 
-    protected $casts = [
-        'property_type_group_active' => 'boolean'
-    ];
-
     // Relationships
-    public function propertyTypes()
+    public function propertyTypes(): HasMany
     {
         return $this->hasMany(PropertyType::class, 'property_type_group', 'property_type_group_id');
     }

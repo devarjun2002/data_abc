@@ -11,6 +11,10 @@ class CalendarEventTimeOffType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $fillable = [
+        'calendar_event_time_off_type_name'
+    ];
+
     public function events()
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_time_off_type', 'calendar_event_time_off_type_id');

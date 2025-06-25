@@ -9,6 +9,7 @@ class ValuationReason extends Model
     protected $table = 'valuation_reason';
     protected $primaryKey = 'valuation_reason_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'valuation_reason_name'

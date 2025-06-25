@@ -9,6 +9,7 @@ class EmailTemplateCategory extends Model
     protected $table = 'email_template_category';
     protected $primaryKey = 'email_template_category_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'email_template_category_name'

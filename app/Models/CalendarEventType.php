@@ -11,6 +11,11 @@ class CalendarEventType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $fillable = [
+        'calendar_event_type_name',
+        'calendar_event_type_sort'
+    ];
+
     public function events()
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_type', 'calendar_event_type_id');

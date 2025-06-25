@@ -3,16 +3,28 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyCondition extends Model
 {
     protected $table = 'property_condition';
     protected $primaryKey = 'property_condition_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
-        'property_condition_name'
+        'property_condition_name',
+        'property_condition_sort'
     ];
 
-    // Add relationships once the related models are created
+    // Relationships
+    public function properties(): HasMany
+    {
+        return $this->hasMany(Property::class, 'property_condition', 'property_condition_id');
+    }
+
+    public function valuations(): HasMany
+    {
+        return $this->hasMany(Valuation::class, 'valuation_condition', 'property_condition_id');
+    }
 }

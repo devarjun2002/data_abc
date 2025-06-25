@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyAccessibility extends Model
 {
@@ -12,8 +13,17 @@ class PropertyAccessibility extends Model
     protected $table = 'property_accessibility';
     protected $primaryKey = 'property_accessibility_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'property_accessibility_name',
+        'property_accessibility_description',
+        'property_accessibility_sort'
     ];
+
+    // Relationships
+    public function propertyToAccessibilities(): HasMany
+    {
+        return $this->hasMany(PropertyToAccessibility::class, 'property_accessibility_id', 'property_accessibility_id');
+    }
 }

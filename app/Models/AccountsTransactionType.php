@@ -3,16 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsTransactionType extends Model
 {
     protected $table = 'accounts_transaction_type';
     protected $primaryKey = 'transaction_type_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
+    
+    protected $fillable = [
+        'transaction_type_name',
+        'transaction_type_statement_name'
+    ];
 
-    public function transactions()
+    // Relationships
+    public function transactions(): HasMany
     {
-        return $this->hasMany(AccountsTransaction::class, 'transaction_type_id', 'transaction_type_id');
+        return $this->hasMany(AccountsTransaction::class, 'transaction_type', 'transaction_type_id');
     }
 }

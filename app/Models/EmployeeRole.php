@@ -9,6 +9,7 @@ class EmployeeRole extends Model
     protected $table = 'employee_role';
     protected $primaryKey = 'employee_role_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'employee_role_name'

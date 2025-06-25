@@ -9,6 +9,7 @@ class DirectoryCommissionScheme extends Model
     protected $table = 'directory_commission_scheme';
     protected $primaryKey = 'directory_commission_scheme_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'directory_commission_scheme_name'

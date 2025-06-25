@@ -12,6 +12,7 @@ class PropertyEntranceFloor extends Model
     protected $table = 'property_entrance_floor';
     protected $primaryKey = 'property_entrance_floor_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'property_entrance_floor_name',

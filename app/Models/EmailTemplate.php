@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class EmailTemplate extends Model
 {
     protected $table = 'email_template';
     protected $primaryKey = 'email_template_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'email_template_name',
@@ -24,18 +26,19 @@ class EmailTemplate extends Model
         'email_template_updated_by'
     ];
 
-    public function category()
+    // Relationships
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(EmailTemplateCategory::class, 'email_template_category');
+        return $this->belongsTo(EmailTemplateCategory::class, 'email_template_category', 'email_template_category_id');
     }
 
-    public function createdBy()
+    public function createdBy(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'email_template_created_by');
+        return $this->belongsTo(Employee::class, 'email_template_created_by', 'employee_id');
     }
 
-    public function updatedBy()
+    public function updatedBy(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'email_template_updated_by');
+        return $this->belongsTo(Employee::class, 'email_template_updated_by', 'employee_id');
     }
 }

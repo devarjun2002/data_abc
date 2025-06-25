@@ -9,16 +9,10 @@ class TenancyStatus extends Model
     protected $table = 'tenancy_status';
     protected $primaryKey = 'tenancy_status_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
-        'tenancy_status_name'
+        'tenancy_status_name',
     ];
 
-    /**
-     * Get the tenancies with this status.
-     */
-    public function tenancies()
-    {
-        return $this->hasMany(Tenancy::class, 'tenancy_status');
-    }
 }

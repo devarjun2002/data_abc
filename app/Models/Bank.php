@@ -3,13 +3,42 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Bank extends Model
 {
-    protected $table = 'banks';
-    protected $primaryKey = 'id';
+    protected $table = 'bank';
+    protected $primaryKey = 'bank_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
+    
+    protected $fillable = [
+        'bank_name'
+    ];
 
-    // Add relationships here if you add foreign keys to other tables, e.g. accounts, branches, etc.
+    // Relationships
+    public function branchesCurrent(): HasMany
+    {
+        return $this->hasMany(Branch::class, 'branch_bank_name_current', 'bank_id');
+    }
+
+    public function branchesClient(): HasMany
+    {
+        return $this->hasMany(Branch::class, 'branch_bank_name_client', 'bank_id');
+    }
+
+    public function landlords(): HasMany
+    {
+        return $this->hasMany(Landlord::class, 'landlord_bank_name', 'bank_id');
+    }
+
+    public function directoryIndividuals(): HasMany
+    {
+        return $this->hasMany(DirectoryIndividual::class, 'directory_individual_bank_name', 'bank_id');
+    }
+
+    public function directories(): HasMany
+    {
+        return $this->hasMany(Directory::class, 'directory_bank_name', 'bank_id');
+    }
 }

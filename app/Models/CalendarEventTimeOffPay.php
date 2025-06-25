@@ -11,7 +11,12 @@ class CalendarEventTimeOffPay extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function events()
+    protected $fillable = [
+        'calendar_event_time_off_pay_name',
+    ];
+
+    // Relationships
+    public function events(): HasMany
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_time_off_pay', 'calendar_event_time_off_pay_id');
     }

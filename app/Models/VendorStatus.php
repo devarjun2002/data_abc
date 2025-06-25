@@ -9,6 +9,7 @@ class VendorStatus extends Model
     protected $table = 'vendor_status';
     protected $primaryKey = 'vendor_status_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'vendor_status_name'

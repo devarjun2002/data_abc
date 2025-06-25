@@ -9,7 +9,12 @@ class PropertyOfferSaleApplicants extends Model
     protected $table = 'property_offer_sale_applicants';
     protected $primaryKey = 'property_offer_sale_applicants_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
+
+    protected $fillable = [
+        'property_offer_sale_id',
+        'applicant_id',
+    ];
 
     public function propertyOfferSale()
     {

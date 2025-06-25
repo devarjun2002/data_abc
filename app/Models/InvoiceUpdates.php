@@ -10,4 +10,11 @@ class InvoiceUpdates extends Model
     protected $primaryKey = 'invoice_updates_id';
     public $timestamps = false;
     protected $guarded = [];
+
+    protected $fillable = [
+        'invoice_updates_invoice_id',
+        'invoice_updates_notes',
+        'invoice_updates_date_created',
+        'invoice_updates_created_by'
+    ];
 }

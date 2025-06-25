@@ -12,6 +12,7 @@ class LettingType extends Model
     protected $table = 'letting_type';
     protected $primaryKey = 'letting_type_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'letting_type_name',

@@ -9,6 +9,7 @@ class AccountsInvoiceCredit extends Model
     protected $table = 'accounts_invoice_credit';
     protected $primaryKey = 'invoice_credit_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'invoice_credit_token',

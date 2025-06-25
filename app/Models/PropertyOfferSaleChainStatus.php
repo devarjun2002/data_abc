@@ -9,7 +9,12 @@ class PropertyOfferSaleChainStatus extends Model
     protected $table = 'property_offer_sale_chain_status';
     protected $primaryKey = 'property_offer_sale_chain_status_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
+
+    protected $fillable = [
+        'property_offer_sale_chain_status_name',
+        'property_offer_sale_chain_status_sort',
+    ];
 
     public function chains()
     {

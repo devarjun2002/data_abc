@@ -11,8 +11,8 @@ class TenancyRenewalStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function tenancies()
-    {
-        return $this->hasMany(Tenancy::class, 'tenancy_renewal_status_id', 'tenancy_renewal_status_id');
-    }
+    protected $fillable = [
+        'tenancy_renewal_status_name',
+        'tenancy_renewal_status_sort'
+    ];
 }

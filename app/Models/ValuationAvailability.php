@@ -9,14 +9,11 @@ class ValuationAvailability extends Model
     protected $table = 'valuation_availability';
     protected $primaryKey = 'valuation_availability_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'valuation_availability_name',
         'valuation_availability_archived'
-    ];
-
-    protected $casts = [
-        'valuation_availability_archived' => 'boolean'
     ];
 
     // Relationships

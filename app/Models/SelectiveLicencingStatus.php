@@ -3,11 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class SelectiveLicencingStatus extends Model
 {
     protected $table = 'selective_licencing_status';
     protected $primaryKey = 'selective_licencing_status_id';
     public $timestamps = false;
-    protected $fillable = [];
-}
+    protected $guarded = [];
+    
+    protected $fillable = [
+        'selective_licencing_status_name',
+        'selective_licencing_status_sort',
+    ];
+
+    public function properties(): HasMany {
+        return $this->hasMany(Property::class, 'property_selective_licencing_status', 'selective_licencing_status_id');
+    }
+} 

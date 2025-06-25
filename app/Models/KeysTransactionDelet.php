@@ -12,6 +12,7 @@ class KeysTransactionDelet extends Model
     protected $table = 'keys_transaction_delet';
     protected $primaryKey = 'keys_transaction_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'keys_transaction_property',
@@ -27,14 +28,6 @@ class KeysTransactionDelet extends Model
         'keys_transaction_date_updated',
         'keys_transaction_created_by',
         'keys_transaction_updated_by',
-    ];
-
-    protected $dates = [
-        'keys_transaction_out',
-        'keys_transaction_due_in',
-        'keys_transaction_in',
-        'keys_transaction_date_created',
-        'keys_transaction_date_updated',
     ];
 
     public function property()

@@ -9,6 +9,7 @@ class DirectoryStatus extends Model
     protected $table = 'directory_status';
     protected $primaryKey = 'directory_status_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'directory_status_name'

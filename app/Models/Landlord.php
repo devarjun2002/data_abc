@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Landlord extends Model
 {
@@ -11,6 +13,8 @@ class Landlord extends Model
 
     protected $table = 'landlord';
     protected $primaryKey = 'landlord_id';
+    public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'landlord_token',
@@ -106,41 +110,112 @@ class Landlord extends Model
         'landlord_date_created',
         'landlord_date_updated',
         'landlord_created_by',
-        'landlord_updated_by',
+        'landlord_updated_by'
     ];
 
-    public function country()
+    // Relationships
+    public function title(): BelongsTo
     {
-        return $this->belongsTo(Country::class, 'landlord_country', 'country_id');
+        return $this->belongsTo(Title::class, 'landlord_title', 'title_id');
     }
 
-    public function bank()
+    public function nationality(): BelongsTo
+    {
+        return $this->belongsTo(Nationality::class, 'landlord_nationality', 'nationality_id');
+    }
+
+    public function employmentStatus(): BelongsTo
+    {
+        return $this->belongsTo(EmploymentStatus::class, 'landlord_employment_status', 'employment_status_id');
+    }
+
+    public function incomeFrequency(): BelongsTo
+    {
+        return $this->belongsTo(IncomeFrequency::class, 'landlord_income_frequency', 'income_frequency_id');
+    }
+
+    public function bank(): BelongsTo
     {
         return $this->belongsTo(Bank::class, 'landlord_bank_name', 'bank_id');
     }
 
-    public function nrlStatus()
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'landlord_country', 'country_id');
+    }
+
+    public function nrlStatus(): BelongsTo
     {
         return $this->belongsTo(LandlordNrlStatus::class, 'landlord_nrl_status', 'landlord_nrl_status_id');
     }
 
-    public function status()
+    public function status(): BelongsTo
     {
         return $this->belongsTo(LandlordStatus::class, 'landlord_status', 'landlord_status_id');
     }
 
-    public function branch()
+    public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class, 'landlord_branch', 'branch_id');
     }
 
-    public function capacity()
+    public function capacity(): BelongsTo
     {
         return $this->belongsTo(Capacity::class, 'landlord_capacity', 'capacity_id');
     }
 
-    public function discountGroup()
+    public function discountGroup(): BelongsTo
     {
         return $this->belongsTo(DiscountGroup::class, 'landlord_discount_group', 'discount_group_id');
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'landlord_created_by', 'employee_id');
+    }
+
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'landlord_updated_by', 'employee_id');
+    }
+
+    public function properties(): HasMany
+    {
+        return $this->hasMany(Property::class, 'property_landlord_id', 'landlord_id');
+    }
+
+    public function propertyLandlords(): HasMany
+    {
+        return $this->hasMany(PropertyLandlord::class, 'property_landlord_landlord_id', 'landlord_id');
+    }
+
+    public function propertyVendors(): HasMany
+    {
+        return $this->hasMany(PropertyVendor::class, 'property_vendor_vendor_id', 'landlord_id');
+    }
+
+    public function valuations(): HasMany
+    {
+        return $this->hasMany(Valuation::class, 'valuation_to_landlord', 'landlord_id');
+    }
+
+    public function invoices(): HasMany
+    {
+        return $this->hasMany(AccountsInvoice::class, 'invoice_customer', 'landlord_id');
+    }
+
+    public function invoiceCredits(): HasMany
+    {
+        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_customer', 'landlord_id');
+    }
+
+    public function landlordPayments(): HasMany
+    {
+        return $this->hasMany(AccountsLandlordPayment::class, 'landlord_payment_landlord_id', 'landlord_id');
+    }
+
+    public function attachments(): HasMany
+    {
+        return $this->hasMany(LandlordAttachments::class, 'landlord_attachments_landlord_id', 'landlord_id');
     }
 }

@@ -11,6 +11,11 @@ class CalendarEventMeetAt extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $fillable = [
+        'calendar_event_meet_at_name',
+        'calendar_event_meet_at_sort'
+    ];
+
     public function events()
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_meet_at', 'calendar_event_meet_at_id');

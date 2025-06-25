@@ -9,13 +9,10 @@ class AccountsTemporaryIncomeType extends Model
     protected $table = 'accounts_temporary_income_type';
     protected $primaryKey = 'temporary_income_type_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'temporary_income_type_name',
         'temporary_income_type_sort'
-    ];
-
-    protected $casts = [
-        'temporary_income_type_sort' => 'integer'
     ];
 }

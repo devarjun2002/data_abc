@@ -6,5 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class TenantIncome extends Model
 {
-   
+    protected $table = 'tenant_income';
+    protected $primaryKey = 'tenant_income_id';
+    public $timestamps = false;
+    protected $guarded = [];
+
+    protected $fillable = [
+        'tenant_income_tenant_id',
+        'tenant_income_amount',
+        'tenant_income_frequency',
+        'tenant_income_source'
+    ];
+
+    public function tenant()
+    {
+        return $this->belongsTo(Tenant::class, 'tenant_income_tenant_id', 'tenant_id');
+    }
 }

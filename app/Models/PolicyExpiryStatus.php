@@ -12,6 +12,7 @@ class PolicyExpiryStatus extends Model
     protected $table = 'policy_expiry_status';
     protected $primaryKey = 'policy_expiry_status_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'policy_expiry_status_name',

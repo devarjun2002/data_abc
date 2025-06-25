@@ -9,6 +9,7 @@ class KeysLocation extends Model
     protected $table = 'keys_location';
     protected $primaryKey = 'keys_location_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'keys_location_name'

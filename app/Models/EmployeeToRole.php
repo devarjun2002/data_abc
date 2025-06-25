@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class EmployeeToRole extends Model
 {
@@ -11,12 +12,19 @@ class EmployeeToRole extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function employee()
+    protected $fillable = [
+        'employee_id',
+        'employee_role_id'
+    ];
+
+    // Relationships
+    public function employee(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'employee_id', 'employee_id');
     }
-    public function role()
+
+    public function role(): BelongsTo
     {
-        return $this->belongsTo(EmployeeRole::class, 'role_id', 'role_id');
+        return $this->belongsTo(EmployeeRole::class, 'employee_role_id', 'employee_role_id');
     }
 }

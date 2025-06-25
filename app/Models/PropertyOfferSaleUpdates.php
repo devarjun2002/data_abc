@@ -9,7 +9,19 @@ class PropertyOfferSaleUpdates extends Model
     protected $table = 'property_offer_sale_updates';
     protected $primaryKey = 'property_offer_sale_updates_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
+
+    protected $fillable = [
+        'property_offer_sale_updates_property_offer_sale_id',
+        'property_offer_sale_updates_public_notes',
+        'property_offer_sale_updates_private_notes',
+        'property_offer_sale_updates_notify_vendors',
+        'property_offer_sale_updates_notify_applicants',
+        'property_offer_sale_updates_notify_sales_negotiation',
+        'property_offer_sale_updates_notify_sales_progression',
+        'property_offer_sale_updates_date_created',
+        'property_offer_sale_updates_created_by',
+    ];
 
     // Add relationships here if you add foreign keys to property, offer, sale, etc.
 

@@ -12,6 +12,7 @@ class LedPocketAction extends Model
     protected $table = 'led_pocket_action';
     protected $primaryKey = 'led_pocket_action_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'led_pocket_action_name',

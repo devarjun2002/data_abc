@@ -9,6 +9,7 @@ class CertificateFiles extends Model
     protected $table = 'certificate_files';
     protected $primaryKey = 'file_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'certificate_id',

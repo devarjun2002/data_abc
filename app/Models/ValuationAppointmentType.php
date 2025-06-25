@@ -11,6 +11,12 @@ class ValuationAppointmentType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $fillable = [
+        'valuation_appointment_type_name',
+        'valuation_appointment_type_subject',
+        'valuation_appointment_type_sort'
+    ];
+
     public function valuations()
     {
         return $this->hasMany(Valuation::class, 'valuation_appointment_type_id', 'valuation_appointment_type_id');

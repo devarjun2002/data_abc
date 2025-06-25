@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PropertyUseClass extends Model
 {
@@ -11,8 +12,12 @@ class PropertyUseClass extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function propertyToUseClasses()
+    protected $fillable = [
+        'property_use_class_name',
+    ];
+
+    public function propertyToUseClasses(): BelongsTo
     {
-        return $this->hasMany(PropertyToUseClass::class, 'property_use_class_id', 'property_use_class_id');
+        return $this->belongsTo(PropertyToUseClass::class, 'property_use_class_id', 'property_use_class_id');
     }
 }

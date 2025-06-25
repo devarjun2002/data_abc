@@ -9,6 +9,7 @@ class EmployeeDepartment extends Model
     protected $table = 'employee_department';
     protected $primaryKey = 'employee_department_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'employee_department_name',

@@ -9,6 +9,7 @@ class ValuationCondition extends Model
     protected $table = 'valuation_condition';
     protected $primaryKey = 'valuation_condition_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'valuation_condition_name',

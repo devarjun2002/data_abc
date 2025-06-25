@@ -9,5 +9,12 @@ class LettingService extends Model
     protected $table = 'letting_service';
     protected $primaryKey = 'letting_service_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
+
+    protected $fillable = [
+        'letting_service_name',
+        'letting_service_name_short',
+        'letting_service_archived',
+        'letting_service_sort',
+    ];
 }

@@ -3,36 +3,49 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyRoomLetting extends Model
 {
     protected $table = 'property_room_letting';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'property_room_letting_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
+    
+    protected $fillable = [
+        'property_id',
+        'property_room_letting_sort',
+        'property_room_letting_status',
+        'property_room_letting_rent',
+        'property_room_letting_rent_frequency',
+        'property_room_letting_deposit',
+        'property_room_letting_size',
+        'property_room_letting_floor',
+        'property_room_letting_en_suite',
+        'property_room_letting_furnished',
+        'property_room_letting_available_from',
+        'property_room_letting_gender',
+        'property_room_letting_dob',
+        'property_room_letting_profession',
+    ];
 
-    public function room()
+    public function rentFrequency(): BelongsTo
     {
-        return $this->belongsTo(PropertyRoom::class, 'property_room_id', 'property_room_id');
+        return $this->belongsTo(PropertyRentFrequency::class, 'property_room_letting_rent_frequency', 'property_rent_frequency_id');
     }
-    public function property()
+
+    public function rents(): HasMany
     {
-        return $this->belongsTo(Property::class, 'property_id', 'id');
+        return $this->hasMany(PropertyRoomLettingRent::class, 'property_room_letting_id', 'property_room_letting_id');
     }
-    public function tenants()
+
+    public function files(): HasMany
     {
-        return $this->belongsToMany(Tenant::class, 'property_room_letting_tenant', 'property_room_letting_id', 'tenant_id');
+        return $this->hasMany(PropertyRoomLettingFiles::class, 'property_room_letting_id', 'property_room_letting_id');
     }
-    public function rents()
+
+    public function statusHistories(): HasMany
     {
-        return $this->hasMany(PropertyRoomLettingRent::class, 'property_room_letting_id', 'id');
-    }
-    public function files()
-    {
-        return $this->hasMany(PropertyRoomLettingFiles::class, 'property_room_letting_id', 'id');
-    }
-    public function statusHistories()
-    {
-        return $this->hasMany(PropertyRoomLettingStatusHistory::class, 'property_room_letting_id', 'id');
+        return $this->hasMany(PropertyRoomLettingStatusHistory::class, 'property_room_letting_id', 'property_room_letting_id');
     }
 }

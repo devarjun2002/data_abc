@@ -12,6 +12,7 @@ class ProgrammingTask extends Model
     protected $table = 'programming_task';
     protected $primaryKey = 'programming_task_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'programming_task_description',
@@ -22,11 +23,6 @@ class ProgrammingTask extends Model
         'programming_task_date_updated',
         'programming_task_created_by',
         'programming_task_updated_by',
-    ];
-
-    protected $dates = [
-        'programming_task_date_created',
-        'programming_task_date_updated',
     ];
 
     public function status()

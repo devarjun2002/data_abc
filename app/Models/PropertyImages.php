@@ -12,6 +12,7 @@ class PropertyImages extends Model
     protected $table = 'property_images';
     protected $primaryKey = 'image_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'property_id',
@@ -22,14 +23,6 @@ class PropertyImages extends Model
         'sort',
         'sort_highlights',
         'floor_plan',
-    ];
-
-    protected $dates = [
-        'date_added',
-    ];
-
-    protected $casts = [
-        'floor_plan' => 'boolean',
     ];
 
     public function property()

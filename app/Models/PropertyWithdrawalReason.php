@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PropertyWithdrawalReason extends Model
 {
@@ -11,8 +12,12 @@ class PropertyWithdrawalReason extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function properties()
+    protected $fillable = [
+        'property_withdrawal_reason_name',
+    ];
+
+    public function properties(): BelongsTo
     {
-        return $this->hasMany(Property::class, 'property_withdrawal_reason_id', 'property_withdrawal_reason_id');
+        return $this->belongsTo(Property::class, 'property_withdrawal_reason', 'property_withdrawal_reason_id');
     }
 }

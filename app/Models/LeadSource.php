@@ -11,6 +11,10 @@ class LeadSource extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $fillable = [
+        'lead_source_name'
+    ];
+
     public function applicants()
     {
         return $this->hasMany(Applicant::class, 'lead_source_id', 'lead_source_id');

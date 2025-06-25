@@ -12,6 +12,7 @@ class KeysTransactionStatusDelet extends Model
     protected $table = 'keys_transaction_status_delet';
     protected $primaryKey = 'keys_transaction_status_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'keys_transaction_status_name',

@@ -9,6 +9,7 @@ class LocalAuthorityWard extends Model
     protected $table = 'local_authority_ward';
     protected $primaryKey = 'local_authority_ward_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'local_authority_ward_name',
@@ -16,11 +17,6 @@ class LocalAuthorityWard extends Model
         'local_authority_ward_selective_licencing_start_date',
         'local_authority_ward_selective_licencing_end_date',
         'local_authority_id'
-    ];
-
-    protected $dates = [
-        'local_authority_ward_selective_licencing_start_date',
-        'local_authority_ward_selective_licencing_end_date'
     ];
 
     // Relationships

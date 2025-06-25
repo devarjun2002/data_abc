@@ -3,16 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CalendarEventSurveyType extends Model
 {
     protected $table = 'calendar_event_survey_type';
     protected $primaryKey = 'calendar_event_survey_type_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
 
-    // Add relationships here if you add foreign keys to other tables, e.g. events, etc.
-    public function events()
+    protected $fillable = [
+        'calendar_event_survey_type_name',
+        'calendar_event_survey_type_sort',
+    ];
+
+    // Relationships
+    public function events(): HasMany
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_survey_type_id', 'calendar_event_survey_type_id');
     }

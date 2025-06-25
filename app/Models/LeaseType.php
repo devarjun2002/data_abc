@@ -12,6 +12,7 @@ class LeaseType extends Model
     protected $table = 'lease_type';
     protected $primaryKey = 'lease_type_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'lease_type_name',

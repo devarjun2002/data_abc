@@ -12,6 +12,7 @@ class PropertyOfferSaleType extends Model
     protected $table = 'property_offer_sale_type';
     protected $primaryKey = 'property_offer_sale_type_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'property_offer_sale_type_name',

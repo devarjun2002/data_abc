@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsTenantCharge extends Model
 {
     protected $table = 'accounts_tenant_charge';
     protected $primaryKey = 'tenant_charge_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'tenant_charge_token',
@@ -27,77 +30,67 @@ class AccountsTenantCharge extends Model
         'tenant_charge_updated_by'
     ];
 
-    protected $casts = [
-        'tenant_charge_total_amount_exc_vat' => 'decimal:2',
-        'tenant_charge_total_vat_amount' => 'decimal:2',
-        'tenant_charge_total_amount_paid' => 'decimal:2',
-        'tenant_charge_date' => 'date',
-        'tenant_charge_due_date' => 'date',
-        'tenant_charge_date_created' => 'datetime',
-        'tenant_charge_date_updated' => 'datetime'
-    ];
-
     /**
      * Get the tenancy associated with this charge.
      */
-    public function tenancy()
+    public function tenancy(): BelongsTo
     {
-        return $this->belongsTo(Tenancy::class, 'tenant_charge_tenancy_id');
+        return $this->belongsTo(Tenancy::class, 'tenant_charge_tenancy_id', 'tenancy_id');
     }
 
     /**
      * Get the branch associated with this charge.
      */
-    public function branch()
+    public function branch(): BelongsTo
     {
-        return $this->belongsTo(Branch::class, 'tenant_charge_branch');
+        return $this->belongsTo(Branch::class, 'tenant_charge_branch', 'branch_id');
     }
 
     /**
      * Get the payment terms for this charge.
      */
-    public function paymentTerms()
+    public function paymentTerms(): BelongsTo
     {
-        return $this->belongsTo(AccountsPaymentTerm::class, 'tenant_charge_payment_terms');
+        return $this->belongsTo(AccountsPaymentTerm::class, 'tenant_charge_payment_terms', 'accounts_payment_term_id');
     }
 
     /**
      * Get the employee who created this charge.
      */
-    public function createdBy()
+    public function createdBy(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'tenant_charge_created_by');
+        return $this->belongsTo(Employee::class, 'tenant_charge_created_by', 'employee_id');
     }
 
     /**
      * Get the employee who updated this charge.
      */
-    public function updatedBy()
+    public function updatedBy(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'tenant_charge_updated_by');
+        return $this->belongsTo(Employee::class, 'tenant_charge_updated_by', 'employee_id');
     }
 
     /**
      * Get the lines for this tenant charge.
      */
-    public function lines()
+    public function lines(): HasMany
     {
-        return $this->hasMany(AccountsTenantChargeLine::class, 'tenant_charge_id');
+        return $this->hasMany(AccountsTenantChargeLine::class, 'tenant_charge_line_tenant_charge_id', 'tenant_charge_id');
     }
 
     /**
      * Get the payments for this tenant charge.
      */
-    public function payments()
+    public function payments(): HasMany
     {
-        return $this->hasMany(AccountsTenantChargePayment::class, 'tenant_charge_payment_tenant_charge_id');
+        return $this->hasMany(AccountsTenantChargePayment::class, 'tenant_charge_payment_tenant_charge_id', 'tenant_charge_id');
     }
 
     /**
      * Get the recurring settings for this tenant charge.
      */
-    public function recurring()
+    public function recurring(): HasMany
     {
-        return $this->hasMany(AccountsTenantChargeRecurring::class, 'tenant_charge_recurring_tenant_charge_id');
+        return $this->hasMany(AccountsTenantChargeRecurring::class, 'tenant_charge_recurring_tenant_charge_id', 'tenant_charge_id');
     }
 }

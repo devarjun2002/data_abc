@@ -11,8 +11,7 @@ class TenancyFixedTermUnit extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function tenancies()
-    {
-        return $this->hasMany(Tenancy::class, 'tenancy_fixed_term_unit_id', 'tenancy_fixed_term_unit_id');
-    }
+    protected $fillable = [
+        'tenancy_fixed_term_unit_name',
+    ];
 }

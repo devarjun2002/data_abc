@@ -9,6 +9,7 @@ class ValuationLostReason extends Model
     protected $table = 'valuation_lost_reason';
     protected $primaryKey = 'valuation_lost_reason_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'valuation_lost_reason_name'

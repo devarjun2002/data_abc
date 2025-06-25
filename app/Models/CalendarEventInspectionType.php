@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CalendarEventInspectionType extends Model
 {
@@ -11,7 +12,13 @@ class CalendarEventInspectionType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function events()
+    protected $fillable = [
+        'calendar_event_inspection_type_name',
+        'calendar_event_inspection_type_sort',
+    ];
+
+    // Relationships
+    public function events(): HasMany
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_inspection_type', 'calendar_event_inspection_type_id');
     }

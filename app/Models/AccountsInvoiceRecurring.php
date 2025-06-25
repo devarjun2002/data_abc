@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AccountsInvoiceRecurring extends Model
 {
     protected $table = 'accounts_invoice_recurring';
     protected $primaryKey = 'invoice_recurring_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'invoice_recurring_invoice_id',
@@ -19,26 +21,13 @@ class AccountsInvoiceRecurring extends Model
         'invoice_recurring_suspended'
     ];
 
-    protected $casts = [
-        'invoice_recurring_frequency' => 'integer',
-        'invoice_recurring_start_date' => 'date',
-        'invoice_recurring_next_processing_date' => 'date',
-        'invoice_recurring_suspended' => 'boolean'
-    ];
-
-    /**
-     * Get the invoice this recurring entry is for.
-     */
-    public function invoice()
+    public function invoice(): BelongsTo
     {
-        return $this->belongsTo(AccountsInvoice::class, 'invoice_recurring_invoice_id');
+        return $this->belongsTo(AccountsInvoice::class, 'invoice_recurring_invoice_id', 'invoice_id');
     }
 
-    /**
-     * Get the frequency unit for this recurring invoice.
-     */
-    public function frequencyUnit()
+    public function frequencyUnit(): BelongsTo
     {
-        return $this->belongsTo(AccountsRecurringFrequencyUnit::class, 'invoice_recurring_frequency_unit');
+        return $this->belongsTo(AccountsRecurringFrequencyUnit::class, 'invoice_recurring_frequency_unit', 'recurring_frequency_unit_id');
     }
 }

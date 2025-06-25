@@ -12,6 +12,7 @@ class MediaType extends Model
     protected $table = 'media_type';
     protected $primaryKey = 'media_type_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'media_type_name',

@@ -9,6 +9,7 @@ class DateRange extends Model
     protected $table = 'date_range';
     protected $primaryKey = 'date_range_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'date_range_name',

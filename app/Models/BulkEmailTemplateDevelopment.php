@@ -10,4 +10,9 @@ class BulkEmailTemplateDevelopment extends Model
     protected $primaryKey = 'bulk_email_template_development_id';
     public $timestamps = false;
     protected $guarded = [];
+
+    protected $fillable = [
+        'bulk_email_template_development_name',
+        'bulk_email_template_development_subject'
+    ];
 }

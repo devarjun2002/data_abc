@@ -10,4 +10,9 @@ class DiscountGroup extends Model
     protected $primaryKey = 'discount_group_id';
     public $timestamps = false;
     protected $guarded = [];
+
+    protected $fillable = [
+        'discount_group_name',
+        'discount_group_sort'
+    ];
 }

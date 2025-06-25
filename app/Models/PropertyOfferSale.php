@@ -9,7 +9,38 @@ class PropertyOfferSale extends Model
     protected $table = 'property_offer_sale';
     protected $primaryKey = 'property_offer_sale_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
+
+    protected $fillable = [
+        'property_offer_sale_property',
+        'property_offer_sale_price',
+        'property_offer_sale_finance',
+        'property_offer_sale_mortgage_deposit',
+        'property_offer_sale_type',
+        'property_offer_sale_survey',
+        'property_offer_sale_htb',
+        'property_offer_sale_htb_approved',
+        'property_offer_sale_chain',
+        'property_offer_sale_status',
+        'property_offer_sale_status_reason',
+        'property_offer_sale_notes',
+        'property_offer_sale_notes_private',
+        'property_offer_sale_employee',
+        'property_offer_sale_referral_solicitor',
+        'property_offer_sale_referral_solicitor_notes',
+        'property_offer_sale_referral_surveyor',
+        'property_offer_sale_referral_surveyor_notes',
+        'property_offer_sale_referral_mortgage',
+        'property_offer_sale_referral_mortgage_notes',
+        'property_offer_sale_referral_valuation',
+        'property_offer_sale_referral_valuation_notes',
+        'property_offer_sale_viewings',
+        'property_offer_sale_revised_offer_id',
+        'property_offer_sale_date_created',
+        'property_offer_sale_date_updated',
+        'property_offer_sale_created_by',
+        'property_offer_sale_updated_by',
+    ];
 
     public function offerSaleApplicants()
     {

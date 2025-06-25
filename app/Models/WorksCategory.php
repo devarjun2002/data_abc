@@ -11,8 +11,13 @@ class WorksCategory extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $fillable = [
+        'works_category_name',
+        'works_category_sort',
+    ];
+
     public function works()
     {
-        return $this->hasMany(Works::class, 'works_category_id', 'works_category_id');
+        return $this->hasMany(Works::class, 'works_category', 'works_category_id');
     }
 }

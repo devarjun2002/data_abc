@@ -9,7 +9,12 @@ class EmployeePermissions extends Model
     protected $table = 'employee_permissions';
     protected $primaryKey = 'employee_permissions_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
+
+    protected $fillable = [
+        'employee_permissions_name',
+        'employee_permissions_category',
+    ];
 
     public function employees()
     {

@@ -3,11 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PropertyViewingArrangement extends Model
 {
     protected $table = 'property_viewing_arrangement';
     protected $primaryKey = 'property_viewing_arrangement_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
+
+    protected $fillable = [
+        'property_viewing_arrangement_name',
+    ];
+
+    public function properties(): BelongsTo
+    {
+        return $this->belongsTo(Property::class, 'property_viewing_arrangement', 'property_viewing_arrangement_id');
+    }
 }

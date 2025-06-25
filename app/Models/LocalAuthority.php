@@ -9,6 +9,7 @@ class LocalAuthority extends Model
     protected $table = 'local_authority';
     protected $primaryKey = 'local_authority_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'local_authority_name',
@@ -24,11 +25,6 @@ class LocalAuthority extends Model
         'local_authority_selective_licencing_start_date',
         'local_authority_selective_licencing_end_date',
         'local_authority_selective_licencing_email_address'
-    ];
-
-    protected $dates = [
-        'local_authority_selective_licencing_start_date',
-        'local_authority_selective_licencing_end_date'
     ];
 
     // Relationships

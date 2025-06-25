@@ -11,8 +11,8 @@ class TenancyPaymentMethod extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function tenancies()
-    {
-        return $this->hasMany(Tenancy::class, 'tenancy_payment_method_id', 'tenancy_payment_method_id');
-    }
+    protected $fillable = [
+        'tenancy_payment_method_name',
+        'tenancy_payment_method_description'
+    ];
 }

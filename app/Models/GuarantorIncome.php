@@ -11,12 +11,18 @@ class GuarantorIncome extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $fillable = [
+        'guarantor_income_guarantor_id',
+        'guarantor_income_amount',
+        'guarantor_income_frequency',
+        'guarantor_income_source'
+   ];
     public function guarantor()
     {
-        return $this->belongsTo(Guarantor::class, 'guarantor_id', 'guarantor_id');
+        return $this->belongsTo(Guarantor::class, 'guarantor_income_id', 'guarantor_id');
     }
     public function frequency()
     {
-        return $this->belongsTo(IncomeFrequency::class, 'income_frequency_id', 'income_frequency_id');
+        return $this->belongsTo(IncomeFrequency::class, 'guarantor_income_frequency', 'income_frequency_id');
     }
 }

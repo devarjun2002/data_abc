@@ -9,6 +9,7 @@ class TenancyRentFrequency extends Model
     protected $table = 'tenancy_rent_frequency';
     protected $primaryKey = 'tenancy_rent_frequency_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'tenancy_rent_frequency_name',

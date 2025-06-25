@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyParking extends Model
 {
@@ -11,8 +12,18 @@ class PropertyParking extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function properties()
+    protected $fillable = [
+        'property_parking_name',
+    ];
+
+    // Relationships
+    public function properties(): HasMany
     {
         return $this->hasMany(Property::class, 'property_parking_id', 'property_parking_id');
+    }
+
+    public function propertyToParking(): HasMany
+    {
+        return $this->hasMany(PropertyToParking::class, 'property_parking_id', 'property_parking_id');
     }
 }

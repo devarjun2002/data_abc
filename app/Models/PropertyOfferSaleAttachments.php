@@ -9,9 +9,16 @@ class PropertyOfferSaleAttachments extends Model
     protected $table = 'property_offer_sale_attachments';
     protected $primaryKey = 'property_offer_sale_attachments_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
 
-    // Add relationships here if you add foreign keys to property, offer, sale, etc.
+    protected $fillable = [
+        'property_offer_sale_id',
+        'property_offer_sale_attachments_filename',
+        'property_offer_sale_attachments_caption',
+        'property_offer_sale_attachments_sort',
+        'property_offer_sale_attachments_date_created',
+        'property_offer_sale_attachments_created_by',
+    ];
 
     public function propertyOfferSale()
     {

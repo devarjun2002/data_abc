@@ -12,16 +12,13 @@ class KeyTransactionUpdates extends Model
     protected $table = 'key_transaction_updates';
     protected $primaryKey = 'key_transaction_updates_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'key_transaction_updates_keys_transaction_id',
         'key_transaction_updates_private_notes',
         'key_transaction_updates_date_created',
         'key_transaction_updates_created_by',
-    ];
-
-    protected $dates = [
-        'key_transaction_updates_date_created',
     ];
 
     public function keysTransaction()

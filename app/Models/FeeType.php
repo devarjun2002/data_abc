@@ -9,6 +9,7 @@ class FeeType extends Model
     protected $table = 'fee_type';
     protected $primaryKey = 'fee_type_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'fee_type_name'

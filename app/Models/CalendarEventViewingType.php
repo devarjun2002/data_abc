@@ -9,6 +9,7 @@ class CalendarEventViewingType extends Model
     protected $table = 'calendar_event_viewing_type';
     protected $primaryKey = 'calendar_event_viewing_type_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'calendar_event_viewing_type_name'

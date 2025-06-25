@@ -9,7 +9,30 @@ class PropertyOfferSaleChain extends Model
     protected $table = 'property_offer_sale_chain';
     protected $primaryKey = 'property_offer_sale_chain_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
+
+    protected $fillable = [
+        'property_offer_sale_chain_sort',
+        'property_offer_sale_id',
+        'property_offer_sale_chain_name',
+        'property_offer_sale_chain_property_address',
+        'property_offer_vendor_property_id',
+        'property_offer_sale_chain_buyers_name',
+        'property_offer_buyer_property_id',
+        'property_offer_sale_chain_sale_price',
+        'property_offer_sale_chain_selling',
+        'property_offer_sale_chain_estate_agent_details',
+        'property_offer_sale_chain_position',
+        'property_offer_sale_chain_status',
+        'property_offer_sale_chain_mortgage',
+        'property_offer_sale_chain_survey',
+        'property_offer_sale_chain_checked',
+        'property_offer_sale_chain_notes',
+        'property_offer_sale_chain_date_created',
+        'property_offer_sale_chain_date_updated',
+        'property_offer_sale_chain_created_by',
+        'property_offer_sale_chain_updated_by',
+    ];
 
     public function propertyOfferSale()
     {

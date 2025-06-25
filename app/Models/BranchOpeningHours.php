@@ -11,6 +11,13 @@ class BranchOpeningHours extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $fillable = [
+        'branch_id',
+        'branch_opening_hours_day',
+        'branch_opening_hours_open_time',
+        'branch_opening_hours_close_time'
+    ];
+
     public function branch()
     {
         return $this->belongsTo(Branch::class, 'branch_id', 'branch_id');

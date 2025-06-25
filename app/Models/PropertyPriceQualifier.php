@@ -9,6 +9,7 @@ class PropertyPriceQualifier extends Model
     protected $table = 'property_price_qualifier';
     protected $primaryKey = 'price_qualifier_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'price_qualifier_name',

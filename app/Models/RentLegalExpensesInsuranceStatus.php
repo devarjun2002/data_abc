@@ -9,10 +9,10 @@ class RentLegalExpensesInsuranceStatus extends Model
     protected $table = 'rent_legal_expenses_insurance_status';
     protected $primaryKey = 'rleis_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
 
-    public function insurances()
-    {
-        return $this->hasMany(RentLegalExpensesInsurance::class, 'rent_legal_expenses_insurance_status_id', 'rent_legal_expenses_insurance_status_id');
-    }
+    protected $fillable = [
+        'rleis_name',
+        'rleis_sort',
+    ];
 }

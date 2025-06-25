@@ -11,6 +11,11 @@ class PossessionStatusCompletion extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $fillable = [
+        'possession_status_completion_name',
+        'possession_status_completion_sort',
+    ];
+
     public function properties()
     {
         return $this->hasMany(Property::class, 'possession_status_completion_id', 'possession_status_completion_id');

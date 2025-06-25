@@ -6,5 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
 {
-   
+    protected $table = 'test';
+    protected $primaryKey = 'test_id';
+    public $timestamps = false;
+    protected $guarded = [];
+
+    protected $fillable = [
+        'test_name'
+    ];
 }

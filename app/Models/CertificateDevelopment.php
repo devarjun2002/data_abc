@@ -12,6 +12,7 @@ class CertificateDevelopment extends Model
     protected $table = 'certificate_development';
     protected $primaryKey = 'certificate_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'certificate_development',
@@ -25,19 +26,9 @@ class CertificateDevelopment extends Model
         'certificate_renewal_contractor',
         'certificate_renewal_instructed',
         'certificate_renewal_last_instructed',
+        'certificate_renewal_instructed_by',
         'certificate_date_created',
         'certificate_created_by',
-    ];
-
-    protected $dates = [
-        'certificate_start_date',
-        'certificate_expiry_date',
-        'certificate_renewal_last_instructed',
-        'certificate_date_created',
-    ];
-
-    protected $casts = [
-        'certificate_renewal_instructed' => 'boolean',
     ];
 
     public function development()
@@ -55,8 +46,23 @@ class CertificateDevelopment extends Model
         return $this->belongsTo(Directory::class, 'certificate_renewal_contractor', 'directory_id');
     }
 
+    public function renewalInstructedBy()
+    {
+        return $this->belongsTo(Employee::class, 'certificate_renewal_instructed_by', 'employee_id');
+    }
+
     public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'certificate_created_by', 'employee_id');
+    }
+
+    public function files()
+    {
+        return $this->hasMany(CertificateDevelopmentFiles::class, 'certificate_development_files_certificate_id', 'certificate_id');
+    }
+
+    public function updates()
+    {
+        return $this->hasMany(CertificateUpdatesDevelopment::class, 'certificate_updates_development_certificate_id', 'certificate_id');
     }
 }

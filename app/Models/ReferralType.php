@@ -9,10 +9,10 @@ class ReferralType extends Model
     protected $table = 'referral_type';
     protected $primaryKey = 'referral_type_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
 
-    public function referrals()
-    {
-        return $this->hasMany(Referral::class, 'referral_type_id', 'referral_type_id');
-    }
+    protected $fillable = [
+        'referral_type_name',
+    ];
+
 }

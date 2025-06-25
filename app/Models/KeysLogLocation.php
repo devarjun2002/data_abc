@@ -12,15 +12,12 @@ class KeysLogLocation extends Model
     protected $table = 'keys_log_location';
     protected $primaryKey = 'keys_log_location_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'property_id',
         'keys_location',
         'keys_log_location_updated_by',
-        'keys_log_location_date_updated',
-    ];
-
-    protected $dates = [
         'keys_log_location_date_updated',
     ];
 

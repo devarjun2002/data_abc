@@ -9,7 +9,12 @@ class EmployeePermissionsCategory extends Model
     protected $table = 'employee_permissions_category';
     protected $primaryKey = 'employee_permissions_category_id';
     public $timestamps = false;
-    protected $fillable = [];
+    protected $guarded = [];
+
+    protected $fillable = [
+        'employee_permissions_category_name',
+        'employee_permissions_category_sort'
+    ];
 
     public function permissions()
     {

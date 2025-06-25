@@ -3,8 +3,32 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ReferralUpdates extends Model
 {
-   
+    protected $table = 'referral_updates';
+    protected $primaryKey = 'referral_updates_id';
+    public $timestamps = false;
+    protected $guarded = [];
+
+    protected $fillable = [
+        'referral_updates_referral_id',
+        'referral_updates_public_notes',
+        'referral_updates_private_notes',
+        'referral_updates_notify_directory_company',
+        'referral_updates_notify_client',
+        'referral_updates_date_created',
+        'referral_updates_created_by'
+    ];
+
+    public function referral(): BelongsTo
+    {
+        return $this->belongsTo(Referral::class, 'referral_updates_referral_id', 'referral_id');
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'referral_updates_created_by', 'employee_id');
+    }
 }

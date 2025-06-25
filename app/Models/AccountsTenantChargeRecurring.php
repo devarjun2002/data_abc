@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AccountsTenantChargeRecurring extends Model
 {
     protected $table = 'accounts_tenant_charge_recurring';
     protected $primaryKey = 'tenant_charge_recurring_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'tenant_charge_recurring_tenant_charge_id',
@@ -26,28 +28,28 @@ class AccountsTenantChargeRecurring extends Model
     ];
 
     // Relationships
-    public function tenantCharge()
+    public function tenantCharge(): BelongsTo
     {
-        return $this->belongsTo(AccountsTenantCharge::class, 'tenant_charge_recurring_tenant_charge_id');
+        return $this->belongsTo(AccountsTenantCharge::class, 'tenant_charge_recurring_tenant_charge_id', 'tenant_charge_id');
     }
 
-    public function tenancy()
+    public function tenancy(): BelongsTo
     {
-        return $this->belongsTo(Tenancy::class, 'tenant_charge_recurring_tenancy_id');
+        return $this->belongsTo(Tenancy::class, 'tenant_charge_recurring_tenancy_id', 'tenancy_id');
     }
 
-    public function frequencyUnit()
+    public function frequencyUnit(): BelongsTo
     {
-        return $this->belongsTo(AccountsRecurringFrequencyUnit::class, 'tenant_charge_recurring_frequency_unit');
+        return $this->belongsTo(AccountsRecurringFrequencyUnit::class, 'tenant_charge_recurring_frequency_unit', 'recurring_frequency_unit_id');
     }
 
-    public function createdBy()
+    public function createdBy(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'tenant_charge_recurring_created_by');
+        return $this->belongsTo(Employee::class, 'tenant_charge_recurring_created_by', 'employee_id');
     }
 
-    public function updatedBy()
+    public function updatedBy(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'tenant_charge_recurring_updated_by');
+        return $this->belongsTo(Employee::class, 'tenant_charge_recurring_updated_by', 'employee_id');
     }
 }

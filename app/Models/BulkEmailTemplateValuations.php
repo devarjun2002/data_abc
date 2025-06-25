@@ -10,4 +10,9 @@ class BulkEmailTemplateValuations extends Model
     protected $primaryKey = 'bulk_email_template_valuations_id';
     public $timestamps = false;
     protected $guarded = [];
+
+    protected $fillable = [
+        'bulk_email_template_valuations_name',
+        'bulk_email_template_valuations_subject'
+    ];
 }

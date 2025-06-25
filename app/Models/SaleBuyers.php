@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SaleBuyers extends Model
 {
@@ -11,12 +12,16 @@ class SaleBuyers extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function buyer()
-    {
+    protected $fillable = [
+        'buyer_id',
+        'sale_id',
+    ];
+
+    public function buyer(): BelongsTo {
         return $this->belongsTo(Buyer::class, 'buyer_id', 'buyer_id');
     }
-    public function sale()
-    {
+
+    public function sale(): BelongsTo {
         return $this->belongsTo(Sale::class, 'sale_id', 'sale_id');
     }
 }

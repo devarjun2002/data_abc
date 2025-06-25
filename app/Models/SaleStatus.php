@@ -11,8 +11,7 @@ class SaleStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function sales()
-    {
-        return $this->hasMany(Sale::class, 'sale_status_id', 'sale_status_id');
-    }
+    protected $fillable = [
+        'sale_status_name',
+    ];
 }

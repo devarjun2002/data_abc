@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsInvoice extends Model
 {
     protected $table = 'accounts_invoice';
     protected $primaryKey = 'invoice_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'invoice_token',
@@ -35,88 +38,80 @@ class AccountsInvoice extends Model
         'invoice_posted_by'
     ];
 
-    protected $casts = [
-        'invoice_total_amount_exc_vat' => 'decimal:2',
-        'invoice_total_vat_amount' => 'decimal:2',
-        'invoice_total_amount_paid' => 'decimal:2',
-        'invoice_posted' => 'boolean',
-        'invoice_overdue_reminders' => 'boolean',
-        'invoice_date' => 'date',
-        'invoice_due_date' => 'date',
-        'invoice_date_created' => 'datetime',
-        'invoice_date_updated' => 'datetime',
-        'invoice_date_posted' => 'datetime'
-    ];
-
-    /**
-     * Get the customer type of this invoice.
-     */
-    public function customerType()
+    // Relationships
+    public function customerType(): BelongsTo
     {
-        return $this->belongsTo(CustomerType::class, 'invoice_customer_type');
+        return $this->belongsTo(CustomerType::class, 'invoice_customer_type', 'customer_type_id');
     }
 
-    /**
-     * Get the property associated with this invoice.
-     */
-    public function property()
+    public function customer(): BelongsTo
     {
-        return $this->belongsTo(Property::class, 'invoice_property_id');
+        return $this->belongsTo(Directory::class, 'invoice_customer', 'directory_id');
     }
 
-    /**
-     * Get the development associated with this invoice.
-     */
-    public function development()
+    public function property(): BelongsTo
     {
-        return $this->belongsTo(Development::class, 'invoice_development_id');
+        return $this->belongsTo(Property::class, 'invoice_property_id', 'property_id');
     }
 
-    /**
-     * Get the tenancy associated with this invoice.
-     */
-    public function tenancy()
+    public function development(): BelongsTo
     {
-        return $this->belongsTo(Tenancy::class, 'invoice_tenancy_id');
+        return $this->belongsTo(Development::class, 'invoice_development_id', 'development_id');
     }
 
-    /**
-     * Get the branch associated with this invoice.
-     */
-    public function branch()
+    public function tenancy(): BelongsTo
     {
-        return $this->belongsTo(Branch::class, 'invoice_branch');
+        return $this->belongsTo(Tenancy::class, 'invoice_tenancy_id', 'tenancy_id');
     }
 
-    /**
-     * Get the payment terms for this invoice.
-     */
-    public function paymentTerms()
+    public function branch(): BelongsTo
     {
-        return $this->belongsTo(AccountsPaymentTerm::class, 'invoice_payment_terms');
+        return $this->belongsTo(Branch::class, 'invoice_branch', 'branch_id');
     }
 
-    /**
-     * Get the employee who created this invoice.
-     */
-    public function createdBy()
+    public function paymentTerms(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'invoice_created_by');
+        return $this->belongsTo(AccountsPaymentTerm::class, 'invoice_payment_terms', 'accounts_payment_term_id');
     }
 
-    /**
-     * Get the employee who updated this invoice.
-     */
-    public function updatedBy()
+    public function createdBy(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'invoice_updated_by');
+        return $this->belongsTo(Employee::class, 'invoice_created_by', 'employee_id');
     }
 
-    /**
-     * Get the employee who posted this invoice.
-     */
-    public function postedBy()
+    public function updatedBy(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'invoice_posted_by');
+        return $this->belongsTo(Employee::class, 'invoice_updated_by', 'employee_id');
+    }
+
+    public function postedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'invoice_posted_by', 'employee_id');
+    }
+
+    // Reverse relationships
+    public function invoiceCredits(): HasMany
+    {
+        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_invoice_id', 'invoice_id');
+    }
+
+    public function invoicePayments(): HasMany
+    {
+        return $this->hasMany(AccountsInvoicePayment::class, 'invoice_payment_invoice_id', 'invoice_id');
+    }
+
+    public function invoiceLineDescriptions(): HasMany
+    {
+        return $this->hasMany(AccountsInvoiceLineDescription::class, 'invoice_line_description_invoice_id', 'invoice_id');
+    }
+
+    public function invoiceRecurring(): HasMany
+    {
+        return $this->hasMany(AccountsInvoiceRecurring::class, 'invoice_recurring_invoice_id', 'invoice_id');
+    }
+
+    public function invoiceUpdates(): HasMany
+    {
+        return $this->hasMany(InvoiceUpdates::class, 'invoice_updates_invoice_id', 'invoice_id');
     }
 }

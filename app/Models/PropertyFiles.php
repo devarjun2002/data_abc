@@ -12,6 +12,7 @@ class PropertyFiles extends Model
     protected $table = 'property_files';
     protected $primaryKey = 'file_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'property_id',
@@ -19,10 +20,6 @@ class PropertyFiles extends Model
         'caption',
         'date_added',
         'sort',
-    ];
-
-    protected $dates = [
-        'date_added',
     ];
 
     public function property()

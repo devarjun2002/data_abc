@@ -11,8 +11,7 @@ class TenancyPropertyPart extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function tenancies()
-    {
-        return $this->hasMany(Tenancy::class, 'tenancy_property_part_id', 'tenancy_property_part_id');
-    }
+    protected $fillable = [
+        'tenancy_property_part_name',
+    ];
 }

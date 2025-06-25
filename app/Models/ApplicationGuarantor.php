@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ApplicationGuarantor extends Model
 {
     protected $table = 'application_guarantor';
     protected $primaryKey = 'application_guarantor_id';
     public $timestamps = false;
+    protected $guarded = [];
+
     protected $fillable = [
         'application_id',
         'application_guarantor_title',
@@ -30,19 +33,19 @@ class ApplicationGuarantor extends Model
         'application_guarantor_applicant_name',
     ];
 
-    public function application()
+    public function application(): BelongsTo
     {
         return $this->belongsTo(Application::class, 'application_id', 'application_id');
     }
-    public function nationality()
+    public function nationality(): BelongsTo
     {
         return $this->belongsTo(Nationality::class, 'application_guarantor_nationality', 'nationality_id');
     }
-    public function employmentStatus()
+    public function employmentStatus(): BelongsTo
     {
         return $this->belongsTo(EmploymentStatus::class, 'application_guarantor_employment_status', 'employment_status_id');
     }
-    public function title()
+    public function title(): BelongsTo
     {
         return $this->belongsTo(Title::class, 'application_guarantor_title', 'title_id');
     }

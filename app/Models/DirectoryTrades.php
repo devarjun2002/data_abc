@@ -9,6 +9,7 @@ class DirectoryTrades extends Model
     protected $table = 'directory_trades';
     protected $primaryKey = 'directory_trades_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'directory_trades_name'

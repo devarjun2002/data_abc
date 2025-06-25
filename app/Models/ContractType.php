@@ -9,6 +9,7 @@ class ContractType extends Model
     protected $table = 'contract_type';
     protected $primaryKey = 'contract_type_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'contract_type_name',

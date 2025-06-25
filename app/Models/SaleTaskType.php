@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class SaleTaskType extends Model
 {
@@ -11,8 +12,11 @@ class SaleTaskType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function saleTasks()
-    {
-        return $this->hasMany(SaleTask::class, 'sale_task_type_id', 'sale_task_type_id');
+    protected $fillable = [
+        'sale_task_type_name',
+    ];
+
+    public function tasks(): HasMany {
+        return $this->hasMany(SaleTask::class, 'sale_task_type', 'sale_task_type_id');
     }
 }

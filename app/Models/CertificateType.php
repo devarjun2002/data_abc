@@ -12,6 +12,7 @@ class CertificateType extends Model
     protected $table = 'certificate_type';
     protected $primaryKey = 'certificate_type_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'certificate_type_name',

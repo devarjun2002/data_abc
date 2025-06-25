@@ -9,6 +9,7 @@ class CertificateUpdates extends Model
     protected $table = 'certificate_updates';
     protected $primaryKey = 'certificate_updates_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'certificate_updates_certificate_id',

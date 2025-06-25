@@ -9,6 +9,7 @@ class CommissionType extends Model
     protected $table = 'commission_type';
     protected $primaryKey = 'commission_type_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'commission_type_name'

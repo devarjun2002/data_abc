@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class BranchOpeningHoursDay extends Model
 {
@@ -10,8 +11,13 @@ class BranchOpeningHoursDay extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $guarded = [];
+    
+    protected $fillable = [
+        'day_name',
+        'day_sort_order'
+    ];
 
-    public function openingHours()
+    public function openingHours(): HasMany
     {
         return $this->hasMany(BranchOpeningHours::class, 'branch_opening_hours_day', 'id');
     }

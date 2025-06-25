@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AlarmCode extends Model
 {
     protected $table = 'alarm_code';
     protected $primaryKey = 'alarm_code_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'alarm_code_property',
@@ -19,31 +21,27 @@ class AlarmCode extends Model
         'alarm_code_created_by'
     ];
 
-    protected $casts = [
-        'alarm_code_date_added' => 'date'
-    ];
-
     /**
      * Get the property this alarm code belongs to.
      */
-    public function property()
+    public function property(): BelongsTo
     {
-        return $this->belongsTo(Property::class, 'alarm_code_property');
+        return $this->belongsTo(Property::class, 'alarm_code_property', 'property_id');
     }
 
     /**
      * Get the type of this alarm code.
      */
-    public function type()
+    public function type(): BelongsTo
     {
-        return $this->belongsTo(AlarmCodeType::class, 'alarm_code_type');
+        return $this->belongsTo(AlarmCodeType::class, 'alarm_code_type', 'alarm_code_type_id');
     }
 
     /**
      * Get the employee who created this alarm code.
      */
-    public function createdBy()
+    public function createdBy(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'alarm_code_created_by');
+        return $this->belongsTo(Employee::class, 'alarm_code_created_by', 'employee_id');
     }
 }

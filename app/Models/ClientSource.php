@@ -9,6 +9,7 @@ class ClientSource extends Model
     protected $table = 'client_source';
     protected $primaryKey = 'client_source_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'client_source_name'

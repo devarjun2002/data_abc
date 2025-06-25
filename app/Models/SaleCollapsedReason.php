@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class SaleCollapsedReason extends Model
 {
@@ -11,8 +12,11 @@ class SaleCollapsedReason extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function sales()
-    {
+    protected $fillable = [
+        'sale_collapsed_reason_name',
+    ];
+
+    public function sales(): HasMany {
         return $this->hasMany(Sale::class, 'sale_collapsed_reason_id', 'sale_collapsed_reason_id');
     }
 }

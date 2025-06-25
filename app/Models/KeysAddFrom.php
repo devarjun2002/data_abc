@@ -10,4 +10,8 @@ class KeysAddFrom extends Model
     protected $primaryKey = 'keys_add_from_id';
     public $timestamps = false;
     protected $guarded = [];
+
+    protected $fillable = [
+        'keys_add_from_name',
+    ];
 }

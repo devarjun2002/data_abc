@@ -9,6 +9,7 @@ class CertificateInitialStatus extends Model
     protected $table = 'certificate_initial_status';
     protected $primaryKey = 'certificate_initial_status_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'certificate_initial_status_name',

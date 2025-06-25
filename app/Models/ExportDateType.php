@@ -11,6 +11,10 @@ class ExportDateType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $fillable = [
+        'export_date_type_name',
+    ];
+
     public function exportData()
     {
         return $this->hasMany(ExportData::class, 'export_date_type_id', 'export_date_type_id');

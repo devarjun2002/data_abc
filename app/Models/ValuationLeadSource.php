@@ -9,6 +9,7 @@ class ValuationLeadSource extends Model
     protected $table = 'valuation_lead_source';
     protected $primaryKey = 'valuation_lead_source_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'valuation_lead_source_name'

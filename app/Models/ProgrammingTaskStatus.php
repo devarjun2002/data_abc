@@ -12,6 +12,7 @@ class ProgrammingTaskStatus extends Model
     protected $table = 'programming_task_status';
     protected $primaryKey = 'programming_task_status_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'programming_task_status_name',

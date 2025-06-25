@@ -9,6 +9,7 @@ class WorksRoom extends Model
     protected $table = 'works_room';
     protected $primaryKey = 'works_room_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     protected $fillable = [
         'works_room_name',
