@@ -1,0 +1,24 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::create('applicant_requirement_filter_shared', function (Blueprint $table) {
+            $table->id('applicant_requirement_filter_id');
+            $table->string('applicant_requirement_filter_name', 15)->nullable();
+            $table->text('applicant_requirement_filter_description')->nullable();
+            $table->smallInteger('applicant_requirement_filter_sort')->nullable();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('applicant_requirement_filter_shared');
+    }
+};
