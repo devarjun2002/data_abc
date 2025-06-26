@@ -12,6 +12,8 @@ class AccountsRecurringFrequencyUnit extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'recurring_frequency_unit_name',
         'recurring_frequency_unit_sort'

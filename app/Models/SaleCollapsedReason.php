@@ -12,6 +12,8 @@ class SaleCollapsedReason extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'sale_collapsed_reason_name',
     ];

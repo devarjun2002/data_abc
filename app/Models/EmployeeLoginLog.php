@@ -12,6 +12,11 @@ class EmployeeLoginLog extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'employee_login_log_start_date_time' => 'datetime',
+        'employee_login_log_date_time' => 'datetime',
+    ];
+
     protected $fillable = [
         'employee_login_log_employee_id',
         'employee_login_log_start_date_time',

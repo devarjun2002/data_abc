@@ -11,11 +11,18 @@ class TenancyRenewalUpdates extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'tenancy_renewal_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
+        'tenancy_renewal_updates_tenancy_id',
         'tenancy_renewal_updates_public_notes',
         'tenancy_renewal_updates_private_notes',
         'tenancy_renewal_updates_notify_landlord',
         'tenancy_renewal_updates_notify_tenants',
         'tenancy_renewal_updates_notify_accounts',
+        'tenancy_renewal_updates_date_created',
+        'tenancy_renewal_updates_created_by'
     ];
 }

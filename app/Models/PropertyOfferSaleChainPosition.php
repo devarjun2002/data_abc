@@ -11,6 +11,8 @@ class PropertyOfferSaleChainPosition extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_offer_sale_chain_position_name',
         'property_offer_sale_chain_position_name2',

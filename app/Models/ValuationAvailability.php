@@ -11,6 +11,8 @@ class ValuationAvailability extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'valuation_availability_name',
         'valuation_availability_archived'

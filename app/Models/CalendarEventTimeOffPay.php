@@ -11,6 +11,8 @@ class CalendarEventTimeOffPay extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'calendar_event_time_off_pay_name',
     ];

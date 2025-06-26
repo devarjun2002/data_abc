@@ -11,6 +11,8 @@ class DiscountGroup extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'discount_group_name',
         'discount_group_sort'

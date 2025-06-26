@@ -11,7 +11,9 @@ class AccountsPaymentTerm extends Model
     protected $primaryKey = 'accounts_payment_term_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'accounts_payment_term_description',
         'accounts_payment_term_sort'

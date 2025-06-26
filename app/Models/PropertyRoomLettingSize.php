@@ -12,6 +12,8 @@ class PropertyRoomLettingSize extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_room_letting_size_name',
     ];

@@ -14,6 +14,14 @@ class Sale extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'sale_target_exchange_date' => 'datetime',
+        'sale_target_completion_date' => 'datetime',
+        'sale_date_created' => 'datetime',
+        'sale_date_updated' => 'datetime',
+        'sale_agreed_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'sale_offer_id',
         'sale_property',

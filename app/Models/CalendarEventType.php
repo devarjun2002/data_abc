@@ -11,6 +11,8 @@ class CalendarEventType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'calendar_event_type_name',
         'calendar_event_type_sort'

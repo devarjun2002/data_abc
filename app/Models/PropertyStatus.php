@@ -12,6 +12,8 @@ class PropertyStatus extends Model
     protected $guarded = [];
     public $incrementing = false;
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_status_name',
         'property_status_type',

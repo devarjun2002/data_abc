@@ -13,6 +13,8 @@ class SaleTaskStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'sale_task_status_name',
     ];

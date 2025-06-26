@@ -11,6 +11,8 @@ class PossessionStatusCompletion extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'possession_status_completion_name',
         'possession_status_completion_sort',

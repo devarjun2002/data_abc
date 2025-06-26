@@ -11,6 +11,8 @@ class FeeType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'fee_type_name'
     ];

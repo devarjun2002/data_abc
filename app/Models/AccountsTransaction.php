@@ -11,7 +11,14 @@ class AccountsTransaction extends Model
     protected $primaryKey = 'transaction_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'transaction_date' => 'datetime',
+        'transaction_due_date' => 'datetime',
+        'transaction_date_created' => 'datetime',
+        'transaction_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'transaction_nominal_code',
         'transaction_type',

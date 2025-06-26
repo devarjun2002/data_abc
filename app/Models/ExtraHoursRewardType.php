@@ -10,10 +10,12 @@ class ExtraHoursRewardType extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'name',
-        'description'
+        'sort'
     ];
 
     public function calendarEvents()

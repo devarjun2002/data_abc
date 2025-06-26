@@ -12,11 +12,13 @@ class PropertyType extends Model
     protected $primaryKey = 'property_type_id';
     public $timestamps = false;
     protected $guarded = [];
+
+    protected $casts = [];
     
     protected $fillable = [
         'property_type_name',
         'property_type_group',
-        'property_type_sort',
+        'property_type_active',
     ];
 
     public function properties(): HasMany

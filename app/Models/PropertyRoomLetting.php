@@ -11,7 +11,9 @@ class PropertyRoomLetting extends Model
     protected $primaryKey = 'property_room_letting_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'property_id',
         'property_room_letting_sort',

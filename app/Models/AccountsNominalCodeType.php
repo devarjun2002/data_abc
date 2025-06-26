@@ -11,10 +11,11 @@ class AccountsNominalCodeType extends Model
     protected $primaryKey = 'nominal_code_type_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'nominal_code_type_name',
-        'nominal_code_type_description'
     ];
 
     // Relationships

@@ -12,6 +12,8 @@ class PropertyToAccessibility extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_id',
         'property_accessibility_id',

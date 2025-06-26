@@ -11,7 +11,14 @@ class ExportData extends Model
     protected $primaryKey = 'export_data_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'export_data_date_exported' => 'datetime',
+        'export_data_last_invoice_posted_date' => 'datetime',
+        'export_data_last_invoice_credit_posted_date' => 'datetime',
+        'export_data_last_bacs_file_entry_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'export_data_type',
         'export_data_date_exported',

@@ -11,6 +11,8 @@ class TenancyFixedTermUnit extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_fixed_term_unit_name',
     ];

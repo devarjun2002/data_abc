@@ -12,10 +12,11 @@ class PropertyFurnishedStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_furnished_status_name',
         'property_furnished_status_rightmove',
-        'property_furnished_status_sort'
     ];
 
     // Relationships

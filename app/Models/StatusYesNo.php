@@ -11,6 +11,8 @@ class StatusYesNo extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'status_yes_no_name',
         'status_yes_no_backup'

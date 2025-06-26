@@ -11,6 +11,8 @@ class DirectoryCategory extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'directory_category_name',
         'directory_category_contractor'

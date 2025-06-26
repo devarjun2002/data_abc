@@ -12,6 +12,8 @@ class SocialMediaPost extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'social_media_post_name',
         'social_media_post_sort'

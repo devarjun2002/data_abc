@@ -11,22 +11,20 @@ class ApplicationUpdates extends Model
     protected $primaryKey = 'application_updates_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'application_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'application_updates_application_id',
-        'applicant_updates_applicant_id',
-        'application_updates_type',
-        'application_updates_description',
-        'application_updates_date',
+        'application_updates_public_notes',
+        'application_updates_private_notes',
+        'application_updates_notify_landlord',
+        'application_updates_notify_applicant',
         'application_updates_date_created',
         'application_updates_created_by'
     ];
-
-    // Relationships
-    public function applicant(): BelongsTo
-    {
-        return $this->belongsTo(Applicant::class, 'applicant_updates_applicant_id', 'applicant_id');
-    }
 
     public function application(): BelongsTo
     {
@@ -36,5 +34,10 @@ class ApplicationUpdates extends Model
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'application_updates_created_by', 'employee_id');
+    }
+
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'application_updates_updated_by', 'employee_id');
     }
 }

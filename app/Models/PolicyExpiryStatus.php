@@ -14,6 +14,8 @@ class PolicyExpiryStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'policy_expiry_status_name',
         'policy_expiry_status_sort',

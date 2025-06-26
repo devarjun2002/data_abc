@@ -11,6 +11,8 @@ class Nationality extends Model
     protected $primaryKey = 'nationality_id';
     public $timestamps = false;
     protected $guarded = [];
+
+    protected $casts = [];
     
     protected $fillable = [
         'nationality_name',

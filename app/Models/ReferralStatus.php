@@ -11,6 +11,8 @@ class ReferralStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'referral_status_name',
         'referral_status_sort'

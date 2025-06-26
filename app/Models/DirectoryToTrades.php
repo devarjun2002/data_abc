@@ -12,6 +12,8 @@ class DirectoryToTrades extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'directory_id',
         'directory_trades_id'

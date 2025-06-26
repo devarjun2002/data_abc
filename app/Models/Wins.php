@@ -11,6 +11,10 @@ class Wins extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'win_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'win_name',
         'win_date_created',

@@ -11,6 +11,8 @@ class CommissionType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'commission_type_name'
     ];

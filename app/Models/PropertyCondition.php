@@ -12,9 +12,10 @@ class PropertyCondition extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_condition_name',
-        'property_condition_sort'
     ];
 
     // Relationships

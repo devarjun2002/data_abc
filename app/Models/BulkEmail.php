@@ -13,6 +13,11 @@ class BulkEmail extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'bulk_email_date_created' => 'datetime',
+        'bulk_email_date_sent' => 'datetime',
+    ];
+
     protected $fillable = [
         'bulk_email_from_email',
         'bulk_email_from_name',
@@ -32,10 +37,8 @@ class BulkEmail extends Model
         'bulk_email_sent',
         'bulk_email_date_created',
         'bulk_email_date_sent',
-        'buyer_id'
     ];
 
-    // Relationships
     public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'bulk_email_property_id', 'property_id');
@@ -54,15 +57,5 @@ class BulkEmail extends Model
     public function recipients(): HasMany
     {
         return $this->hasMany(BulkEmailRecipient::class, 'bulk_email_id', 'bulk_email_id');
-    }
-
-    public function template(): BelongsTo
-    {
-        return $this->belongsTo(BulkEmailTemplate::class, 'bulk_email_template_id', 'bulk_email_template_id');
-    }
-
-    public function buyer(): BelongsTo
-    {
-        return $this->belongsTo(Buyer::class, 'buyer_id', 'buyer_id');
     }
 }

@@ -11,7 +11,9 @@ class AccountsInvoiceLineDescriptionCategory extends Model
     protected $primaryKey = 'invoice_line_description_category_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'invoice_line_description_category_name',
         'invoice_line_description_category_sort'

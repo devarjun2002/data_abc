@@ -11,6 +11,8 @@ class ValuationCondition extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'valuation_condition_name',
         'valuation_condition_sort'

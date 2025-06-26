@@ -14,6 +14,8 @@ class LeaseType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'lease_type_name',
     ];

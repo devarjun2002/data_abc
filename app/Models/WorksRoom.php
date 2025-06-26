@@ -11,6 +11,8 @@ class WorksRoom extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'works_room_name',
         'works_room_sort'

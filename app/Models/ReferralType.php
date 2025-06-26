@@ -11,6 +11,8 @@ class ReferralType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'referral_type_name',
     ];

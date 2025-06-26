@@ -11,6 +11,12 @@ class ValuationPaymentsEmployee extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'valuation_payments_employee_date_paid' => 'datetime',
+        'valuation_payments_employee_date_created' => 'datetime',
+        'valuation_payments_employee_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'valuation_payments_employee_valuation_id',
         'valuation_payments_employee_payment_type',

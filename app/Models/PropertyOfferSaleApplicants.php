@@ -11,6 +11,8 @@ class PropertyOfferSaleApplicants extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_offer_sale_id',
         'applicant_id',

@@ -12,6 +12,8 @@ class EmployeeToDepartment extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'employee_id',
         'employee_department_id'

@@ -12,6 +12,10 @@ class ApplicationGuarantor extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'application_guarantor_dob' => 'datetime',
+    ];
+
     protected $fillable = [
         'application_id',
         'application_guarantor_title',
@@ -30,7 +34,7 @@ class ApplicationGuarantor extends Model
         'application_guarantor_employment_nature',
         'application_guarantor_income',
         'application_guarantor_nationality',
-        'application_guarantor_applicant_name',
+        'application_guarantor_applicant_name'
     ];
 
     public function application(): BelongsTo

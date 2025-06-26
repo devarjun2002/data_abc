@@ -11,6 +11,10 @@ class PropertyOfferSaleLogStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'property_offer_sale_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'property_offer_sale_id',
         'property_offer_sale_status_old',

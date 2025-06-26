@@ -12,6 +12,10 @@ class DevelopmentUpdates extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'development_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'development_updates_development_id',
         'development_updates_notes',

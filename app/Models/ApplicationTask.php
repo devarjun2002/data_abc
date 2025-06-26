@@ -11,23 +11,27 @@ class ApplicationTask extends Model
     protected $primaryKey = 'application_task_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'application_task_completed_date' => 'datetime',
+        'application_task_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'application_id',
         'application_task_type',
-        'application_task_status',
         'application_task_name',
-        'application_task_description',
-        'application_task_due_date',
+        'application_task_status',
         'application_task_completed_date',
         'application_task_notes',
-        'application_task_date_created',
+        'application_task_notes_private',
+        'application_task_sort',
+        'application_task_landlord_notified',
+        'application_task_applicant_notified',
         'application_task_date_updated',
-        'application_task_created_by',
         'application_task_updated_by'
     ];
 
-    // Relationships
     public function application(): BelongsTo
     {
         return $this->belongsTo(Application::class, 'application_id', 'application_id');

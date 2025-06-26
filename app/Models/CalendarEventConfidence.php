@@ -12,6 +12,8 @@ class CalendarEventConfidence extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'calendar_event_confidence_name',
         'calendar_event_confidence_sort'

@@ -12,6 +12,8 @@ class BulkEmailTemplateAllEmployees extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'bulk_email_template_all_employees_name',
         'bulk_email_template_all_employees_subject',

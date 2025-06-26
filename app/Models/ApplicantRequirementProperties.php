@@ -8,16 +8,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class ApplicantRequirementProperties extends Model
 {
     protected $table = 'applicant_requirement_properties';
-    protected $primaryKey = 'applicant_requirement_properties_id';
+    protected $primaryKey = 'arp_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'arp_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
-        'applicant_requirement_properties_requirement_id',
-        'applicant_requirement_properties_property_id',
-        'applicant_requirement_properties_notes',
-        'applicant_requirement_properties_date_created',
-        'applicant_requirement_properties_created_by'
+        'ar_id',
+        'applicant_id',
+        'property_id',
+        'arp_date_created',
     ];
 
     // Relationships

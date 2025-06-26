@@ -12,7 +12,12 @@ class CalendarEvent extends Model
     protected $primaryKey = 'calendar_event_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'calendar_event_date_created' => 'datetime',
+        'calendar_event_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'calendar_event_token',
         'calendar_event_company_id',

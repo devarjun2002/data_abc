@@ -12,6 +12,8 @@ class PropertyTypeGroup extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_type_group_name',
         'property_type_group_active',

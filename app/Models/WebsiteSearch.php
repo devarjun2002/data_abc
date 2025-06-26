@@ -11,12 +11,15 @@ class WebsiteSearch extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'website_search_date_added' => 'datetime',
+    ];
+
     protected $fillable = [
-        'website_search_name',
-        'website_search_url',
+        'website_search_locations',
+        'website_search_date_added',
+        'website_search_longitude',
+        'website_search_latitude',
         'website_search_type',
-        'website_search_status',
-        'website_search_notes',
-        'website_search_created_by',
     ];
 }

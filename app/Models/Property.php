@@ -13,160 +13,116 @@ class Property extends Model
     protected $primaryKey = 'property_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'property_token',
+        'property_availability',
+        'property_letting_service',
+        'property_letting_available_from',
+        'property_letting_furnished_status',
+        'property_letting_pets',
+        'property_letting_smoking',
+        'property_category',
+        'property_type',
         'property_address_line_1',
-        'property_address_line_2',
-        'property_suburb',
-        'property_town_city',
         'property_postcode',
         'property_country',
-        'property_branch',
         'property_status',
-        'property_type',
-        'property_category',
-        'property_availability',
-        'property_condition',
-        'property_furnished_status',
-        'property_tenure_type',
-        'property_term_type',
-        'property_possession_status',
-        'property_rent_frequency',
-        'property_price_qualifier',
-        'property_asking_price',
-        'property_rent_amount',
-        'property_bedrooms',
-        'property_bathrooms',
-        'property_reception_rooms',
-        'property_description',
-        'property_features',
-        'property_notes'
+        'property_created_by',
+        'property_updated_by',
+        'property_branch',
+        'property_price',
+        'property_contract_type',
+        'property_latitude',
+        'property_longitude',
+        'property_summary',
+        'property_description'
     ];
 
-    // Relationships
-    public function branch(): BelongsTo
-    {
-        return $this->belongsTo(Branch::class, 'property_branch', 'branch_id');
-    }
-
-    public function status(): BelongsTo
-    {
-        return $this->belongsTo(PropertyStatus::class, 'property_status', 'property_status_id');
-    }
-
-    public function type(): BelongsTo
-    {
-        return $this->belongsTo(PropertyType::class, 'property_type', 'property_type_id');
-    }
-
-    public function category(): BelongsTo
+    public function propertyCategory(): BelongsTo
     {
         return $this->belongsTo(PropertyCategory::class, 'property_category', 'property_category_id');
     }
 
-    public function availability(): BelongsTo
+    public function propertyType(): BelongsTo
     {
-        return $this->belongsTo(PropertyAvailability::class, 'property_availability', 'property_availability_id');
+        return $this->belongsTo(PropertyType::class, 'property_type', 'property_type_id');
     }
 
-    public function condition(): BelongsTo
+    public function propertyStatus(): BelongsTo
     {
-        return $this->belongsTo(PropertyCondition::class, 'property_condition', 'property_condition_id');
+        return $this->belongsTo(PropertyStatus::class, 'property_status', 'property_status_id');
     }
 
-    public function furnishedStatus(): BelongsTo
+    public function propertyBranch(): BelongsTo
     {
-        return $this->belongsTo(PropertyFurnishedStatus::class, 'property_furnished_status', 'property_furnished_status_id');
+        return $this->belongsTo(Branch::class, 'property_branch', 'branch_id');
     }
 
-    public function tenureType(): BelongsTo
+    public function propertyCreatedBy(): BelongsTo
     {
-        return $this->belongsTo(PropertyTenureType::class, 'property_tenure_type', 'property_tenure_type_id');
+        return $this->belongsTo(User::class, 'property_created_by', 'user_id');
     }
 
-    public function termType(): BelongsTo
+    public function propertyUpdatedBy(): BelongsTo
     {
-        return $this->belongsTo(PropertyTermType::class, 'property_term_type', 'property_term_type_id');
+        return $this->belongsTo(User::class, 'property_updated_by', 'user_id');
     }
 
-    public function possessionStatus(): BelongsTo
+    public function propertyLettingService(): BelongsTo
     {
-        return $this->belongsTo(PropertyPossessionStatus::class, 'property_possession_status', 'property_possession_status_id');
+        return $this->belongsTo(LettingService::class, 'property_letting_service', 'letting_service_id');
     }
 
-    public function rentFrequency(): BelongsTo
+    public function propertyLettingAvailableFrom(): BelongsTo
     {
-        return $this->belongsTo(PropertyRentFrequency::class, 'property_rent_frequency', 'property_rent_frequency_id');
+        return $this->belongsTo(LettingAvailableFrom::class, 'property_letting_available_from', 'letting_available_from_id');
     }
 
-    public function priceQualifier(): BelongsTo
+    public function propertyLettingFurnishedStatus(): BelongsTo
     {
-        return $this->belongsTo(PropertyPriceQualifier::class, 'property_price_qualifier', 'property_price_qualifier_id');
+        return $this->belongsTo(LettingFurnishedStatus::class, 'property_letting_furnished_status', 'letting_furnished_status_id');
     }
 
-    public function features(): BelongsToMany
+    public function propertyLettingPets(): BelongsTo
     {
-        return $this->belongsToMany(PropertyFeature::class, 'property_feature_property', 'property_id', 'property_feature_id');
+        return $this->belongsTo(LettingPets::class, 'property_letting_pets', 'letting_pets_id');
     }
 
-    public function images(): HasMany
+    public function propertyLettingSmoking(): BelongsTo
     {
-        return $this->hasMany(PropertyImage::class, 'property_id', 'property_id');
+        return $this->belongsTo(LettingSmoking::class, 'property_letting_smoking', 'letting_smoking_id');
     }
 
-    public function vendors(): BelongsToMany
+    public function propertyContractType(): BelongsTo
     {
-        return $this->belongsToMany(Vendor::class, 'property_vendor', 'property_id', 'vendor_id');
+        return $this->belongsTo(ContractType::class, 'property_contract_type', 'contract_type_id');
     }
 
-    public function employees(): BelongsToMany
+    public function propertyCountry(): BelongsTo
     {
-        return $this->belongsToMany(Employee::class, 'property_employee', 'property_id', 'employee_id');
+        return $this->belongsTo(Country::class, 'property_country', 'country_id');
     }
 
-    public function companies(): BelongsToMany
+    public function propertyAccessArrangement(): BelongsTo
     {
-        return $this->belongsToMany(Company::class, 'property_company', 'property_id', 'company_id');
+        return $this->belongsTo(PropertyAccessArrangement::class, 'property_access_arrangement', 'property_access_arrangement_id');
     }
 
-    public function countries(): BelongsToMany
+    public function propertyPossessionStatusCompletion(): BelongsTo
     {
-        return $this->belongsToMany(Country::class, 'property_country', 'property_id', 'country_id');
+        return $this->belongsTo(PossessionStatusCompletion::class, 'property_possession_status_completion', 'possession_status_completion_id');
     }
 
-    public function rooms(): HasMany
+    public function propertyProbateStatus(): BelongsTo
     {
-        return $this->hasMany(PropertyRoom::class, 'property_id', 'property_id');
+        return $this->belongsTo(ProbateStatus::class, 'property_probate_status', 'probate_status_id');
     }
 
-    public function lettings(): HasMany
+    public function propertyTenancy(): HasMany
     {
-        return $this->hasMany(PropertyRoomLetting::class, 'property_id', 'property_id');
-    }
-
-    public function developments(): HasMany
-    {
-        return $this->hasMany(Development::class, 'development_property_id', 'property_id');
-    }
-
-    public function certificates(): HasMany
-    {
-        return $this->hasMany(Certificate::class, 'certificate_property_id', 'property_id');
-    }
-
-    public function applications(): HasMany
-    {
-        return $this->hasMany(Application::class, 'application_property_id', 'property_id');
-    }
-
-    public function applicants(): BelongsToMany
-    {
-        return $this->belongsToMany(Applicant::class, 'property_applicant', 'property_id', 'applicant_id');
-    }
-
-    public function landlords(): BelongsToMany
-    {
-        return $this->belongsToMany(Landlord::class, 'property_landlord', 'property_id', 'landlord_id');
+        return $this->hasMany(Tenancy::class, 'property_id', 'property_id');
     }
 }

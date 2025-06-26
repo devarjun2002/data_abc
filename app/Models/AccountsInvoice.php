@@ -13,6 +13,14 @@ class AccountsInvoice extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'invoice_date' => 'datetime',
+        'invoice_due_date' => 'datetime',
+        'invoice_date_created' => 'datetime',
+        'invoice_date_updated' => 'datetime',
+        'invoice_date_posted' => 'datetime',
+    ];
+
     protected $fillable = [
         'invoice_token',
         'invoice_customer_type',
@@ -35,7 +43,7 @@ class AccountsInvoice extends Model
         'invoice_date_posted',
         'invoice_created_by',
         'invoice_updated_by',
-        'invoice_posted_by'
+        'invoice_posted_by',
     ];
 
     // Relationships

@@ -14,6 +14,8 @@ class LettingType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'letting_type_name',
     ];

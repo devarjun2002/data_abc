@@ -11,6 +11,11 @@ class KeysTransaction extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'keys_transaction_date_created' => 'datetime',
+        'keys_transaction_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'keys_transaction_set_id',
         'keys_transaction_property',

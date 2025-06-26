@@ -11,6 +11,8 @@ class InsuranceStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'insurance_status_name'
     ];

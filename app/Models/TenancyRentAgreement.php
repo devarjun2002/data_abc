@@ -11,6 +11,8 @@ class TenancyRentAgreement extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_rent_agreement_name'
     ];

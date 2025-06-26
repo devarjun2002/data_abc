@@ -11,6 +11,8 @@ class Utility extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'utility_name'
     ];

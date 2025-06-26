@@ -11,6 +11,10 @@ class PropertyOfferSaleUpdates extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'property_offer_sale_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'property_offer_sale_updates_property_offer_sale_id',
         'property_offer_sale_updates_public_notes',

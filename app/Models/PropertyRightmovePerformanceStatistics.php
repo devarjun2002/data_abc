@@ -11,6 +11,10 @@ class PropertyRightmovePerformanceStatistics extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'prps_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'prps_date',
         'prps_property_id',

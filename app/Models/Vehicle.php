@@ -11,6 +11,8 @@ class Vehicle extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'vehicle_registration',
         'vehicle_make_model',

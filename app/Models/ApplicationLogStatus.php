@@ -11,15 +11,26 @@ class ApplicationLogStatus extends Model
     protected $primaryKey = 'application_log_status_id';
     public $timestamps = false;
     protected $guarded = [];
-    
-    protected $fillable = [
-        'application_log_status_name',
-        'application_log_status_description'
+
+    protected $casts = [
+        'application_date_updated' => 'datetime',
     ];
 
-    // Relationships
-    public function applications(): HasMany
+    protected $fillable = [
+        'application_id',
+        'application_status_old',
+        'application_status_new',
+        'application_updated_by',
+        'application_date_updated'
+    ];
+
+    public function application(): BelongsTo
     {
-        return $this->hasMany(Application::class, 'application_log_status', 'application_log_status_id');
+        return $this->belongsTo(Application::class, 'application_id', 'application_id');
+    }
+
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'application_updated_by', 'employee_id');
     }
 }

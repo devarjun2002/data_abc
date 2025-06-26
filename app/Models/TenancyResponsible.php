@@ -11,6 +11,8 @@ class TenancyResponsible extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_responsible_name',
     ];

@@ -11,6 +11,8 @@ class ContractType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'contract_type_name',
         'contract_type_description',

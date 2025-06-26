@@ -11,6 +11,12 @@ class Task extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'task_date_tbc' => 'datetime',
+        'task_deadline' => 'datetime',
+        'task_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'task_description',
         'task_date_tbc',

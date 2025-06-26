@@ -11,6 +11,8 @@ class ClientSource extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'client_source_name'
     ];

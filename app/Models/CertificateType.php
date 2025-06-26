@@ -14,6 +14,8 @@ class CertificateType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'certificate_type_name',
         'certificate_type_property_field',

@@ -12,6 +12,8 @@ class PropertyPossessionStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_possession_status_name',
     ];

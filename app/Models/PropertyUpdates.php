@@ -12,6 +12,11 @@ class PropertyUpdates extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'property_updates_date_created' => 'datetime',
+        'property_updates_property_next_review_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'property_updates_property_id',
         'property_updates_notes_public',

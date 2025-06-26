@@ -12,7 +12,13 @@ class AccountsInvoicePayment extends Model
     protected $primaryKey = 'invoice_payment_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'invoice_payment_date' => 'datetime',
+        'invoice_payment_date_created' => 'datetime',
+        'invoice_payment_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'invoice_payment_date',
         'invoice_payment_amount',

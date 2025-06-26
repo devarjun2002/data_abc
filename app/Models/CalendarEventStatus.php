@@ -12,6 +12,8 @@ class CalendarEventStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'calendar_event_status_name',
         'calendar_event_status_display_name',

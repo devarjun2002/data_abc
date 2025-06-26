@@ -11,6 +11,8 @@ class KeysAddFrom extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'keys_add_from_name',
     ];

@@ -8,16 +8,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class ApplicantRequirementPropertySubtype extends Model
 {
     protected $table = 'applicant_requirement_property_subtype';
-    protected $primaryKey = 'applicant_requirement_property_subtype_id';
+    protected $primaryKey = 'arps_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
-        'applicant_requirement_property_subtype_requirement_id',
-        'applicant_requirement_property_subtype_type_id',
-        'applicant_requirement_property_subtype_notes',
-        'applicant_requirement_property_subtype_date_created',
-        'applicant_requirement_property_subtype_created_by'
+        'ar_id',
+        'arps_property_type_id',
     ];
 
     // Relationships

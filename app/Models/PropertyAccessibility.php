@@ -15,10 +15,10 @@ class PropertyAccessibility extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_accessibility_name',
-        'property_accessibility_description',
-        'property_accessibility_sort'
     ];
 
     // Relationships

@@ -11,6 +11,8 @@ class TenancyPaymentMethod extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_payment_method_name',
         'tenancy_payment_method_description'

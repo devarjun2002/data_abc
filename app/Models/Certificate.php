@@ -10,7 +10,11 @@ class Certificate extends Model
     protected $primaryKey = 'certificate_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'certificate_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'certificate_property',
         'certificate_type',

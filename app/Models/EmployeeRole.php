@@ -11,6 +11,8 @@ class EmployeeRole extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'employee_role_name'
     ];

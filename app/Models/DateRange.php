@@ -11,6 +11,8 @@ class DateRange extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'date_range_name',
         'date_range_sort',

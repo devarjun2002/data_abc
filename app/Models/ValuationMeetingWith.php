@@ -11,6 +11,8 @@ class ValuationMeetingWith extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'valuation_meeting_with_name'
     ];

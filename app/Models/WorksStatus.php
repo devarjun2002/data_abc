@@ -11,6 +11,8 @@ class WorksStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'works_status_name',
         'works_status_sort'

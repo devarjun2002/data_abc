@@ -11,6 +11,8 @@ class DocumentType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'document_type_name'
     ];

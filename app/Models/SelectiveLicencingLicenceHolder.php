@@ -11,6 +11,8 @@ class SelectiveLicencingLicenceHolder extends Model
     protected $primaryKey = 'selective_licencing_licence_holder_id';
     public $timestamps = false;
     protected $guarded = [];
+
+    protected $casts = [];
     
     protected $fillable = [
         'selective_licencing_licence_holder_name',

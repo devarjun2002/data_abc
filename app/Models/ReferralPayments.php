@@ -13,6 +13,12 @@ class ReferralPayments extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'referral_payments_date_paid' => 'datetime',
+        'referral_payments_date_created' => 'datetime',
+        'referral_payments_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'referral_payments_referral_id',
         'referral_payments_amount',

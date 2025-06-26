@@ -11,11 +11,11 @@ class ApplicantLeadSource extends Model
     protected $primaryKey = 'applicant_lead_source_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'applicant_lead_source_name',
-        'applicant_lead_source_description',
-        'applicant_lead_source_sort'
     ];
 
     // Relationships

@@ -11,6 +11,10 @@ class KeySafe extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'key_safe_date_added' => 'datetime',
+    ];
+
     protected $fillable = [
         'key_safe_property',
         'key_safe_development',

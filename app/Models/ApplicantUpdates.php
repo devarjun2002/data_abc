@@ -11,12 +11,16 @@ class ApplicantUpdates extends Model
     protected $primaryKey = 'applicant_updates_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'applicant_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'applicant_updates_applicant_id',
-        'applicant_updates_type',
-        'applicant_updates_description',
-        'applicant_updates_date',
+        'applicant_updates_public_notes',
+        'applicant_updates_private_notes',
+        'applicant_updates_notify_applicant',
         'applicant_updates_date_created',
         'applicant_updates_created_by'
     ];

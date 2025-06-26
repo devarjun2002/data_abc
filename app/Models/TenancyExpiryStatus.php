@@ -11,6 +11,8 @@ class TenancyExpiryStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_expiry_status_name',
         'tenancy_expiry_status_sort'

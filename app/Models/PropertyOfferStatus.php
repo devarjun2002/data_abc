@@ -11,6 +11,8 @@ class PropertyOfferStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_offer_status_name',
         'property_offer_status_sort',

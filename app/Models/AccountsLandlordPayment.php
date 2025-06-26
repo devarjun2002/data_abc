@@ -12,7 +12,13 @@ class AccountsLandlordPayment extends Model
     protected $primaryKey = 'landlord_payment_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'landlord_payment_date' => 'datetime',
+        'landlord_payment_date_created' => 'datetime',
+        'landlord_payment_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'landlord_payment_date',
         'landlord_payment_tenancy_id',

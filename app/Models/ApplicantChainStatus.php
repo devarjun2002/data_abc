@@ -11,10 +11,11 @@ class ApplicantChainStatus extends Model
     protected $primaryKey = 'applicant_chain_status_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'applicant_chain_status_name',
-        'applicant_chain_status_description',
         'applicant_chain_status_sort'
     ];
 

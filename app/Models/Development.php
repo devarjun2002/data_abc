@@ -12,7 +12,9 @@ class Development extends Model
     protected $primaryKey = 'development_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'development_token',
         'development_branch',

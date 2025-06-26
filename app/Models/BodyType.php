@@ -11,5 +11,9 @@ class BodyType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    protected $fillable = [];
+    protected $casts = [];
+
+    protected $fillable = [
+        'body_type_name'
+    ];
 }

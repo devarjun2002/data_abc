@@ -11,6 +11,8 @@ class TenantIncome extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenant_income_tenant_id',
         'tenant_income_amount',

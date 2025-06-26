@@ -12,6 +12,12 @@ class AccountsTenantChargeRecurring extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'tenant_charge_recurring_start_date' => 'datetime',
+        'tenant_charge_recurring_end_date' => 'datetime',
+        'tenant_charge_recurring_next_processing_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'tenant_charge_recurring_tenant_charge_id',
         'tenant_charge_recurring_tenancy_id',

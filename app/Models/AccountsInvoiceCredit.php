@@ -11,6 +11,13 @@ class AccountsInvoiceCredit extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'invoice_credit_date' => 'datetime',
+        'invoice_credit_date_created' => 'datetime',
+        'invoice_credit_date_updated' => 'datetime',
+        'invoice_credit_date_posted' => 'datetime',
+    ];
+
     protected $fillable = [
         'invoice_credit_token',
         'invoice_credit_customer_type',

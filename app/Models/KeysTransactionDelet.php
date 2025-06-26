@@ -14,6 +14,11 @@ class KeysTransactionDelet extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'keys_transaction_date_created' => 'datetime',
+        'keys_transaction_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'keys_transaction_property',
         'keys_transaction_quantity',

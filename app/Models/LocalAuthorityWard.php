@@ -11,6 +11,11 @@ class LocalAuthorityWard extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'local_authority_ward_selective_licencing_start_date' => 'datetime',
+        'local_authority_ward_selective_licencing_end_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'local_authority_ward_name',
         'local_authority_ward_selective_licencing',

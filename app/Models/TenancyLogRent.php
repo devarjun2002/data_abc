@@ -11,6 +11,10 @@ class TenancyLogRent extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'tenancy_log_rent_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
        'tenancy_log_rent_tenancy_id',
        'tenancy_rent_old',

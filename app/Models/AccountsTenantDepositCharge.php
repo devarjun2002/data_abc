@@ -12,7 +12,13 @@ class AccountsTenantDepositCharge extends Model
     protected $primaryKey = 'tenant_deposit_charge_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'tenant_deposit_charge_date' => 'datetime',
+        'tenant_deposit_charge_date_created' => 'datetime',
+        'tenant_deposit_charge_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'tenant_deposit_charge_token',
         'tenant_deposit_charge_date',

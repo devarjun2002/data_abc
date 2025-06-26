@@ -12,6 +12,10 @@ class PropertyLogPrice extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'property_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'property_id',
         'property_price_old',

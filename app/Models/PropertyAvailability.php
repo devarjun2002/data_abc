@@ -12,6 +12,8 @@ class PropertyAvailability extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_availability_name',
         'property_availability_display_name',

@@ -11,7 +11,9 @@ class AccountsTransactionType extends Model
     protected $primaryKey = 'transaction_type_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'transaction_type_name',
         'transaction_type_statement_name'

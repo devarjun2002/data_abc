@@ -11,6 +11,10 @@ class TenancyUpdates extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'tenancy_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'tenancy_updates_tenancy_id',
         'tenancy_updates_public_notes',

@@ -11,6 +11,8 @@ class DirectoryStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'directory_status_name'
     ];

@@ -12,9 +12,10 @@ class PropertyCategory extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_category_name',
-        'property_category_sort'
     ];
 
     // Relationships

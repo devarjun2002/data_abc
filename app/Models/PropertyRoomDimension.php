@@ -11,6 +11,8 @@ class PropertyRoomDimension extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_room_dimension_name',
     ];

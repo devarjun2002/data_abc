@@ -11,6 +11,10 @@ class CertificateDevelopmentFiles extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'date_added' => 'datetime',
+    ];
+
     protected $fillable = [
         'certificate_id',
         'filename',

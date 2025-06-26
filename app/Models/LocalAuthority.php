@@ -11,6 +11,11 @@ class LocalAuthority extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'local_authority_selective_licencing_start_date' => 'datetime',
+        'local_authority_selective_licencing_end_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'local_authority_name',
         'local_authority_housing_department_name',

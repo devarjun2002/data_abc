@@ -12,18 +12,13 @@ class BulkEmailRecipient extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
-        'bulk_email_id',
         'bulk_email_recipient_name',
         'bulk_email_recipient_type',
-        'bulk_email_recipient_email',
-        'bulk_email_recipient_sent',
-        'bulk_email_recipient_date_sent',
-        'bulk_email_recipient_notes',
-        'buyer_id'
     ];
 
-    // Relationships
     public function bulkEmail(): BelongsTo
     {
         return $this->belongsTo(BulkEmail::class, 'bulk_email_id', 'bulk_email_id');

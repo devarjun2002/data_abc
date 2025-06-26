@@ -11,6 +11,8 @@ class TenancyMoveOutReason extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_move_out_reason_name',
     ];

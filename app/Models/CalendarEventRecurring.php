@@ -13,15 +13,18 @@ class CalendarEventRecurring extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'calendar_event_recurring_start_date' => 'datetime',
+        'calendar_event_recurring_next_processing_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'calendar_event_recurring_calendar_event_id',
         'calendar_event_recurring_frequency',
         'calendar_event_recurring_frequency_unit',
         'calendar_event_recurring_start_date',
         'calendar_event_recurring_next_processing_date',
-        'calendar_event_recurring_suspended',
-        'calendar_event_recurring_end_date',
-        'calendar_event_recurring_notes'
+        'calendar_event_recurring_suspended'
     ];
 
     // Relationships

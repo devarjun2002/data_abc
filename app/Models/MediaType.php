@@ -14,6 +14,8 @@ class MediaType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'media_type_name',
     ];

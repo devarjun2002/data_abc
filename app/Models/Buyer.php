@@ -13,6 +13,11 @@ class Buyer extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'buyer_date_created' => 'datetime',
+        'buyer_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'buyer_token',
         'buyer_type',
@@ -67,53 +72,27 @@ class Buyer extends Model
         'buyer_estate_agent_company',
         'buyer_estate_agent_company_individual',
         'buyer_branch',
-        'buyer_source'
+        'buyer_source',
     ];
 
-    // Relationships
-    public function bulkEmails(): HasMany
+    public function solicitorCompany(): BelongsTo
     {
-        return $this->hasMany(BulkEmail::class, 'buyer_id', 'buyer_id');
+        return $this->belongsTo(Company::class, 'buyer_solicitor_company', 'company_id');
     }
 
-    public function bulkEmailRecipients(): HasMany
+    public function solicitorCompanyIndividual(): BelongsTo
     {
-        return $this->hasMany(BulkEmailRecipient::class, 'buyer_id', 'buyer_id');
+        return $this->belongsTo(Company::class, 'buyer_solicitor_company_individual', 'company_id');
     }
 
-    public function saleBuyers(): HasMany
+    public function estateAgentCompany(): BelongsTo
     {
-        return $this->hasMany(SaleBuyers::class, 'buyer_id', 'buyer_id');
+        return $this->belongsTo(Company::class, 'buyer_estate_agent_company', 'company_id');
     }
 
-    public function title(): BelongsTo
+    public function estateAgentCompanyIndividual(): BelongsTo
     {
-        return $this->belongsTo(Title::class, 'buyer_title', 'title_id');
-    }
-
-    public function country(): BelongsTo
-    {
-        return $this->belongsTo(Country::class, 'buyer_country', 'country_id');
-    }
-
-    public function companyCountry(): BelongsTo
-    {
-        return $this->belongsTo(Country::class, 'buyer_company_reg_office_country', 'country_id');
-    }
-
-    public function bank(): BelongsTo
-    {
-        return $this->belongsTo(Bank::class, 'buyer_bank_name', 'bank_id');
-    }
-
-    public function createdBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'buyer_created_by', 'employee_id');
-    }
-
-    public function updatedBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'buyer_updated_by', 'employee_id');
+        return $this->belongsTo(Company::class, 'buyer_estate_agent_company_individual', 'company_id');
     }
 
     public function branch(): BelongsTo
@@ -123,6 +102,6 @@ class Buyer extends Model
 
     public function source(): BelongsTo
     {
-        return $this->belongsTo(LeadSource::class, 'buyer_source', 'lead_source_id');
+        return $this->belongsTo(Source::class, 'buyer_source', 'source_id');
     }
 }

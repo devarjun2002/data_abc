@@ -12,10 +12,15 @@ class InterestedApplicant extends Model
     protected $primaryKey = 'interested_applicant_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'interested_applicant_date_created' => 'datetime',
+        'interested_applicant_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'interested_applicant_applicant_id',
-        'interested_applicant_property_id',
+        'interested_applicant_property',
         'interested_applicant_notes',
         'interested_applicant_status',
         'interested_applicant_status_reason',

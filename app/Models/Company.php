@@ -13,7 +13,11 @@ class Company extends Model
     protected $primaryKey = 'company_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'company_lock_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'company_token',
         'company_legal_name',

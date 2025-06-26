@@ -12,7 +12,13 @@ class Guarantor extends Model
     protected $primaryKey = 'guarantor_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'guarantor_dob' => 'datetime',
+        'guarantor_date_created' => 'datetime',
+        'guarantor_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'guarantor_title',
         'guarantor_first_name',

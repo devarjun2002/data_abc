@@ -11,6 +11,8 @@ class PropertyPriceQualifier extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'price_qualifier_name',
         'price_qualifier_name_short'

@@ -11,11 +11,13 @@ class ApplicationStatus extends Model
     protected $primaryKey = 'application_status_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'application_status_name',
-        'application_status_description',
-        'application_status_sort'
+        'application_status_sort',
+        'application_status_archived'
     ];
 
     // Relationships

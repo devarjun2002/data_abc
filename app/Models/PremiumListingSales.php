@@ -10,6 +10,8 @@ class PremiumListingSales extends Model
     protected $primaryKey = 'premium_listing_sales_id';
     public $timestamps = false;
     protected $guarded = [];
+
+    protected $casts = [];
     
     protected $fillable = [
         'premium_listing_name',

@@ -11,6 +11,8 @@ class PropertyOfferSaleChainStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_offer_sale_chain_status_name',
         'property_offer_sale_chain_status_sort',

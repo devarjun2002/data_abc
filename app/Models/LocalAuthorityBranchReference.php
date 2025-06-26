@@ -14,6 +14,8 @@ class LocalAuthorityBranchReference extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'local_authority_id',
         'branch_id',

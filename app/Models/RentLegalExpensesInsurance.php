@@ -12,11 +12,17 @@ class RentLegalExpensesInsurance extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'rlei_policy_start_date' => 'datetime',
+        'rlei_policy_end_date' => 'datetime',
+        'rlei_date_created' => 'datetime',
+        'rlei_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
-        'rlei_id',
         'rlei_policy_type',
         'rlei_tenancy_id',
-        'property_id',
+        'rlei_property_id',
         'rlei_room_id',
         'rlei_policy_ref',
         'rlei_policy_start_date',

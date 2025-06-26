@@ -11,6 +11,8 @@ class PropertyFloor extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_floor_name',
         'property_floor_sort',

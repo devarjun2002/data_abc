@@ -12,6 +12,10 @@ class ReferralUpdates extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'referral_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'referral_updates_referral_id',
         'referral_updates_public_notes',

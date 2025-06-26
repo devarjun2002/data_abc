@@ -12,11 +12,12 @@ class Country extends Model
     protected $primaryKey = 'country_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'country_name',
         'country_code',
-        'country_phone_code'
     ];
 
     // Relationships

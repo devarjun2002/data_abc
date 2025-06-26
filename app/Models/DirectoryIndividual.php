@@ -13,7 +13,12 @@ class DirectoryIndividual extends Model
     protected $primaryKey = 'directory_individual_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'directory_individual_date_created' => 'datetime',
+        'directory_individual_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'directory_individual_company',
         'directory_individual_title',

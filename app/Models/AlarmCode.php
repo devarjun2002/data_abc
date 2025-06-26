@@ -12,6 +12,10 @@ class AlarmCode extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'alarm_code_date_added' => 'datetime',
+    ];
+
     protected $fillable = [
         'alarm_code_property',
         'alarm_code_code',

@@ -11,6 +11,8 @@ class CalendarEventTimeOffType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'calendar_event_time_off_type_name'
     ];

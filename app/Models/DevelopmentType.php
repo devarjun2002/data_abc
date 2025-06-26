@@ -11,5 +11,9 @@ class DevelopmentType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    protected $fillable = [];
+    protected $casts = [];
+
+    protected $fillable = [
+        'development_type_name',
+    ];
 }

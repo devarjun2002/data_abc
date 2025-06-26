@@ -11,7 +11,9 @@ class EmployeeToPermissions extends Model
     protected $primaryKey = 'employee_to_permissions_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'employee_id',
         'employee_permissions_id'

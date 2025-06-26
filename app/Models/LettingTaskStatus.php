@@ -14,6 +14,8 @@ class LettingTaskStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'letting_task_status_name',
     ];

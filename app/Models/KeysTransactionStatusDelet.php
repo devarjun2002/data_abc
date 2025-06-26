@@ -14,6 +14,8 @@ class KeysTransactionStatusDelet extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'keys_transaction_status_name',
         'keys_transaction_status_sort',

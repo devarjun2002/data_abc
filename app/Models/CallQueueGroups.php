@@ -12,6 +12,8 @@ class CallQueueGroups extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'call_queue_groups_name',
         'call_queue_groups_extension',

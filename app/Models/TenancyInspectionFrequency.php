@@ -11,6 +11,8 @@ class TenancyInspectionFrequency extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_inspection_frequency_name',
         'tenancy_inspection_frequency_sort'

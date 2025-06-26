@@ -11,6 +11,8 @@ class MotivationalQuotes extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'motivational_quotes_text',
     ];

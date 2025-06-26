@@ -11,6 +11,8 @@ class UtilityMeter extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'utility_meter_property',
         'utility_meter_utility',

@@ -13,35 +13,48 @@ class Directory extends Model
     protected $primaryKey = 'directory_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'directory_date_created' => 'datetime',
+        'directory_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
-        'directory_token',
-        'directory_name',
         'directory_category',
-        'directory_status',
-        'directory_commission_scheme',
-        'directory_payment_terms',
-        'directory_nominal_code',
-        'directory_vat_rate',
-        'directory_bank_name',
-        'directory_bank_sort_code',
-        'directory_bank_account_number',
-        'directory_bank_account_name',
+        'directory_company_name',
+        'directory_branch_name',
+        'directory_contact_name',
+        'directory_phone_work',
+        'directory_phone_mobile',
+        'directory_fax',
+        'directory_email',
+        'directory_website',
+        'directory_dx',
+        'directory_property_number_name',
+        'directory_apartment_number_name',
         'directory_address_line_1',
         'directory_address_line_2',
         'directory_suburb',
         'directory_town_city',
         'directory_postcode',
         'directory_country',
-        'directory_phone',
-        'directory_fax',
-        'directory_email',
-        'directory_website',
+        'directory_bank_name',
+        'directory_bank_sort_code',
+        'directory_bank_account_number',
+        'directory_bank_account_name',
+        'directory_status',
         'directory_notes',
         'directory_date_created',
         'directory_date_updated',
         'directory_created_by',
-        'directory_updated_by'
+        'directory_updated_by',
+        'directory_commission_scheme',
+        'directory_commission_percentage',
+        'directory_payment_terms',
+        'directory_landlord_contractor',
+        'directory_nominal_code',
+        'directory_vat_rate',
+        'directory_accounts_purposes_only',
     ];
 
     // Relationships

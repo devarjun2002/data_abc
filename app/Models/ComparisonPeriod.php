@@ -11,6 +11,8 @@ class ComparisonPeriod extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'comparison_period_name',
         'comparison_period_sort'

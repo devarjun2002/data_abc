@@ -11,6 +11,8 @@ class Suburb extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'suburb_name',
         'suburb_description',

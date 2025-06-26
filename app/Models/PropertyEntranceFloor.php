@@ -14,6 +14,8 @@ class PropertyEntranceFloor extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_entrance_floor_name',
         'property_entrance_floor_sort',

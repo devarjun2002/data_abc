@@ -11,6 +11,8 @@ class EmailTemplateCategory extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'email_template_category_name'
     ];

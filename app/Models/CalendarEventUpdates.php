@@ -12,6 +12,10 @@ class CalendarEventUpdates extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'calendar_event_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'calendar_event_updates_calendar_event_id',
         'calendar_event_updates_private_notes',

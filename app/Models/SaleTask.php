@@ -12,6 +12,12 @@ class SaleTask extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'sale_task_target_date' => 'datetime',
+        'sale_task_completed_date' => 'datetime',
+        'sale_task_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'sale_id',
         'sale_task_type',

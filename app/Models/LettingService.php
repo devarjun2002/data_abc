@@ -11,6 +11,8 @@ class LettingService extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'letting_service_name',
         'letting_service_name_short',

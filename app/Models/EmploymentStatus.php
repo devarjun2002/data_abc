@@ -11,7 +11,9 @@ class EmploymentStatus extends Model
     protected $primaryKey = 'employment_status_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'employment_status_name',
     ];

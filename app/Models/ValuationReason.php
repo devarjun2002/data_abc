@@ -11,6 +11,8 @@ class ValuationReason extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'valuation_reason_name'
     ];

@@ -11,6 +11,10 @@ class ValuationUpdates extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'valuation_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'valuation_updates_valuation_id',
         'valuation_updates_public_notes',

@@ -11,7 +11,9 @@ class Capacity extends Model
     protected $primaryKey = 'capacity_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'capacity_name',
         'capacity_name_short'

@@ -14,6 +14,11 @@ class ProgrammingTask extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'programming_task_date_created' => 'datetime',
+        'programming_task_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'programming_task_description',
         'programming_task_severity',

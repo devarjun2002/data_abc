@@ -13,7 +13,12 @@ class Employee extends Model
     protected $primaryKey = 'employee_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'employee_dob' => 'datetime',
+        'employee_start_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'company_id',
         'employee_token',

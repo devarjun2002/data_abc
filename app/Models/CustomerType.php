@@ -11,7 +11,9 @@ class CustomerType extends Model
     protected $primaryKey = 'customer_type_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'customer_type_name',
         'customer_type_description',

@@ -11,7 +11,9 @@ class SelectiveLicencingStatus extends Model
     protected $primaryKey = 'selective_licencing_status_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'selective_licencing_status_name',
         'selective_licencing_status_sort',

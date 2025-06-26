@@ -14,6 +14,10 @@ class LandlordAttachments extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'landlord_attachments_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'landlord_id',
         'landlord_attachments_file_name',

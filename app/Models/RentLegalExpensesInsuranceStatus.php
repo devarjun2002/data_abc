@@ -11,6 +11,8 @@ class RentLegalExpensesInsuranceStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'rleis_name',
         'rleis_sort',

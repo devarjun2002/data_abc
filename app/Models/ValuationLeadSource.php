@@ -11,6 +11,8 @@ class ValuationLeadSource extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'valuation_lead_source_name'
     ];

@@ -12,6 +12,12 @@ class CalendarEventViewing extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'calendar_event_viewing_date_created' => 'datetime',
+        'calendar_event_viewing_date_updated' => 'datetime',
+        'calendar_event_viewing_next_review_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'calendar_event_viewing_calendar_event_id',
         'calendar_event_viewing_pros',

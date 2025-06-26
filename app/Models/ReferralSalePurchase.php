@@ -12,6 +12,8 @@ class ReferralSalePurchase extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'referral_sale_purchase_name',
         'referral_sale_purchase_sort'

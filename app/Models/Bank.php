@@ -11,6 +11,8 @@ class Bank extends Model
     protected $primaryKey = 'bank_id';
     public $timestamps = false;
     protected $guarded = [];
+
+    protected $casts = [];
     
     protected $fillable = [
         'bank_name'

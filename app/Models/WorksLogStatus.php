@@ -11,6 +11,10 @@ class WorksLogStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'works_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'works_id',
         'works_status_old',

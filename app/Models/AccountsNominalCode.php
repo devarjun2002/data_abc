@@ -12,7 +12,9 @@ class AccountsNominalCode extends Model
     protected $primaryKey = 'nominal_code_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'nominal_code_name',
         'nominal_code_type',

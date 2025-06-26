@@ -10,7 +10,7 @@ class AeaPostcodes extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $guarded = [];
-    
+    protected $casts = [];
     protected $fillable = [
         'post_code',
         'lat',

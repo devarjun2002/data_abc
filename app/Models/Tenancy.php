@@ -11,6 +11,22 @@ class Tenancy extends Model
     public $timestamps = false;
     protected $guarded = [];
     
+    protected $casts = [
+        'tenancy_agreement_date' => 'datetime',
+        'tenancy_start_date' => 'datetime',
+        'tenancy_fixed_term_end_date' => 'datetime',
+        'tenancy_tnts_vacation_date' => 'datetime',
+        'tenancy_official_end_date' => 'datetime',
+        'tenancy_notice_expiry_date' => 'datetime',
+        'tenancy_management_takeover_date' => 'datetime',
+        'tenancy_rlei_opt_out_date' => 'datetime',
+        'tenancy_last_inspection_date' => 'datetime',
+        'tenancy_last_inspection_date_backup' => 'datetime',
+        'tenancy_accounts_next_review_date' => 'datetime',
+        'tenancy_date_created' => 'datetime',
+        'tenancy_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'tenancy_token',
         'tenancy_type',

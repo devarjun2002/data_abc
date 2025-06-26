@@ -12,6 +12,10 @@ class CalendarFiles extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'calendar_files_date_added' => 'datetime',
+    ];
+
     protected $fillable = [
         'calendar_event_id',
         'calendar_files_filename',

@@ -11,6 +11,8 @@ class DirectoryCommissionScheme extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'directory_commission_scheme_name'
     ];

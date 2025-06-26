@@ -11,6 +11,8 @@ class BulkEmailTemplateDevelopment extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'bulk_email_template_development_name',
         'bulk_email_template_development_subject'

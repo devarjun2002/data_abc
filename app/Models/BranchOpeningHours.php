@@ -11,6 +11,8 @@ class BranchOpeningHours extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'branch_id',
         'branch_opening_hours_day',

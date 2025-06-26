@@ -11,6 +11,8 @@ class SolicitorQuotationType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'solicitor_quotation_type_name',
     ];

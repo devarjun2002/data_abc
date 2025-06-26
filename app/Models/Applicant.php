@@ -13,7 +13,13 @@ class Applicant extends Model
     protected $primaryKey = 'applicant_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'applicant_pof_date_updated' => 'datetime',
+        'applicant_date_created' => 'datetime',
+        'applicant_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'applicant_token',
         'applicant_type',

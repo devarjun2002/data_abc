@@ -11,6 +11,8 @@ class ProbateStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'probate_status_name',
         'probate_status_sort',

@@ -11,6 +11,8 @@ class ExportDateType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'export_date_type_name',
     ];

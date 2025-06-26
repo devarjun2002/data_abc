@@ -12,6 +12,8 @@ class PropertyUseClass extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_use_class_name',
     ];

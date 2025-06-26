@@ -11,6 +11,8 @@ class CalendarEventMeetAt extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'calendar_event_meet_at_name',
         'calendar_event_meet_at_sort'

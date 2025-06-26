@@ -11,6 +11,8 @@ class ValuationStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'valuation_status_name',
         'valuation_status_sort'

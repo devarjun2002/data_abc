@@ -12,6 +12,10 @@ class SaleLogStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'sale_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'sale_id',
         'sale_status_old',

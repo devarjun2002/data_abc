@@ -11,6 +11,8 @@ class SurveyStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'survey_status_name',
         'survey_status_sort'

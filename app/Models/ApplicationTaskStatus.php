@@ -11,16 +11,25 @@ class ApplicationTaskStatus extends Model
     protected $primaryKey = 'application_task_status_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'application_task_status_name',
-        'application_task_status_description',
-        'application_task_status_sort'
     ];
 
-    // Relationships
     public function tasks(): HasMany
     {
         return $this->hasMany(ApplicationTask::class, 'application_task_status', 'application_task_status_id');
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'application_task_status_created_by', 'employee_id');
+    }
+
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'application_task_status_updated_by', 'employee_id');
     }
 }

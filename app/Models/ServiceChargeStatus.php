@@ -12,6 +12,8 @@ class ServiceChargeStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'service_charge_status_name',
     ];

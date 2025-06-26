@@ -11,12 +11,11 @@ class AnnualLeaveAccrualMethod extends Model
     protected $primaryKey = 'annual_leave_accrual_method_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'annual_leave_accrual_method_name',
-        'annual_leave_accrual_method_description',
-        'annual_leave_accrual_method_sort',
-        'annual_leave_accrual_method_active'
     ];
 
     // Relationships

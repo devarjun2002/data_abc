@@ -11,6 +11,8 @@ class UtilityMeterLocation extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'utility_meter_location_name',
     ];

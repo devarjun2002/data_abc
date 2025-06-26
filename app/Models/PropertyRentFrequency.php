@@ -12,6 +12,8 @@ class PropertyRentFrequency extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_rent_frequency_name',
         'property_rent_frequency_sort',

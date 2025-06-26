@@ -11,6 +11,8 @@ class TenancyDepositContributor extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_deposit_contributor_title',
         'tenancy_deposit_contributor_first_name',

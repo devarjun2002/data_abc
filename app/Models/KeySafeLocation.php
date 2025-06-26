@@ -11,6 +11,8 @@ class KeySafeLocation extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+    
     protected $fillable = [
         'key_safe_location_name',
     ];

@@ -11,6 +11,11 @@ class KeysAdd extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'keys_add_date_created' => 'datetime',
+        'keys_add_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'keys_add_property',
         'keys_add_from',

@@ -11,6 +11,11 @@ class PropertyOfferSaleChain extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'property_offer_sale_chain_date_created' => 'datetime',
+        'property_offer_sale_chain_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'property_offer_sale_chain_sort',
         'property_offer_sale_id',

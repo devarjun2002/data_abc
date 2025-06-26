@@ -11,6 +11,8 @@ class AccountsTemporaryIncomeType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'temporary_income_type_name',
         'temporary_income_type_sort'

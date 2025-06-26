@@ -11,7 +11,13 @@ class AccountsBacsFile extends Model
     protected $primaryKey = 'bacs_file_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'bacs_file_processing_date' => 'datetime',
+        'bacs_file_payment_date' => 'datetime',
+        'bacs_file_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'bacs_file_destination_sort_code',
         'bacs_file_destination_account_number',
@@ -36,7 +42,7 @@ class AccountsBacsFile extends Model
         'bacs_file_vat_amount',
         'bacs_file_exported',
         'bacs_file_date_created',
-        'bacs_file_created_by'
+        'bacs_file_created_by',
     ];
 
     // Relationships

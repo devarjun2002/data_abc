@@ -14,6 +14,8 @@ class PropertyOfferSaleType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_offer_sale_type_name',
         'property_offer_sale_type_description',

@@ -11,6 +11,8 @@ class CalendarEventViewingType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'calendar_event_viewing_type_name'
     ];

@@ -11,6 +11,11 @@ class ValuationTask extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'valuation_task_date_updated' => 'datetime',
+        'valuation_task_completed_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'valuation_id',
         'valuation_task_name',

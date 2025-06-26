@@ -12,6 +12,11 @@ class EmailTemplate extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'email_template_date_created' => 'datetime',
+        'email_template_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'email_template_name',
         'email_template_category',

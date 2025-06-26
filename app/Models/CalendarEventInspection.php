@@ -12,6 +12,8 @@ class CalendarEventInspection extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'calendar_event_inspection_calendar_event_id',
         'calendar_event_inspection_cleanliness',

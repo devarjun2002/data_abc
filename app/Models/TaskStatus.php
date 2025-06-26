@@ -11,6 +11,8 @@ class TaskStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'task_status_name',
     ];

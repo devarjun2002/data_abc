@@ -11,12 +11,13 @@ class ApplicantRequirementFilterShared extends Model
     protected $primaryKey = 'applicant_requirement_filter_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
-        'applicant_requirement_filter_shared_requirement_id',
-        'applicant_requirement_filter_shared_notes',
-        'applicant_requirement_filter_shared_date_created',
-        'applicant_requirement_filter_shared_created_by'
+        'applicant_requirement_filter_name',
+        'applicant_requirement_filter_description',
+        'applicant_requirement_filter_sort'
     ];
 
     // Relationships

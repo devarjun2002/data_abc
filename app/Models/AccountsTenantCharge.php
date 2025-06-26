@@ -13,6 +13,12 @@ class AccountsTenantCharge extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'tenant_charge_date' => 'datetime',
+        'tenant_charge_date_created' => 'datetime',
+        'tenant_charge_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'tenant_charge_token',
         'tenant_charge_date',

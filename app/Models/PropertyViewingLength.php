@@ -12,6 +12,8 @@ class PropertyViewingLength extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_viewing_length_name',
         'property_viewing_length_minutes',

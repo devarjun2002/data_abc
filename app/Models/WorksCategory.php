@@ -11,6 +11,8 @@ class WorksCategory extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'works_category_name',
         'works_category_sort',

@@ -14,6 +14,12 @@ class Referral extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'referral_date_created' => 'datetime',
+        'referral_date_updated' => 'datetime',
+        'referral_commission_date_paid' => 'datetime',
+    ];
+
     protected $fillable = [
         'referral_type',
         'referral_sale_purchase',

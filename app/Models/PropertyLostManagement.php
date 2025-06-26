@@ -12,6 +12,8 @@ class PropertyLostManagement extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_lost_management_reason',
     ];

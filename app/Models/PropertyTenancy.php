@@ -11,6 +11,11 @@ class PropertyTenancy extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'property_tenancy_lease_start_date' => 'datetime',
+        'property_tenancy_lease_expiry_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'property_id',
         'property_tenancy_description',

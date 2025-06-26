@@ -11,7 +11,9 @@ class AccountsInvoiceLine extends Model
     protected $primaryKey = 'invoice_line_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'invoice_id',
         'invoice_line_description',

@@ -11,9 +11,11 @@ class PropertyToFeaturesCustom extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_id',
-        'feature_custom_id',
+        'property_feature',
     ];
 
     public function property(): BelongsTo

@@ -11,6 +11,8 @@ class TenancyStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_status_name',
     ];

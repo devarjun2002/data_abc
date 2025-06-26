@@ -11,7 +11,9 @@ class Test extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
-        'test_name'
+        'test_field'
     ];
 }

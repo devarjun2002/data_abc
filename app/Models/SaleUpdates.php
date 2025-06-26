@@ -12,6 +12,10 @@ class SaleUpdates extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'sale_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'sale_updates_sale_id',
         'sale_updates_public_notes',

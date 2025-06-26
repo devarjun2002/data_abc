@@ -11,7 +11,11 @@ class InterestedApplicantUpdates extends Model
     protected $primaryKey = 'interested_applicant_updates_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'interested_applicant_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'interested_applicant_updates_interested_applicant_id',
         'interested_applicant_updates_type',

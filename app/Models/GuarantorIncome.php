@@ -11,6 +11,8 @@ class GuarantorIncome extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'guarantor_income_guarantor_id',
         'guarantor_income_amount',

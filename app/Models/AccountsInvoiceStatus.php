@@ -12,6 +12,8 @@ class AccountsInvoiceStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'invoice_status_name'
     ];

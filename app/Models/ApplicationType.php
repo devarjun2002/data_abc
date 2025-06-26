@@ -11,14 +11,13 @@ class ApplicationType extends Model
     protected $primaryKey = 'application_type_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'application_type_name',
-        'application_type_description',
-        'application_type_sort'
     ];
 
-    // Relationships
     public function applications(): HasMany
     {
         return $this->hasMany(Application::class, 'application_type', 'application_type_id');

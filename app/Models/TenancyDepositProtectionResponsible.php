@@ -11,6 +11,8 @@ class TenancyDepositProtectionResponsible extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_deposit_protection_responsible_name',
     ];

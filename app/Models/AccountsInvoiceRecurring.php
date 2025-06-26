@@ -12,6 +12,11 @@ class AccountsInvoiceRecurring extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'invoice_recurring_start_date' => 'datetime',
+        'invoice_recurring_next_processing_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'invoice_recurring_invoice_id',
         'invoice_recurring_frequency',

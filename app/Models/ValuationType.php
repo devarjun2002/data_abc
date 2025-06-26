@@ -11,6 +11,8 @@ class ValuationType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'valuation_type_name',
         'valuation_type_name2',

@@ -11,6 +11,8 @@ class LeadSource extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'lead_source_name'
     ];

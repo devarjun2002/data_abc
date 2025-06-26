@@ -11,6 +11,10 @@ class WorksUpdates extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'works_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'works_updates_works_id',
         'works_updates_public_notes',

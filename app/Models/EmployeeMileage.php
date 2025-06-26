@@ -11,6 +11,10 @@ class EmployeeMileage extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'employee_mileage_journey_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'employee_mileage_employee_id',
         'employee_mileage_vehicle_id',

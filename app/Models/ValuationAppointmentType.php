@@ -11,6 +11,8 @@ class ValuationAppointmentType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'valuation_appointment_type_name',
         'valuation_appointment_type_subject',

@@ -12,6 +12,8 @@ class AccountsTenantChargeLineType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenant_charge_line_type_name'
     ];

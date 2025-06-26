@@ -12,9 +12,10 @@ class PropertyOutsideSpace extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_outside_space_name',
-        'property_outside_space_sort'
     ];
 
     // Relationships

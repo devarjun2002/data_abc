@@ -11,6 +11,8 @@ class CertificateStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'certificate_status_name',
         'certificate_status_sort'

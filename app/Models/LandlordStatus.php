@@ -11,6 +11,8 @@ class LandlordStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'landlord_status_name',
     ];

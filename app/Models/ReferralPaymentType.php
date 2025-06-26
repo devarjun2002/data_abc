@@ -12,6 +12,8 @@ class ReferralPaymentType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'referral_payment_type_name',    
     ];

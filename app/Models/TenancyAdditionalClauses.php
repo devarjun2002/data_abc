@@ -11,9 +11,11 @@ class TenancyAdditionalClauses extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
-        'tenancy_additional_clauses_name',
-        'tenancy_id',
+        'tenancy_additional_clauses_description',
+        'tenancy_id'
     ];
 
     public function tenancy()

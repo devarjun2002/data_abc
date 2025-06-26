@@ -11,6 +11,8 @@ class IncomeFrequency extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'income_frequency_name',
         'income_frequency_sort'

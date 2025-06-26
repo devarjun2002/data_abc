@@ -11,6 +11,8 @@ class ValuationTaskDefaults extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'valuation_task_defaults_name',
         'valuation_task_defaults_type',

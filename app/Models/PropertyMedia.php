@@ -11,6 +11,8 @@ class PropertyMedia extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_media_property_id',
         'property_media_type',

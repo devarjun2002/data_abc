@@ -12,6 +12,8 @@ class AlarmCodeType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'alarm_code_type_name'
     ];

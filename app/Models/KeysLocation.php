@@ -11,6 +11,8 @@ class KeysLocation extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'keys_location_name'
     ];

@@ -11,6 +11,10 @@ class CertificateUpdates extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'certificate_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'certificate_updates_certificate_id',
         'certificate_updates_public_notes',

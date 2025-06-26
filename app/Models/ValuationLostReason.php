@@ -11,6 +11,8 @@ class ValuationLostReason extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'valuation_lost_reason_name'
     ];

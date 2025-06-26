@@ -12,6 +12,8 @@ class CalendarEventLocation extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'calendar_event_location_name',
     ];

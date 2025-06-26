@@ -11,6 +11,15 @@ class Works extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'works_date_created' => 'datetime',
+        'works_date_updated' => 'datetime',
+        'works_date_last_instructed' => 'datetime',
+        'works_date_last_awaiting_landlord_approval' => 'datetime',
+        'works_date_last_awaiting_landlord_payment' => 'datetime',
+        'works_date_last_pending' => 'datetime',
+    ];
+    
     protected $fillable = [
         'works_property',
         'works_development',

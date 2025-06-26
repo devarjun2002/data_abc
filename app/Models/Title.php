@@ -11,7 +11,9 @@ class Title extends Model
     protected $primaryKey = 'title_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'title_name',
     ];

@@ -14,6 +14,10 @@ class PropertyImages extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'date_added' => 'datetime',
+    ];
+
     protected $fillable = [
         'property_id',
         'filename',

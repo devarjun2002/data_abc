@@ -11,6 +11,8 @@ class CertificateInitialStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'certificate_initial_status_name',
         'certificate_initial_status_sort'

@@ -11,7 +11,9 @@ class AccountsInvoicePaymentType extends Model
     protected $primaryKey = 'accounts_invoice_payment_type_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'accounts_invoice_payment_type_name'
     ];

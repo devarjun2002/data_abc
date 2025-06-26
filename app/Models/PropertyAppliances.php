@@ -15,6 +15,8 @@ class PropertyAppliances extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_appliances_name',
         'property_appliances_sort'

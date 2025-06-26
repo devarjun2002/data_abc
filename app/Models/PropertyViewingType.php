@@ -12,6 +12,8 @@ class PropertyViewingType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_viewing_type_name',
         'property_viewing_type_description',

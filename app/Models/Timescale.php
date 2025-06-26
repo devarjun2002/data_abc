@@ -11,6 +11,8 @@ class Timescale extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'timescale_name',
         'timescale_sort'

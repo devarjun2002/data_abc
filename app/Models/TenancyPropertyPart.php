@@ -11,6 +11,8 @@ class TenancyPropertyPart extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_property_part_name',
     ];

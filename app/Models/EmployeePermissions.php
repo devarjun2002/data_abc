@@ -11,6 +11,8 @@ class EmployeePermissions extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'employee_permissions_name',
         'employee_permissions_category',

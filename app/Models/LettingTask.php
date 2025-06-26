@@ -14,6 +14,10 @@ class LettingTask extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'letting_task_date_completed' => 'datetime',
+    ];
+
     protected $fillable = [
         'tenancy_id',
         'letting_task_stage',

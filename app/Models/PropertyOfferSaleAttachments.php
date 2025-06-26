@@ -11,6 +11,10 @@ class PropertyOfferSaleAttachments extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'property_offer_sale_attachments_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'property_offer_sale_id',
         'property_offer_sale_attachments_filename',

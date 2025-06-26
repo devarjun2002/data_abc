@@ -15,10 +15,10 @@ class PropertyHeating extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_heating_name',
-        'property_heating_description',
-        'property_heating_sort'
     ];
 
     // Relationships

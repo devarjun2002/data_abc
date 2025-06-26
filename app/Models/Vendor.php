@@ -11,6 +11,11 @@ class Vendor extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'vendor_date_created' => 'datetime',
+        'vendor_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'vendor_token',
         'vendor_type',

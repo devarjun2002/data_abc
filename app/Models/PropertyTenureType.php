@@ -12,6 +12,8 @@ class PropertyTenureType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_tenure_type_name',
     ];

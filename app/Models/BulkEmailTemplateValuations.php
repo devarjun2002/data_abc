@@ -11,6 +11,8 @@ class BulkEmailTemplateValuations extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'bulk_email_template_valuations_name',
         'bulk_email_template_valuations_subject'

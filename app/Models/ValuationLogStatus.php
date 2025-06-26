@@ -11,6 +11,10 @@ class ValuationLogStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'valuation_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'valuation_id',
         'valuation_status_old',

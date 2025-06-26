@@ -16,6 +16,13 @@ class Landlord extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'landlord_nrl_date' => 'datetime',
+        'landlord_dob' => 'datetime',
+        'landlord_date_created' => 'datetime',
+        'landlord_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'landlord_token',
         'landlord_type',

@@ -12,6 +12,8 @@ class PropertyWithdrawalReason extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_withdrawal_reason_name',
     ];

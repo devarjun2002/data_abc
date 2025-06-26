@@ -11,6 +11,8 @@ class StandingOrderPaymentsFrequency extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'standing_order_payments_frequency_name'
     ];

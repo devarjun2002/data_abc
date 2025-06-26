@@ -11,6 +11,8 @@ class TenancyTenants extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenant_id',
         'tenancy_id',

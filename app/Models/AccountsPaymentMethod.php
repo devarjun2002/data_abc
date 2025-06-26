@@ -11,7 +11,9 @@ class AccountsPaymentMethod extends Model
     protected $primaryKey = 'payment_method_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'payment_method_name'
     ];

@@ -11,6 +11,8 @@ class PropertyToOutsideSpace extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_id',
         'property_outside_space_id',

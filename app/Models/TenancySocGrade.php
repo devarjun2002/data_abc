@@ -11,6 +11,8 @@ class TenancySocGrade extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_soc_grade_name',
         'tenancy_soc_grade_description',

@@ -11,6 +11,8 @@ class UtilityProvider extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'utility_provider_name',
     ];

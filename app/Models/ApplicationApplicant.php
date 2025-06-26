@@ -12,6 +12,10 @@ class ApplicationApplicant extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'application_dob' => 'datetime',
+    ];
+
     protected $fillable = [
         'application_id',
         'application_applicant_type',
@@ -43,7 +47,7 @@ class ApplicationApplicant extends Model
         'application_company_ro_address_line_1',
         'application_company_ro_address_line_2',
         'application_company_ro_town_city',
-        'application_company_ro_post_code',
+        'application_company_ro_post_code'
     ];
 
     public function application(): BelongsTo

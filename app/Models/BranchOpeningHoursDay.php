@@ -11,10 +11,11 @@ class BranchOpeningHoursDay extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
-        'day_name',
-        'day_sort_order'
+        'name'
     ];
 
     public function openingHours(): HasMany

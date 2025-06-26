@@ -11,6 +11,10 @@ class WorksFiles extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'works_files_date_added' => 'datetime',
+    ];
+
     protected $fillable = [
         'works_id',
         'works_files_filename',
@@ -20,7 +24,7 @@ class WorksFiles extends Model
     ];
 
     public function works()
-    {
+    {   
         return $this->belongsTo(Works::class, 'works_id', 'works_id');
     }
 }

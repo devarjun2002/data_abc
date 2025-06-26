@@ -14,6 +14,10 @@ class KeyTransactionUpdates extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [
+        'key_transaction_updates_date_created' => 'datetime',
+    ];
+
     protected $fillable = [
         'key_transaction_updates_keys_transaction_id',
         'key_transaction_updates_private_notes',

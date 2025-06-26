@@ -14,6 +14,8 @@ class LedPocketAction extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'led_pocket_action_name',
         'led_pocket_action_sort',

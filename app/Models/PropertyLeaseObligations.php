@@ -12,10 +12,10 @@ class PropertyLeaseObligations extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'property_lease_obligations_name',
-        'property_lease_obligations_description',
-        'property_lease_obligations_sort'
     ];
 
     // Relationships

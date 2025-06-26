@@ -14,6 +14,8 @@ class ProgrammingTaskStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'programming_task_status_name',
         'programming_task_status_sort',

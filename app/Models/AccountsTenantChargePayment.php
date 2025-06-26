@@ -11,7 +11,13 @@ class AccountsTenantChargePayment extends Model
     protected $primaryKey = 'tenant_charge_payment_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [
+        'tenant_charge_payment_date' => 'datetime',
+        'tenant_charge_payment_date_created' => 'datetime',
+        'tenant_charge_payment_date_updated' => 'datetime',
+    ];
+
     protected $fillable = [
         'tenant_charge_payment_date',
         'tenant_charge_payment_amount',

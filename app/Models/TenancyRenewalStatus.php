@@ -11,6 +11,8 @@ class TenancyRenewalStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'tenancy_renewal_status_name',
         'tenancy_renewal_status_sort'

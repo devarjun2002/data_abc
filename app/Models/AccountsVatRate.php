@@ -11,7 +11,9 @@ class AccountsVatRate extends Model
     protected $primaryKey = 'vat_rate_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'vat_rate_amount',
         'vat_rate_name',

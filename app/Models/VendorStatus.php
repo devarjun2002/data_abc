@@ -11,6 +11,8 @@ class VendorStatus extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'vendor_status_name'
     ];

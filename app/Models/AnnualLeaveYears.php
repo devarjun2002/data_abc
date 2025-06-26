@@ -13,10 +13,11 @@ class AnnualLeaveYears extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'annual_leave_years_year',
         'annual_leave_years_statutory_entitlement_days',
-        'annual_leave_years_active'
     ];
 
     // Relationships

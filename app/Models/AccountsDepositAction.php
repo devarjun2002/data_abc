@@ -11,7 +11,9 @@ class AccountsDepositAction extends Model
     protected $primaryKey = 'deposit_action_id';
     public $timestamps = false;
     protected $guarded = [];
-    
+
+    protected $casts = [];
+
     protected $fillable = [
         'deposit_action_name',
         'deposit_action_sort',

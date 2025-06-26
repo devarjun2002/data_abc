@@ -17,6 +17,16 @@ class Valuation extends Model
     const CREATED_AT = 'valuation_date_created';
     const UPDATED_AT = 'valuation_date_updated';
 
+    protected $casts = [
+        'valuation_date_created' => 'datetime',
+        'valuation_date_updated' => 'datetime',
+        'valuation_next_review_date' => 'datetime',
+        'valuation_next_review_date_negotiator' => 'datetime',
+        'valuation_next_review_date_lister' => 'datetime',
+        'valuation_next_review_date_lister_notes' => 'datetime',
+        'valuation_multi_agent_withdrawal_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'valuation_title',
         'valuation_first_name',

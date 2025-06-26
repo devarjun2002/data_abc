@@ -11,6 +11,8 @@ class EmployeeGroupDelete extends Model
     public $timestamps = false;
     protected $guarded = [];
 
+    protected $casts = [];
+
     protected $fillable = [
         'employee_group_name'
     ];
