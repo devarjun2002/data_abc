@@ -10,8 +10,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('property_price_qualifier', function (Blueprint $table) {
-            $table->smallInteger('price_qualifier_id')->nullable();
-            $table->primary('price_qualifier_id');
+            $table->id('price_qualifier_id');
             $table->text('price_qualifier_name')->nullable();
             $table->string('price_qualifier_name_short', 20)->nullable();
         });

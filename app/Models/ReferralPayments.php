@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ReferralPayments extends Model
 {
@@ -29,23 +28,19 @@ class ReferralPayments extends Model
         'referral_payments_updated_by'
     ];
 
-    public function referral(): BelongsTo
-    {
-        return $this->belongsTo(Referral::class, 'referral_payments_referral_id', 'referral_id');
-    }
-
-    public function type(): BelongsTo
-    {
-        return $this->belongsTo(ReferralPaymentType::class, 'referral_payments_id', 'referral_payments_id');
-    }
-
+    // Relationships --done
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'referral_payments_created_by', 'employee_id');
     }
 
-    public function employees(): HasMany
+    public function updatedBy(): BelongsTo
     {
-        return $this->hasMany(ReferralPaymentsEmployee::class, 'referral_payments_id', 'referral_payments_id');
+        return $this->belongsTo(Employee::class, 'referral_payments_updated_by', 'employee_id');
+    }
+
+    public function referral(): BelongsTo
+    {
+        return $this->belongsTo(Referral::class, 'referral_payments_referral_id', 'referral_id');
     }
 }

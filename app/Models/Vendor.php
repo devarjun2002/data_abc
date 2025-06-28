@@ -85,4 +85,75 @@ class Vendor extends Model
         'vendor_emails_new_offer',
         'vendor_emails_edit_offer'
     ];
+
+    // Relationships --done
+    public function bank()
+    {
+        return $this->belongsTo(Bank::class, 'vendor_bank_name');
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class, 'vendor_branch');
+    }
+
+    public function companyRegOfficeCountry()
+    {
+        return $this->belongsTo(Country::class, 'vendor_company_reg_office_country');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'vendor_country');
+    }
+
+    public function createdBy()
+    {
+        return $this->belongsTo(Employee::class, 'vendor_created_by');
+    }
+
+    public function updatedBy()
+    {
+        return $this->belongsTo(Employee::class, 'vendor_updated_by');
+    }
+
+    public function title()
+    {
+        return $this->belongsTo(Title::class, 'vendor_title');
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(BodyType::class, 'vendor_type');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(VendorStatus::class, 'vendor_status');
+    }
+
+    public function soleSaleFeeType()
+    {
+        return $this->belongsTo(FeeType::class, 'vendor_sole_sale_fee_type');
+    }
+
+    public function multiSaleFeeType()
+    {
+        return $this->belongsTo(FeeType::class, 'vendor_multi_sale_fee_type');
+    }
+
+    public function solicitorCompany()
+    {
+        return $this->belongsTo(Directory::class, 'vendor_solicitor_company');
+    }
+
+    public function solicitorIndividual()
+    {
+        return $this->belongsTo(DirectoryIndividual::class, 'vendor_solicitor_company_individual');
+    }
+
+    public function capacity()
+    {
+        return $this->belongsTo(Capacity::class, 'vendor_capacity');
+    }
 }

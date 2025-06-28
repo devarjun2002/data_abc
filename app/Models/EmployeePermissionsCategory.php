@@ -18,6 +18,7 @@ class EmployeePermissionsCategory extends Model
         'employee_permissions_category_sort'
     ];
 
+    // Relationships --done
     public function permissions()
     {
         return $this->hasMany(EmployeePermissions::class, 'employee_permissions_category', 'employee_permissions_category_id');

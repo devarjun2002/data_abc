@@ -27,10 +27,14 @@ class PropertyOfferSaleUpdates extends Model
         'property_offer_sale_updates_created_by',
     ];
 
-    // Add relationships here if you add foreign keys to property, offer, sale, etc.
-
-    public function propertyOfferSale()
+    // Relationships --done
+    public function offerSale(): BelongsTo
     {
         return $this->belongsTo(PropertyOfferSale::class, 'property_offer_sale_updates_property_offer_sale_id', 'property_offer_sale_id');
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'property_offer_sale_updates_created_by', 'employee_id');
     }
 }

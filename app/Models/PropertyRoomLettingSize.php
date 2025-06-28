@@ -18,6 +18,7 @@ class PropertyRoomLettingSize extends Model
         'property_room_letting_size_name',
     ];
 
+    // Relationships --done
     public function propertyRoomLettings(): HasMany
     {
         return $this->hasMany(PropertyRoomLetting::class, 'property_room_letting_size', 'property_room_letting_size_id');

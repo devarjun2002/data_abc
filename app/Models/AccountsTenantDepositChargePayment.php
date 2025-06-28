@@ -30,15 +30,15 @@ class AccountsTenantDepositChargePayment extends Model
         'tenant_deposit_charge_payment_updated_by'
     ];
 
-    // Relationships
-    public function depositCharge(): BelongsTo
-    {
-        return $this->belongsTo(AccountsTenantDepositCharge::class, 'tenant_deposit_charge_payment_tenant_deposit_charge_id', 'tenant_deposit_charge_id');
-    }
-
+    // Relationships --done
     public function paymentMethod(): BelongsTo
     {
         return $this->belongsTo(AccountsPaymentMethod::class, 'tenant_deposit_charge_payment_method', 'payment_method_id');
+    }
+
+    public function tenantDepositCharge(): BelongsTo
+    {
+        return $this->belongsTo(AccountsTenantDepositCharge::class, 'tenant_deposit_charge_payment_tenant_deposit_charge_id', 'tenant_deposit_charge_id');
     }
 
     public function createdBy(): BelongsTo

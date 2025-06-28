@@ -18,8 +18,4 @@ class SocialMediaPost extends Model
         'social_media_post_name',
         'social_media_post_sort'
     ];
-
-    public function property(): BelongsTo {
-        return $this->belongsTo(Property::class, 'social_media_post_property', 'property_id');
-    }
 }

@@ -23,7 +23,7 @@ class PropertyAvailability extends Model
         'property_availability_sort'
     ];
 
-    // Relationships
+    // Relationships --done
     public function properties(): HasMany
     {
         return $this->hasMany(Property::class, 'property_availability', 'property_availability_id');

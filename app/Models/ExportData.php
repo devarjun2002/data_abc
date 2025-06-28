@@ -27,12 +27,7 @@ class ExportData extends Model
         'export_data_last_bacs_file_entry_date'
     ];
 
-    // Relationships
-    public function type(): BelongsTo
-    {
-        return $this->belongsTo(ExportDateType::class, 'export_data_type', 'export_date_type_id');
-    }
-
+    // Relationships --done
     // Scope for recent exports
     public function scopeRecent($query, $days = 30)
     {

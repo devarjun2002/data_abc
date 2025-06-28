@@ -17,6 +17,7 @@ class EmployeeRole extends Model
         'employee_role_name'
     ];
 
+    // Relationships --done
     public function employees()
     {
         return $this->belongsToMany(Employee::class, 'employee_to_role', 'employee_role_id', 'employee_id');

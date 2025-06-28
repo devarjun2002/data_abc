@@ -24,13 +24,14 @@ class ValuationUpdates extends Model
         'valuation_updates_created_by'
     ];
 
+    // Relationships --done
     public function valuation()
     {
         return $this->belongsTo(Valuation::class, 'valuation_updates_valuation_id', 'valuation_id');
     }
 
-    public function valuation_updates_created_by()
+    public function createdBy()
     {
-        return $this->belongsTo(Employee::class, 'valuation_updates_created_by', 'employee_id');
+        return $this->belongsTo(Employee::class, 'valuation_updates_created_by');
     }
 }

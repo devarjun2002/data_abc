@@ -26,6 +26,7 @@ class AccountsInvoiceRecurring extends Model
         'invoice_recurring_suspended'
     ];
 
+    // Relationships --done
     public function invoice(): BelongsTo
     {
         return $this->belongsTo(AccountsInvoice::class, 'invoice_recurring_invoice_id', 'invoice_id');

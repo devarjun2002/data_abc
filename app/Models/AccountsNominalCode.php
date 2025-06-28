@@ -23,41 +23,15 @@ class AccountsNominalCode extends Model
         'nominal_code_archive'
     ];
 
-    // Relationships
-    public function type(): BelongsTo
-    {
-        return $this->belongsTo(AccountsNominalCodeType::class, 'nominal_code_type', 'nominal_code_type_id');
-    }
-
-    public function defaultVatRate(): BelongsTo
+    // Relationships --done
+    public function vatRate(): BelongsTo
     {
         return $this->belongsTo(AccountsVatRate::class, 'nominal_code_default_vat_rate', 'vat_rate_id');
     }
-    
-    public function transactions(): HasMany
-    {
-        return $this->hasMany(AccountsTransaction::class, 'nominal_code_id', 'nominal_code_id');
-    }
-    
-    public function tenantChargePayments(): HasMany
-    {
-        return $this->hasMany(AccountsTenantChargePayment::class, 'nominal_code_id', 'nominal_code_id');
-    }
-    
-    public function tenantDepositCharges(): HasMany
-    {
-        return $this->hasMany(AccountsTenantDepositCharge::class, 'nominal_code_id', 'nominal_code_id');
-    }
 
-    // Reverse relationships
-    public function bacsFiles(): HasMany
+    public function nominalCodeType(): BelongsTo 
     {
-        return $this->hasMany(AccountsBacsFile::class, 'bacs_file_nominal_code', 'nominal_code_id');
-    }
-
-    public function directories(): HasMany
-    {
-        return $this->hasMany(Directory::class, 'directory_nominal_code', 'nominal_code_id');
+        return $this->belongsTo(AccountsNominalCodeType::class, 'nominal_code_type', 'nominal_code_type_id');
     }
 
     public function invoiceLines(): HasMany
@@ -68,5 +42,16 @@ class AccountsNominalCode extends Model
     public function invoiceLineDescriptions(): HasMany
     {
         return $this->hasMany(AccountsInvoiceLineDescription::class, 'invoice_line_nominal_code', 'nominal_code_id');
+    }
+
+    // Reverse relationships --done
+    public function bacsFiles()
+    {
+        return $this->hasMany(BacsFile::class, 'bacs_file_nominal_code', 'nominal_code_id');
+    }
+
+    public function invoiceCreditLines()
+    {
+        return $this->hasMany(AccountsInvoiceCreditLine::class, 'invoice_credit_line_nominal_code', 'nominal_code_id');
     }
 }

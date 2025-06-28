@@ -21,6 +21,7 @@ class CertificateType extends Model
         'certificate_type_property_field',
     ];
 
+    // Relationships --done
     public function certificateDevelopments()
     {
         return $this->hasMany(CertificateDevelopment::class, 'certificate_type', 'certificate_type_id');

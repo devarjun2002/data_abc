@@ -21,6 +21,7 @@ class PropertyLandlord extends Model
         'landlord_invoicing',
     ];
 
+    // Relationships --done
     public function property()
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
@@ -28,6 +29,6 @@ class PropertyLandlord extends Model
 
     public function landlord()
     {
-        return $this->belongsTo(Landlord::class, 'landlord_id', 'landlord_id');
+        return $this->belongsTo(Landlord::class, 'property_landlord_id', 'landlord_id');
     }
 }

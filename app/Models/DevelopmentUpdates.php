@@ -23,14 +23,14 @@ class DevelopmentUpdates extends Model
         'development_updates_created_by'
     ];
 
-    // Relationships
-    public function development(): BelongsTo
-    {
-        return $this->belongsTo(Development::class, 'development_updates_development_id', 'development_id');
-    }
-
-    public function createdBy(): BelongsTo
+    // Relationships --done
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'development_updates_created_by', 'employee_id');
+    }
+
+    public function development()
+    {
+        return $this->belongsTo(Development::class, 'development_updates_development_id', 'development_id');
     }
 }

@@ -18,7 +18,7 @@ class AnnualLeaveAccrualMethod extends Model
         'annual_leave_accrual_method_name',
     ];
 
-    // Relationships
+    // Relationships --done
     public function employees(): HasMany
     {
         return $this->hasMany(Employee::class, 'employee_annual_leave_accrual_method', 'annual_leave_accrual_method_id');

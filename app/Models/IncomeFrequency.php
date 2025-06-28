@@ -17,9 +17,4 @@ class IncomeFrequency extends Model
         'income_frequency_name',
         'income_frequency_sort'
     ];
-
-    public function guarantorIncomes()
-    {
-        return $this->hasMany(GuarantorIncome::class, 'income_frequency_id', 'income_frequency_id');
-    }
 }

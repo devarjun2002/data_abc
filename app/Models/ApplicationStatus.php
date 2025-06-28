@@ -20,7 +20,7 @@ class ApplicationStatus extends Model
         'application_status_archived'
     ];
 
-    // Relationships
+    // Relationships --done
     public function applications(): HasMany
     {
         return $this->hasMany(Application::class, 'application_status', 'application_status_id');

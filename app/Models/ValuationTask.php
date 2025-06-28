@@ -27,23 +27,19 @@ class ValuationTask extends Model
         'valuation_task_updated_by'
     ];
 
+    // Relationships --done
+    public function updatedBy()
+    {
+        return $this->belongsTo(Employee::class, 'valuation_task_updated_by');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(ValuationTaskStatus::class, 'valuation_task_status');
+    }
+
     public function valuation()
     {
-        return $this->belongsTo(Valuation::class, 'valuation_id', 'valuation_id');
-    }
-
-    public function valuation_task_status_old()
-    {
-        return $this->belongsTo(ValuationTaskStatus::class, 'valuation_task_status_old', 'valuation_task_status_id');
-    }
-
-    public function valuation_task_status()
-    {
-        return $this->belongsTo(ValuationTaskStatus::class, 'valuation_task_status_new', 'valuation_task_status_id');
-    }
-    
-    public function valuation_task_updated_by()
-    {
-        return $this->belongsTo(Employee::class, 'valuation_task_updated_by', 'employee_id');
+        return $this->belongsTo(Valuation::class, 'valuation_id');
     }
 }

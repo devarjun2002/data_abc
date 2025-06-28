@@ -21,8 +21,14 @@ class TenancyDepositContributor extends Model
         'tenancy_id'
     ];
 
-    public function tenancy()
+    // Relationships --done
+    public function tenancy(): BelongsTo
     {
         return $this->belongsTo(Tenancy::class, 'tenancy_id', 'tenancy_id');
+    }
+
+    public function title(): BelongsTo
+    {
+        return $this->belongsTo(Title::class, 'tenancy_deposit_contributor_title', 'title_id');
     }
 }

@@ -18,7 +18,7 @@ class ApplicantLeadSource extends Model
         'applicant_lead_source_name',
     ];
 
-    // Relationships
+    // Relationships --done
     public function applicants(): HasMany
     {
         return $this->hasMany(Applicant::class, 'applicant_lead_source', 'applicant_lead_source_id');

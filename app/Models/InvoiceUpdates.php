@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class InvoiceUpdates extends Model
 {
@@ -21,4 +22,15 @@ class InvoiceUpdates extends Model
         'invoice_updates_date_created',
         'invoice_updates_created_by'
     ];
+
+    // Relationships --done
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'invoice_updates_created_by', 'employee_id');
+    }
+
+    public function invoice(): BelongsTo
+    {
+        return $this->belongsTo(AccountsInvoice::class, 'invoice_updates_invoice_id', 'invoice_id');
+    }
 }

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class LocalAuthority extends Model
 {
@@ -32,14 +34,9 @@ class LocalAuthority extends Model
         'local_authority_selective_licencing_email_address'
     ];
 
-    // Relationships
-    public function country()
+    // Relationships --done
+    public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class, 'local_authority_country', 'country_id');
-    }
-
-    public function wards()
-    {
-        return $this->hasMany(LocalAuthorityWard::class, 'local_authority_id', 'local_authority_id');
     }
 }

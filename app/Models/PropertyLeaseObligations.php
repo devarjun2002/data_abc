@@ -17,10 +17,4 @@ class PropertyLeaseObligations extends Model
     protected $fillable = [
         'property_lease_obligations_name',
     ];
-
-    // Relationships
-    public function properties(): HasMany
-    {
-        return $this->hasMany(Property::class, 'property_lease_obligations', 'property_lease_obligations_id');
-    }
 }

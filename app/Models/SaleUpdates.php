@@ -33,6 +33,7 @@ class SaleUpdates extends Model
         'sale_updates_created_by'
     ];
 
+    // Relationships --done
     public function sale(): BelongsTo {
         return $this->belongsTo(Sale::class, 'sale_updates_sale_id', 'sale_id');
     }

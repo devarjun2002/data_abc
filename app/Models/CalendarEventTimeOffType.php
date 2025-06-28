@@ -17,6 +17,7 @@ class CalendarEventTimeOffType extends Model
         'calendar_event_time_off_type_name'
     ];
 
+    // Relationships --done
     public function events()
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_time_off_type', 'calendar_event_time_off_type_id');

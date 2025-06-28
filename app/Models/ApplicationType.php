@@ -18,6 +18,7 @@ class ApplicationType extends Model
         'application_type_name',
     ];
 
+    // Relationships --done
     public function applications(): HasMany
     {
         return $this->hasMany(Application::class, 'application_type', 'application_type_id');

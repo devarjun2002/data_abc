@@ -16,9 +16,4 @@ class Gender extends Model
     protected $fillable = [
         'gender_name'
     ];
-
-    public function applicants()
-    {
-        return $this->hasMany(Applicant::class, 'gender_id', 'gender_id');
-    }
 }

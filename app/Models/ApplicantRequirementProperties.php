@@ -22,20 +22,4 @@ class ApplicantRequirementProperties extends Model
         'property_id',
         'arp_date_created',
     ];
-
-    // Relationships
-    public function requirement(): BelongsTo
-    {
-        return $this->belongsTo(ApplicantRequirement::class, 'applicant_requirement_properties_requirement_id', 'applicant_requirement_id');
-    }
-
-    public function property(): BelongsTo
-    {
-        return $this->belongsTo(Property::class, 'applicant_requirement_properties_property_id', 'property_id');
-    }
-
-    public function createdBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'applicant_requirement_properties_created_by', 'employee_id');
-    }
 }

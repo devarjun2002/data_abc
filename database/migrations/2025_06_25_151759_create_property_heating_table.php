@@ -10,8 +10,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('property_heating', function (Blueprint $table) {
-            $table->integer('property_heating_id')->nullable();
-            $table->primary('property_heating_id');
+            $table->id('property_heating_id');
             $table->string('property_heating_name', 30)->nullable();
         });
     }

@@ -19,7 +19,7 @@ class AccountsTransactionType extends Model
         'transaction_type_statement_name'
     ];
 
-    // Relationships
+    // Relationships --done
     public function transactions(): HasMany
     {
         return $this->hasMany(AccountsTransaction::class, 'transaction_type', 'transaction_type_id');

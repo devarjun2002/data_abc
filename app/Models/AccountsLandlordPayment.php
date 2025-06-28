@@ -31,7 +31,7 @@ class AccountsLandlordPayment extends Model
         'landlord_payment_updated_by'
     ];
 
-    // Relationships
+    // Relationships --done
     public function tenancy(): BelongsTo
     {
         return $this->belongsTo(Tenancy::class, 'landlord_payment_tenancy_id', 'tenancy_id');

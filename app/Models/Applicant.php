@@ -75,15 +75,25 @@ class Applicant extends Model
         'applicant_updated_by'
     ];
 
-    // Relationships
-    public function type(): BelongsTo
+    // Relationships --done
+    public function branch(): BelongsTo
     {
-        return $this->belongsTo(ApplicantType::class, 'applicant_type', 'applicant_type_id');
+        return $this->belongsTo(Branch::class, 'applicant_branch', 'branch_id');
     }
 
-    public function subType(): BelongsTo
+    public function createdBy(): BelongsTo 
     {
-        return $this->belongsTo(ApplicantSubType::class, 'applicant_sub_type', 'applicant_sub_type_id');
+        return $this->belongsTo(Employee::class, 'applicant_created_by', 'employee_id');
+    }
+
+    public function valuation(): BelongsTo
+    {
+        return $this->belongsTo(Valuation::class, 'applicant_referral_valuation', 'valuation_id');
+    }
+
+    public function customerType(): BelongsTo
+    {
+        return $this->belongsTo(CustomerType::class, 'applicant_sub_type', 'customer_type_id');
     }
 
     public function title(): BelongsTo
@@ -91,34 +101,24 @@ class Applicant extends Model
         return $this->belongsTo(Title::class, 'applicant_title', 'title_id');
     }
 
-    public function country(): BelongsTo
+    public function bodyType(): BelongsTo
     {
-        return $this->belongsTo(Country::class, 'applicant_country', 'country_id');
+        return $this->belongsTo(BodyType::class, 'applicant_type', 'body_type_id');
     }
 
-    public function branch(): BelongsTo
+    public function updatedBy(): BelongsTo
     {
-        return $this->belongsTo(Branch::class, 'applicant_branch', 'branch_id');
+        return $this->belongsTo(Employee::class, 'applicant_updated_by', 'employee_id');
     }
 
-    public function purchaseType(): BelongsTo
+    public function saleFinance(): BelongsTo
     {
-        return $this->belongsTo(PurchaseType::class, 'applicant_purchase_type', 'purchase_type_id');
+        return $this->belongsTo(SaleFinance::class, 'applicant_purchase_finance', 'sale_finance_id');
     }
 
-    public function purchaseChainStatus(): BelongsTo
+    public function propertyOfferSaleType(): BelongsTo
     {
-        return $this->belongsTo(PurchaseChainStatus::class, 'applicant_purchase_chain_status', 'purchase_chain_status_id');
-    }
-
-    public function referralValuation(): BelongsTo
-    {
-        return $this->belongsTo(Directory::class, 'applicant_referral_valuation', 'directory_id');
-    }
-
-    public function source(): BelongsTo
-    {
-        return $this->belongsTo(ApplicantSource::class, 'applicant_source', 'applicant_source_id');
+        return $this->belongsTo(PropertyOfferSaleType::class, 'applicant_purchase_type', 'property_offer_sale_type_id');
     }
 
     public function leadSource(): BelongsTo
@@ -131,40 +131,15 @@ class Applicant extends Model
         return $this->belongsTo(Employee::class, 'applicant_negotiator', 'employee_id');
     }
 
-    public function createdBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'applicant_created_by', 'employee_id');
-    }
-
-    public function updatedBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'applicant_updated_by', 'employee_id');
-    }
-
     // Reverse relationships
     public function interestedApplicants(): HasMany
     {
         return $this->hasMany(InterestedApplicant::class, 'interested_applicant_applicant_id', 'applicant_id');
     }
 
-    public function applicationUpdates(): HasMany
-    {
-        return $this->hasMany(ApplicationUpdates::class, 'applicant_updates_applicant_id', 'applicant_id');
-    }
-
-    public function updates(): HasMany
-    {
-        return $this->hasMany(ApplicantUpdates::class, 'applicant_updates_applicant_id', 'applicant_id');
-    }
-
     public function requirements(): HasMany
     {
         return $this->hasMany(ApplicantRequirement::class, 'applicant_requirement_applicant_id', 'applicant_id');
-    }
-
-    public function propertyApplicants(): HasMany
-    {
-        return $this->hasMany(PropertyApplicant::class, 'applicant_id', 'applicant_id');
     }
 
     public function propertyOfferSaleApplicants(): HasMany

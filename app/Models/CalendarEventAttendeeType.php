@@ -18,10 +18,4 @@ class CalendarEventAttendeeType extends Model
         'calendar_event_attendee_type_name',
         'calendar_event_attendee_type_survey_name'
     ];
-
-    // Relationships
-    public function events(): HasMany
-    {
-        return $this->hasMany(CalendarEvent::class, 'calendar_event_attendee_type', 'calendar_event_attendee_type_id');
-    }
 }

@@ -17,7 +17,7 @@ class ValuationLeadSource extends Model
         'valuation_lead_source_name'
     ];
 
-    // Relationships
+    // Relationships --done
     public function valuations()
     {
         return $this->hasMany(Valuation::class, 'valuation_lead_source', 'valuation_lead_source_id');

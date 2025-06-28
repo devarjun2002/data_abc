@@ -16,9 +16,4 @@ class ValuationMeetingWith extends Model
     protected $fillable = [
         'valuation_meeting_with_name'
     ];
-
-    public function valuations()
-    {
-        return $this->hasMany(Valuation::class, 'valuation_meeting_with_id', 'valuation_meeting_with_id');
-    }
 }

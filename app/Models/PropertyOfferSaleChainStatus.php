@@ -18,6 +18,7 @@ class PropertyOfferSaleChainStatus extends Model
         'property_offer_sale_chain_status_sort',
     ];
 
+    // Relationships --done
     public function chains()
     {
         return $this->hasMany(PropertyOfferSaleChain::class, 'property_offer_sale_chain_status', 'property_offer_sale_chain_status_id');

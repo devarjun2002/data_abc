@@ -20,12 +20,9 @@ class BranchOpeningHours extends Model
         'branch_opening_hours_close_time'
     ];
 
+    // Relationships --done
     public function branch()
     {
         return $this->belongsTo(Branch::class, 'branch_id', 'branch_id');
-    }
-    public function day()
-    {
-        return $this->belongsTo(BranchOpeningHoursDay::class, 'branch_opening_hours_day', 'id');
     }
 }

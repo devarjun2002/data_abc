@@ -10,8 +10,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('property_room_dimension', function (Blueprint $table) {
-            $table->smallInteger('property_room_dimension_id')->nullable();
-            $table->primary('property_room_dimension_id');
+            $table->id('property_room_dimension_id');
             $table->string('property_room_dimension_name', 30)->nullable();
         });
     }

@@ -19,14 +19,9 @@ class AccountsPaymentTerm extends Model
         'accounts_payment_term_sort'
     ];
 
-    // Relationships
-    public function invoices(): HasMany
+    // Reverse relationships
+    public function invoices()
     {
         return $this->hasMany(AccountsInvoice::class, 'invoice_payment_terms', 'accounts_payment_term_id');
-    }
-
-    public function directories(): HasMany
-    {
-        return $this->hasMany(Directory::class, 'directory_payment_terms', 'accounts_payment_term_id');
     }
 }

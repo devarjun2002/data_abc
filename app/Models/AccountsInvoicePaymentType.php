@@ -17,4 +17,10 @@ class AccountsInvoicePaymentType extends Model
     protected $fillable = [
         'accounts_invoice_payment_type_name'
     ];
+
+    // Relationships --done
+    public function invoices(): HasMany
+    {
+        return $this->hasMany(AccountsInvoice::class, 'invoice_payment_type', 'accounts_invoice_payment_type_id');
+    }
 }

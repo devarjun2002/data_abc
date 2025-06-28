@@ -19,6 +19,7 @@ class BulkEmailRecipient extends Model
         'bulk_email_recipient_type',
     ];
 
+    // Relationships --done
     public function bulkEmail(): BelongsTo
     {
         return $this->belongsTo(BulkEmail::class, 'bulk_email_id', 'bulk_email_id');

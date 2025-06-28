@@ -185,462 +185,189 @@ class Valuation extends Model
         'valuation_legal_owner_contact_details'
     ];
 
-    // Relationships
-    public function propertyType(): BelongsTo
+    // Relationships --done
+    public function branch()
     {
-        return $this->belongsTo(PropertyType::class, 'valuation_property_type', 'property_type_id');
+        return $this->belongsTo(Branch::class, 'valuation_branch');
     }
 
-    public function propertyCategory(): BelongsTo
+    public function createdBy()
     {
-        return $this->belongsTo(PropertyCategory::class, 'valuation_property_category', 'property_category_id');
+        return $this->belongsTo(Employee::class, 'valuation_created_by');
     }
 
-    public function propertyAvailability(): BelongsTo
+    public function employee()
     {
-        return $this->belongsTo(PropertyAvailability::class, 'valuation_property_availability', 'property_availability_id');
+        return $this->belongsTo(Employee::class, 'valuation_employee');
     }
 
-    public function branch(): BelongsTo
+    public function homeAddressCountry()
     {
-        return $this->belongsTo(Branch::class, 'valuation_branch', 'branch_id');
+        return $this->belongsTo(Country::class, 'valuation_home_address_property_country');
     }
 
-    public function employee(): BelongsTo
+    public function lister()
     {
-        return $this->belongsTo(Employee::class, 'valuation_employee', 'employee_id');
+        return $this->belongsTo(Employee::class, 'valuation_lister');
     }
 
-    public function negotiator(): BelongsTo
+    public function negotiator()
     {
-        return $this->belongsTo(Employee::class, 'valuation_negotiator', 'employee_id');
+        return $this->belongsTo(Employee::class, 'valuation_negotiator');
     }
 
-    public function lister(): BelongsTo
+    public function propertyCategory()
     {
-        return $this->belongsTo(Employee::class, 'valuation_lister', 'employee_id');
+        return $this->belongsTo(PropertyCategory::class, 'valuation_property_category');
     }
 
-    public function photographer(): BelongsTo
+    public function propertyCountry()
     {
-        return $this->belongsTo(Employee::class, 'valuation_photographer', 'employee_id');
+        return $this->belongsTo(Country::class, 'valuation_property_country');
     }
 
-    public function createdBy(): BelongsTo
+    public function propertyType()
     {
-        return $this->belongsTo(Employee::class, 'valuation_created_by', 'employee_id');
+        return $this->belongsTo(PropertyType::class, 'valuation_property_type');
     }
 
-    public function updatedBy(): BelongsTo
+    public function title()
     {
-        return $this->belongsTo(Employee::class, 'valuation_updated_by', 'employee_id');
+        return $this->belongsTo(Title::class, 'valuation_title');
     }
 
-    public function leadSource(): BelongsTo
+    public function toLandlord()
     {
-        return $this->belongsTo(LeadSource::class, 'valuation_lead_source', 'lead_source_id');
+        return $this->belongsTo(Landlord::class, 'valuation_to_landlord');
     }
 
-    public function property(): BelongsTo
+    public function toProperty()
     {
-        return $this->belongsTo(Property::class, 'valuation_to_property', 'property_id');
+        return $this->belongsTo(Property::class, 'valuation_to_property');
     }
 
-    public function landlord(): BelongsTo
+    public function toVendor()
     {
-        return $this->belongsTo(Landlord::class, 'valuation_to_landlord', 'landlord_id');
+        return $this->belongsTo(Vendor::class, 'valuation_to_vendor');
     }
 
-    public function vendor(): BelongsTo
+    public function updatedBy()
     {
-        return $this->belongsTo(PropertyVendor::class, 'valuation_to_vendor', 'property_vendor_id');
+        return $this->belongsTo(Employee::class, 'valuation_updated_by');
     }
 
-    // Accessors
-    public function getFullNameAttribute(): string
+    public function valuer()
     {
-        return trim($this->valuation_first_name . ' ' . $this->valuation_surname);
+        return $this->belongsTo(Employee::class, 'valuation_valuer');
     }
 
-    public function getFullName2Attribute(): string
+    public function capacity()
     {
-        return trim($this->valuation_first_name_2 . ' ' . $this->valuation_surname_2);
+        return $this->belongsTo(Capacity::class, 'valuation_capacity');
     }
 
-    public function getFullName3Attribute(): string
+    public function propertyAvailability()
     {
-        return trim($this->valuation_first_name_3 . ' ' . $this->valuation_surname_3);
+        return $this->belongsTo(ValuationAvailability::class, 'valuation_property_availability');
     }
 
-    public function getFullName4Attribute(): string
+    public function priceQualifier()
     {
-        return trim($this->valuation_first_name_4 . ' ' . $this->valuation_surname_4);
+        return $this->belongsTo(PropertyPriceQualifier::class, 'valuation_price_qualifier');
     }
 
-    public function getHomeAddressAttribute(): string
+    public function status()
     {
-        $address = [];
-        
-        if ($this->valuation_home_address_property_apartment_number_name) {
-            $address[] = $this->valuation_home_address_property_apartment_number_name;
-        }
-        
-        if ($this->valuation_home_address_property_number_name) {
-            $address[] = $this->valuation_home_address_property_number_name;
-        }
-        
-        if ($this->valuation_home_address_property_address_line_1) {
-            $address[] = $this->valuation_home_address_property_address_line_1;
-        }
-        
-        if ($this->valuation_home_address_property_address_line_2) {
-            $address[] = $this->valuation_home_address_property_address_line_2;
-        }
-        
-        if ($this->valuation_home_address_property_suburb) {
-            $address[] = $this->valuation_home_address_property_suburb;
-        }
-        
-        if ($this->valuation_home_address_property_town_city) {
-            $address[] = $this->valuation_home_address_property_town_city;
-        }
-        
-        if ($this->valuation_home_address_property_postcode) {
-            $address[] = $this->valuation_home_address_property_postcode;
-        }
-        
-        return implode(', ', $address);
+        return $this->belongsTo(ValuationStatus::class, 'valuation_status');
     }
 
-    public function getPropertyAddressAttribute(): string
+    public function lostReason()
     {
-        $address = [];
-        
-        if ($this->valuation_property_apartment_number_name) {
-            $address[] = $this->valuation_property_apartment_number_name;
-        }
-        
-        if ($this->valuation_property_number_name) {
-            $address[] = $this->valuation_property_number_name;
-        }
-        
-        if ($this->valuation_property_address_line_1) {
-            $address[] = $this->valuation_property_address_line_1;
-        }
-        
-        if ($this->valuation_property_address_line_2) {
-            $address[] = $this->valuation_property_address_line_2;
-        }
-        
-        if ($this->valuation_property_suburb) {
-            $address[] = $this->valuation_property_suburb;
-        }
-        
-        if ($this->valuation_property_town_city) {
-            $address[] = $this->valuation_property_town_city;
-        }
-        
-        if ($this->valuation_property_postcode) {
-            $address[] = $this->valuation_property_postcode;
-        }
-        
-        return implode(', ', $address);
+        return $this->belongsTo(ValuationLostReason::class, 'valuation_lost_reason');
     }
 
-    public function getPriceRangeAttribute(): string
+    public function leadSource()
     {
-        if ($this->valuation_property_price_from && $this->valuation_property_price_to) {
-            return '£' . number_format($this->valuation_property_price_from, 0) . ' - £' . number_format($this->valuation_property_price_to, 0);
-        } elseif ($this->valuation_property_price_from) {
-            return '£' . number_format($this->valuation_property_price_from, 0) . '+';
-        } elseif ($this->valuation_property_price_to) {
-            return 'Up to £' . number_format($this->valuation_property_price_to, 0);
-        }
-        
-        return 'Price on application';
+        return $this->belongsTo(ValuationLeadSource::class, 'valuation_lead_source');
     }
 
-    public function getIsOverdueAttribute(): bool
+    public function occupancy()
     {
-        if (!$this->valuation_next_review_date) {
-            return false;
-        }
-        
-        return $this->valuation_next_review_date->isPast();
+        return $this->belongsTo(PropertyPossessionStatus::class, 'valuation_occupancy');
     }
 
-    public function getDaysUntilReviewAttribute(): int
+    public function reason()
     {
-        if (!$this->valuation_next_review_date) {
-            return 0;
-        }
-        
-        return $this->valuation_next_review_date->diffInDays(now(), false);
+        return $this->belongsTo(ValuationReason::class, 'valuation_reason');
     }
 
-    public function getPrimaryContactAttribute(): array
+    public function lostTo()
     {
-        return [
-            'title' => $this->valuation_title,
-            'first_name' => $this->valuation_first_name,
-            'surname' => $this->valuation_surname,
-            'full_name' => $this->full_name,
-            'email' => $this->valuation_email,
-            'phone_home' => $this->valuation_phone_home,
-            'phone_work' => $this->valuation_phone_work,
-            'phone_mobile' => $this->valuation_phone_mobile,
-            'capacity' => $this->valuation_capacity
-        ];
+        return $this->belongsTo(Directory::class, 'valuation_lost_to');
     }
 
-    public function getSecondaryContactsAttribute(): array
+    public function multiAgent()
     {
-        $contacts = [];
-        
-        if ($this->valuation_first_name_2 || $this->valuation_surname_2) {
-            $contacts[] = [
-                'title' => $this->valuation_title_2,
-                'first_name' => $this->valuation_first_name_2,
-                'surname' => $this->valuation_surname_2,
-                'full_name' => $this->full_name_2,
-                'email' => $this->valuation_email_2,
-                'phone_home' => $this->valuation_phone_home_2,
-                'phone_work' => $this->valuation_phone_work_2,
-                'phone_mobile' => $this->valuation_phone_mobile_2,
-                'capacity' => $this->valuation_capacity_2
-            ];
-        }
-        
-        if ($this->valuation_first_name_3 || $this->valuation_surname_3) {
-            $contacts[] = [
-                'title' => $this->valuation_title_3,
-                'first_name' => $this->valuation_first_name_3,
-                'surname' => $this->valuation_surname_3,
-                'full_name' => $this->full_name_3,
-                'email' => $this->valuation_email_3,
-                'phone_home' => $this->valuation_phone_home_3,
-                'phone_work' => $this->valuation_phone_work_3,
-                'phone_mobile' => $this->valuation_phone_mobile_3,
-                'capacity' => $this->valuation_capacity_3
-            ];
-        }
-        
-        if ($this->valuation_first_name_4 || $this->valuation_surname_4) {
-            $contacts[] = [
-                'title' => $this->valuation_title_4,
-                'first_name' => $this->valuation_first_name_4,
-                'surname' => $this->valuation_surname_4,
-                'full_name' => $this->full_name_4,
-                'email' => $this->valuation_email_4,
-                'phone_home' => $this->valuation_phone_home_4,
-                'phone_work' => $this->valuation_phone_work_4,
-                'phone_mobile' => $this->valuation_phone_mobile_4,
-                'capacity' => $this->valuation_capacity_4
-            ];
-        }
-        
-        return $contacts;
+        return $this->belongsTo(Directory::class, 'valuation_multi_agent');
     }
 
-    public function getPropertyDetailsAttribute(): array
+    public function photographer()
     {
-        return [
-            'type' => $this->propertyType,
-            'category' => $this->propertyCategory,
-            'availability' => $this->propertyAvailability,
-            'bedrooms' => $this->valuation_property_no_bedrooms,
-            'bathrooms' => $this->valuation_property_no_bathrooms,
-            'receptions' => $this->valuation_property_no_receptions,
-            'living_space' => $this->valuation_property_living_space,
-            'living_space_unit' => $this->valuation_property_living_space_unit,
-            'price_from' => $this->valuation_property_price_from,
-            'price_to' => $this->valuation_property_price_to,
-            'price_asking' => $this->valuation_property_price_asking,
-            'price_marketed' => $this->valuation_property_price_marketed,
-            'price_per_square_foot' => $this->valuation_price_per_square_foot,
-            'address' => $this->property_address
-        ];
+        return $this->belongsTo(Directory::class, 'valuation_photographer');
     }
 
-    // Scopes
-    public function scopeActive(Builder $query): Builder
+    public function lostSaleFeeType()
     {
-        return $query->where('valuation_status', '!=', 'cancelled');
+        return $this->belongsTo(FeeType::class, 'valuation_lost_sale_fee_type');
     }
 
-    public function scopeOverdue(Builder $query): Builder
+    public function saleFeeType()
     {
-        return $query->where('valuation_next_review_date', '<', now());
+        return $this->belongsTo(FeeType::class, 'valuation_sale_fee_type');
     }
 
-    public function scopeDueToday(Builder $query): Builder
+    public function tenantFindFeeType()
     {
-        return $query->whereDate('valuation_next_review_date', today());
+        return $this->belongsTo(FeeType::class, 'valuation_tenant_find_fee_type');
     }
 
-    public function scopeDueThisWeek(Builder $query): Builder
+    public function tenantFindWithManagementFeeType()
     {
-        return $query->whereBetween('valuation_next_review_date', [now(), now()->addWeek()]);
+        return $this->belongsTo(FeeType::class, 'valuation_tenant_find_with_management_fee_type');
     }
 
-    public function scopeByBranch(Builder $query, int $branchId): Builder
+    public function managementFeeType()
     {
-        return $query->where('valuation_branch', $branchId);
+        return $this->belongsTo(FeeType::class, 'valuation_management_fee_type');
     }
 
-    public function scopeByEmployee(Builder $query, int $employeeId): Builder
+    public function tenureType()
     {
-        return $query->where('valuation_employee', $employeeId);
+        return $this->belongsTo(PropertyTenureType::class, 'valuation_tenure_type');
     }
 
-    public function scopeByPropertyType(Builder $query, int $propertyTypeId): Builder
+    public function condition()
     {
-        return $query->where('valuation_property_type', $propertyTypeId);
+        return $this->belongsTo(ValuationCondition::class, 'valuation_condition');
     }
 
-    public function scopeByStatus(Builder $query, string $status): Builder
+    public function contractType()
     {
-        return $query->where('valuation_status', $status);
+        return $this->belongsTo(ContractType::class, 'valuation_contract_type');
     }
 
-    public function scopeWithPriceRange(Builder $query, float $minPrice = null, float $maxPrice = null): Builder
+    public function photographerAccess()
     {
-        if ($minPrice) {
-            $query->where('valuation_property_price_from', '>=', $minPrice);
-        }
-        
-        if ($maxPrice) {
-            $query->where('valuation_property_price_to', '<=', $maxPrice);
-        }
-        
-        return $query;
+        return $this->belongsTo(PropertyAccessArrangement::class, 'valuation_photographer_access');
     }
 
-    public function scopeRecent(Builder $query, int $days = 30): Builder
+    public function lettingService()
     {
-        return $query->where('valuation_date_created', '>=', now()->subDays($days));
+        return $this->belongsTo(LettingService::class, 'valuation_letting_service');
     }
 
-    public function scopeByLeadSource(Builder $query, int $leadSourceId): Builder
+    public function livingSpaceUnit()
     {
-        return $query->where('valuation_lead_source', $leadSourceId);
-    }
-
-    public function scopeWithProperty(Builder $query): Builder
-    {
-        return $query->whereNotNull('valuation_to_property');
-    }
-
-    public function scopeWithoutProperty(Builder $query): Builder
-    {
-        return $query->whereNull('valuation_to_property');
-    }
-
-    public function scopeMultiAgent(Builder $query): Builder
-    {
-        return $query->where('valuation_multi_agent', true);
-    }
-
-    public function scopeRequiresEpc(Builder $query): Builder
-    {
-        return $query->where('valuation_instruct_epc', true);
-    }
-
-    public function scopeRequiresVideo(Builder $query): Builder
-    {
-        return $query->where('valuation_instruct_video', true);
-    }
-
-    // Helper methods
-    public function isActive(): bool
-    {
-        return $this->valuation_status !== 'cancelled' && $this->valuation_status !== 'lost';
-    }
-
-    public function isOverdue(): bool
-    {
-        return $this->is_overdue;
-    }
-
-    public function markAsReviewed(): void
-    {
-        $this->update([
-            'valuation_next_review_date' => now()->addDays(30), // Default 30 days
-            'valuation_date_updated' => now()
-        ]);
-    }
-
-    public function assignToEmployee(int $employeeId): void
-    {
-        $this->update([
-            'valuation_employee' => $employeeId,
-            'valuation_date_updated' => now()
-        ]);
-    }
-
-    public function updateStatus(string $status, string $reason = null): void
-    {
-        $this->update([
-            'valuation_status' => $status,
-            'valuation_status_reason' => $reason,
-            'valuation_date_updated' => now()
-        ]);
-    }
-
-    // Mutators
-    public function setValuationEmailAttribute($value): void
-    {
-        $this->attributes['valuation_email'] = strtolower(trim($value));
-    }
-
-    public function setValuationEmail2Attribute($value): void
-    {
-        $this->attributes['valuation_email_2'] = strtolower(trim($value));
-    }
-
-    public function setValuationEmail3Attribute($value): void
-    {
-        $this->attributes['valuation_email_3'] = strtolower(trim($value));
-    }
-
-    public function setValuationEmail4Attribute($value): void
-    {
-        $this->attributes['valuation_email_4'] = strtolower(trim($value));
-    }
-
-    public function setValuationPhoneMobileAttribute($value): void
-    {
-        $this->attributes['valuation_phone_mobile'] = preg_replace('/[^0-9+]/', '', $value);
-    }
-
-    public function setValuationPhoneMobile2Attribute($value): void
-    {
-        $this->attributes['valuation_phone_mobile_2'] = preg_replace('/[^0-9+]/', '', $value);
-    }
-
-    public function setValuationPhoneMobile3Attribute($value): void
-    {
-        $this->attributes['valuation_phone_mobile_3'] = preg_replace('/[^0-9+]/', '', $value);
-    }
-
-    public function setValuationPhoneMobile4Attribute($value): void
-    {
-        $this->attributes['valuation_phone_mobile_4'] = preg_replace('/[^0-9+]/', '', $value);
-    }
-
-    // Boot method for model events
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($valuation) {
-            if (!$valuation->valuation_date_created) {
-                $valuation->valuation_date_created = now();
-            }
-        });
-
-        static::updating(function ($valuation) {
-            $valuation->valuation_date_updated = now();
-        });
+        return $this->belongsTo(PropertyAreaUnit::class, 'valuation_property_living_space_unit');
     }
 }

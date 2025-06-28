@@ -17,10 +17,4 @@ class ValuationStatus extends Model
         'valuation_status_name',
         'valuation_status_sort'
     ];
-
-    // Relationships
-    public function valuations()
-    {
-        return $this->hasMany(Valuation::class, 'valuation_status', 'valuation_status_id');
-    }
 }

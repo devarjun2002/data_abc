@@ -22,12 +22,13 @@ class LocalAuthorityBranchReference extends Model
         'local_authority_branch_reference',
     ];
 
-    public function localAuthority()
+    // Relationships --done
+    public function localAuthority(): BelongsTo
     {
         return $this->belongsTo(LocalAuthority::class, 'local_authority_id', 'local_authority_id');
     }
 
-    public function branch()
+    public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class, 'branch_id', 'branch_id');
     }

@@ -18,12 +18,7 @@ class PropertyCondition extends Model
         'property_condition_name',
     ];
 
-    // Relationships
-    public function properties(): HasMany
-    {
-        return $this->hasMany(Property::class, 'property_condition', 'property_condition_id');
-    }
-
+    // Relationships --done
     public function valuations(): HasMany
     {
         return $this->hasMany(Valuation::class, 'valuation_condition', 'property_condition_id');

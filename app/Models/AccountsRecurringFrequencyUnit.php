@@ -19,9 +19,7 @@ class AccountsRecurringFrequencyUnit extends Model
         'recurring_frequency_unit_sort'
     ];
 
-    /**
-     * Get the recurring invoices that use this frequency unit.
-     */
+    // Relationships --done
     public function recurringInvoices(): HasMany
     {
         return $this->hasMany(AccountsInvoiceRecurring::class, 'invoice_recurring_frequency_unit', 'recurring_frequency_unit_id');

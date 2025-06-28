@@ -16,6 +16,4 @@ class TenancyRentAgreement extends Model
     protected $fillable = [
         'tenancy_rent_agreement_name'
     ];
-
-    // Add relationships once related models are created
 }

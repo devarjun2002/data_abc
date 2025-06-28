@@ -23,13 +23,24 @@ class WorksLogStatus extends Model
         'works_date_updated',
     ];
 
-    public function works()
+    // Relationships --done
+    public function updatedBy()
     {
-        return $this->belongsTo(Works::class, 'works_id', 'works_id');
+        return $this->belongsTo(Employee::class, 'works_updated_by');
     }
 
-    public function works_status_old()
+    public function works()
     {
-        return $this->belongsTo(WorksStatus::class, 'works_status_old', 'works_status_id');
+        return $this->belongsTo(Works::class, 'works_id');
+    }
+
+    public function statusOld()
+    {
+        return $this->belongsTo(WorksStatus::class, 'works_status_old');
+    }
+
+    public function statusNew()
+    {
+        return $this->belongsTo(WorksStatus::class, 'works_status_new');
     }
 }

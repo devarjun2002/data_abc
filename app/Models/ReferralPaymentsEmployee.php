@@ -31,13 +31,23 @@ class ReferralPaymentsEmployee extends Model
     ];
 
     // Relationships
-    public function referralPayment(): BelongsTo
+    public function referral(): BelongsTo
     {
-        return $this->belongsTo(ReferralPayments::class, 'referral_payments_employee_referral_id', 'referral_payments_id');
+        return $this->belongsTo(Referral::class, 'referral_payments_employee_referral_id', 'referral_id');
     }
 
     public function employee(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'referral_payments_employee_employee_id', 'referral_payments_employee_employee_id');
+        return $this->belongsTo(Employee::class, 'referral_payments_employee_employee_id', 'employee_id');
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'referral_payments_employee_created_by', 'employee_id');
+    }
+
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'referral_payments_employee_updated_by', 'employee_id');
     }
 }

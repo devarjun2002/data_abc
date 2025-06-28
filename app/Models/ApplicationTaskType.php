@@ -17,24 +17,4 @@ class ApplicationTaskType extends Model
     protected $fillable = [
         'application_task_type_name',
     ];
-
-    public function tasks(): HasMany
-    {
-        return $this->hasMany(ApplicationTask::class, 'application_task_type', 'application_task_type_id');
-    }
-
-    public function taskDefaults(): HasMany
-    {
-        return $this->hasMany(ApplicationTaskDefaults::class, 'application_task_defaults_type', 'application_task_type_id');
-    }
-
-    public function createdBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'application_task_type_created_by', 'employee_id');
-    }
-
-    public function updatedBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'application_task_type_updated_by', 'employee_id');
-    }
 }

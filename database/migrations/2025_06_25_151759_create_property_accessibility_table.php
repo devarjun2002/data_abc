@@ -10,8 +10,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('property_accessibility', function (Blueprint $table) {
-            $table->integer('property_accessibility_id')->nullable();
-            $table->primary('property_accessibility_id');
+            $table->id('property_accessibility_id');
             $table->string('property_accessibility_name', 40)->nullable();
         });
     }

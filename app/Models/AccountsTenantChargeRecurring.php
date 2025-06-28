@@ -33,7 +33,7 @@ class AccountsTenantChargeRecurring extends Model
         'tenant_charge_recurring_updated_by'
     ];
 
-    // Relationships
+    // Relationships --done
     public function tenantCharge(): BelongsTo
     {
         return $this->belongsTo(AccountsTenantCharge::class, 'tenant_charge_recurring_tenant_charge_id', 'tenant_charge_id');
@@ -57,5 +57,11 @@ class AccountsTenantChargeRecurring extends Model
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'tenant_charge_recurring_updated_by', 'employee_id');
+    }
+
+    // Reverse relationships
+    public function tenantChargePayments(): HasMany
+    {
+        return $this->hasMany(AccountsTenantChargePayment::class, 'tenant_charge_payment_id', 'tenant_charge_id');
     }
 }

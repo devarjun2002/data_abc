@@ -42,42 +42,7 @@ class AccountsTransaction extends Model
         'transaction_updated_by'
     ];
 
-    // Relationships
-    public function nominalCode(): BelongsTo
-    {
-        return $this->belongsTo(AccountsNominalCode::class, 'transaction_nominal_code', 'nominal_code_id');
-    }
-
-    public function transactionType(): BelongsTo
-    {
-        return $this->belongsTo(AccountsTransactionType::class, 'transaction_type', 'transaction_type_id');
-    }
-
-    public function customerType(): BelongsTo
-    {
-        return $this->belongsTo(CustomerType::class, 'transaction_customer_type', 'customer_type_id');
-    }
-
-    public function customer(): BelongsTo
-    {
-        return $this->belongsTo(Directory::class, 'transaction_customer', 'directory_id');
-    }
-
-    public function property(): BelongsTo
-    {
-        return $this->belongsTo(Property::class, 'transaction_property', 'property_id');
-    }
-
-    public function development(): BelongsTo
-    {
-        return $this->belongsTo(Development::class, 'transaction_development', 'development_id');
-    }
-
-    public function tenancy(): BelongsTo
-    {
-        return $this->belongsTo(Tenancy::class, 'transaction_tenancy', 'tenancy_id');
-    }
-
+    // Relationships --done
     public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class, 'transaction_branch', 'branch_id');
@@ -86,6 +51,36 @@ class AccountsTransaction extends Model
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'transaction_created_by', 'employee_id');
+    }
+
+    public function customerType(): BelongsTo
+    {
+        return $this->belongsTo(CustomerType::class, 'transaction_customer_type', 'customer_type_id');
+    }
+
+    public function development(): BelongsTo
+    {
+        return $this->belongsTo(Development::class, 'transaction_development', 'development_id');
+    }
+
+    public function nominalCode(): BelongsTo
+    {
+        return $this->belongsTo(AccountsNominalCode::class, 'transaction_nominal_code', 'nominal_code_id');
+    }
+
+    public function property(): BelongsTo
+    {
+        return $this->belongsTo(Property::class, 'transaction_property', 'property_id');
+    }
+
+    public function tenancy(): BelongsTo
+    {
+        return $this->belongsTo(Tenancy::class, 'transaction_tenancy', 'tenancy_id');
+    }
+
+    public function transactionType(): BelongsTo
+    {
+        return $this->belongsTo(AccountsTransactionType::class, 'transaction_type', 'transaction_type_id');
     }
 
     public function updatedBy(): BelongsTo

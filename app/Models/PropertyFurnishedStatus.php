@@ -19,12 +19,7 @@ class PropertyFurnishedStatus extends Model
         'property_furnished_status_rightmove',
     ];
 
-    // Relationships
-    public function properties(): HasMany
-    {
-        return $this->hasMany(Property::class, 'property_furnished_status', 'property_furnished_status_id');
-    }
-
+    // Relationships --done
     public function propertyRoomLettings(): HasMany
     {
         return $this->hasMany(PropertyRoomLetting::class, 'property_room_letting_furnished', 'property_furnished_status_id');

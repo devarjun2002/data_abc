@@ -17,7 +17,7 @@ class DirectoryCommissionScheme extends Model
         'directory_commission_scheme_name'
     ];
 
-    // Relationships
+    // Relationships --done
     public function directories()
     {
         return $this->hasMany(Directory::class, 'directory_commission_scheme', 'directory_commission_scheme_id');

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class KeysTransactionDelet extends Model
 {
@@ -35,17 +36,18 @@ class KeysTransactionDelet extends Model
         'keys_transaction_updated_by',
     ];
 
-    public function property()
+    // Relationships --done
+    public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'keys_transaction_property', 'property_id');
     }
 
-    public function createdBy()
+    public function createdBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'keys_transaction_created_by', 'employee_id');
     }
 
-    public function updatedBy()
+    public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'keys_transaction_updated_by', 'employee_id');
     }

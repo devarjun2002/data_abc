@@ -19,7 +19,7 @@ class CalendarEventInspectionType extends Model
         'calendar_event_inspection_type_sort',
     ];
 
-    // Relationships
+    // Relationships --done
     public function events(): HasMany
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_inspection_type', 'calendar_event_inspection_type_id');

@@ -18,8 +18,9 @@ class WorksStatus extends Model
         'works_status_sort'
     ];
 
+    // Relationships --done
     public function works()
     {
-        return $this->hasMany(Works::class, 'works_status');
+        return $this->hasMany(Works::class, 'works_status', 'works_status_id');
     }
 }

@@ -18,6 +18,7 @@ class SaleTaskType extends Model
         'sale_task_type_name',
     ];
 
+    // Relationships --done
     public function tasks(): HasMany {
         return $this->hasMany(SaleTask::class, 'sale_task_type', 'sale_task_type_id');
     }

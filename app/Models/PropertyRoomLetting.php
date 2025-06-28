@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PropertyRoomLetting extends Model
 {
@@ -31,23 +31,39 @@ class PropertyRoomLetting extends Model
         'property_room_letting_profession',
     ];
 
+    // Relationships --done
+    public function property(): BelongsTo
+    {
+        return $this->belongsTo(Property::class, 'property_id', 'property_id');
+    }
+
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(PropertyStatus::class, 'property_room_letting_status', 'property_status_id');
+    }
+
     public function rentFrequency(): BelongsTo
     {
         return $this->belongsTo(PropertyRentFrequency::class, 'property_room_letting_rent_frequency', 'property_rent_frequency_id');
     }
 
-    public function rents(): HasMany
+    public function size(): BelongsTo
     {
-        return $this->hasMany(PropertyRoomLettingRent::class, 'property_room_letting_id', 'property_room_letting_id');
+        return $this->belongsTo(PropertyRoomLettingSize::class, 'property_room_letting_size', 'property_room_letting_size_id');
     }
 
-    public function files(): HasMany
+    public function floor(): BelongsTo
     {
-        return $this->hasMany(PropertyRoomLettingFiles::class, 'property_room_letting_id', 'property_room_letting_id');
+        return $this->belongsTo(PropertyFloor::class, 'property_room_letting_floor', 'property_floor_id');
     }
 
-    public function statusHistories(): HasMany
+    public function furnished(): BelongsTo
     {
-        return $this->hasMany(PropertyRoomLettingStatusHistory::class, 'property_room_letting_id', 'property_room_letting_id');
+        return $this->belongsTo(PropertyFurnishedStatus::class, 'property_room_letting_furnished', 'property_furnished_status_id');
+    }
+
+    public function gender(): BelongsTo
+    {
+        return $this->belongsTo(Gender::class, 'property_room_letting_gender', 'gender_id');
     }
 }

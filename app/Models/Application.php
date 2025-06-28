@@ -92,10 +92,45 @@ class Application extends Model
         'application_can_physically_view'
     ];
 
-    // Relationships
+    // Relationships --done
+    public function accountantTitle(): BelongsTo
+    {
+        return $this->belongsTo(Title::class, 'application_accountant_title', 'title_id');
+    }
+
+    public function bank(): BelongsTo 
+    {
+        return $this->belongsTo(Bank::class, 'application_bank_name', 'bank_id');
+    }
+
+    public function employee(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'application_employee', 'employee_id');
+    }
+
     public function property(): BelongsTo
     {
-        return $this->belongsTo(Property::class, 'application_property_id', 'property_id');
+        return $this->belongsTo(Property::class, 'application_property', 'property_id');
+    }
+
+    public function solicitorTitle(): BelongsTo
+    {
+        return $this->belongsTo(Title::class, 'application_solicitor_title', 'title_id');
+    }
+
+    public function trade2Title(): BelongsTo
+    {
+        return $this->belongsTo(Title::class, 'application_trade2_title', 'title_id');
+    }
+
+    public function tradeTitle(): BelongsTo
+    {
+        return $this->belongsTo(Title::class, 'application_trade_title', 'title_id');
+    }
+
+    public function propertyRoom(): BelongsTo
+    {
+        return $this->belongsTo(PropertyRoomLetting::class, 'application_property_room', 'property_room_letting_id');
     }
 
     public function status(): BelongsTo
@@ -106,45 +141,5 @@ class Application extends Model
     public function type(): BelongsTo
     {
         return $this->belongsTo(ApplicationType::class, 'application_type', 'application_type_id');
-    }
-
-    public function tenancyLength(): BelongsTo
-    {
-        return $this->belongsTo(ApplicationTenancyLength::class, 'application_tenancy_length', 'application_tenancy_length_id');
-    }
-
-    public function branch(): BelongsTo
-    {
-        return $this->belongsTo(Branch::class, 'application_branch', 'branch_id');
-    }
-
-    public function createdBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'application_created_by', 'employee_id');
-    }
-
-    public function updatedBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'application_updated_by', 'employee_id');
-    }
-
-    public function applicants(): HasMany
-    {
-        return $this->hasMany(ApplicationApplicant::class, 'application_id', 'application_id');
-    }
-
-    public function guarantors(): HasMany
-    {
-        return $this->hasMany(ApplicationGuarantor::class, 'application_id', 'application_id');
-    }
-
-    public function tasks(): HasMany
-    {
-        return $this->hasMany(ApplicationTask::class, 'application_id', 'application_id');
-    }
-
-    public function updates(): HasMany
-    {
-        return $this->hasMany(ApplicationUpdates::class, 'application_updates_application_id', 'application_id');
     }
 }

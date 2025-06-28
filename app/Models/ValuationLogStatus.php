@@ -22,15 +22,4 @@ class ValuationLogStatus extends Model
         'valuation_updated_by',
         'valuation_date_updated'
     ];
-
-    public function valuation()
-    {
-        return $this->belongsTo(Valuation::class, 'valuation_id', 'valuation_id');
-    }
-
-    public function valuation_status_old()
-    {
-        return $this->belongsTo(ValuationStatus::class, 'valuation_status_old', 'valuation_status_id');
-    }
-    
 }

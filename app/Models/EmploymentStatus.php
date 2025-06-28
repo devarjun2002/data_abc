@@ -18,7 +18,7 @@ class EmploymentStatus extends Model
         'employment_status_name',
     ];
 
-    // Relationships
+    // Relationships --done
     public function applicationApplicants(): HasMany
     {
         return $this->hasMany(ApplicationApplicant::class, 'application_employment_status', 'employment_status_id');

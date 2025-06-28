@@ -18,10 +18,4 @@ class ApplicantChainStatus extends Model
         'applicant_chain_status_name',
         'applicant_chain_status_sort'
     ];
-
-    // Relationships
-    public function applicants(): HasMany
-    {
-        return $this->hasMany(Applicant::class, 'applicant_chain_status', 'applicant_chain_status_id');
-    }
 }

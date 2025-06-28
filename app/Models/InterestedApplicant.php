@@ -30,15 +30,15 @@ class InterestedApplicant extends Model
         'interested_applicant_updated_by'
     ];
 
-    // Relationships
+    // Relationships --done
     public function applicant(): BelongsTo
     {
         return $this->belongsTo(Applicant::class, 'interested_applicant_applicant_id', 'applicant_id');
     }
 
-    public function property(): BelongsTo
+    public function baseApplicant(): BelongsTo
     {
-        return $this->belongsTo(Property::class, 'interested_applicant_property_id', 'property_id');
+        return $this->belongsTo(Applicant::class, 'interested_applicant_id', 'applicant_id');
     }
 
     public function createdBy(): BelongsTo
@@ -51,8 +51,8 @@ class InterestedApplicant extends Model
         return $this->belongsTo(Employee::class, 'interested_applicant_updated_by', 'employee_id');
     }
 
-    public function updates(): HasMany
+    public function property(): BelongsTo
     {
-        return $this->hasMany(InterestedApplicantUpdates::class, 'interested_applicant_updates_interested_applicant_id', 'interested_applicant_id');
+        return $this->belongsTo(Property::class, 'interested_applicant_property', 'property_id');
     }
 }

@@ -25,6 +25,7 @@ class CertificateUpdates extends Model
         'certificate_updates_created_by'
     ];
 
+    // Relationships --done
     public function certificate()
     {
         return $this->belongsTo(Certificate::class, 'certificate_updates_certificate_id');

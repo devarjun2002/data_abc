@@ -10,8 +10,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('property_term_type', function (Blueprint $table) {
-            $table->integer('property_term_type_id')->nullable();
-            $table->primary('property_term_type_id');
+            $table->id('property_term_type_id');
             $table->string('property_term_type_name', 15)->nullable();
         });
     }

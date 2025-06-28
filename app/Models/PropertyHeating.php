@@ -21,7 +21,7 @@ class PropertyHeating extends Model
         'property_heating_name',
     ];
 
-    // Relationships
+    // Relationships --done
     public function propertyToHeating(): HasMany
     {
         return $this->hasMany(PropertyToHeating::class, 'property_heating_id', 'property_heating_id');

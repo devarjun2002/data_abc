@@ -18,11 +18,12 @@ class PropertyOfferSaleApplicants extends Model
         'applicant_id',
     ];
 
-    public function propertyOfferSale()
+    // Relationships --done
+    public function propertyOfferSale(): BelongsTo
     {
         return $this->belongsTo(PropertyOfferSale::class, 'property_offer_sale_id', 'property_offer_sale_id');
     }
-    public function applicant()
+    public function applicant(): BelongsTo
     {
         return $this->belongsTo(Applicant::class, 'applicant_id', 'applicant_id');
     }

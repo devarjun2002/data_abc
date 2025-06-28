@@ -24,8 +24,14 @@ class PropertyOfferSaleAttachments extends Model
         'property_offer_sale_attachments_created_by',
     ];
 
-    public function propertyOfferSale()
+    // Relationships --done
+    public function offerSale(): BelongsTo
     {
         return $this->belongsTo(PropertyOfferSale::class, 'property_offer_sale_id', 'property_offer_sale_id');
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'property_offer_sale_attachments_created_by', 'employee_id');
     }
 }

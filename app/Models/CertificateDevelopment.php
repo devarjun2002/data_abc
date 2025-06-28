@@ -35,12 +35,18 @@ class CertificateDevelopment extends Model
         'certificate_created_by',
     ];
 
+    // Relationships --done
+    public function createdBy()
+    {
+        return $this->belongsTo(Employee::class, 'certificate_created_by', 'employee_id');
+    }
+
     public function development()
     {
         return $this->belongsTo(Development::class, 'certificate_development', 'development_id');
     }
 
-    public function certificateType()
+    public function type()
     {
         return $this->belongsTo(CertificateType::class, 'certificate_type', 'certificate_type_id');
     }
@@ -48,25 +54,5 @@ class CertificateDevelopment extends Model
     public function renewalContractor()
     {
         return $this->belongsTo(Directory::class, 'certificate_renewal_contractor', 'directory_id');
-    }
-
-    public function renewalInstructedBy()
-    {
-        return $this->belongsTo(Employee::class, 'certificate_renewal_instructed_by', 'employee_id');
-    }
-
-    public function createdBy()
-    {
-        return $this->belongsTo(Employee::class, 'certificate_created_by', 'employee_id');
-    }
-
-    public function files()
-    {
-        return $this->hasMany(CertificateDevelopmentFiles::class, 'certificate_development_files_certificate_id', 'certificate_id');
-    }
-
-    public function updates()
-    {
-        return $this->hasMany(CertificateUpdatesDevelopment::class, 'certificate_updates_development_certificate_id', 'certificate_id');
     }
 }

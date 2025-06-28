@@ -27,4 +27,15 @@ class Task extends Model
         'task_date_created',
         'task_created_by'
     ];
+
+    // Relationships --done
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'task_created_by', 'employee_id');
+    }
+
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(TaskStatus::class, 'task_status', 'task_status_id');
+    }
 }

@@ -18,7 +18,7 @@ class AccountsTenantChargePaymentType extends Model
         'accounts_tenant_charge_payment_type_name'
     ];
 
-    // Relationships
+    // Relationships --done
     public function tenantChargePayments(): HasMany
     {
         return $this->hasMany(AccountsTenantChargePayment::class, 'accounts_tenant_charge_payment_type', 'accounts_tenant_charge_payment_type_id');

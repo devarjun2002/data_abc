@@ -17,7 +17,7 @@ class DirectoryStatus extends Model
         'directory_status_name'
     ];
 
-    // Relationships
+    // Relationships --done
     public function directories()
     {
         return $this->hasMany(Directory::class, 'directory_status', 'directory_status_id');

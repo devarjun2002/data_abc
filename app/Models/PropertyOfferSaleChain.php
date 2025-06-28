@@ -39,16 +39,39 @@ class PropertyOfferSaleChain extends Model
         'property_offer_sale_chain_updated_by',
     ];
 
-    public function propertyOfferSale()
+    // Relationships --done
+    public function saleOffer(): BelongsTo
     {
         return $this->belongsTo(PropertyOfferSale::class, 'property_offer_sale_id', 'property_offer_sale_id');
     }
-    public function position()
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'property_offer_sale_chain_created_by', 'employee_id');
+    }
+
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'property_offer_sale_chain_updated_by', 'employee_id');
+    }
+
+    public function position(): BelongsTo
     {
         return $this->belongsTo(PropertyOfferSaleChainPosition::class, 'property_offer_sale_chain_position', 'property_offer_sale_chain_position_id');
     }
-    public function status()
+
+    public function status(): BelongsTo
     {
         return $this->belongsTo(PropertyOfferSaleChainStatus::class, 'property_offer_sale_chain_status', 'property_offer_sale_chain_status_id');
+    }
+
+    public function vendorProperty(): BelongsTo
+    {
+        return $this->belongsTo(Property::class, 'property_offer_vendor_property_id', 'property_id');
+    }
+
+    public function buyerProperty(): BelongsTo
+    {
+        return $this->belongsTo(Property::class, 'property_offer_buyer_property_id', 'property_id');
     }
 }

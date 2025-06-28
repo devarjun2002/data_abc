@@ -37,7 +37,7 @@ class CalendarEventViewing extends Model
         'calendar_event_viewing_updated_by'
     ];
 
-    // Relationships
+    // Relationships --done
     public function event(): BelongsTo
     {
         return $this->belongsTo(CalendarEvent::class, 'calendar_event_viewing_calendar_event_id', 'calendar_event_id');

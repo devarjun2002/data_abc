@@ -18,8 +18,14 @@ class PropertyToParking extends Model
         'property_parking_id',
     ];
 
+    // Relationships --done
     public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
+    }
+
+    public function parking(): BelongsTo
+    {
+        return $this->belongsTo(PropertyParking::class, 'property_parking_id', 'property_parking_id');
     }
 }

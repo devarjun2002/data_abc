@@ -34,6 +34,7 @@ class SaleTask extends Model
         'sale_task_updated_by'
     ];
 
+    // Relationships --done
     public function sale(): BelongsTo {
         return $this->belongsTo(Sale::class, 'sale_id', 'sale_id');
     }

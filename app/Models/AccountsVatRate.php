@@ -22,7 +22,7 @@ class AccountsVatRate extends Model
         'vat_rate_external_id'
     ];
 
-    // Reverse relationships
+    // Reverse relationships --done
     public function bacsFiles(): HasMany
     {
         return $this->hasMany(AccountsBacsFile::class, 'bacs_file_vat_rate', 'vat_rate_id');
@@ -41,5 +41,10 @@ class AccountsVatRate extends Model
     public function invoiceLines(): HasMany
     {
         return $this->hasMany(AccountsInvoiceLine::class, 'invoice_line_vat_rate', 'vat_rate_id');
+    }
+
+    public function invoiceCreditLines()
+    {
+        return $this->hasMany(AccountsInvoiceCreditLine::class, 'invoice_credit_line_vat_rate', 'vat_rate_id');
     }
 }

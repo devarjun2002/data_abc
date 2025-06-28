@@ -19,6 +19,7 @@ class SaleBuyers extends Model
         'sale_id',
     ];
 
+    // Relationships --done
     public function buyer(): BelongsTo {
         return $this->belongsTo(Buyer::class, 'buyer_id', 'buyer_id');
     }

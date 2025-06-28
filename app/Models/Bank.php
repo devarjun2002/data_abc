@@ -18,7 +18,7 @@ class Bank extends Model
         'bank_name'
     ];
 
-    // Relationships
+    // Relationships --done
     public function branchesCurrent(): HasMany
     {
         return $this->hasMany(Branch::class, 'branch_bank_name_current', 'bank_id');

@@ -62,45 +62,10 @@ class Guarantor extends Model
         'guarantor_branch'
     ];
 
-    // Relationships
-    public function title(): BelongsTo
-    {
-        return $this->belongsTo(Title::class, 'guarantor_title', 'title_id');
-    }
-
-    public function country(): BelongsTo
-    {
-        return $this->belongsTo(Country::class, 'guarantor_country', 'country_id');
-    }
-
+    // Relationships --done
     public function bank(): BelongsTo
     {
         return $this->belongsTo(Bank::class, 'guarantor_bank_name', 'bank_id');
-    }
-
-    public function createdBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'guarantor_created_by', 'employee_id');
-    }
-
-    public function updatedBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'guarantor_updated_by', 'employee_id');
-    }
-
-    public function employmentStatus(): BelongsTo
-    {
-        return $this->belongsTo(EmploymentStatus::class, 'guarantor_employment_status', 'employment_status_id');
-    }
-
-    public function incomeFrequency(): BelongsTo
-    {
-        return $this->belongsTo(IncomeFrequency::class, 'guarantor_income_frequency', 'income_frequency_id');
-    }
-
-    public function referencingProvider(): BelongsTo
-    {
-        return $this->belongsTo(DirectoryIndividual::class, 'guarantor_referencing_provider', 'directory_individual_id');
     }
 
     public function branch(): BelongsTo
@@ -108,14 +73,34 @@ class Guarantor extends Model
         return $this->belongsTo(Branch::class, 'guarantor_branch', 'branch_id');
     }
 
-    public function incomes(): HasMany
+    public function createdBy(): BelongsTo
     {
-        return $this->hasMany(GuarantorIncome::class, 'guarantor_income_guarantor_id', 'guarantor_id');
+        return $this->belongsTo(Employee::class, 'guarantor_created_by', 'employee_id');
     }
 
-    public function applications(): HasMany
+    public function title(): BelongsTo
     {
-        return $this->hasMany(ApplicationGuarantor::class, 'application_guarantor_guarantor_id', 'guarantor_id');
+        return $this->belongsTo(Title::class, 'guarantor_title', 'title_id');
+    }
+
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'guarantor_updated_by', 'employee_id');
+    }
+
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'guarantor_country', 'country_id');
+    }
+
+    public function employmentStatus(): BelongsTo
+    {
+        return $this->belongsTo(EmploymentStatus::class, 'guarantor_employment_status', 'employment_status_id');
+    }
+
+    public function referencingProvider(): BelongsTo
+    {
+        return $this->belongsTo(Directory::class, 'guarantor_referencing_provider', 'directory_id');
     }
 
     // Accessor for full name

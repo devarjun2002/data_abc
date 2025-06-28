@@ -50,24 +50,29 @@ class ApplicationApplicant extends Model
         'application_company_ro_post_code'
     ];
 
-    public function application(): BelongsTo
+    // Relationships --done
+    public function applicant(): BelongsTo
     {
-        return $this->belongsTo(Application::class, 'application_id', 'application_id');
+        return $this->belongsTo(Applicant::class, 'application_id', 'applicant_id');
     }
-    public function nationality(): BelongsTo
+
+    public function companyTitle(): BelongsTo
     {
-        return $this->belongsTo(Nationality::class, 'application_nationality', 'nationality_id');
+        return $this->belongsTo(Title::class, 'application_company_title', 'title_id');
     }
-    public function employmentStatus(): BelongsTo
-    {
-        return $this->belongsTo(EmploymentStatus::class, 'application_employment_status', 'employment_status_id');
-    }
+
     public function title(): BelongsTo
     {
         return $this->belongsTo(Title::class, 'application_title', 'title_id');
     }
-    public function companyTitle(): BelongsTo
+
+    public function nationality(): BelongsTo
     {
-        return $this->belongsTo(Title::class, 'application_company_title', 'title_id');
+        return $this->belongsTo(Nationality::class, 'application_nationality', 'nationality_id');
+    }
+
+    public function employmentStatus(): BelongsTo
+    {
+        return $this->belongsTo(EmploymentStatus::class, 'application_employment_status', 'employment_status_id');
     }
 }

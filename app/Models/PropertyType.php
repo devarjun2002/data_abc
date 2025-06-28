@@ -21,6 +21,7 @@ class PropertyType extends Model
         'property_type_active',
     ];
 
+    // Relationships --done
     public function properties(): HasMany
     {
         return $this->hasMany(Property::class, 'property_type', 'property_type_id');

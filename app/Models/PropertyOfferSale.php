@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PropertyOfferSale extends Model
 {
@@ -47,32 +48,49 @@ class PropertyOfferSale extends Model
         'property_offer_sale_updated_by',
     ];
 
-    public function offerSaleApplicants()
+    // Relationships --done
+    public function createdBy(): BelongsTo
     {
-        return $this->hasMany(PropertyOfferSaleApplicants::class, 'property_offer_sale_id', 'property_offer_sale_id');
+        return $this->belongsTo(Employee::class, 'property_offer_sale_created_by', 'employee_id');
     }
-    public function applicants()
+
+    public function employee(): BelongsTo
     {
-        return $this->belongsToMany(Applicant::class, 'property_offer_sale_applicants', 'property_offer_sale_id', 'applicant_id');
+        return $this->belongsTo(Employee::class, 'property_offer_sale_employee', 'employee_id');
     }
-    public function property()
+
+    public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'property_offer_sale_property', 'property_id');
     }
-    public function chains()
+
+    public function updatedBy(): BelongsTo
     {
-        return $this->hasMany(PropertyOfferSaleChain::class, 'property_offer_sale_id', 'property_offer_sale_id');
+        return $this->belongsTo(Employee::class, 'property_offer_sale_updated_by', 'employee_id');
     }
-    public function logStatuses()
+
+    public function finance(): BelongsTo
     {
-        return $this->hasMany(PropertyOfferSaleLogStatus::class, 'property_offer_sale_id', 'property_offer_sale_id');
+        return $this->belongsTo(SaleFinance::class, 'property_offer_sale_finance', 'sale_finance_id');
     }
-    public function updates()
+
+    public function offerType(): BelongsTo
     {
-        return $this->hasMany(PropertyOfferSaleUpdates::class, 'property_offer_sale_updates_property_offer_sale_id', 'property_offer_sale_id');
+        return $this->belongsTo(PropertyOfferSaleType::class, 'property_offer_sale_type', 'property_offer_sale_type_id');
     }
-    public function attachments()
+
+    public function surveyStatus(): BelongsTo
     {
-        return $this->hasMany(PropertyOfferSaleAttachments::class, 'property_offer_sale_id', 'property_offer_sale_id');
+        return $this->belongsTo(SurveyStatus::class, 'property_offer_sale_survey', 'survey_status_id');
+    }
+
+    public function offerStatus(): BelongsTo
+    {
+        return $this->belongsTo(PropertyOfferStatus::class, 'property_offer_sale_status', 'property_offer_status_id');
+    }
+
+    public function revisedOffer(): BelongsTo
+    {
+        return $this->belongsTo(PropertyOfferSale::class, 'property_offer_sale_revised_offer_id', 'property_offer_sale_id');
     }
 }

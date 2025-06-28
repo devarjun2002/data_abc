@@ -19,9 +19,4 @@ class PropertyViewingLength extends Model
         'property_viewing_length_minutes',
         'property_viewing_length_sort',
     ];
-
-    public function properties(): BelongsTo
-    {
-        return $this->belongsTo(Property::class, 'property_viewing_length', 'property_viewing_length_id');
-    }
 }

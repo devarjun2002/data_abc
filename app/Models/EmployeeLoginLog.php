@@ -29,6 +29,7 @@ class EmployeeLoginLog extends Model
         'employee_login_log_updated_by'
     ];
 
+    // Relationships --done
     public function employee(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'employee_login_log_employee_id', 'employee_id');

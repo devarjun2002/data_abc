@@ -10,8 +10,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('property_tenure_type', function (Blueprint $table) {
-            $table->smallInteger('property_tenure_type_id')->nullable();
-            $table->primary('property_tenure_type_id');
+            $table->id('property_tenure_type_id');
             $table->string('property_tenure_type_name', 25)->nullable();
         });
     }

@@ -46,18 +46,44 @@ class Works extends Model
         'works_updated_by'
     ];
 
-    public function works_property()
+    // Relationships --done
+    public function createdBy()
     {
-        return $this->belongsTo(Property::class, 'works_property', 'property_id');
+        return $this->belongsTo(Employee::class, 'works_created_by');
     }
 
-    public function works_development()
+    public function updatedBy()
     {
-        return $this->belongsTo(Development::class, 'works_development', 'development_id');
+        return $this->belongsTo(Employee::class, 'works_updated_by');
     }
 
-    public function works_category()
+    public function development()
     {
-        return $this->belongsTo(WorksCategory::class, 'works_category', 'works_category_id');
+        return $this->belongsTo(Development::class, 'works_development');
+    }
+
+    public function property()
+    {
+        return $this->belongsTo(Property::class, 'works_property');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(WorksCategory::class, 'works_category');
+    }
+
+    public function contractor()
+    {
+        return $this->belongsTo(Directory::class, 'works_contractor');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(WorksStatus::class, 'works_status');
+    }
+
+    public function room()
+    {
+        return $this->belongsTo(WorksRoom::class, 'works_room');
     }
 }

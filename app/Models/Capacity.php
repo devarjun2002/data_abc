@@ -19,7 +19,7 @@ class Capacity extends Model
         'capacity_name_short'
     ];
 
-    // Relationships
+    // Relationships --done
     public function landlords(): HasMany
     {
         return $this->hasMany(Landlord::class, 'landlord_capacity', 'capacity_id');

@@ -29,6 +29,7 @@ class PropertyImages extends Model
         'floor_plan',
     ];
 
+    // Relationships --done
     public function property()
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');

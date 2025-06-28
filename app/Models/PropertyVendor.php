@@ -21,6 +21,7 @@ class PropertyVendor extends Model
         'vendor_official'
     ];
 
+    // Relationships --done
     public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
@@ -28,6 +29,6 @@ class PropertyVendor extends Model
 
     public function vendor(): BelongsTo
     {
-        return $this->belongsTo(Landlord::class, 'vendor_id', 'landlord_id');
+        return $this->belongsTo(Vendor::class, 'property_vendor_id', 'vendor_id');
     }
 }

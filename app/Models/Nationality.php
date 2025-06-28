@@ -18,7 +18,7 @@ class Nationality extends Model
         'nationality_name',
     ];
 
-    // Relationships
+    // Relationships --done
     public function applicationApplicants(): HasMany
     {
         return $this->hasMany(ApplicationApplicant::class, 'application_nationality', 'nationality_id');
@@ -27,11 +27,6 @@ class Nationality extends Model
     public function applicationGuarantors(): HasMany
     {
         return $this->hasMany(ApplicationGuarantor::class, 'application_guarantor_nationality', 'nationality_id');
-    }
-
-    public function applicants(): HasMany
-    {
-        return $this->hasMany(Applicant::class, 'nationality_id', 'nationality_id');
     }
 }
 

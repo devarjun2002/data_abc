@@ -61,15 +61,15 @@ class Employee extends Model
         'employee_email_default_new_valuation_arranged'
     ];
 
-    // Relationships
-    public function company(): BelongsTo
-    {
-        return $this->belongsTo(Company::class, 'company_id', 'company_id');
-    }
-
+    // Relationships --done
     public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class, 'employee_branch_id', 'branch_id');
+    }
+
+    public function defaultVehicle(): BelongsTo 
+    {
+        return $this->belongsTo(Vehicle::class, 'employee_default_vehicle_id', 'vehicle_id');
     }
 
     public function title(): BelongsTo
@@ -77,14 +77,24 @@ class Employee extends Model
         return $this->belongsTo(Title::class, 'employee_title', 'title_id');
     }
 
-    public function defaultVehicle(): BelongsTo
+    public function company(): BelongsTo
     {
-        return $this->belongsTo(Vehicle::class, 'employee_default_vehicle_id', 'vehicle_id');
+        return $this->belongsTo(Company::class, 'company_id', 'company_id');
     }
 
     public function lineManager(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'employee_line_manager', 'employee_id');
+    }
+
+    public function lineManagerAnnualLeave(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'employee_line_manager_annual_leave', 'employee_id');
+    }
+
+    public function lineManagerFirstLogin(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'employee_line_manager_first_login', 'employee_id');
     }
 
     public function annualLeaveCover(): BelongsTo
@@ -97,124 +107,39 @@ class Employee extends Model
         return $this->belongsTo(AnnualLeaveAccrualMethod::class, 'employee_annual_leave_accrual_method', 'annual_leave_accrual_method_id');
     }
 
-    public function permissions(): BelongsToMany
-    {
-        return $this->belongsToMany(EmployeePermissions::class, 'employee_to_permissions', 'employee_id', 'employee_permissions_id');
-    }
-
-    public function properties(): BelongsToMany
-    {
-        return $this->belongsToMany(Property::class, 'property_employee', 'employee_id', 'property_id');
-    }
-
-    public function roles(): BelongsToMany
-    {
-        return $this->belongsToMany(EmployeeRole::class, 'employee_to_role', 'employee_id', 'employee_role_id');
-    }
-
-    public function departments(): BelongsToMany
-    {
-        return $this->belongsToMany(EmployeeDepartment::class, 'employee_to_department', 'employee_id', 'employee_department_id');
-    }
-
-    public function loginLogs(): HasMany
-    {
-        return $this->hasMany(EmployeeLoginLog::class, 'employee_id', 'employee_id');
-    }
-
-    public function mileage(): HasMany
-    {
-        return $this->hasMany(EmployeeMileage::class, 'employee_id', 'employee_id');
-    }
-
-    public function toPermissions(): HasMany
-    {
-        return $this->hasMany(EmployeeToPermissions::class, 'employee_id', 'employee_id');
-    }
-
-    public function toRoles(): HasMany
-    {
-        return $this->hasMany(EmployeeToRole::class, 'employee_id', 'employee_id');
-    }
-
-    public function toDepartments(): HasMany
-    {
-        return $this->hasMany(EmployeeToDepartment::class, 'employee_id', 'employee_id');
-    }
-
-    // Reverse relationships
-    public function managedEmployees(): HasMany
-    {
-        return $this->hasMany(Employee::class, 'employee_line_manager', 'employee_id');
-    }
-
-    public function annualLeaveCoveredEmployees(): HasMany
-    {
-        return $this->hasMany(Employee::class, 'employee_annual_leave_cover', 'employee_id');
-    }
-
-    public function valuations(): HasMany
-    {
-        return $this->hasMany(Valuation::class, 'valuation_employee', 'employee_id');
-    }
-
-    public function negotiatedValuations(): HasMany
-    {
-        return $this->hasMany(Valuation::class, 'valuation_negotiator', 'employee_id');
-    }
-
-    public function createdInvoices(): HasMany
-    {
-        return $this->hasMany(AccountsInvoice::class, 'invoice_created_by', 'employee_id');
-    }
-
-    public function updatedInvoices(): HasMany
-    {
-        return $this->hasMany(AccountsInvoice::class, 'invoice_updated_by', 'employee_id');
-    }
-
-    public function postedInvoices(): HasMany
-    {
-        return $this->hasMany(AccountsInvoice::class, 'invoice_posted_by', 'employee_id');
-    }
-
-    public function createdInvoiceCredits(): HasMany
-    {
-        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_created_by', 'employee_id');
-    }
-
-    public function updatedInvoiceCredits(): HasMany
-    {
-        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_updated_by', 'employee_id');
-    }
-
-    public function postedInvoiceCredits(): HasMany
-    {
-        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_posted_by', 'employee_id');
-    }
-
-    public function createdTenantCharges(): HasMany
-    {
-        return $this->hasMany(AccountsTenantCharge::class, 'tenant_charge_created_by', 'employee_id');
-    }
-
-    public function updatedTenantCharges(): HasMany
-    {
-        return $this->hasMany(AccountsTenantCharge::class, 'tenant_charge_updated_by', 'employee_id');
-    }
-
-    public function createdBacsFiles(): HasMany
+    // Reverse relationships --done
+    public function bacsFilesCreated(): HasMany
     {
         return $this->hasMany(AccountsBacsFile::class, 'bacs_file_created_by', 'employee_id');
     }
 
-    public function createdDirectories(): HasMany
+    public function createdInvoices()
     {
-        return $this->hasMany(Directory::class, 'directory_created_by', 'employee_id');
+        return $this->hasMany(AccountsInvoice::class, 'invoice_created_by', 'employee_id');
     }
 
-    public function updatedDirectories(): HasMany
+    public function postedInvoices()
     {
-        return $this->hasMany(Directory::class, 'directory_updated_by', 'employee_id');
+        return $this->hasMany(AccountsInvoice::class, 'invoice_posted_by', 'employee_id');
+    }
+
+    public function updatedInvoices()
+    {
+        return $this->hasMany(AccountsInvoice::class, 'invoice_updated_by', 'employee_id');
+    }
+
+    public function createdInvoiceCredits()
+    {
+        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_created_by', 'employee_id');
+    }
+
+    public function postedInvoiceCredits()
+    {
+        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_posted_by', 'employee_id');
+    }
+
+    public function updatedInvoiceCredits()
+    {
+        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_updated_by', 'employee_id');
     }
 }

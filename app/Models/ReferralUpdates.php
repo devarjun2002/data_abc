@@ -26,6 +26,7 @@ class ReferralUpdates extends Model
         'referral_updates_created_by'
     ];
 
+    // Relationships --done
     public function referral(): BelongsTo
     {
         return $this->belongsTo(Referral::class, 'referral_updates_referral_id', 'referral_id');

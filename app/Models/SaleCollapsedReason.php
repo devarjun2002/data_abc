@@ -18,6 +18,7 @@ class SaleCollapsedReason extends Model
         'sale_collapsed_reason_name',
     ];
 
+    // Relationships --done
     public function sales(): HasMany {
         return $this->hasMany(Sale::class, 'sale_collapsed_reason_id', 'sale_collapsed_reason_id');
     }

@@ -17,10 +17,4 @@ class ApplicationDeclineReason extends Model
     protected $fillable = [
         'application_decline_reason_name',
     ];
-
-    // Relationships
-    public function applications(): HasMany
-    {
-        return $this->hasMany(Application::class, 'application_decline_reason', 'application_decline_reason_id');
-    }
 }

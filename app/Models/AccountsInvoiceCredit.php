@@ -40,49 +40,55 @@ class AccountsInvoiceCredit extends Model
         'invoice_credit_posted_by'
     ];
 
-    // Relationships
-    public function customerType()
-    {
-        return $this->belongsTo(CustomerType::class, 'invoice_credit_customer_type');
-    }
-
-    public function property()
-    {
-        return $this->belongsTo(Property::class, 'invoice_credit_property_id');
-    }
-
-    public function development()
-    {
-        return $this->belongsTo(Development::class, 'invoice_credit_development_id');
-    }
-
-    public function tenancy()
-    {
-        return $this->belongsTo(Tenancy::class, 'invoice_credit_tenancy_id');
-    }
-
+    // Relationships --done
     public function branch()
     {
-        return $this->belongsTo(Branch::class, 'invoice_credit_branch');
-    }
-
-    public function invoice()
-    {
-        return $this->belongsTo(AccountsInvoice::class, 'invoice_credit_invoice_id');
+        return $this->belongsTo(Branch::class, 'invoice_credit_branch', 'branch_id');
     }
 
     public function createdBy()
     {
-        return $this->belongsTo(Employee::class, 'invoice_credit_created_by');
+        return $this->belongsTo(Employee::class, 'invoice_credit_created_by', 'employee_id');
     }
 
-    public function updatedBy()
+    public function customerType()
     {
-        return $this->belongsTo(Employee::class, 'invoice_credit_updated_by');
+        return $this->belongsTo(CustomerType::class, 'invoice_credit_customer_type', 'customer_type_id');
+    }
+
+    public function development()
+    {
+        return $this->belongsTo(Development::class, 'invoice_credit_development_id', 'development_id');
+    }
+
+    public function invoice()
+    {
+        return $this->belongsTo(AccountsInvoice::class, 'invoice_credit_invoice_id', 'invoice_id');
     }
 
     public function postedBy()
     {
-        return $this->belongsTo(Employee::class, 'invoice_credit_posted_by');
+        return $this->belongsTo(Employee::class, 'invoice_credit_posted_by', 'employee_id');
+    }
+
+    public function property()
+    {
+        return $this->belongsTo(Property::class, 'invoice_credit_property_id', 'property_id');
+    }
+
+    public function tenancy()
+    {
+        return $this->belongsTo(Tenancy::class, 'invoice_credit_tenancy_id', 'tenancy_id');
+    }
+
+    public function updatedBy()
+    {
+        return $this->belongsTo(Employee::class, 'invoice_credit_updated_by', 'employee_id');
+    }
+
+    // Reverse relationships
+    public function invoiceCreditLines()
+    {
+        return $this->hasMany(AccountsInvoiceCreditLine::class, 'invoice_credit_id', 'invoice_credit_id');
     }
 }

@@ -21,7 +21,7 @@ class PropertyAccessibility extends Model
         'property_accessibility_name',
     ];
 
-    // Relationships
+    // Relationships --done
     public function propertyToAccessibilities(): HasMany
     {
         return $this->hasMany(PropertyToAccessibility::class, 'property_accessibility_id', 'property_accessibility_id');

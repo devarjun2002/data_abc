@@ -20,17 +20,7 @@ class PropertyRentFrequency extends Model
         'property_rent_frequency_short'
     ];
 
-    // Relationships
-    public function properties(): HasMany
-    {
-        return $this->hasMany(Property::class, 'property_rent_frequency', 'property_rent_frequency_id');
-    }
-
-    public function applications(): HasMany
-    {
-        return $this->hasMany(Application::class, 'application_rent_frequency', 'property_rent_frequency_id');
-    }
-
+    // Relationships --done
     public function propertyRoomLettings(): HasMany
     {
         return $this->hasMany(PropertyRoomLetting::class, 'property_room_letting_rent_frequency', 'property_rent_frequency_id');

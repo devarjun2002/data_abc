@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class KeysAdd extends Model
 {
@@ -26,4 +27,25 @@ class KeysAdd extends Model
         'keys_add_created_by',
         'keys_add_updated_by'
     ];
+
+    // Relationships --done
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'keys_add_created_by', 'employee_id');
+    }
+
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'keys_add_updated_by', 'employee_id');
+    }
+
+    public function property(): BelongsTo
+    {
+        return $this->belongsTo(Property::class, 'keys_add_property', 'property_id');
+    }
+
+    public function from(): BelongsTo
+    {
+        return $this->belongsTo(KeysAddFrom::class, 'keys_add_from', 'keys_add_from_id');
+    }
 }

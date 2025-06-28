@@ -18,9 +18,7 @@ class AlarmCodeType extends Model
         'alarm_code_type_name'
     ];
 
-    /**
-     * Get the alarm codes with this type.
-     */
+    // Relationships --done
     public function alarmCodes(): HasMany
     {
         return $this->hasMany(AlarmCode::class, 'alarm_code_type', 'alarm_code_type_id');

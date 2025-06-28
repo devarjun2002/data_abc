@@ -33,4 +33,30 @@ class PropertyTenancy extends Model
         'property_tenancy_public_notes',
         'property_tenancy_sort',
     ];
+
+    // Relationships --done
+    public function property(): BelongsTo
+    {
+        return $this->belongsTo(Property::class, 'property_id', 'property_id');
+    }
+
+    public function sizeUnit(): BelongsTo
+    {
+        return $this->belongsTo(PropertyAreaUnit::class, 'property_tenancy_size_unit', 'property_area_unit_id');
+    }
+
+    public function rentFrequency(): BelongsTo
+    {
+        return $this->belongsTo(TenancyRentFrequency::class, 'property_tenancy_rent_frequency', 'tenancy_rent_frequency_id');
+    }
+
+    public function ervFrequency(): BelongsTo
+    {
+        return $this->belongsTo(TenancyRentFrequency::class, 'property_tenancy_erv_frequency', 'tenancy_rent_frequency_id');
+    }
+
+    public function leaseType(): BelongsTo
+    {
+        return $this->belongsTo(LeaseType::class, 'property_tenancy_lease_type', 'lease_type_id');
+    }
 }

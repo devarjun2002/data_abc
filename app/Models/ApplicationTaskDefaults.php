@@ -23,23 +23,14 @@ class ApplicationTaskDefaults extends Model
         'application_task_defaults_sort'
     ];
 
-    public function taskType(): BelongsTo
+    // Relationships --done
+    public function type(): BelongsTo
     {
         return $this->belongsTo(ApplicationTaskType::class, 'application_task_defaults_type', 'application_task_type_id');
     }
 
-    public function taskStatus(): BelongsTo
+    public function status(): BelongsTo 
     {
         return $this->belongsTo(ApplicationTaskStatus::class, 'application_task_defaults_status', 'application_task_status_id');
-    }
-
-    public function createdBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'application_task_defaults_created_by', 'employee_id');
-    }
-
-    public function updatedBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'application_task_defaults_updated_by', 'employee_id');
     }
 }

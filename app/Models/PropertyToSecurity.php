@@ -18,11 +18,13 @@ class PropertyToSecurity extends Model
         'property_security_id',
     ];
 
+    // Relationships --done
     public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
     }
-    public function security()
+
+    public function security(): BelongsTo
     {
         return $this->belongsTo(PropertySecurity::class, 'property_security_id', 'property_security_id');
     }

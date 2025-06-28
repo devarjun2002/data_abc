@@ -19,6 +19,4 @@ class TenancyRentFrequency extends Model
         'tenancy_rent_frequency_description',
         'tenancy_rent_frequency_short'
     ];
-
-    // Add any relationships here if needed
 }

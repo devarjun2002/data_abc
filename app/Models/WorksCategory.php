@@ -18,6 +18,7 @@ class WorksCategory extends Model
         'works_category_sort',
     ];
 
+    // Relationships --done
     public function works()
     {
         return $this->hasMany(Works::class, 'works_category', 'works_category_id');

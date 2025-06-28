@@ -17,7 +17,7 @@ class FeeType extends Model
         'fee_type_name'
     ];
 
-    // Relationships
+    // Relationships --done
     public function vendorsSoleSale()
     {
         return $this->hasMany(Vendor::class, 'vendor_sole_sale_fee_type', 'fee_type_id');

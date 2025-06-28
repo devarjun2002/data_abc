@@ -25,12 +25,13 @@ class KeyTransactionUpdates extends Model
         'key_transaction_updates_created_by',
     ];
 
-    public function keysTransaction()
+    // Relationships --done
+    public function keysTransaction(): BelongsTo
     {
         return $this->belongsTo(KeysTransaction::class, 'key_transaction_updates_keys_transaction_id', 'keys_transaction_id');
     }
 
-    public function createdBy()
+    public function createdBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'key_transaction_updates_created_by', 'employee_id');
     }

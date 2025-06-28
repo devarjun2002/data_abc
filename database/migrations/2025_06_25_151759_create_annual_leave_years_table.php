@@ -10,8 +10,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('annual_leave_years', function (Blueprint $table) {
-            $table->string('annual_leave_years_year')->nullable();
-            $table->primary('annual_leave_years_year');
+            $table->id('annual_leave_years_year');
             $table->smallInteger('annual_leave_years_statutory_entitlement_days')->nullable();
         });
     }

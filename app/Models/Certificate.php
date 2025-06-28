@@ -33,39 +33,24 @@ class Certificate extends Model
         'certificate_created_by'
     ];
 
-    // Relationships
-    public function property()
-    {
-        return $this->belongsTo(Property::class, 'certificate_property', 'property_id');
-    }
-
-    public function certificateType()
-    {
-        return $this->belongsTo(CertificateType::class, 'certificate_type', 'certificate_type_id');
-    }
-
-    public function renewalContractor()
-    {
-        return $this->belongsTo(DirectoryIndividual::class, 'certificate_renewal_contractor', 'directory_individual_id');
-    }
-
-    public function renewalInstructedBy()
-    {
-        return $this->belongsTo(Employee::class, 'certificate_renewal_instructed_by', 'employee_id');
-    }
-
+    // Relationships --done
     public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'certificate_created_by', 'employee_id');
     }
 
-    public function files()
+    public function property()
     {
-        return $this->hasMany(CertificateFiles::class, 'certificate_files_certificate_id', 'certificate_id');
+        return $this->belongsTo(Property::class, 'certificate_property', 'property_id');
     }
 
-    public function updates()
+    public function type()
     {
-        return $this->hasMany(CertificateUpdates::class, 'certificate_updates_certificate_id', 'certificate_id');
+        return $this->belongsTo(CalendarEventType::class, 'certificate_type', 'calendar_event_type_id');
+    }
+
+    public function renewalContractor()
+    {
+        return $this->belongsTo(Directory::class, 'certificate_renewal_contractor', 'directory_id');
     }
 }

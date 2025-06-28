@@ -20,7 +20,7 @@ class Country extends Model
         'country_code',
     ];
 
-    // Relationships
+    // Relationships --done
     public function companies(): HasMany
     {
         return $this->hasMany(Company::class, 'company_country', 'country_id');

@@ -23,24 +23,14 @@ class CustomerType extends Model
         'customer_type_url_search_parameter'
     ];
 
-    // Relationships
-    public function applicants(): HasMany
+    // Reverse relationships --done
+    public function invoices()
     {
-        return $this->hasMany(Applicant::class, 'applicant_customer_type', 'customer_type_id');
+        return $this->hasMany(AccountsInvoice::class, 'invoice_customer_type', 'customer_type_id');
     }
 
-    public function landlords(): HasMany
+    public function invoiceCredits()
     {
-        return $this->hasMany(Landlord::class, 'landlord_customer_type', 'customer_type_id');
-    }
-
-    public function buyers(): HasMany
-    {
-        return $this->hasMany(Buyer::class, 'buyer_customer_type', 'customer_type_id');
-    }
-
-    public function vendors(): HasMany
-    {
-        return $this->hasMany(PropertyVendor::class, 'property_vendor_customer_type', 'customer_type_id');
+        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_customer_type', 'customer_type_id');
     }
 }

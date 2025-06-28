@@ -32,14 +32,15 @@ class ApplicationTask extends Model
         'application_task_updated_by'
     ];
 
+    // Relationships --done
+    public function employee(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'application_task_updated_by', 'employee_id');
+    }
+
     public function application(): BelongsTo
     {
         return $this->belongsTo(Application::class, 'application_id', 'application_id');
-    }
-
-    public function status(): BelongsTo
-    {
-        return $this->belongsTo(ApplicationTaskStatus::class, 'application_task_status', 'application_task_status_id');
     }
 
     public function type(): BelongsTo
@@ -47,13 +48,8 @@ class ApplicationTask extends Model
         return $this->belongsTo(ApplicationTaskType::class, 'application_task_type', 'application_task_type_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function status(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'application_task_created_by', 'employee_id');
-    }
-
-    public function updatedBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'application_task_updated_by', 'employee_id');
+        return $this->belongsTo(ApplicationTaskStatus::class, 'application_task_status', 'application_task_status_id');
     }
 }

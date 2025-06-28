@@ -28,15 +28,10 @@ class AlarmCodeDevelopment extends Model
         'alarm_code_created_by'
     ];
 
-    // Relationships
+    // Relationships --done
     public function development(): BelongsTo
     {
         return $this->belongsTo(Development::class, 'alarm_code_development', 'development_id');
-    }
-
-    public function type(): BelongsTo
-    {
-        return $this->belongsTo(AlarmCodeType::class, 'alarm_code_type', 'alarm_code_type_id');
     }
 
     public function createdBy(): BelongsTo

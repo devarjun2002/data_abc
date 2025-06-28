@@ -35,15 +35,15 @@ class AccountsTenantDepositCharge extends Model
         'tenant_deposit_charge_updated_by'
     ];
 
-    // Relationships
-    public function tenancy(): BelongsTo
-    {
-        return $this->belongsTo(Tenancy::class, 'tenant_deposit_charge_tenancy_id', 'tenancy_id');
-    }
-
+    // Relationships --done
     public function paymentTerms(): BelongsTo
     {
         return $this->belongsTo(AccountsPaymentTerm::class, 'tenant_deposit_charge_payment_terms', 'accounts_payment_term_id');
+    }
+
+    public function tenancy(): BelongsTo 
+    {
+        return $this->belongsTo(Tenancy::class, 'tenant_deposit_charge_tenancy_id', 'tenancy_id');
     }
 
     public function branch(): BelongsTo
@@ -59,11 +59,6 @@ class AccountsTenantDepositCharge extends Model
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'tenant_deposit_charge_updated_by', 'employee_id');
-    }
-
-    public function nominalCode(): BelongsTo
-    {
-        return $this->belongsTo(AccountsNominalCode::class, 'nominal_code_id', 'nominal_code_id');
     }
 
     // Reverse relationships

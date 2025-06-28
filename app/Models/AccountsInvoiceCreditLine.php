@@ -21,4 +21,22 @@ class AccountsInvoiceCreditLine extends Model
         'invoice_credit_line_vat_amount',
         'invoice_credit_line_nominal_code'
     ];
+
+    // Relationships --done
+    public function invoiceCredit()
+    {
+        return $this->belongsTo(AccountsInvoiceCredit::class, 'invoice_credit_id', 'invoice_credit_id');
+    }
+
+    public function nominalCode()
+    {
+        return $this->belongsTo(AccountsNominalCode::class, 'invoice_credit_line_nominal_code', 'nominal_code_id');
+    }
+
+    public function vatRate()
+    {
+        return $this->belongsTo(AccountsVatRate::class, 'invoice_credit_line_vat_rate', 'vat_rate_id');
+    }
+
+    // Reverse relationships
 }

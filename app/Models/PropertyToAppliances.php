@@ -18,8 +18,14 @@ class PropertyToAppliances extends Model
         'property_appliance_id',
     ];
 
+    // Relationships --done
     public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
-    }   
+    }
+
+    public function appliance(): BelongsTo
+    {
+        return $this->belongsTo(PropertyAppliance::class, 'property_appliance_id', 'property_appliance_id');
+    }
 }

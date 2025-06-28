@@ -18,10 +18,4 @@ class PropertyAccessArrangement extends Model
         'property_access_arrangement_name',
         'property_access_arrangement_sort'
     ];
-
-    // Relationships
-    public function properties(): HasMany
-    {
-        return $this->hasMany(Property::class, 'property_access_arrangement', 'property_access_arrangement_id');
-    }
 }

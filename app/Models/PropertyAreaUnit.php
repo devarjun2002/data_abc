@@ -19,10 +19,4 @@ class PropertyAreaUnit extends Model
         'property_area_unit_singular',
         'property_area_unit_name_short'
     ];
-
-    // Relationships
-    public function propertyRooms(): HasMany
-    {
-        return $this->hasMany(PropertyRoom::class, 'property_room_area_unit', 'property_area_unit_id');
-    }
 }

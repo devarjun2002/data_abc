@@ -16,6 +16,4 @@ class KeysLocation extends Model
     protected $fillable = [
         'keys_location_name'
     ];
-
-    // Add relationships once related models are created
 }

@@ -18,6 +18,7 @@ class CalendarEventType extends Model
         'calendar_event_type_sort'
     ];
 
+    // Relationships --done
     public function events()
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_type', 'calendar_event_type_id');

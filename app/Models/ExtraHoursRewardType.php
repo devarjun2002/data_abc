@@ -17,9 +17,4 @@ class ExtraHoursRewardType extends Model
         'name',
         'sort'
     ];
-
-    public function calendarEvents()
-    {
-        return $this->hasMany(CalendarEvent::class, 'calendar_event_extra_hours_reward_type', 'id');
-    }
 }

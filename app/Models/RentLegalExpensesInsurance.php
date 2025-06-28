@@ -37,21 +37,7 @@ class RentLegalExpensesInsurance extends Model
         'rlei_updated_by'
     ];
 
-    public function property(): BelongsTo
-    {
-        return $this->belongsTo(Property::class, 'property_id', 'property_id');
-    }
-
-    public function room(): BelongsTo
-    {
-        return $this->belongsTo(Room::class, 'rlei_room_id', 'room_id');
-    }
-
-    public function tenancy(): BelongsTo
-    {
-        return $this->belongsTo(Tenancy::class, 'rlei_tenancy_id', 'tenancy_id');
-    }
-
+    // Relationships --done
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'rlei_created_by', 'employee_id');
@@ -60,5 +46,35 @@ class RentLegalExpensesInsurance extends Model
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'rlei_updated_by', 'employee_id');
+    }
+
+    public function property(): BelongsTo
+    {
+        return $this->belongsTo(Property::class, 'rlei_property_id', 'property_id');
+    }
+
+    public function tenancy(): BelongsTo
+    {
+        return $this->belongsTo(Tenancy::class, 'rlei_tenancy_id', 'tenancy_id');
+    }
+
+    public function room(): BelongsTo
+    {
+        return $this->belongsTo(PropertyRoomLetting::class, 'rlei_room_id', 'property_room_letting_id');
+    }
+
+    public function termUnit(): BelongsTo
+    {
+        return $this->belongsTo(TenancyFixedTermUnit::class, 'rlei_term_unit', 'tenancy_fixed_term_unit_id');
+    }
+
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(RentLegalExpensesInsuranceStatus::class, 'rlei_status', 'rleis_id');
+    }
+
+    public function policyType(): BelongsTo
+    {
+        return $this->belongsTo(RentLegalExpensesInsuranceType::class, 'rlei_policy_type', 'rleit_id');
     }
 }

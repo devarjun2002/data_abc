@@ -20,7 +20,7 @@ class ApplicantRequirementSuburb extends Model
         'ars_suburb_id',
     ];
 
-    // Relationships
+    // Relationships --done
     public function requirement(): BelongsTo
     {
         return $this->belongsTo(ApplicantRequirement::class, 'applicant_requirement_suburb_requirement_id', 'applicant_requirement_id');
@@ -29,10 +29,5 @@ class ApplicantRequirementSuburb extends Model
     public function suburb(): BelongsTo
     {
         return $this->belongsTo(Suburb::class, 'applicant_requirement_suburb_suburb_id', 'suburb_id');
-    }
-
-    public function createdBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'applicant_requirement_suburb_created_by', 'employee_id');
     }
 }

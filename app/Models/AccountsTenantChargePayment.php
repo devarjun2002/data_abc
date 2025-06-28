@@ -32,25 +32,15 @@ class AccountsTenantChargePayment extends Model
         'tenant_charge_payment_updated_by'
     ];
 
-    // Relationships
+    // Relationships --done
+    public function paymentType(): BelongsTo
+    {
+        return $this->belongsTo(AccountsTenantChargePaymentType::class, 'accounts_tenant_charge_payment_type', 'accounts_tenant_charge_payment_type_id');
+    }
+
     public function tenantCharge(): BelongsTo
     {
         return $this->belongsTo(AccountsTenantCharge::class, 'tenant_charge_payment_tenant_charge_id', 'tenant_charge_id');
-    }
-
-    public function paymentMethod(): BelongsTo
-    {
-        return $this->belongsTo(AccountsPaymentMethod::class, 'tenant_charge_payment_method', 'payment_method_id');
-    }
-
-    public function paymentType(): BelongsTo
-    {
-        return $this->belongsTo(AccountsTenantChargePaymentType::class, 'accounts_tenant_charge_payment_type', 'tenant_charge_payment_type_id');
-    }
-
-    public function nominalCode(): BelongsTo
-    {
-        return $this->belongsTo(AccountsNominalCode::class, 'nominal_code_id', 'nominal_code_id');
     }
 
     public function createdBy(): BelongsTo
@@ -61,5 +51,10 @@ class AccountsTenantChargePayment extends Model
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'tenant_charge_payment_updated_by', 'employee_id');
+    }
+
+    public function paymentMethod(): BelongsTo
+    {
+        return $this->belongsTo(AccountsPaymentMethod::class, 'tenant_charge_payment_method', 'payment_method_id');
     }
 }

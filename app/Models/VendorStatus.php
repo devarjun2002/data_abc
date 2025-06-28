@@ -17,7 +17,7 @@ class VendorStatus extends Model
         'vendor_status_name'
     ];
 
-    // Relationships
+    // Relationships --done
     public function vendors()
     {
         return $this->hasMany(Vendor::class, 'vendor_status', 'vendor_status_id');

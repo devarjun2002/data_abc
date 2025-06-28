@@ -18,7 +18,7 @@ class CalendarEventLocation extends Model
         'calendar_event_location_name',
     ];
 
-    // Relationships
+    // Relationships --done
     public function events(): HasMany
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_location_id', 'calendar_event_location_id');

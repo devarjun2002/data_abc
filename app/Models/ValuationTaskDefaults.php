@@ -22,11 +22,7 @@ class ValuationTaskDefaults extends Model
         'valuation_task_defaults_sort'
     ];
 
-    public function valuation_task_defaults_type()
-    {
-        return $this->belongsTo(ValuationTaskType::class, 'valuation_task_defaults_type', 'valuation_task_type_id');
-    }
-
+    // Relationships --done
     public function valuation_task_defaults_status()
     {
         return $this->belongsTo(ValuationTaskStatus::class, 'valuation_task_defaults_status', 'valuation_task_status_id');

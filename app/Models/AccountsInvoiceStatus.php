@@ -17,4 +17,10 @@ class AccountsInvoiceStatus extends Model
     protected $fillable = [
         'invoice_status_name'
     ];
+
+    // Relationships --done
+    public function invoices(): HasMany
+    {
+        return $this->hasMany(AccountsInvoice::class, 'invoice_status', 'invoice_status_id');
+    }
 }

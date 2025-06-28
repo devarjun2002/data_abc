@@ -58,74 +58,49 @@ class Development extends Model
         'development_status'
     ];
 
-    // Relationships
-    public function type(): BelongsTo
-    {
-        return $this->belongsTo(DevelopmentType::class, 'development_type', 'development_type_id');
-    }
-
-    public function country(): BelongsTo
-    {
-        return $this->belongsTo(Country::class, 'development_country', 'country_id');
-    }
-
-    public function branch(): BelongsTo
+    // Relationships --done
+    public function branch()
     {
         return $this->belongsTo(Branch::class, 'development_branch', 'branch_id');
     }
 
-    public function defaultGscContractor(): BelongsTo
+    public function country()
     {
-        return $this->belongsTo(DirectoryIndividual::class, 'development_default_gsc_contractor', 'directory_individual_id');
+        return $this->belongsTo(Country::class, 'development_country', 'country_id');
     }
 
-    public function defaultEpcContractor(): BelongsTo
+    public function gscContractor()
     {
-        return $this->belongsTo(DirectoryIndividual::class, 'development_default_epc_contractor', 'directory_individual_id');
+        return $this->belongsTo(Directory::class, 'development_default_gsc_contractor', 'directory_id');
     }
 
-    public function defaultElectricalContractor(): BelongsTo
+    public function epcContractor()
     {
-        return $this->belongsTo(DirectoryIndividual::class, 'development_default_electrical_contractor', 'directory_individual_id');
+        return $this->belongsTo(Directory::class, 'development_default_epc_contractor', 'directory_id');
     }
 
-    public function defaultPatContractor(): BelongsTo
+    public function electricalContractor()
     {
-        return $this->belongsTo(DirectoryIndividual::class, 'development_default_pat_contractor', 'directory_individual_id');
+        return $this->belongsTo(Directory::class, 'development_default_electrical_contractor', 'directory_id');
     }
 
-    public function defaultFireAlarmContractor(): BelongsTo
+    public function patContractor()
     {
-        return $this->belongsTo(DirectoryIndividual::class, 'development_default_fire_alarm_contractor', 'directory_individual_id');
+        return $this->belongsTo(Directory::class, 'development_default_pat_contractor', 'directory_id');
     }
 
-    public function defaultEmergencyLightingContractor(): BelongsTo
+    public function fireAlarmContractor()
     {
-        return $this->belongsTo(DirectoryIndividual::class, 'development_default_emergency_lighting_contractor', 'directory_individual_id');
+        return $this->belongsTo(Directory::class, 'development_default_fire_alarm_contractor', 'directory_id');
     }
 
-    public function properties(): HasMany
+    public function emergencyLightingContractor()
     {
-        return $this->hasMany(Property::class, 'property_development_id', 'development_id');
+        return $this->belongsTo(Directory::class, 'development_default_emergency_lighting_contractor', 'directory_id');
     }
 
-    public function certificates(): HasMany
+    public function developmentType()
     {
-        return $this->hasMany(CertificateDevelopment::class, 'certificate_development', 'development_id');
-    }
-
-    public function updates(): HasMany
-    {
-        return $this->hasMany(DevelopmentUpdates::class, 'development_updates_development_id', 'development_id');
-    }
-
-    public function invoices(): HasMany
-    {
-        return $this->hasMany(AccountsInvoice::class, 'invoice_development_id', 'development_id');
-    }
-
-    public function invoiceCredits(): HasMany
-    {
-        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_development_id', 'development_id');
+        return $this->belongsTo(DevelopmentType::class, 'development_type', 'development_type_id');
     }
 }

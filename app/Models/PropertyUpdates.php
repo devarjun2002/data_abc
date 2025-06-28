@@ -28,6 +28,7 @@ class PropertyUpdates extends Model
         'property_updates_created_by'
     ];
 
+    // Relationships --done
     public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'property_updates_property_id', 'property_id');

@@ -20,10 +20,4 @@ class PropertyFeatures extends Model
     protected $fillable = [
         'property_features_name',
     ];
-
-    // Relationships
-    public function propertyToFeatures(): HasMany
-    {
-        return $this->hasMany(PropertyToFeatures::class, 'property_features_id', 'property_features_id');
-    }
 }

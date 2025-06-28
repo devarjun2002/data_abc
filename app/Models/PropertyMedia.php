@@ -19,7 +19,8 @@ class PropertyMedia extends Model
         'property_media_link',
     ];
 
-    public function property()
+    // Relationships --done
+    public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'property_media_property_id', 'property_id');
     }

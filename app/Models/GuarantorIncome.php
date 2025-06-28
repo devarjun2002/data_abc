@@ -19,11 +19,14 @@ class GuarantorIncome extends Model
         'guarantor_income_frequency',
         'guarantor_income_source'
    ];
-    public function guarantor()
+
+    // Relationships --done
+    public function guarantor(): BelongsTo
     {
         return $this->belongsTo(Guarantor::class, 'guarantor_income_id', 'guarantor_id');
     }
-    public function frequency()
+
+    public function frequency(): BelongsTo
     {
         return $this->belongsTo(IncomeFrequency::class, 'guarantor_income_frequency', 'income_frequency_id');
     }

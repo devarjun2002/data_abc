@@ -18,13 +18,9 @@ class PropertyToFeaturesCustom extends Model
         'property_feature',
     ];
 
+    // Relationships --done
     public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
-    }
-
-    public function featureCustom()
-    {
-        return $this->belongsTo(FeatureCustom::class, 'feature_custom_id', 'feature_custom_id');
     }
 }

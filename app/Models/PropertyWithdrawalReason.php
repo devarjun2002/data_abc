@@ -17,9 +17,4 @@ class PropertyWithdrawalReason extends Model
     protected $fillable = [
         'property_withdrawal_reason_name',
     ];
-
-    public function properties(): BelongsTo
-    {
-        return $this->belongsTo(Property::class, 'property_withdrawal_reason', 'property_withdrawal_reason_id');
-    }
 }

@@ -19,7 +19,7 @@ class ApplicantRequirementPropertySubtype extends Model
         'arps_property_type_id',
     ];
 
-    // Relationships
+    // Relationships --done
     public function requirement(): BelongsTo
     {
         return $this->belongsTo(ApplicantRequirement::class, 'applicant_requirement_property_subtype_requirement_id', 'applicant_requirement_id');
@@ -28,10 +28,5 @@ class ApplicantRequirementPropertySubtype extends Model
     public function propertySubtype(): BelongsTo
     {
         return $this->belongsTo(PropertyType::class, 'applicant_requirement_property_subtype_type_id', 'property_type_id');
-    }
-
-    public function createdBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'applicant_requirement_property_subtype_created_by', 'employee_id');
     }
 }

@@ -25,27 +25,19 @@ class AlarmCode extends Model
         'alarm_code_created_by'
     ];
 
-    /**
-     * Get the property this alarm code belongs to.
-     */
-    public function property(): BelongsTo
+    // Relationships --done
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'alarm_code_created_by', 'employee_id');
+    }
+
+    public function property(): BelongsTo 
     {
         return $this->belongsTo(Property::class, 'alarm_code_property', 'property_id');
     }
 
-    /**
-     * Get the type of this alarm code.
-     */
     public function type(): BelongsTo
     {
-        return $this->belongsTo(AlarmCodeType::class, 'alarm_code_type', 'alarm_code_type_id');
-    }
-
-    /**
-     * Get the employee who created this alarm code.
-     */
-    public function createdBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'alarm_code_created_by', 'employee_id');
+        return $this->belongsTo(AlarmCodeType::class, 'alarm_code_type', 'alarm_code_type_id'); 
     }
 }

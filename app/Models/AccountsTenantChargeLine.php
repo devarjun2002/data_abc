@@ -23,4 +23,20 @@ class AccountsTenantChargeLine extends Model
         'tenant_charge_line_vat_rate',
         'tenant_charge_line_vat_amount'
     ];
+
+    // Relationships --done
+    public function tenantCharge(): BelongsTo
+    {
+        return $this->belongsTo(AccountsTenantCharge::class, 'tenant_charge_id', 'tenant_charge_id');
+    }
+
+    public function lineType(): BelongsTo 
+    {
+        return $this->belongsTo(AccountsTenantChargeLineType::class, 'tenant_charge_line_type', 'tenant_charge_line_type_id');
+    }
+
+    public function vatRate(): BelongsTo
+    {
+        return $this->belongsTo(AccountsVatRate::class, 'tenant_charge_line_vat_rate', 'vat_rate_id');
+    }
 }

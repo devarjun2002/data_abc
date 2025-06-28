@@ -36,67 +36,41 @@ class AccountsTenantCharge extends Model
         'tenant_charge_updated_by'
     ];
 
-    /**
-     * Get the tenancy associated with this charge.
-     */
-    public function tenancy(): BelongsTo
-    {
-        return $this->belongsTo(Tenancy::class, 'tenant_charge_tenancy_id', 'tenancy_id');
-    }
-
-    /**
-     * Get the branch associated with this charge.
-     */
+    // Relationships --done
     public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class, 'tenant_charge_branch', 'branch_id');
     }
 
-    /**
-     * Get the payment terms for this charge.
-     */
-    public function paymentTerms(): BelongsTo
-    {
-        return $this->belongsTo(AccountsPaymentTerm::class, 'tenant_charge_payment_terms', 'accounts_payment_term_id');
-    }
-
-    /**
-     * Get the employee who created this charge.
-     */
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'tenant_charge_created_by', 'employee_id');
     }
 
-    /**
-     * Get the employee who updated this charge.
-     */
+    public function paymentTerms(): BelongsTo
+    {
+        return $this->belongsTo(AccountsPaymentTerm::class, 'tenant_charge_payment_terms', 'accounts_payment_term_id');
+    }
+
+    public function tenancy(): BelongsTo
+    {
+        return $this->belongsTo(Tenancy::class, 'tenant_charge_tenancy_id', 'tenancy_id');
+    }
+
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'tenant_charge_updated_by', 'employee_id');
     }
 
-    /**
-     * Get the lines for this tenant charge.
-     */
-    public function lines(): HasMany
+
+    // Reverse relationships
+    public function tenantChargePayments(): HasMany
     {
-        return $this->hasMany(AccountsTenantChargeLine::class, 'tenant_charge_line_tenant_charge_id', 'tenant_charge_id');
+        return $this->hasMany(AccountsTenantChargePayment::class, 'tenant_charge_payment_id', 'tenant_charge_id');
     }
 
-    /**
-     * Get the payments for this tenant charge.
-     */
-    public function payments(): HasMany
+    public function tenantDepositCharges(): HasMany
     {
-        return $this->hasMany(AccountsTenantChargePayment::class, 'tenant_charge_payment_tenant_charge_id', 'tenant_charge_id');
-    }
-
-    /**
-     * Get the recurring settings for this tenant charge.
-     */
-    public function recurring(): HasMany
-    {
-        return $this->hasMany(AccountsTenantChargeRecurring::class, 'tenant_charge_recurring_tenant_charge_id', 'tenant_charge_id');
+        return $this->hasMany(AccountsTenantDepositCharge::class, 'tenant_deposit_charge_id', 'tenant_charge_id');
     }
 }

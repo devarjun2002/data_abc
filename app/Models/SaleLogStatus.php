@@ -24,11 +24,24 @@ class SaleLogStatus extends Model
         'sale_date_updated'
     ];
 
-    public function sale(): BelongsTo {
-        return $this->belongsTo(Sale::class, 'sale_id', 'sale_id');
+    // Relationships --done
+    public function sale(): BelongsTo
+    {
+        return $this->belongsTo(Sale::class, 'sale_id');
     }
 
-    public function updatedBy(): BelongsTo {
-        return $this->belongsTo(Employee::class, 'sale_updated_by', 'employee_id');
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'sale_updated_by');
+    }
+
+    public function oldStatus(): BelongsTo
+    {
+        return $this->belongsTo(SaleStatus::class, 'sale_status_old');
+    }
+
+    public function newStatus(): BelongsTo
+    {
+        return $this->belongsTo(SaleStatus::class, 'sale_status_new');
     }
 } 

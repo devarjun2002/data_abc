@@ -17,9 +17,4 @@ class PropertyTenureType extends Model
     protected $fillable = [
         'property_tenure_type_name',
     ];
-
-    public function propertyTenancies(): HasMany
-    {
-        return $this->hasMany(PropertyTenancy::class, 'property_tenure_type', 'property_tenure_type_id');
-    }
 }

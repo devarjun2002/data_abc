@@ -19,7 +19,7 @@ class ContractType extends Model
         'contract_type_sort'
     ];
 
-    // Relationships
+    // Relationships --done
     public function valuations()
     {
         return $this->hasMany(Valuation::class, 'valuation_contract_type', 'contract_type_id');

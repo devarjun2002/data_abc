@@ -35,15 +35,15 @@ class AccountsInvoicePayment extends Model
         'invoice_payment_updated_by'
     ];
 
-    // Relationships
-    public function paymentMethod(): BelongsTo
+    // Relationships --done
+    public function createdBy(): BelongsTo
     {
-        return $this->belongsTo(AccountsPaymentMethod::class, 'invoice_payment_method', 'payment_method_id');
+        return $this->belongsTo(Employee::class, 'invoice_payment_created_by', 'employee_id');
     }
 
-    public function paymentType(): BelongsTo
+    public function updatedBy(): BelongsTo
     {
-        return $this->belongsTo(AccountsInvoicePaymentType::class, 'invoice_payment_type', 'accounts_invoice_payment_type_id');
+        return $this->belongsTo(Employee::class, 'invoice_payment_updated_by', 'employee_id');
     }
 
     public function invoice(): BelongsTo
@@ -51,9 +51,24 @@ class AccountsInvoicePayment extends Model
         return $this->belongsTo(AccountsInvoice::class, 'invoice_payment_invoice_id', 'invoice_id');
     }
 
+    public function paymentMethod(): BelongsTo
+    {
+        return $this->belongsTo(AccountsPaymentMethod::class, 'invoice_payment_method', 'payment_method_id');
+    }
+
     public function tenancy(): BelongsTo
     {
         return $this->belongsTo(Tenancy::class, 'invoice_payment_tenancy_id', 'tenancy_id');
+    }
+
+    public function paymentType(): BelongsTo
+    {
+        return $this->belongsTo(AccountsInvoicePaymentType::class, 'invoice_payment_type', 'accounts_invoice_payment_type_id');
+    }
+
+    public function invoiceCredit(): BelongsTo
+    {
+        return $this->belongsTo(AccountsInvoiceCredit::class, 'invoice_payment_type_id', 'invoice_credit_id');
     }
 
     // Reverse relationships

@@ -17,6 +17,7 @@ class KeySafeLocation extends Model
         'key_safe_location_name',
     ];
 
+    // Relationships --done
     public function keySafes()
     {
         return $this->hasMany(KeySafe::class, 'key_safe_location_id', 'key_safe_location_id');

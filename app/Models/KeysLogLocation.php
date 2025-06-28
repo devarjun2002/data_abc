@@ -25,6 +25,7 @@ class KeysLogLocation extends Model
         'keys_log_location_date_updated',
     ];
 
+    // Relationships --done
     public function property()
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');

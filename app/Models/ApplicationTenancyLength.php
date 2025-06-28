@@ -18,6 +18,7 @@ class ApplicationTenancyLength extends Model
         'application_tenancy_length_name',
     ];
 
+    // Relationships --done
     public function applications(): HasMany
     {
         return $this->hasMany(Application::class, 'application_tenancy_length', 'application_tenancy_length_id');

@@ -18,9 +18,7 @@ class AccountsTenantChargeLineType extends Model
         'tenant_charge_line_type_name'
     ];
 
-    /**
-     * Get the tenant charge lines with this type.
-     */
+    // Relationships --done
     public function tenantChargeLines(): HasMany
     {
         return $this->hasMany(AccountsTenantChargeLine::class, 'tenant_charge_line_type', 'tenant_charge_line_type_id');

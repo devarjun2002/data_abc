@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PropertyLogPrice extends Model
 {
@@ -25,14 +25,14 @@ class PropertyLogPrice extends Model
         'property_date_updated',
     ];
 
-    public function property()
+    // Relationships --done
+    public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
     }
 
-    public function updatedBy()
+    public function updatedBy(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'property_updated_by', 'user_id');
+        return $this->belongsTo(Employee::class, 'property_updated_by', 'user_id');
     }
-    // Add relationships here if you add foreign keys to property, offer, sale, etc.
 }

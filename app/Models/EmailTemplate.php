@@ -31,7 +31,7 @@ class EmailTemplate extends Model
         'email_template_updated_by'
     ];
 
-    // Relationships
+    // Relationships --done
     public function category(): BelongsTo
     {
         return $this->belongsTo(EmailTemplateCategory::class, 'email_template_category', 'email_template_category_id');

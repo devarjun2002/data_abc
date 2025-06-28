@@ -18,8 +18,4 @@ class SelectiveLicencingStatus extends Model
         'selective_licencing_status_name',
         'selective_licencing_status_sort',
     ];
-
-    public function properties(): HasMany {
-        return $this->hasMany(Property::class, 'property_selective_licencing_status', 'selective_licencing_status_id');
-    }
 } 

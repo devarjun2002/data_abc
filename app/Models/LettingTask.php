@@ -28,18 +28,9 @@ class LettingTask extends Model
         'letting_task_sort',
     ];
 
+    // Relationships --done
     public function tenancy()
     {
         return $this->belongsTo(Tenancy::class, 'tenancy_id', 'tenancy_id');
-    }
-
-    public function lettingTaskStage()
-    {
-        return $this->belongsTo(LettingTaskStage::class, 'letting_task_stage', 'letting_task_stage_id');
-    }
-
-    public function lettingTaskStatus()
-    {
-        return $this->belongsTo(LettingTaskStatus::class, 'letting_task_status', 'letting_task_status_id');
     }
 }

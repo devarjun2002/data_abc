@@ -18,6 +18,7 @@ class PropertyUseClass extends Model
         'property_use_class_name',
     ];
 
+    // Relationships --done
     public function propertyToUseClasses(): BelongsTo
     {
         return $this->belongsTo(PropertyToUseClass::class, 'property_use_class_id', 'property_use_class_id');

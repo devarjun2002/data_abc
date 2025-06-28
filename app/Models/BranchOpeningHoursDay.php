@@ -18,6 +18,7 @@ class BranchOpeningHoursDay extends Model
         'name'
     ];
 
+    // Relationships --done
     public function openingHours(): HasMany
     {
         return $this->hasMany(BranchOpeningHours::class, 'branch_opening_hours_day', 'id');

@@ -19,7 +19,7 @@ class DirectoryToTrades extends Model
         'directory_trades_id'
     ];
 
-    // Relationships
+    // Relationships --done
     public function directory(): BelongsTo
     {
         return $this->belongsTo(Directory::class, 'directory_id', 'directory_id');

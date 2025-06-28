@@ -91,43 +91,35 @@ class Branch extends Model
         'branch_ip_address'
     ];
 
+    // Relationships --done
     public function company(): BelongsTo
     {
         return $this->belongsTo(Company::class, 'branch_company_id', 'company_id');
     }
 
-    public function bankCurrent(): BelongsTo
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'branch_country', 'country_id');
+    }
+
+    public function currentBank(): BelongsTo
     {
         return $this->belongsTo(Bank::class, 'branch_bank_name_current', 'bank_id');
     }
 
-    public function bankClient(): BelongsTo
+    public function clientBank(): BelongsTo
     {
         return $this->belongsTo(Bank::class, 'branch_bank_name_client', 'bank_id');
     }
 
-    public function employees(): HasMany
+    // Reverse relationships --done
+    public function invoices()
     {
-        return $this->hasMany(Employee::class, 'employee_branch_id', 'branch_id');
+        return $this->hasMany(AccountsInvoice::class, 'invoice_branch', 'branch_id');
     }
 
-    public function landlords(): HasMany
+    public function invoiceCredits()
     {
-        return $this->hasMany(Landlord::class, 'landlord_branch_id', 'branch_id');
-    }
-
-    public function properties(): HasMany
-    {
-        return $this->hasMany(Property::class, 'property_branch_id', 'branch_id');
-    }
-
-    public function createdBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'branch_created_by', 'employee_id');
-    }
-
-    public function updatedBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'branch_updated_by', 'employee_id');
+        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_branch', 'branch_id');
     }
 }

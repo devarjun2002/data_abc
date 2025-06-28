@@ -16,9 +16,4 @@ class ExportDateType extends Model
     protected $fillable = [
         'export_date_type_name',
     ];
-
-    public function exportData()
-    {
-        return $this->hasMany(ExportData::class, 'export_date_type_id', 'export_date_type_id');
-    }
 }

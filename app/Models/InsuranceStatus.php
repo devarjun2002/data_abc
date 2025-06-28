@@ -16,6 +16,4 @@ class InsuranceStatus extends Model
     protected $fillable = [
         'insurance_status_name'
     ];
-
-    // Add relationships once related models are created
 }

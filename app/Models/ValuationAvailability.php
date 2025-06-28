@@ -18,7 +18,7 @@ class ValuationAvailability extends Model
         'valuation_availability_archived'
     ];
 
-    // Relationships
+    // Relationships --done
     public function valuations()
     {
         return $this->hasMany(Valuation::class, 'valuation_property_availability', 'valuation_availability_id');

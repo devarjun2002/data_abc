@@ -17,13 +17,4 @@ class PossessionStatusCompletion extends Model
         'possession_status_completion_name',
         'possession_status_completion_sort',
     ];
-
-    public function properties()
-    {
-        return $this->hasMany(Property::class, 'possession_status_completion_id', 'possession_status_completion_id');
-    }
-    public function tenancies()
-    {
-        return $this->hasMany(Tenancy::class, 'possession_status_completion_id', 'possession_status_completion_id');
-    }
 }

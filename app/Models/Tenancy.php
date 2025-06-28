@@ -120,13 +120,195 @@ class Tenancy extends Model
         'tenancy_rlei_opt_out_date'
     ];
 
+    // Relationships --done
+    public function agentBranch()
+    {
+        return $this->belongsTo(Branch::class, 'tenancy_agent_branch', 'branch_id');
+    }
+
+    public function agentEmployee()
+    {
+        return $this->belongsTo(Employee::class, 'tenancy_agent_employee', 'employee_id');
+    }
+
+    public function rentIncreaseNegotiator()
+    {
+        return $this->belongsTo(Employee::class, 'tenancy_periodic_rent_increase_negotiator', 'employee_id');
+    }
+
+    public function createdBy()
+    {
+        return $this->belongsTo(Employee::class, 'tenancy_created_by', 'employee_id');
+    }
+
+    public function moveOutEmployee()
+    {
+        return $this->belongsTo(Employee::class, 'tenancy_move_out_employee', 'employee_id');
+    }
+
+    public function renewalEmployee()
+    {
+        return $this->belongsTo(Employee::class, 'tenancy_renewal_employee', 'employee_id');
+    }
+
+    public function updatedBy()
+    {
+        return $this->belongsTo(Employee::class, 'tenancy_updated_by', 'employee_id');
+    }
+
     public function property()
     {
         return $this->belongsTo(Property::class, 'tenancy_property', 'property_id');
     }
 
-    public function agent()
+    public function propertyPartRoom()
     {
-        return $this->belongsTo(Agent::class, 'tenancy_agent_branch', 'agent_branch_id');
+        return $this->belongsTo(PropertyRoomLetting::class, 'tenancy_property_part_room', 'property_room_letting_id');
+    }
+
+    public function fixedTermUnit()
+    {
+        return $this->belongsTo(FixedTermUnit::class, 'tenancy_fixed_term_unit', 'tenancy_fixed_term_unit_id');
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(PropertyCategory::class, 'tenancy_type', 'property_category_id');
+    }
+
+    public function lettingService()
+    {
+        return $this->belongsTo(LettingService::class, 'tenancy_letting_service', 'letting_service_id');
+    }
+
+    public function rentFrequency()
+    {
+        return $this->belongsTo(TenancyRentFrequency::class, 'tenancy_rent_frequency', 'tenancy_rent_frequency_id');
+    }
+
+    public function rentPayable()
+    {
+        return $this->belongsTo(TenancyRentFrequency::class, 'tenancy_rent_payable', 'tenancy_rent_frequency_id');
+    }
+
+    public function serviceChargeFrequency()
+    {
+        return $this->belongsTo(TenancyRentFrequency::class, 'tenancy_service_charge_frequency', 'tenancy_rent_frequency_id');
+    }
+
+    public function insuranceFrequency()
+    {
+        return $this->belongsTo(TenancyRentFrequency::class, 'tenancy_insurance_frequency', 'tenancy_rent_frequency_id');
+    }
+
+    public function serviceChargePayable()
+    {
+        return $this->belongsTo(TenancyRentFrequency::class, 'tenancy_service_charge_payable', 'tenancy_rent_frequency_id');
+    }
+
+    public function insurancePayable()
+    {
+        return $this->belongsTo(TenancyRentFrequency::class, 'tenancy_insurance_payable', 'tenancy_rent_frequency_id');
+    }
+
+    public function rentVatRate()
+    {
+        return $this->belongsTo(VatRate::class, 'tenancy_rent_vat_rate', 'vat_rate_id');
+    }
+
+    public function insuranceVatRate()
+    {
+        return $this->belongsTo(VatRate::class, 'tenancy_insurance_vat_rate', 'vat_rate_id');
+    }
+
+    public function serviceChargeVatRate()
+    {
+        return $this->belongsTo(VatRate::class, 'tenancy_service_charge_vat_rate', 'vat_rate_id');
+    }
+
+    public function rentAgreement()
+    {
+        return $this->belongsTo(RentAgreement::class, 'tenancy_rent_agreement', 'tenancy_rent_agreement_id');
+    }
+
+    public function serviceChargeAgreement()
+    {
+        return $this->belongsTo(RentAgreement::class, 'tenancy_service_charge_agreement', 'tenancy_rent_agreement_id');
+    }
+
+    public function insuranceAgreement()
+    {
+        return $this->belongsTo(RentAgreement::class, 'tenancy_insurance_agreement', 'tenancy_rent_agreement_id');
+    }
+
+    public function rentPaymentMethod()
+    {
+        return $this->belongsTo(PaymentMethod::class, 'tenancy_rent_payment_method', 'tenancy_payment_method_id');
+    }
+
+    public function serviceChargePaymentMethod()
+    {
+        return $this->belongsTo(PaymentMethod::class, 'tenancy_service_charge_payment_method', 'tenancy_payment_method_id');
+    }
+
+    public function insurancePaymentMethod()
+    {
+        return $this->belongsTo(PaymentMethod::class, 'tenancy_insurance_payment_method', 'tenancy_payment_method_id');
+    }
+
+    public function tenantFindFeeType()
+    {
+        return $this->belongsTo(FeeType::class, 'tenancy_tenant_find_fee_type', 'fee_type_id');
+    }
+
+    public function managementFeeType()
+    {
+        return $this->belongsTo(FeeType::class, 'tenancy_management_fee_type', 'fee_type_id');
+    }
+
+    public function tenantFindWithManagementFeeType()
+    {
+        return $this->belongsTo(FeeType::class, 'tenancy_tenant_find_with_management_fee_type', 'fee_type_id');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(TenancyStatus::class, 'tenancy_status', 'tenancy_status_id');
+    }
+
+    public function renewalStatus()
+    {
+        return $this->belongsTo(TenancyRenewalStatus::class, 'tenancy_renewal_status', 'tenancy_renewal_status_id');
+    }
+
+    public function isRenewalOf()
+    {
+        return $this->belongsTo(Tenancy::class, 'tenancy_id', 'tenancy_id');
+    }
+
+    public function moveOutReason()
+    {
+        return $this->belongsTo(MoveOutReason::class, 'tenancy_move_out_reason', 'tenancy_move_out_reason_id');
+    }
+
+    public function inspectionFrequency()
+    {
+        return $this->belongsTo(InspectionFrequency::class, 'tenancy_inspection_frequency', 'tenancy_inspection_frequency_id');
+    }
+
+    public function propertyPart()
+    {
+        return $this->belongsTo(TenancyPropertyPart::class, 'tenancy_property_part', 'tenancy_property_part_id');
+    }
+
+    // Reverse relationships
+    public function invoices()
+    {
+        return $this->hasMany(AccountsInvoice::class, 'invoice_tenancy_id', 'tenancy_id');
+    }
+
+    public function invoiceCredits()
+    {
+        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_tenancy_id', 'tenancy_id');
     }
 }

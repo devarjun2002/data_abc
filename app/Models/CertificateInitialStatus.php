@@ -17,6 +17,4 @@ class CertificateInitialStatus extends Model
         'certificate_initial_status_name',
         'certificate_initial_status_sort'
     ];
-
-    // Add relationships once related models are created
 }

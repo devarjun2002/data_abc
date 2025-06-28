@@ -23,6 +23,7 @@ class SaleTaskDefaults extends Model
         'sale_task_defaults_sort'
     ];
 
+    // Relationships --done
     public function type(): BelongsTo {
         return $this->belongsTo(SaleTaskType::class, 'sale_task_defaults_type', 'sale_task_type_id');
     }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class KeysTransaction extends Model
 {
@@ -36,18 +37,39 @@ class KeysTransaction extends Model
         'keys_transaction_updated_by'
     ];
 
-    public function property()
+    // Relationships --done
+    public function clientType(): BelongsTo
+    {
+        return $this->belongsTo(CustomerType::class, 'keys_transaction_client_type', 'customer_type_id');
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'keys_transaction_created_by', 'employee_id');
+    }
+
+    public function employee(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'keys_transaction_employee', 'employee_id');
+    }
+
+    public function inEmployee(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'keys_transaction_in_employee', 'employee_id');
+    }
+
+    public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'keys_transaction_property', 'property_id');
     }
 
-    public function clientType()
+    public function updatedBy(): BelongsTo
     {
-        return $this->belongsTo(ClientType::class, 'keys_transaction_client_type', 'client_type_id');
+        return $this->belongsTo(Employee::class, 'keys_transaction_updated_by', 'employee_id');
     }
 
-    public function client()
+    public function keySet(): BelongsTo
     {
-        return $this->belongsTo(Client::class, 'keys_transaction_client', 'client_id');
+        return $this->belongsTo(KeysAdd::class, 'keys_transaction_set_id', 'keys_add_id');
     }
 }

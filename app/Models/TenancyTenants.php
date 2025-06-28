@@ -20,13 +20,19 @@ class TenancyTenants extends Model
         'property_id'
     ];
 
-    public function tenant()
+    // Relationships --done
+    public function tenant(): BelongsTo
     {
         return $this->belongsTo(Tenant::class, 'tenant_id', 'tenant_id');
     }
 
-    public function property()
+    public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
+    }
+
+    public function tenancy(): BelongsTo
+    {
+        return $this->belongsTo(Tenancy::class, 'tenancy_id', 'tenancy_id');
     }
 }

@@ -24,13 +24,24 @@ class ApplicationLogStatus extends Model
         'application_date_updated'
     ];
 
-    public function application(): BelongsTo
-    {
-        return $this->belongsTo(Application::class, 'application_id', 'application_id');
-    }
-
-    public function updatedBy(): BelongsTo
+    // Relationships --done
+    public function employee(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'application_updated_by', 'employee_id');
+    }
+
+    public function application(): BelongsTo 
+    {
+        return $this->belongsTo(Application::class, 'application_id', 'applicant_id');
+    }
+
+    public function oldStatus(): BelongsTo
+    {
+        return $this->belongsTo(ApplicationStatus::class, 'application_status_old', 'application_status_id');
+    }
+
+    public function newStatus(): BelongsTo
+    {
+        return $this->belongsTo(ApplicationStatus::class, 'application_status_new', 'application_status_id'); 
     }
 }

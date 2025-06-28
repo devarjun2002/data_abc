@@ -19,6 +19,7 @@ class PropertyToAccessibility extends Model
         'property_accessibility_id',
     ];
 
+    // Relationships --done
     public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');

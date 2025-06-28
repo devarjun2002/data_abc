@@ -27,39 +27,14 @@ class PropertyRoom extends Model
         'property_room_sort',
     ];
 
-    // Relationships
+    // Relationships --done
     public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
     }
 
-    public function roomType(): BelongsTo
+    public function dimensionUnit(): BelongsTo
     {
-        return $this->belongsTo(PropertyRoomType::class, 'property_room_type', 'property_room_type_id');
-    }
-
-    public function areaUnit(): BelongsTo
-    {
-        return $this->belongsTo(PropertyAreaUnit::class, 'property_room_area_unit', 'property_area_unit_id');
-    }
-
-    public function createdBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'property_room_created_by', 'employee_id');
-    }
-
-    public function features(): HasMany
-    {
-        return $this->hasMany(PropertyRoomFeature::class, 'property_room_id', 'property_room_id');
-    }
-
-    public function lettings(): HasMany
-    {
-        return $this->hasMany(PropertyRoomLetting::class, 'property_room_id', 'property_room_id');
-    }
-
-    public function dimensions(): HasMany
-    {
-        return $this->hasMany(PropertyRoomDimension::class, 'property_room_dimension_room_id', 'property_room_id');
+        return $this->belongsTo(PropertyAreaUnit::class, 'property_room_dimension_unit', 'property_area_unit_id');
     }
 }

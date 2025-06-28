@@ -47,15 +47,10 @@ class Referral extends Model
         'referral_updated_by'
     ];
 
-    // Relationships
-    public function type(): BelongsTo
+    // Relationships --done
+    public function createdBy(): BelongsTo
     {
-        return $this->belongsTo(ReferralType::class, 'referral_type', 'referral_type_id');
-    }
-
-    public function status(): BelongsTo
-    {
-        return $this->belongsTo(ReferralStatus::class, 'referral_status', 'referral_status_id');
+        return $this->belongsTo(Employee::class, 'referral_created_by', 'employee_id');
     }
 
     public function employee(): BelongsTo
@@ -63,23 +58,43 @@ class Referral extends Model
         return $this->belongsTo(Employee::class, 'referral_employee', 'employee_id');
     }
 
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'referral_updated_by', 'employee_id');
+    }
+
     public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'referral_property', 'property_id');
     }
 
-    public function salePurchase(): HasOne
+    public function valuation(): BelongsTo
     {
-        return $this->belongsTo(ReferralSalePurchase::class, 'referral_id', 'referral_id');
+        return $this->belongsTo(Valuation::class, 'referral_valuation', 'valuation_id');
     }
 
-    public function payments(): HasMany
+    public function type(): BelongsTo
     {
-        return $this->belongsTo(ReferralPayments::class, 'referral_id', 'referral_id');
+        return $this->belongsTo(ReferralType::class, 'referral_type', 'referral_type_id');
     }
 
-    public function updates(): HasMany
+    public function salePurchase(): BelongsTo
     {
-        return $this->belongsTo(ReferralUpdates::class, 'referral_id', 'referral_id');
+        return $this->belongsTo(ReferralSalePurchase::class, 'referral_sale_purchase', 'referral_sale_purchase_id');
+    }
+
+    public function customerType(): BelongsTo
+    {
+        return $this->belongsTo(CustomerType::class, 'referral_customer_type', 'customer_type_id');
+    }
+
+    public function directoryCompany(): BelongsTo
+    {
+        return $this->belongsTo(Directory::class, 'referral_directory_company', 'directory_id');
+    }
+
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(ReferralStatus::class, 'referral_status', 'referral_status_id');
     }
 }

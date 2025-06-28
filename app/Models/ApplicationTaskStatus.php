@@ -18,18 +18,14 @@ class ApplicationTaskStatus extends Model
         'application_task_status_name',
     ];
 
+    // Relationships --done
     public function tasks(): HasMany
     {
         return $this->hasMany(ApplicationTask::class, 'application_task_status', 'application_task_status_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function taskDefaults(): HasMany
     {
-        return $this->belongsTo(Employee::class, 'application_task_status_created_by', 'employee_id');
-    }
-
-    public function updatedBy(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'application_task_status_updated_by', 'employee_id');
+        return $this->hasMany(ApplicationTaskDefaults::class, 'application_task_defaults_status', 'application_task_status_id');
     }
 }

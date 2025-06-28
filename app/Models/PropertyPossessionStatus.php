@@ -17,10 +17,4 @@ class PropertyPossessionStatus extends Model
     protected $fillable = [
         'property_possession_status_name',
     ];
-
-    // Relationships
-    public function properties(): HasMany
-    {
-        return $this->hasMany(Property::class, 'property_possession_status', 'property_possession_status_id');
-    }
 }

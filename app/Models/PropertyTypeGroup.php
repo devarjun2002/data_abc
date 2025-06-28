@@ -20,7 +20,7 @@ class PropertyTypeGroup extends Model
         'property_type_group_sort'
     ];
 
-    // Relationships
+    // Relationships --done
     public function propertyTypes(): HasMany
     {
         return $this->hasMany(PropertyType::class, 'property_type_group', 'property_type_group_id');

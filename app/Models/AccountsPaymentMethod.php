@@ -18,7 +18,7 @@ class AccountsPaymentMethod extends Model
         'payment_method_name'
     ];
 
-    // Relationships
+    // Relationships --done
     public function invoicePayments(): HasMany
     {
         return $this->hasMany(AccountsInvoicePayment::class, 'invoice_payment_method', 'payment_method_id');

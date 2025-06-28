@@ -24,20 +24,20 @@ class AccountsInvoiceLine extends Model
         'invoice_line_works_id'
     ];
 
-    // Relationships
+    // Relationships --done
     public function invoice(): BelongsTo
     {
         return $this->belongsTo(AccountsInvoice::class, 'invoice_id', 'invoice_id');
     }
 
-    public function vatRate(): BelongsTo
-    {
-        return $this->belongsTo(AccountsVatRate::class, 'invoice_line_vat_rate', 'vat_rate_id');
-    }
-
     public function nominalCode(): BelongsTo
     {
         return $this->belongsTo(AccountsNominalCode::class, 'invoice_line_nominal_code', 'nominal_code_id');
+    }
+
+    public function vatRate(): BelongsTo
+    {
+        return $this->belongsTo(AccountsVatRate::class, 'invoice_line_vat_rate', 'vat_rate_id');
     }
 
     public function works(): BelongsTo

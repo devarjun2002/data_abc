@@ -18,14 +18,7 @@ class EmployeePermissions extends Model
         'employee_permissions_category',
     ];
 
-    public function employees()
-    {
-        return $this->belongsToMany(Employee::class, 'employee_to_permissions', 'employee_permissions_id', 'employee_id');
-    }
-    public function toPermissions()
-    {
-        return $this->hasMany(EmployeeToPermissions::class, 'employee_permissions_id', 'employee_permissions_id');
-    }
+    // Relationships --done
     public function category()
     {
         return $this->belongsTo(EmployeePermissionsCategory::class, 'employee_permissions_category', 'employee_permissions_category_id');

@@ -17,9 +17,4 @@ class EmployeeDepartment extends Model
         'employee_department_name',
         'employee_department_name2'
     ];
-
-    public function employees()
-    {
-        return $this->belongsToMany(Employee::class, 'employee_to_department', 'employee_department_id', 'employee_id');
-    }
 }

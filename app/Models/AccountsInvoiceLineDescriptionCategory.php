@@ -18,10 +18,4 @@ class AccountsInvoiceLineDescriptionCategory extends Model
         'invoice_line_description_category_name',
         'invoice_line_description_category_sort'
     ];
-
-    // Relationships
-    public function lineDescriptions(): HasMany
-    {
-        return $this->hasMany(AccountsInvoiceLineDescription::class, 'invoice_line_description_category', 'invoice_line_description_category_id');
-    }
 }

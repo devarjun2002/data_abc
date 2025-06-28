@@ -18,9 +18,4 @@ class PropertyViewingType extends Model
         'property_viewing_type_name',
         'property_viewing_type_description',
     ];
-
-    public function properties(): BelongsTo
-    {
-        return $this->belongsTo(Property::class, 'property_viewing_type', 'property_viewing_type_id');
-    }
 }

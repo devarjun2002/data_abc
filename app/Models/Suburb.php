@@ -20,4 +20,10 @@ class Suburb extends Model
         'suburb_active',
         'suburb_property_requirements'
     ];
+
+    // Relationships --done
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class, 'suburb_branch', 'branch_id');
+    }
 }

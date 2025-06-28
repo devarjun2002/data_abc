@@ -24,10 +24,15 @@ class InterestedApplicantUpdates extends Model
         'interested_applicant_updates_created_by'
     ];
 
-    // Relationships
+    // Relationships --done
     public function interestedApplicant(): BelongsTo
     {
         return $this->belongsTo(InterestedApplicant::class, 'interested_applicant_updates_interested_applicant_id', 'interested_applicant_id');
+    }
+
+    public function applicant(): BelongsTo
+    {
+        return $this->belongsTo(Applicant::class, 'interested_applicant_updates_interested_applicant_id', 'applicant_id');
     }
 
     public function createdBy(): BelongsTo

@@ -10,8 +10,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('accounts_nominal_code_type', function (Blueprint $table) {
-            $table->smallInteger('nominal_code_type_id')->nullable();
-            $table->primary('nominal_code_type_id');
+            $table->id('nominal_code_type_id');
             $table->string('nominal_code_type_name', 30)->nullable();
         });
     }

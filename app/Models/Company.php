@@ -47,34 +47,19 @@ class Company extends Model
         'company_lock_date'
     ];
 
-    // Relationships
-    public function country(): BelongsTo
-    {
-        return $this->belongsTo(Country::class, 'company_country', 'country_id');
-    }
-
-    public function regOfficeCountry(): BelongsTo
-    {
-        return $this->belongsTo(Country::class, 'company_reg_office_country', 'country_id');
-    }
-
-    public function defaultVatRate(): BelongsTo
+    // Relationships --done
+    public function defaultVatRate()
     {
         return $this->belongsTo(AccountsVatRate::class, 'company_default_vat_rate', 'vat_rate_id');
     }
 
-    public function branches(): HasMany
+    public function regOfficeCountry()
     {
-        return $this->hasMany(Branch::class, 'branch_company_id', 'company_id');
+        return $this->belongsTo(Country::class, 'company_reg_office_country', 'country_id');
     }
 
-    public function employees(): HasMany
+    public function country()
     {
-        return $this->hasMany(Employee::class, 'company_id', 'company_id');
-    }
-
-    public function properties(): BelongsToMany
-    {
-        return $this->belongsToMany(Property::class, 'property_company', 'company_id', 'property_id');
+        return $this->belongsTo(Country::class, 'company_country', 'country_id');
     }
 }

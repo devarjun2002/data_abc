@@ -57,112 +57,59 @@ class Directory extends Model
         'directory_accounts_purposes_only',
     ];
 
-    // Relationships
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(DirectoryCategory::class, 'directory_category', 'directory_category_id');
-    }
-
-    public function status(): BelongsTo
-    {
-        return $this->belongsTo(DirectoryStatus::class, 'directory_status', 'directory_status_id');
-    }
-
-    public function commissionScheme(): BelongsTo
-    {
-        return $this->belongsTo(DirectoryCommissionScheme::class, 'directory_commission_scheme', 'directory_commission_scheme_id');
-    }
-
-    public function paymentTerms(): BelongsTo
-    {
-        return $this->belongsTo(AccountsPaymentTerm::class, 'directory_payment_terms', 'accounts_payment_term_id');
-    }
-
-    public function nominalCode(): BelongsTo
-    {
-        return $this->belongsTo(AccountsNominalCode::class, 'directory_nominal_code', 'nominal_code_id');
-    }
-
-    public function vatRate(): BelongsTo
-    {
-        return $this->belongsTo(AccountsVatRate::class, 'directory_vat_rate', 'vat_rate_id');
-    }
-
-    public function bank(): BelongsTo
+    // Relationships --done
+    public function bank()
     {
         return $this->belongsTo(Bank::class, 'directory_bank_name', 'bank_id');
     }
 
-    public function country(): BelongsTo
+    public function country()
     {
         return $this->belongsTo(Country::class, 'directory_country', 'country_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'directory_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'directory_updated_by', 'employee_id');
     }
 
-    public function individuals(): HasMany
+    public function nominalCode()
     {
-        return $this->hasMany(DirectoryIndividual::class, 'directory_individual_company', 'directory_id');
+        return $this->belongsTo(AccountsNominalCode::class, 'directory_nominal_code', 'nominal_code_id');
     }
 
-    public function trades(): BelongsToMany
+    public function vatRate()
     {
-        return $this->belongsToMany(DirectoryTrades::class, 'directory_to_trades', 'directory_id', 'directory_trades_id');
+        return $this->belongsTo(AccountsVatRate::class, 'directory_vat_rate', 'vat_rate_id');
     }
 
-    public function bacsFiles(): HasMany
+    public function category()
     {
-        return $this->hasMany(AccountsBacsFile::class, 'bacs_file_directory_id', 'directory_id');
+        return $this->belongsTo(DirectoryCategory::class, 'directory_category', 'directory_category_id');
     }
 
-    // Scoped relationships
-    public function individualsByStatus($statusId): HasMany
+    public function paymentTerms()
     {
-        return $this->hasMany(DirectoryIndividual::class, 'directory_individual_company', 'directory_id')->where('directory_individual_status', $statusId);
+        return $this->belongsTo(AccountsPaymentTerm::class, 'directory_payment_terms', 'accounts_payment_term_id');
     }
 
-    public function individualsByTitle($titleId): HasMany
+    public function landlordContractor()
     {
-        return $this->hasMany(DirectoryIndividual::class, 'directory_individual_company', 'directory_id')->where('directory_individual_title', $titleId);
+        return $this->belongsTo(Landlord::class, 'directory_landlord_contractor', 'landlord_id');
     }
 
-    public function individualsByCountry($countryId): HasMany
+    public function commissionScheme()
     {
-        return $this->hasMany(DirectoryIndividual::class, 'directory_individual_company', 'directory_id')->where('directory_individual_country', $countryId);
+        return $this->belongsTo(DirectoryCommissionScheme::class, 'directory_commission_scheme', 'directory_commission_scheme_id');
     }
 
-    public function individualsByBank($bankId): HasMany
+    public function status()
     {
-        return $this->hasMany(DirectoryIndividual::class, 'directory_individual_company', 'directory_id')->where('directory_individual_bank_name', $bankId);
-    }
-
-    public function individualsByStatusAndTitle($statusId, $titleId): HasMany
-    {
-        return $this->hasMany(DirectoryIndividual::class, 'directory_individual_company', 'directory_id')
-            ->where('directory_individual_status', $statusId)
-            ->where('directory_individual_title', $titleId);
-    }
-
-    public function individualsByEmail($email): HasMany
-    {
-        return $this->hasMany(DirectoryIndividual::class, 'directory_individual_company', 'directory_id')->where('directory_individual_email', $email);
-    }
-
-    public function individualsBySurname($surname): HasMany
-    {
-        return $this->hasMany(DirectoryIndividual::class, 'directory_individual_company', 'directory_id')->where('directory_individual_surname', $surname);
-    }
-
-    public function individualsByFirstName($firstName): HasMany
-    {
-        return $this->hasMany(DirectoryIndividual::class, 'directory_individual_company', 'directory_id')->where('directory_individual_first_name', $firstName);
+        return $this->belongsTo(DirectoryStatus::class, 'directory_status', 'directory_status_id');
     }
 }

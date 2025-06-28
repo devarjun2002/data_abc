@@ -19,7 +19,7 @@ class EmployeeToPermissions extends Model
         'employee_permissions_id'
     ];
 
-    // Relationships
+    // Relationships --done
     public function employee(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'employee_id', 'employee_id');

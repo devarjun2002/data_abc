@@ -69,134 +69,134 @@ class CalendarEvent extends Model
         'calendar_event_extra_hours_reward_type'
     ];
 
-    // Relationships
-    public function company(): BelongsTo
-    {
-        return $this->belongsTo(Company::class, 'calendar_event_company_id', 'company_id');
-    }
-
-    public function branch(): BelongsTo
-    {
-        return $this->belongsTo(Branch::class, 'calendar_event_branch_id', 'branch_id');
-    }
-
-    public function type(): BelongsTo
-    {
-        return $this->belongsTo(CalendarEventType::class, 'calendar_event_type', 'calendar_event_type_id');
-    }
-
-    public function status(): BelongsTo
-    {
-        return $this->belongsTo(CalendarEventStatus::class, 'calendar_event_status', 'calendar_event_status_id');
-    }
-
-    public function employee(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class, 'calendar_event_employee', 'employee_id');
-    }
-
-    public function attendeeType(): BelongsTo
-    {
-        return $this->belongsTo(CalendarEventAttendeeType::class, 'calendar_event_attendee_type', 'calendar_event_attendee_type_id');
-    }
-
-    public function property(): BelongsTo
-    {
-        return $this->belongsTo(Property::class, 'calendar_event_property', 'property_id');
-    }
-
-    public function tenancy(): BelongsTo
-    {
-        return $this->belongsTo(PropertyTenancy::class, 'calendar_event_tenancy', 'property_tenancy_id');
-    }
-
-    public function development(): BelongsTo
-    {
-        return $this->belongsTo(Development::class, 'calendar_event_development', 'development_id');
-    }
-
-    public function applicant(): BelongsTo
+    // Relationships --done
+    public function applicant()
     {
         return $this->belongsTo(Applicant::class, 'calendar_event_applicant', 'applicant_id');
     }
 
-    public function valuation(): BelongsTo
+    public function branch()
     {
-        return $this->belongsTo(PropertyValuation::class, 'calendar_event_valuation', 'property_valuation_id');
+        return $this->belongsTo(Branch::class, 'calendar_event_branch', 'branch_id');
     }
 
-    public function meetAt(): BelongsTo
+    public function branchById()
     {
-        return $this->belongsTo(CalendarEventMeetAt::class, 'calendar_event_meet_at', 'calendar_event_meet_at_id');
+        return $this->belongsTo(Branch::class, 'calendar_event_branch_id', 'branch_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'calendar_event_company_id', 'company_id');
+    }
+
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'calendar_event_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function development()
     {
-        return $this->belongsTo(Employee::class, 'calendar_event_updated_by', 'employee_id');
+        return $this->belongsTo(Development::class, 'calendar_event_development', 'development_id');
     }
 
-    public function recurring(): BelongsTo
-    {
-        return $this->belongsTo(CalendarEventRecurring::class, 'calendar_event_recurring_id', 'calendar_event_recurring_id');
-    }
-
-    public function directory(): BelongsTo
+    public function directory()
     {
         return $this->belongsTo(Directory::class, 'calendar_event_directory', 'directory_id');
     }
 
-    public function inspectionType(): BelongsTo
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class, 'calendar_event_employee', 'employee_id');
+    }
+
+    public function property()
+    {
+        return $this->belongsTo(Property::class, 'calendar_event_property', 'property_id');
+    }
+
+    public function tenancy()
+    {
+        return $this->belongsTo(Tenancy::class, 'calendar_event_tenancy', 'tenancy_id');
+    }
+
+    public function updatedBy()
+    {
+        return $this->belongsTo(Employee::class, 'calendar_event_updated_by', 'employee_id');
+    }
+
+    public function valuation()
+    {
+        return $this->belongsTo(Valuation::class, 'calendar_event_valuation', 'valuation_id');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(CalendarEventStatus::class, 'calendar_event_status', 'calendar_event_status_id');
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(CalendarEventType::class, 'calendar_event_type', 'calendar_event_type_id');
+    }
+
+    public function attendeeType()
+    {
+        return $this->belongsTo(CalendarEventAttendeeType::class, 'calendar_event_attendee_type', 'calendar_event_attendee_type_id');
+    }
+
+    public function valuationAppointmentType()
+    {
+        return $this->belongsTo(ValuationAppointmentType::class, 'calendar_event_valuation_appointment_type', 'valuation_appointment_type_id');
+    }
+
+    public function valuationMeetingWith()
+    {
+        return $this->belongsTo(ValuationMeetingWith::class, 'calendar_event_valuation_meeting_with', 'valuation_meeting_with_id');
+    }
+
+    public function meetAt()
+    {
+        return $this->belongsTo(CalendarEventMeetAt::class, 'calendar_event_meet_at', 'calendar_event_meet_at_id');
+    }
+
+    public function recurring()
+    {
+        return $this->belongsTo(CalendarEventRecurring::class, 'calendar_event_recurring_id', 'calendar_event_recurring_id');
+    }
+
+    public function inspectionType()
     {
         return $this->belongsTo(CalendarEventInspectionType::class, 'calendar_event_inspection_type', 'calendar_event_inspection_type_id');
     }
 
-    public function surveyType(): BelongsTo
+    public function surveyType()
     {
         return $this->belongsTo(CalendarEventSurveyType::class, 'calendar_event_survey_type', 'calendar_event_survey_type_id');
     }
 
-    public function timeOffType(): BelongsTo
+    public function timeOffType()
     {
         return $this->belongsTo(CalendarEventTimeOffType::class, 'calendar_event_time_off_type', 'calendar_event_time_off_type_id');
     }
 
-    public function timeOffReason(): BelongsTo
+    public function timeOffReason()
     {
         return $this->belongsTo(CalendarEventTimeOffReason::class, 'calendar_event_time_off_reason', 'calendar_event_time_off_reason_id');
     }
 
-    public function timeOffPay(): BelongsTo
+    public function timeOffPay()
     {
         return $this->belongsTo(CalendarEventTimeOffPay::class, 'calendar_event_time_off_pay', 'calendar_event_time_off_pay_id');
     }
 
-    public function extraHoursRewardType(): BelongsTo
+    public function lettingApplication()
     {
-        return $this->belongsTo(ExtraHoursRewardType::class, 'calendar_event_extra_hours_reward_type', 'extra_hours_reward_type_id');
+        return $this->belongsTo(Application::class, 'calendar_event_letting_application', 'application_id');
     }
 
-    public function updates(): HasMany
+    public function extraHoursRewardType()
     {
-        return $this->hasMany(CalendarEventUpdates::class, 'calendar_event_id', 'calendar_event_id');
-    }
-
-    public function viewings(): HasMany
-    {
-        return $this->hasMany(CalendarEventViewing::class, 'calendar_event_id', 'calendar_event_id');
-    }
-
-    public function inspections(): HasMany
-    {
-        return $this->hasMany(CalendarEventInspection::class, 'calendar_event_inspection_calendar_event_id', 'calendar_event_id');
-    }
-
-    public function files(): HasMany
-    {
-        return $this->hasMany(CalendarFiles::class, 'calendar_files_calendar_event_id', 'calendar_event_id');
+        return $this->belongsTo(ExtraHoursRewardType::class, 'calendar_event_extra_hours_reward_type', 'id');
     }
 }

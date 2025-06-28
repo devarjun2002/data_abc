@@ -24,7 +24,7 @@ class LocalAuthorityWard extends Model
         'local_authority_id'
     ];
 
-    // Relationships
+    // Relationships --done
     public function localAuthority()
     {
         return $this->belongsTo(LocalAuthority::class, 'local_authority_id', 'local_authority_id');

@@ -17,9 +17,4 @@ class PropertyTermType extends Model
     protected $fillable = [
         'property_term_type_name',
     ];
-
-    public function propertyTenancies(): HasMany
-    {
-        return $this->hasMany(PropertyTenancy::class, 'property_term_type', 'property_term_type_id');
-    }
 } 

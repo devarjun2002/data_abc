@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class KeySafe extends Model
 {
@@ -26,13 +27,24 @@ class KeySafe extends Model
         'key_safe_created_by'
     ];
 
-    public function location()
+    // Relationships --done
+    public function createdBy(): BelongsTo
     {
-        return $this->belongsTo(KeySafeLocation::class, 'key_safe_location_id', 'key_safe_location_id');
+        return $this->belongsTo(Employee::class, 'key_safe_created_by', 'employee_id');
     }
 
-    public function properties()
+    public function development(): BelongsTo
     {
-        return $this->hasMany(Property::class, 'key_safe_id', 'key_safe_id');
+        return $this->belongsTo(Development::class, 'key_safe_development', 'development_id');
+    }
+
+    public function property(): BelongsTo
+    {
+        return $this->belongsTo(Property::class, 'key_safe_property', 'property_id');
+    }
+
+    public function location(): BelongsTo
+    {
+        return $this->belongsTo(KeySafeLocation::class, 'key_safe_location', 'key_safe_location_id');
     }
 }

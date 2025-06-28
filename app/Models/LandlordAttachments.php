@@ -29,8 +29,19 @@ class LandlordAttachments extends Model
         'landlord_attachments_document_type_id'
     ];
 
-    public function landlord()
+    // Relationships --done
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'landlord_attachments_created_by', 'employee_id');
+    }
+
+    public function landlord(): BelongsTo
     {
         return $this->belongsTo(Landlord::class, 'landlord_id', 'landlord_id');
+    }
+
+    public function documentType(): BelongsTo
+    {
+        return $this->belongsTo(DocumentType::class, 'landlord_attachments_document_type_id', 'document_type_id');
     }
 }

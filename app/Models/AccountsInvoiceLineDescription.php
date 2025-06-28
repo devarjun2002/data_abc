@@ -23,25 +23,14 @@ class AccountsInvoiceLineDescription extends Model
         'invoice_line_description_amount'
     ];
 
-    // Relationships
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(AccountsInvoiceLineDescriptionCategory::class, 'invoice_line_description_category', 'invoice_line_description_category_id');
-    }
-
+    // Relationships --done
     public function nominalCode(): BelongsTo
     {
         return $this->belongsTo(AccountsNominalCode::class, 'invoice_line_nominal_code', 'nominal_code_id');
     }
 
-    // Reverse relationships
-    public function invoiceLines(): HasMany
+    public function category(): BelongsTo 
     {
-        return $this->hasMany(AccountsInvoiceLine::class, 'invoice_line_description_id', 'invoice_line_description_id');
-    }
-
-    public function invoices(): HasMany
-    {
-        return $this->hasMany(AccountsInvoice::class, 'invoice_line_description_id', 'invoice_line_description_id');
+        return $this->belongsTo(AccountsInvoiceLineDescriptionCategory::class, 'invoice_line_description_category', 'invoice_line_description_category_id');
     }
 }

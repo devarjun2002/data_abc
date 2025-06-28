@@ -903,51 +903,51 @@ CREATE TABLE IF NOT EXISTS `atlas`.`development` (
   INDEX `fk_development_development_default_fire_alarm_contractor_idx` (`development_default_fire_alarm_contractor` ASC) VISIBLE,
   INDEX `fk_development_development_default_emergency_lighting_contr_idx` (`development_default_emergency_lighting_contractor` ASC) VISIBLE,
   INDEX `fk_development_development_idx` (`development_type` ASC) VISIBLE,
-  CONSTRAINT `fk_development_development_branch`
-    FOREIGN KEY (`development_branch`)
-    REFERENCES `atlas`.`branch` (`branch_id`)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_development_development_country`
-    FOREIGN KEY (`development_country`)
-    REFERENCES `atlas`.`country` (`country_id`)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_development_development_default_gsc_contractor`
-    FOREIGN KEY (`development_default_gsc_contractor`)
-    REFERENCES `atlas`.`directory` (`directory_id`)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_development_development_default_epc_contractor`
-    FOREIGN KEY (`development_default_epc_contractor`)
-    REFERENCES `atlas`.`directory` (`directory_id`)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_development_development_default_electrical_contractor`
-    FOREIGN KEY (`development_default_electrical_contractor`)
-    REFERENCES `atlas`.`directory` (`directory_id`)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_development_development_default_pat_contractor`
-    FOREIGN KEY (`development_default_pat_contractor`)
-    REFERENCES `atlas`.`directory` (`directory_id`)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_development_development_default_fire_alarm_contractor`
-    FOREIGN KEY (`development_default_fire_alarm_contractor`)
-    REFERENCES `atlas`.`directory` (`directory_id`)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_development_development_default_emergency_lighting_contr`
-    FOREIGN KEY (`development_default_emergency_lighting_contractor`)
-    REFERENCES `atlas`.`directory` (`directory_id`)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_development_development_type`
-    FOREIGN KEY (`development_type`)
-    REFERENCES `atlas`.`development_type` (`development_type_id`)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE)
+    CONSTRAINT `fk_development_development_branch`
+      FOREIGN KEY (`development_branch`)
+      REFERENCES `atlas`.`branch` (`branch_id`)
+      ON DELETE RESTRICT
+      ON UPDATE CASCADE,
+    CONSTRAINT `fk_development_development_country`
+      FOREIGN KEY (`development_country`)
+      REFERENCES `atlas`.`country` (`country_id`)
+      ON DELETE RESTRICT
+      ON UPDATE CASCADE,
+    CONSTRAINT `fk_development_development_default_gsc_contractor`
+      FOREIGN KEY (`development_default_gsc_contractor`)
+      REFERENCES `atlas`.`directory` (`directory_id`)
+      ON DELETE RESTRICT
+      ON UPDATE CASCADE,
+    CONSTRAINT `fk_development_development_default_epc_contractor`
+      FOREIGN KEY (`development_default_epc_contractor`)
+      REFERENCES `atlas`.`directory` (`directory_id`)
+      ON DELETE RESTRICT
+      ON UPDATE CASCADE,
+    CONSTRAINT `fk_development_development_default_electrical_contractor`
+      FOREIGN KEY (`development_default_electrical_contractor`)
+      REFERENCES `atlas`.`directory` (`directory_id`)
+      ON DELETE RESTRICT
+      ON UPDATE CASCADE,
+    CONSTRAINT `fk_development_development_default_pat_contractor`
+      FOREIGN KEY (`development_default_pat_contractor`)
+      REFERENCES `atlas`.`directory` (`directory_id`)
+      ON DELETE RESTRICT
+      ON UPDATE CASCADE,
+    CONSTRAINT `fk_development_development_default_fire_alarm_contractor`
+      FOREIGN KEY (`development_default_fire_alarm_contractor`)
+      REFERENCES `atlas`.`directory` (`directory_id`)
+      ON DELETE RESTRICT
+      ON UPDATE CASCADE,
+    CONSTRAINT `fk_development_development_default_emergency_lighting_contr`
+      FOREIGN KEY (`development_default_emergency_lighting_contractor`)
+      REFERENCES `atlas`.`directory` (`directory_id`)
+      ON DELETE RESTRICT
+      ON UPDATE CASCADE,
+    CONSTRAINT `fk_development_development_type`
+      FOREIGN KEY (`development_type`)
+      REFERENCES `atlas`.`development_type` (`development_type_id`)
+      ON DELETE RESTRICT
+      ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;

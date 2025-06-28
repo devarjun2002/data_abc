@@ -23,6 +23,7 @@ class CertificateFiles extends Model
         'caption'
     ];
 
+    // Relationships --done
     public function certificate()
     {
         return $this->belongsTo(Certificate::class, 'certificate_id');

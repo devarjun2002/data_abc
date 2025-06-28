@@ -27,7 +27,7 @@ class CalendarEventRecurring extends Model
         'calendar_event_recurring_suspended'
     ];
 
-    // Relationships
+    // Relationships --done
     public function originalEvent(): BelongsTo
     {
         return $this->belongsTo(CalendarEvent::class, 'calendar_event_recurring_calendar_event_id', 'calendar_event_id');

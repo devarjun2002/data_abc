@@ -18,6 +18,7 @@ class CalendarEventMeetAt extends Model
         'calendar_event_meet_at_sort'
     ];
 
+    // Relationships --done
     public function events()
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_meet_at', 'calendar_event_meet_at_id');

@@ -18,6 +18,7 @@ class TenancyAdditionalClauses extends Model
         'tenancy_id'
     ];
 
+    // Relationships --done
     public function tenancy()
     {
         return $this->belongsTo(Tenancy::class, 'tenancy_id', 'tenancy_id');

@@ -41,14 +41,25 @@ class ApplicantRequirement extends Model
         'ar_updated_by'
     ];
 
+    // Relationships --done
     public function applicant(): BelongsTo
     {
         return $this->belongsTo(Applicant::class, 'ar_applicant_id', 'applicant_id');
     }
 
-    public function propertyCategory(): BelongsTo
+    public function branch(): BelongsTo
     {
-        return $this->belongsTo(PropertyCategory::class, 'ar_property_category', 'property_category_id');
+        return $this->belongsTo(Branch::class, 'ar_branch', 'branch_id');
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'ar_created_by', 'employee_id');
+    }
+
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'ar_updated_by', 'employee_id');
     }
 
     public function propertyAvailability(): BelongsTo
@@ -56,8 +67,28 @@ class ApplicantRequirement extends Model
         return $this->belongsTo(PropertyAvailability::class, 'ar_property_availability', 'property_availability_id');
     }
 
+    public function propertyCategory(): BelongsTo
+    {
+        return $this->belongsTo(PropertyCategory::class, 'ar_property_category', 'property_category_id');
+    }
+
     public function propertyType(): BelongsTo
     {
         return $this->belongsTo(PropertyType::class, 'ar_property_type', 'property_type_id');
+    }
+
+    public function furnishedStatus(): BelongsTo
+    {
+        return $this->belongsTo(PropertyFurnishedStatus::class, 'ar_property_furnished', 'property_furnished_status_id');
+    }
+
+    public function sharedFilter(): BelongsTo
+    {
+        return $this->belongsTo(ApplicantRequirementFilterShared::class, 'ar_property_shared', 'applicant_requirement_filter_id');
+    }
+
+    public function studentFilter(): BelongsTo
+    {
+        return $this->belongsTo(ApplicantRequirementFilterStudent::class, 'ar_property_student', 'applicant_requirement_filter_id');
     }
 }

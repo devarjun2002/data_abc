@@ -16,9 +16,4 @@ class DirectoryTrades extends Model
     protected $fillable = [
         'directory_trades_name'
     ];
-
-    public function directories()
-    {
-        return $this->belongsToMany(Directory::class, 'directory_to_trades', 'directory_trades_id', 'directory_id');
-    }
 }

@@ -17,9 +17,4 @@ class ProbateStatus extends Model
         'probate_status_name',
         'probate_status_sort',
     ];
-
-    public function properties()
-    {
-        return $this->hasMany(Property::class, 'probate_status_id', 'probate_status_id');
-    }
 }

@@ -26,18 +26,14 @@ class ApplicationUpdates extends Model
         'application_updates_created_by'
     ];
 
-    public function application(): BelongsTo
-    {
-        return $this->belongsTo(Application::class, 'application_updates_application_id', 'application_id');
-    }
-
-    public function createdBy(): BelongsTo
+    // Relationships --done
+    public function employee(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'application_updates_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function application(): BelongsTo 
     {
-        return $this->belongsTo(Employee::class, 'application_updates_updated_by', 'employee_id');
+        return $this->belongsTo(Application::class, 'application_updates_application_id', 'application_id');
     }
 }

@@ -16,6 +16,4 @@ class CommissionType extends Model
     protected $fillable = [
         'commission_type_name'
     ];
-
-    // Add relationships once related models are created
 }

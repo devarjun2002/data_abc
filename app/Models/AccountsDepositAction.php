@@ -19,15 +19,4 @@ class AccountsDepositAction extends Model
         'deposit_action_sort',
         'deposit_action_archived'
     ];
-
-    // Relationships - Add reverse relationships for models that reference this
-    public function tenantDepositCharges(): HasMany
-    {
-        return $this->hasMany(AccountsTenantDepositCharge::class, 'tenant_deposit_charge_action', 'deposit_action_id');
-    }
-
-    public function tenantDepositChargePayments(): HasMany
-    {
-        return $this->hasMany(AccountsTenantDepositChargePayment::class, 'tenant_deposit_charge_payment_action', 'deposit_action_id');
-    }
 }

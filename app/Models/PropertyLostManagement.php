@@ -17,10 +17,4 @@ class PropertyLostManagement extends Model
     protected $fillable = [
         'property_lost_management_reason',
     ];
-
-    // Relationships
-    public function properties(): HasMany
-    {
-        return $this->hasMany(Property::class, 'property_lost_management', 'property_lost_management_id');
-    }
 }

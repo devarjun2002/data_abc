@@ -17,7 +17,7 @@ class ValuationReason extends Model
         'valuation_reason_name'
     ];
 
-    // Relationships
+    // Relationships --done 
     public function valuations()
     {
         return $this->hasMany(Valuation::class, 'valuation_reason', 'valuation_reason_id');

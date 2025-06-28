@@ -17,9 +17,4 @@ class PropertyViewingArrangement extends Model
     protected $fillable = [
         'property_viewing_arrangement_name',
     ];
-
-    public function properties(): BelongsTo
-    {
-        return $this->belongsTo(Property::class, 'property_viewing_arrangement', 'property_viewing_arrangement_id');
-    }
 }

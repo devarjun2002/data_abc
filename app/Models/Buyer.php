@@ -75,33 +75,44 @@ class Buyer extends Model
         'buyer_source',
     ];
 
-    public function solicitorCompany(): BelongsTo
+    // Relationships --done
+    public function bank()
     {
-        return $this->belongsTo(Company::class, 'buyer_solicitor_company', 'company_id');
+        return $this->belongsTo(Bank::class, 'buyer_bank_name', 'bank_id');
     }
 
-    public function solicitorCompanyIndividual(): BelongsTo
-    {
-        return $this->belongsTo(Company::class, 'buyer_solicitor_company_individual', 'company_id');
-    }
-
-    public function estateAgentCompany(): BelongsTo
-    {
-        return $this->belongsTo(Company::class, 'buyer_estate_agent_company', 'company_id');
-    }
-
-    public function estateAgentCompanyIndividual(): BelongsTo
-    {
-        return $this->belongsTo(Company::class, 'buyer_estate_agent_company_individual', 'company_id');
-    }
-
-    public function branch(): BelongsTo
+    public function branch()
     {
         return $this->belongsTo(Branch::class, 'buyer_branch', 'branch_id');
     }
 
-    public function source(): BelongsTo
+    public function createdBy()
     {
-        return $this->belongsTo(Source::class, 'buyer_source', 'source_id');
+        return $this->belongsTo(Employee::class, 'buyer_created_by', 'employee_id');
+    }
+
+    public function updatedBy()
+    {
+        return $this->belongsTo(Employee::class, 'buyer_updated_by', 'employee_id');
+    }
+
+    public function title()
+    {
+        return $this->belongsTo(Title::class, 'buyer_title', 'title_id');
+    }
+
+    public function bodyType()
+    {
+        return $this->belongsTo(BodyType::class, 'buyer_type', 'body_type_id');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'buyer_country', 'country_id');
+    }
+
+    public function companyRegOfficeCountry()
+    {
+        return $this->belongsTo(Country::class, 'buyer_company_reg_office_country', 'country_id');
     }
 }

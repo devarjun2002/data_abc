@@ -37,20 +37,24 @@ class ApplicationGuarantor extends Model
         'application_guarantor_applicant_name'
     ];
 
+    // Relationships --done
+    public function title(): BelongsTo
+    {
+        return $this->belongsTo(Title::class, 'application_guarantor_title', 'title_id');
+    }
+
     public function application(): BelongsTo
     {
         return $this->belongsTo(Application::class, 'application_id', 'application_id');
     }
-    public function nationality(): BelongsTo
-    {
-        return $this->belongsTo(Nationality::class, 'application_guarantor_nationality', 'nationality_id');
-    }
+
     public function employmentStatus(): BelongsTo
     {
         return $this->belongsTo(EmploymentStatus::class, 'application_guarantor_employment_status', 'employment_status_id');
     }
-    public function title(): BelongsTo
+
+    public function nationality(): BelongsTo
     {
-        return $this->belongsTo(Title::class, 'application_guarantor_title', 'title_id');
+        return $this->belongsTo(Nationality::class, 'application_guarantor_nationality', 'nationality_id');
     }
 }

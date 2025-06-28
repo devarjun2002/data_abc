@@ -25,7 +25,7 @@ class ApplicantUpdates extends Model
         'applicant_updates_created_by'
     ];
 
-    // Relationships
+    // Relationships --done
     public function applicant(): BelongsTo
     {
         return $this->belongsTo(Applicant::class, 'applicant_updates_applicant_id', 'applicant_id');

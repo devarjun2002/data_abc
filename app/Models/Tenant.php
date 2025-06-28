@@ -80,8 +80,59 @@ class Tenant extends Model
         'tenant_right_to_rent_review_date'
     ];
 
-    public function propertyRoomLettings()
+    // Relationships --done
+    public function bank(): BelongsTo
     {
-        return $this->belongsToMany(PropertyRoomLetting::class, 'property_room_letting_tenant', 'tenant_id', 'property_room_letting_id');
+        return $this->belongsTo(Bank::class, 'tenant_bank_name');
+    }
+
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class, 'tenant_branch');
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'tenant_created_by');
+    }
+
+    public function title(): BelongsTo
+    {
+        return $this->belongsTo(Title::class, 'tenant_title');
+    }
+
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'tenant_updated_by');
+    }
+
+    public function type(): BelongsTo
+    {
+        return $this->belongsTo(BodyType::class, 'tenant_type');
+    }
+
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'tenant_country');
+    }
+
+    public function forwardingCountry(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'tenant_forwarding_country');
+    }
+
+    public function employmentStatus(): BelongsTo
+    {
+        return $this->belongsTo(EmploymentStatus::class, 'tenant_employment_status');
+    }
+
+    public function incomeFrequency(): BelongsTo
+    {
+        return $this->belongsTo(IncomeFrequency::class, 'tenant_income_frequency');
+    }
+
+    public function referencingProvider(): BelongsTo
+    {
+        return $this->belongsTo(Directory::class, 'tenant_referencing_provider');
     }
 }

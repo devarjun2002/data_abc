@@ -39,6 +39,7 @@ class BulkEmail extends Model
         'bulk_email_date_sent',
     ];
 
+    // Relationships --done
     public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class, 'bulk_email_property_id', 'property_id');

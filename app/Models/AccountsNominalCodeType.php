@@ -18,7 +18,7 @@ class AccountsNominalCodeType extends Model
         'nominal_code_type_name',
     ];
 
-    // Relationships
+    // Relationships --done
     public function nominalCodes(): HasMany
     {
         return $this->hasMany(AccountsNominalCode::class, 'nominal_code_type', 'nominal_code_type_id');

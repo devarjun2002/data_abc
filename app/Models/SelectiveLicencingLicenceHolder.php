@@ -17,8 +17,4 @@ class SelectiveLicencingLicenceHolder extends Model
     protected $fillable = [
         'selective_licencing_licence_holder_name',
     ];
-
-    public function properties(): HasMany {
-        return $this->hasMany(Property::class, 'property_selective_licencing_licence_holder', 'selective_licencing_licence_holder_id');
-    }
 }

@@ -18,15 +18,4 @@ class CalendarEventConfidence extends Model
         'calendar_event_confidence_name',
         'calendar_event_confidence_sort'
     ];
-
-    // Relationships
-    public function events(): HasMany
-    {
-        return $this->hasMany(CalendarEvent::class, 'calendar_event_confidence', 'calendar_event_confidence_id');
-    }
-
-    public function viewings(): HasMany
-    {
-        return $this->hasMany(CalendarEventViewing::class, 'calendar_event_viewing_confidence_level', 'calendar_event_confidence_id');
-    }
 }

@@ -21,10 +21,4 @@ class PropertyAppliances extends Model
         'property_appliances_name',
         'property_appliances_sort'
     ];
-
-    // Relationships
-    public function propertyToAppliances(): HasMany
-    {
-        return $this->hasMany(PropertyToAppliances::class, 'property_appliances_id', 'property_appliances_id');
-    }
 }

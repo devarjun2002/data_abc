@@ -16,9 +16,4 @@ class LandlordStatus extends Model
     protected $fillable = [
         'landlord_status_name',
     ];
-
-    public function landlords()
-    {
-        return $this->hasMany(Landlord::class, 'landlord_status_id', 'landlord_status_id');
-    }
 }

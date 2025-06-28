@@ -18,7 +18,7 @@ class PropertyCategory extends Model
         'property_category_name',
     ];
 
-    // Relationships
+    // Relationships --done
     public function properties(): HasMany
     {
         return $this->hasMany(Property::class, 'property_category', 'property_category_id');

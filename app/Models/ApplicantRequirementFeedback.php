@@ -32,16 +32,7 @@ class ApplicantRequirementFeedback extends Model
         'applicant_requirement_feedback_updated_by'
     ];
 
-    public function applicantRequirement(): BelongsTo
-    {
-        return $this->belongsTo(ApplicantRequirement::class, 'applicant_requirement_feedback_ar_id', 'applicant_requirement_id');
-    }
-
-    public function applicantRequirementProperty(): BelongsTo
-    {
-        return $this->belongsTo(ApplicantRequirementProperty::class, 'applicant_requirement_feedback_arp_id', 'applicant_requirement_property_id');
-    }
-
+    // Relationships --done
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'applicant_requirement_feedback_created_by', 'employee_id');
@@ -50,5 +41,15 @@ class ApplicantRequirementFeedback extends Model
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(Employee::class, 'applicant_requirement_feedback_updated_by', 'employee_id');
+    }
+
+    public function applicantRequirementProperty(): BelongsTo
+    {
+        return $this->belongsTo(ApplicantRequirementProperties::class, 'applicant_requirement_feedback_arp_id', 'arp_id');
+    }
+
+    public function applicantRequirement(): BelongsTo
+    {
+        return $this->belongsTo(ApplicantRequirement::class, 'applicant_requirement_feedback_ar_id', 'ar_id');
     }
 }

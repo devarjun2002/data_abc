@@ -19,7 +19,7 @@ class CalendarEventStatus extends Model
         'calendar_event_status_display_name',
     ];
 
-    // Relationships
+    // Relationships --done
     public function events(): HasMany
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_status', 'calendar_event_status_id');

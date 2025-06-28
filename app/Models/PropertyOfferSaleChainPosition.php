@@ -19,7 +19,8 @@ class PropertyOfferSaleChainPosition extends Model
         'property_offer_sale_chain_position_sort',
     ];
 
-    public function chains()
+    // Relationships --done
+    public function chains(): HasMany
     {
         return $this->hasMany(PropertyOfferSaleChain::class, 'property_offer_sale_chain_position', 'property_offer_sale_chain_position_id');
     }

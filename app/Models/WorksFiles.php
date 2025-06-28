@@ -23,8 +23,9 @@ class WorksFiles extends Model
         'works_files_sort',
     ];
 
-    public function works()
-    {   
-        return $this->belongsTo(Works::class, 'works_id', 'works_id');
+    // Relationships --done
+    public function works(): BelongsTo
+    {
+        return $this->belongsTo(Works::class, 'works_id');
     }
 }
