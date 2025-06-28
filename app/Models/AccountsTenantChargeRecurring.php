@@ -57,10 +57,4 @@ class AccountsTenantChargeRecurring extends Model
     {
         return $this->belongsTo(Employee::class, 'tenant_charge_recurring_updated_by', 'employee_id');
     }
-
-    // Reverse relationships
-    public function tenantChargePayments()
-    {
-        return $this->hasMany(AccountsTenantChargePayment::class, 'tenant_charge_payment_id', 'tenant_charge_id');
-    }
 }

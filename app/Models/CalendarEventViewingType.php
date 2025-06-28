@@ -16,10 +16,4 @@ class CalendarEventViewingType extends Model
     protected $fillable = [
         'calendar_event_viewing_type_name'
     ];
-
-    // Relationships --done
-    public function calendarEventViewings()
-    {
-        return $this->hasMany(CalendarEventViewing::class, 'calendar_event_viewing_type');
-    }
 }

@@ -18,15 +18,4 @@ class ApplicantRequirementFilterStudent extends Model
         'applicant_requirement_filter_description',
         'applicant_requirement_filter_sort'
     ];
-
-    // Relationships
-    public function requirement()
-    {
-        return $this->belongsTo(ApplicantRequirement::class, 'applicant_requirement_filter_student_requirement_id', 'applicant_requirement_id');
-    }
-
-    public function createdBy()
-    {
-        return $this->belongsTo(Employee::class, 'applicant_requirement_filter_student_created_by', 'employee_id');
-    }
 }

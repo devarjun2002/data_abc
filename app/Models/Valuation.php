@@ -256,7 +256,7 @@ class Valuation extends Model
 
     public function valuer()
     {
-        return $this->belongsTo(Employee::class, 'valuation_valuer');
+        return $this->belongsTo(Employee::class, 'valuation_employee');
     }
 
     public function capacity()

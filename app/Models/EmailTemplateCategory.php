@@ -16,10 +16,4 @@ class EmailTemplateCategory extends Model
     protected $fillable = [
         'email_template_category_name'
     ];
-
-    // Relationships --done
-    public function emailTemplates()
-    {
-        return $this->hasMany(EmailTemplate::class, 'email_template_category');
-    }
 }

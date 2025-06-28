@@ -17,10 +17,4 @@ class WorksRoom extends Model
         'works_room_name',
         'works_room_sort'
     ];
-
-    // Relationships --done
-    public function works()
-    {
-        return $this->hasMany(Works::class, 'works_room');
-    }
 }
