@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CalendarEventRecurring extends Model
 {
@@ -28,17 +26,17 @@ class CalendarEventRecurring extends Model
     ];
 
     // Relationships --done
-    public function originalEvent(): BelongsTo
+    public function originalEvent()
     {
         return $this->belongsTo(CalendarEvent::class, 'calendar_event_recurring_calendar_event_id', 'calendar_event_id');
     }
 
-    public function events(): HasMany
+    public function events()
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_recurring_id', 'calendar_event_recurring_id');
     }
 
-    public function frequencyUnit(): BelongsTo
+    public function frequencyUnit()
     {
         return $this->belongsTo(AccountsRecurringFrequencyUnit::class, 'calendar_event_recurring_frequency_unit', 'accounts_recurring_frequency_unit_id');
     }

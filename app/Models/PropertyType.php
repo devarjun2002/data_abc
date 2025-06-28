@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyType extends Model
 {
@@ -22,12 +20,12 @@ class PropertyType extends Model
     ];
 
     // Relationships --done
-    public function properties(): HasMany
+    public function properties()
     {
         return $this->hasMany(Property::class, 'property_type', 'property_type_id');
     }
 
-    public function propertyGroup(): BelongsTo
+    public function propertyGroup()
     {
         return $this->belongsTo(PropertyGroup::class, 'property_type_group', 'property_type_group_id');
     }

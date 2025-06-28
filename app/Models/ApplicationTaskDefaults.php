@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ApplicationTaskDefaults extends Model
 {
@@ -24,12 +23,12 @@ class ApplicationTaskDefaults extends Model
     ];
 
     // Relationships --done
-    public function type(): BelongsTo
+    public function type()
     {
         return $this->belongsTo(ApplicationTaskType::class, 'application_task_defaults_type', 'application_task_type_id');
     }
 
-    public function status(): BelongsTo 
+    public function status() 
     {
         return $this->belongsTo(ApplicationTaskStatus::class, 'application_task_defaults_status', 'application_task_status_id');
     }

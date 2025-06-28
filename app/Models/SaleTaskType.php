@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class SaleTaskType extends Model
 {
@@ -19,7 +18,7 @@ class SaleTaskType extends Model
     ];
 
     // Relationships --done
-    public function tasks(): HasMany {
+    public function tasks() {
         return $this->hasMany(SaleTask::class, 'sale_task_type', 'sale_task_type_id');
     }
 }

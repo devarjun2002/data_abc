@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AlarmCodeDevelopment extends Model
 {
@@ -29,12 +28,12 @@ class AlarmCodeDevelopment extends Model
     ];
 
     // Relationships --done
-    public function development(): BelongsTo
+    public function development()
     {
         return $this->belongsTo(Development::class, 'alarm_code_development', 'development_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'alarm_code_created_by', 'employee_id');
     }

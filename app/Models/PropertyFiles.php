@@ -27,7 +27,7 @@ class PropertyFiles extends Model
     ];
 
     // Relationships --done
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
     }

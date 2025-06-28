@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyOutsideSpace extends Model
 {
@@ -19,7 +18,7 @@ class PropertyOutsideSpace extends Model
     ];
 
     // Relationships
-    public function propertyToOutsideSpace(): HasMany
+    public function propertyToOutsideSpace()
     {
         return $this->hasMany(PropertyToOutsideSpace::class, 'property_outside_space_id', 'property_outside_space_id');
     }

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ApplicantRequirementFeedback extends Model
 {
@@ -33,22 +32,22 @@ class ApplicantRequirementFeedback extends Model
     ];
 
     // Relationships --done
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'applicant_requirement_feedback_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'applicant_requirement_feedback_updated_by', 'employee_id');
     }
 
-    public function applicantRequirementProperty(): BelongsTo
+    public function applicantRequirementProperty()
     {
         return $this->belongsTo(ApplicantRequirementProperties::class, 'applicant_requirement_feedback_arp_id', 'arp_id');
     }
 
-    public function applicantRequirement(): BelongsTo
+    public function applicantRequirement()
     {
         return $this->belongsTo(ApplicantRequirement::class, 'applicant_requirement_feedback_ar_id', 'ar_id');
     }

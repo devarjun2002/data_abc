@@ -27,12 +27,12 @@ class TenancyUpdates extends Model
     ];
 
     // Relationships --done
-    public function tenancy(): BelongsTo
+    public function tenancy()
     {
         return $this->belongsTo(Tenancy::class, 'tenancy_updates_tenancy_id', 'tenancy_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'tenancy_updates_created_by', 'employee_id');
     }

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ReferralUpdates extends Model
 {
@@ -27,12 +26,12 @@ class ReferralUpdates extends Model
     ];
 
     // Relationships --done
-    public function referral(): BelongsTo
+    public function referral()
     {
         return $this->belongsTo(Referral::class, 'referral_updates_referral_id', 'referral_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'referral_updates_created_by', 'employee_id');
     }

@@ -19,12 +19,12 @@ class PropertyToHeating extends Model
     ];
 
     // Relationships --done
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
     }
 
-    public function heating(): BelongsTo
+    public function heating()
     {
         return $this->belongsTo(PropertyHeating::class, 'property_heating_id', 'property_heating_id');
     }

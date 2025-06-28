@@ -35,27 +35,27 @@ class PropertyTenancy extends Model
     ];
 
     // Relationships --done
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
     }
 
-    public function sizeUnit(): BelongsTo
+    public function sizeUnit()
     {
         return $this->belongsTo(PropertyAreaUnit::class, 'property_tenancy_size_unit', 'property_area_unit_id');
     }
 
-    public function rentFrequency(): BelongsTo
+    public function rentFrequency()
     {
         return $this->belongsTo(TenancyRentFrequency::class, 'property_tenancy_rent_frequency', 'tenancy_rent_frequency_id');
     }
 
-    public function ervFrequency(): BelongsTo
+    public function ervFrequency()
     {
         return $this->belongsTo(TenancyRentFrequency::class, 'property_tenancy_erv_frequency', 'tenancy_rent_frequency_id');
     }
 
-    public function leaseType(): BelongsTo
+    public function leaseType()
     {
         return $this->belongsTo(LeaseType::class, 'property_tenancy_lease_type', 'lease_type_id');
     }

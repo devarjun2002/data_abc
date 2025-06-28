@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsInvoiceStatus extends Model
 {
@@ -19,7 +18,7 @@ class AccountsInvoiceStatus extends Model
     ];
 
     // Relationships --done
-    public function invoices(): HasMany
+    public function invoices()
     {
         return $this->hasMany(AccountsInvoice::class, 'invoice_status', 'invoice_status_id');
     }

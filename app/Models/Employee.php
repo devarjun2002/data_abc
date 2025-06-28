@@ -3,9 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Employee extends Model
 {
@@ -62,53 +59,53 @@ class Employee extends Model
     ];
 
     // Relationships --done
-    public function branch(): BelongsTo
+    public function branch()
     {
         return $this->belongsTo(Branch::class, 'employee_branch_id', 'branch_id');
     }
 
-    public function defaultVehicle(): BelongsTo 
+    public function defaultVehicle() 
     {
         return $this->belongsTo(Vehicle::class, 'employee_default_vehicle_id', 'vehicle_id');
     }
 
-    public function title(): BelongsTo
+    public function title()
     {
         return $this->belongsTo(Title::class, 'employee_title', 'title_id');
     }
 
-    public function company(): BelongsTo
+    public function company()
     {
         return $this->belongsTo(Company::class, 'company_id', 'company_id');
     }
 
-    public function lineManager(): BelongsTo
+    public function lineManager()
     {
         return $this->belongsTo(Employee::class, 'employee_line_manager', 'employee_id');
     }
 
-    public function lineManagerAnnualLeave(): BelongsTo
+    public function lineManagerAnnualLeave()
     {
         return $this->belongsTo(Employee::class, 'employee_line_manager_annual_leave', 'employee_id');
     }
 
-    public function lineManagerFirstLogin(): BelongsTo
+    public function lineManagerFirstLogin()
     {
         return $this->belongsTo(Employee::class, 'employee_line_manager_first_login', 'employee_id');
     }
 
-    public function annualLeaveCover(): BelongsTo
+    public function annualLeaveCover()
     {
         return $this->belongsTo(Employee::class, 'employee_annual_leave_cover', 'employee_id');
     }
 
-    public function annualLeaveAccrualMethod(): BelongsTo
+    public function annualLeaveAccrualMethod()
     {
         return $this->belongsTo(AnnualLeaveAccrualMethod::class, 'employee_annual_leave_accrual_method', 'annual_leave_accrual_method_id');
     }
 
     // Reverse relationships --done
-    public function bacsFilesCreated(): HasMany
+    public function bacsFilesCreated()
     {
         return $this->hasMany(AccountsBacsFile::class, 'bacs_file_created_by', 'employee_id');
     }

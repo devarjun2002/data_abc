@@ -19,12 +19,12 @@ class PropertyToUseClass extends Model
     ];
 
     // Relationships --done
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
     }
 
-    public function useClass(): BelongsTo
+    public function useClass()
     {
         return $this->belongsTo(PropertyUseClass::class, 'property_use_class_id', 'property_use_class_id');
     }

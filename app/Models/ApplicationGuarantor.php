@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ApplicationGuarantor extends Model
 {
@@ -38,22 +37,22 @@ class ApplicationGuarantor extends Model
     ];
 
     // Relationships --done
-    public function title(): BelongsTo
+    public function title()
     {
         return $this->belongsTo(Title::class, 'application_guarantor_title', 'title_id');
     }
 
-    public function application(): BelongsTo
+    public function application()
     {
         return $this->belongsTo(Application::class, 'application_id', 'application_id');
     }
 
-    public function employmentStatus(): BelongsTo
+    public function employmentStatus()
     {
         return $this->belongsTo(EmploymentStatus::class, 'application_guarantor_employment_status', 'employment_status_id');
     }
 
-    public function nationality(): BelongsTo
+    public function nationality()
     {
         return $this->belongsTo(Nationality::class, 'application_guarantor_nationality', 'nationality_id');
     }

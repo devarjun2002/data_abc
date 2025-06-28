@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsInvoicePayment extends Model
 {
@@ -36,43 +34,43 @@ class AccountsInvoicePayment extends Model
     ];
 
     // Relationships --done
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'invoice_payment_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'invoice_payment_updated_by', 'employee_id');
     }
 
-    public function invoice(): BelongsTo
+    public function invoice()
     {
         return $this->belongsTo(AccountsInvoice::class, 'invoice_payment_invoice_id', 'invoice_id');
     }
 
-    public function paymentMethod(): BelongsTo
+    public function paymentMethod()
     {
         return $this->belongsTo(AccountsPaymentMethod::class, 'invoice_payment_method', 'payment_method_id');
     }
 
-    public function tenancy(): BelongsTo
+    public function tenancy()
     {
         return $this->belongsTo(Tenancy::class, 'invoice_payment_tenancy_id', 'tenancy_id');
     }
 
-    public function paymentType(): BelongsTo
+    public function paymentType()
     {
         return $this->belongsTo(AccountsInvoicePaymentType::class, 'invoice_payment_type', 'accounts_invoice_payment_type_id');
     }
 
-    public function invoiceCredit(): BelongsTo
+    public function invoiceCredit()
     {
         return $this->belongsTo(AccountsInvoiceCredit::class, 'invoice_payment_type_id', 'invoice_credit_id');
     }
 
     // Reverse relationships
-    public function bacsFiles(): HasMany
+    public function bacsFiles()
     {
         return $this->hasMany(AccountsBacsFile::class, 'bacs_file_invoice_payment_reference', 'invoice_payment_id');
     }

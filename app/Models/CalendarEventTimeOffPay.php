@@ -18,7 +18,7 @@ class CalendarEventTimeOffPay extends Model
     ];
 
     // Relationships --done
-    public function events(): HasMany
+    public function events()
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_time_off_pay', 'calendar_event_time_off_pay_id');
     }

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AnnualLeaveAccrualMethod extends Model
 {
@@ -19,7 +18,7 @@ class AnnualLeaveAccrualMethod extends Model
     ];
 
     // Relationships --done
-    public function employees(): HasMany
+    public function employees()
     {
         return $this->hasMany(Employee::class, 'employee_annual_leave_accrual_method', 'annual_leave_accrual_method_id');
     }

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyPriceQualifier extends Model
 {
@@ -20,12 +19,12 @@ class PropertyPriceQualifier extends Model
     ];
 
     // Relationships --done
-    public function valuations(): HasMany
+    public function valuations()
     {
         return $this->hasMany(Valuation::class, 'valuation_price_qualifier', 'price_qualifier_id');
     }
 
-    public function valuationsMarketed(): HasMany
+    public function valuationsMarketed()
     {
         return $this->hasMany(Valuation::class, 'valuation_price_qualifier_marketed', 'price_qualifier_id');
     }

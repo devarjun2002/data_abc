@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ApplicationTaskStatus extends Model
 {
@@ -19,12 +18,12 @@ class ApplicationTaskStatus extends Model
     ];
 
     // Relationships --done
-    public function tasks(): HasMany
+    public function tasks()
     {
         return $this->hasMany(ApplicationTask::class, 'application_task_status', 'application_task_status_id');
     }
 
-    public function taskDefaults(): HasMany
+    public function taskDefaults()
     {
         return $this->hasMany(ApplicationTaskDefaults::class, 'application_task_defaults_status', 'application_task_status_id');
     }

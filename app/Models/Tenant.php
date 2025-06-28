@@ -81,57 +81,57 @@ class Tenant extends Model
     ];
 
     // Relationships --done
-    public function bank(): BelongsTo
+    public function bank()
     {
         return $this->belongsTo(Bank::class, 'tenant_bank_name');
     }
 
-    public function branch(): BelongsTo
+    public function branch()
     {
         return $this->belongsTo(Branch::class, 'tenant_branch');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'tenant_created_by');
     }
 
-    public function title(): BelongsTo
+    public function title()
     {
         return $this->belongsTo(Title::class, 'tenant_title');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'tenant_updated_by');
     }
 
-    public function type(): BelongsTo
+    public function type()
     {
         return $this->belongsTo(BodyType::class, 'tenant_type');
     }
 
-    public function country(): BelongsTo
+    public function country()
     {
         return $this->belongsTo(Country::class, 'tenant_country');
     }
 
-    public function forwardingCountry(): BelongsTo
+    public function forwardingCountry()
     {
         return $this->belongsTo(Country::class, 'tenant_forwarding_country');
     }
 
-    public function employmentStatus(): BelongsTo
+    public function employmentStatus()
     {
         return $this->belongsTo(EmploymentStatus::class, 'tenant_employment_status');
     }
 
-    public function incomeFrequency(): BelongsTo
+    public function incomeFrequency()
     {
         return $this->belongsTo(IncomeFrequency::class, 'tenant_income_frequency');
     }
 
-    public function referencingProvider(): BelongsTo
+    public function referencingProvider()
     {
         return $this->belongsTo(Directory::class, 'tenant_referencing_provider');
     }

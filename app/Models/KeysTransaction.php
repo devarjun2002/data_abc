@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class KeysTransaction extends Model
 {
@@ -38,37 +37,37 @@ class KeysTransaction extends Model
     ];
 
     // Relationships --done
-    public function clientType(): BelongsTo
+    public function clientType()
     {
         return $this->belongsTo(CustomerType::class, 'keys_transaction_client_type', 'customer_type_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'keys_transaction_created_by', 'employee_id');
     }
 
-    public function employee(): BelongsTo
+    public function employee()
     {
         return $this->belongsTo(Employee::class, 'keys_transaction_employee', 'employee_id');
     }
 
-    public function inEmployee(): BelongsTo
+    public function inEmployee()
     {
         return $this->belongsTo(Employee::class, 'keys_transaction_in_employee', 'employee_id');
     }
 
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'keys_transaction_property', 'property_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'keys_transaction_updated_by', 'employee_id');
     }
 
-    public function keySet(): BelongsTo
+    public function keySet()
     {
         return $this->belongsTo(KeysAdd::class, 'keys_transaction_set_id', 'keys_add_id');
     }

@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsInvoice extends Model
 {
@@ -47,47 +45,47 @@ class AccountsInvoice extends Model
     ];
 
     // Relationships --done
-    public function branch(): BelongsTo
+    public function branch()
     {
         return $this->belongsTo(Branch::class, 'invoice_branch', 'branch_id');
     }
 
-    public function createdBy(): BelongsTo 
+    public function createdBy() 
     {
         return $this->belongsTo(Employee::class, 'invoice_created_by', 'employee_id');
     }
 
-    public function customerType(): BelongsTo
+    public function customerType()
     {
         return $this->belongsTo(CustomerType::class, 'invoice_customer_type', 'customer_type_id');
     }
 
-    public function development(): BelongsTo
+    public function development()
     {
         return $this->belongsTo(Development::class, 'invoice_development_id', 'development_id');
     }
 
-    public function paymentTerms(): BelongsTo
+    public function paymentTerms()
     {
         return $this->belongsTo(AccountsPaymentTerm::class, 'invoice_payment_terms', 'accounts_payment_term_id');
     }
 
-    public function postedBy(): BelongsTo
+    public function postedBy()
     {
         return $this->belongsTo(Employee::class, 'invoice_posted_by', 'employee_id');
     }
 
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'invoice_property_id', 'property_id');
     }
 
-    public function tenancy(): BelongsTo
+    public function tenancy()
     {
         return $this->belongsTo(Tenancy::class, 'invoice_tenancy_id', 'tenancy_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'invoice_updated_by', 'employee_id');
     }
@@ -95,7 +93,7 @@ class AccountsInvoice extends Model
     // Reverse relationships --done
     public function bacsFiles()
     {
-        return $this->hasMany(BacsFile::class, 'bacs_file_invoice_payment_reference', 'invoice_id');
+        return $this->hasMany(AccountsBacsFile::class, 'bacs_file_invoice_payment_reference', 'invoice_id');
     }
 
     public function creditNotes()

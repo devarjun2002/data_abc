@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AccountsTenantChargePayment extends Model
 {
@@ -33,27 +32,27 @@ class AccountsTenantChargePayment extends Model
     ];
 
     // Relationships --done
-    public function paymentType(): BelongsTo
+    public function paymentType()
     {
         return $this->belongsTo(AccountsTenantChargePaymentType::class, 'accounts_tenant_charge_payment_type', 'accounts_tenant_charge_payment_type_id');
     }
 
-    public function tenantCharge(): BelongsTo
+    public function tenantCharge()
     {
         return $this->belongsTo(AccountsTenantCharge::class, 'tenant_charge_payment_tenant_charge_id', 'tenant_charge_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'tenant_charge_payment_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'tenant_charge_payment_updated_by', 'employee_id');
     }
 
-    public function paymentMethod(): BelongsTo
+    public function paymentMethod()
     {
         return $this->belongsTo(AccountsPaymentMethod::class, 'tenant_charge_payment_method', 'payment_method_id');
     }

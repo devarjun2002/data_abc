@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AlarmCode extends Model
 {
@@ -26,17 +25,17 @@ class AlarmCode extends Model
     ];
 
     // Relationships --done
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'alarm_code_created_by', 'employee_id');
     }
 
-    public function property(): BelongsTo 
+    public function property() 
     {
         return $this->belongsTo(Property::class, 'alarm_code_property', 'property_id');
     }
 
-    public function type(): BelongsTo
+    public function type()
     {
         return $this->belongsTo(AlarmCodeType::class, 'alarm_code_type', 'alarm_code_type_id'); 
     }

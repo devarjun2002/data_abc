@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Country extends Model
 {
@@ -21,47 +19,47 @@ class Country extends Model
     ];
 
     // Relationships --done
-    public function companies(): HasMany
+    public function companies()
     {
         return $this->hasMany(Company::class, 'company_country', 'country_id');
     }
 
-    public function regOfficeCompanies(): HasMany
+    public function regOfficeCompanies()
     {
         return $this->hasMany(Company::class, 'company_reg_office_country', 'country_id');
     }
 
-    public function branches(): HasMany
+    public function branches()
     {
         return $this->hasMany(Branch::class, 'branch_country', 'country_id');
     }
 
-    public function landlords(): HasMany
+    public function landlords()
     {
         return $this->hasMany(Landlord::class, 'landlord_country', 'country_id');
     }
 
-    public function directoryIndividuals(): HasMany
+    public function directoryIndividuals()
     {
         return $this->hasMany(DirectoryIndividual::class, 'directory_individual_country', 'country_id');
     }
 
-    public function directories(): HasMany
+    public function directories()
     {
         return $this->hasMany(Directory::class, 'directory_country', 'country_id');
     }
 
-    public function properties(): BelongsToMany
+    public function properties()
     {
         return $this->belongsToMany(Property::class, 'property_country', 'country_id', 'property_id');
     }
 
-    public function applicants(): HasMany
+    public function applicants()
     {
         return $this->hasMany(Applicant::class, 'applicant_country', 'country_id');
     }
 
-    public function valuations(): HasMany
+    public function valuations()
     {
         return $this->hasMany(Valuation::class, 'valuation_property_country', 'country_id');
     }

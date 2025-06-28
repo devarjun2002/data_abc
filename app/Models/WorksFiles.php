@@ -24,7 +24,7 @@ class WorksFiles extends Model
     ];
 
     // Relationships --done
-    public function works(): BelongsTo
+    public function works()
     {
         return $this->belongsTo(Works::class, 'works_id');
     }

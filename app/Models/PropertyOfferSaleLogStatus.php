@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PropertyOfferSaleLogStatus extends Model
 {
@@ -25,22 +24,22 @@ class PropertyOfferSaleLogStatus extends Model
     ];
 
     // Relationships --done
-    public function offerSale(): BelongsTo
+    public function offerSale()
     {
         return $this->belongsTo(PropertyOfferSale::class, 'property_offer_sale_id', 'property_offer_sale_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'property_offer_sale_updated_by', 'employee_id');
     }
 
-    public function oldStatus(): BelongsTo
+    public function oldStatus()
     {
         return $this->belongsTo(PropertyOfferStatus::class, 'property_offer_sale_status_old', 'property_offer_status_id');
     }
 
-    public function newStatus(): BelongsTo
+    public function newStatus()
     {
         return $this->belongsTo(PropertyOfferStatus::class, 'property_offer_sale_status_new', 'property_offer_status_id');
     }

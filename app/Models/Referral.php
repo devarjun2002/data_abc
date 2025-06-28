@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Referral extends Model
@@ -48,52 +46,52 @@ class Referral extends Model
     ];
 
     // Relationships --done
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'referral_created_by', 'employee_id');
     }
 
-    public function employee(): BelongsTo
+    public function employee()
     {
         return $this->belongsTo(Employee::class, 'referral_employee', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'referral_updated_by', 'employee_id');
     }
 
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'referral_property', 'property_id');
     }
 
-    public function valuation(): BelongsTo
+    public function valuation()
     {
         return $this->belongsTo(Valuation::class, 'referral_valuation', 'valuation_id');
     }
 
-    public function type(): BelongsTo
+    public function type()
     {
         return $this->belongsTo(ReferralType::class, 'referral_type', 'referral_type_id');
     }
 
-    public function salePurchase(): BelongsTo
+    public function salePurchase()
     {
         return $this->belongsTo(ReferralSalePurchase::class, 'referral_sale_purchase', 'referral_sale_purchase_id');
     }
 
-    public function customerType(): BelongsTo
+    public function customerType()
     {
         return $this->belongsTo(CustomerType::class, 'referral_customer_type', 'customer_type_id');
     }
 
-    public function directoryCompany(): BelongsTo
+    public function directoryCompany()
     {
         return $this->belongsTo(Directory::class, 'referral_directory_company', 'directory_id');
     }
 
-    public function status(): BelongsTo
+    public function status()
     {
         return $this->belongsTo(ReferralStatus::class, 'referral_status', 'referral_status_id');
     }

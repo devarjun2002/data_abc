@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ApplicantRequirementFilterStudent extends Model
 {
@@ -21,12 +20,12 @@ class ApplicantRequirementFilterStudent extends Model
     ];
 
     // Relationships
-    public function requirement(): BelongsTo
+    public function requirement()
     {
         return $this->belongsTo(ApplicantRequirement::class, 'applicant_requirement_filter_student_requirement_id', 'applicant_requirement_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'applicant_requirement_filter_student_created_by', 'employee_id');
     }

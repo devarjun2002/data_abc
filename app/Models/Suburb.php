@@ -22,7 +22,7 @@ class Suburb extends Model
     ];
 
     // Relationships --done
-    public function branch(): BelongsTo
+    public function branch()
     {
         return $this->belongsTo(Branch::class, 'suburb_branch', 'branch_id');
     }

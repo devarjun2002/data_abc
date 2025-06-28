@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AlarmCodeType extends Model
 {
@@ -19,12 +18,12 @@ class AlarmCodeType extends Model
     ];
 
     // Relationships --done
-    public function alarmCodes(): HasMany
+    public function alarmCodes()
     {
         return $this->hasMany(AlarmCode::class, 'alarm_code_type', 'alarm_code_type_id');
     }
 
-    public function developmentAlarmCodes(): HasMany
+    public function developmentAlarmCodes()
     {
         return $this->hasMany(AlarmCodeDevelopment::class, 'alarm_code_type', 'alarm_code_type_id');
     }

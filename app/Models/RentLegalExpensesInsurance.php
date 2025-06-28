@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class RentLegalExpensesInsurance extends Model
 {
@@ -38,42 +37,42 @@ class RentLegalExpensesInsurance extends Model
     ];
 
     // Relationships --done
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'rlei_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'rlei_updated_by', 'employee_id');
     }
 
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'rlei_property_id', 'property_id');
     }
 
-    public function tenancy(): BelongsTo
+    public function tenancy()
     {
         return $this->belongsTo(Tenancy::class, 'rlei_tenancy_id', 'tenancy_id');
     }
 
-    public function room(): BelongsTo
+    public function room()
     {
         return $this->belongsTo(PropertyRoomLetting::class, 'rlei_room_id', 'property_room_letting_id');
     }
 
-    public function termUnit(): BelongsTo
+    public function termUnit()
     {
         return $this->belongsTo(TenancyFixedTermUnit::class, 'rlei_term_unit', 'tenancy_fixed_term_unit_id');
     }
 
-    public function status(): BelongsTo
+    public function status()
     {
         return $this->belongsTo(RentLegalExpensesInsuranceStatus::class, 'rlei_status', 'rleis_id');
     }
 
-    public function policyType(): BelongsTo
+    public function policyType()
     {
         return $this->belongsTo(RentLegalExpensesInsuranceType::class, 'rlei_policy_type', 'rleit_id');
     }

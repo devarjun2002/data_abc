@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Sale extends Model
@@ -64,97 +62,97 @@ class Sale extends Model
     ];
 
     // Relationships --done
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'sale_created_by');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'sale_updated_by');
     }
 
-    public function responsibleEmployee(): BelongsTo
+    public function responsibleEmployee()
     {
         return $this->belongsTo(Employee::class, 'sale_employee_responsible');
     }
 
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'sale_property');
     }
 
-    public function offer(): BelongsTo
+    public function offer()
     {
         return $this->belongsTo(PropertyOfferSale::class, 'sale_offer_id', 'property_offer_sale_id');
     }
 
-    public function purchaseFinance(): BelongsTo
+    public function purchaseFinance()
     {
         return $this->belongsTo(SaleFinance::class, 'sale_purchase_finance');
     }
 
-    public function vendorSolicitorCompanyIntermediary(): BelongsTo
+    public function vendorSolicitorCompanyIntermediary()
     {
         return $this->belongsTo(Directory::class, 'sale_vendor_solicitor_company_intermediary');
     }
 
-    public function vendorSolicitorCompany(): BelongsTo
+    public function vendorSolicitorCompany()
     {
         return $this->belongsTo(Directory::class, 'sale_vendor_solicitor_company');
     }
 
-    public function vendorMortgageAdvisor(): BelongsTo
+    public function vendorMortgageAdvisor()
     {
         return $this->belongsTo(Directory::class, 'sale_vendor_mortgage_advisor');
     }
 
-    public function buyerSolicitorCompanyIntermediary(): BelongsTo
+    public function buyerSolicitorCompanyIntermediary()
     {
         return $this->belongsTo(Directory::class, 'sale_buyer_solicitor_company_intermediary');
     }
 
-    public function buyerSolicitorCompany(): BelongsTo
+    public function buyerSolicitorCompany()
     {
         return $this->belongsTo(Directory::class, 'sale_buyer_solicitor_company');
     }
 
-    public function buyerMortgageAdvisor(): BelongsTo
+    public function buyerMortgageAdvisor()
     {
         return $this->belongsTo(Directory::class, 'sale_buyer_mortgage_advisor');
     }
 
-    public function vendorSolicitorCompanyIndividual(): BelongsTo
+    public function vendorSolicitorCompanyIndividual()
     {
         return $this->belongsTo(DirectoryIndividual::class, 'sale_vendor_solicitor_company_individual');
     }
 
-    public function vendorMortgageAdvisorIndividual(): BelongsTo
+    public function vendorMortgageAdvisorIndividual()
     {
         return $this->belongsTo(DirectoryIndividual::class, 'sale_vendor_mortgage_advisor_individual');
     }
 
-    public function buyerSolicitorCompanyIndividual(): BelongsTo
+    public function buyerSolicitorCompanyIndividual()
     {
         return $this->belongsTo(DirectoryIndividual::class, 'sale_buyer_solicitor_company_individual');
     }
 
-    public function buyerMortgageAdvisorIndividual(): BelongsTo
+    public function buyerMortgageAdvisorIndividual()
     {
         return $this->belongsTo(DirectoryIndividual::class, 'sale_buyer_mortgage_advisor_individual');
     }
 
-    public function saleStatus(): BelongsTo
+    public function saleStatus()
     {
         return $this->belongsTo(SaleStatus::class, 'sale_status');
     }
 
-    public function collapsedReason(): BelongsTo
+    public function collapsedReason()
     {
         return $this->belongsTo(SaleCollapsedReason::class, 'sale_collapsed_reason_id');
     }
 
-    public function commissionCompletionPaymentType(): BelongsTo
+    public function commissionCompletionPaymentType()
     {
         return $this->belongsTo(CommissionType::class, 'sale_commission_completion_payment_type');
     }

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class EmployeeToPermissions extends Model
 {
@@ -20,12 +19,12 @@ class EmployeeToPermissions extends Model
     ];
 
     // Relationships --done
-    public function employee(): BelongsTo
+    public function employee()
     {
         return $this->belongsTo(Employee::class, 'employee_id', 'employee_id');
     }
 
-    public function permission(): BelongsTo
+    public function permission()
     {
         return $this->belongsTo(EmployeePermissions::class, 'employee_permissions_id', 'employee_permissions_id');
     }

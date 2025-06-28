@@ -29,12 +29,12 @@ class Task extends Model
     ];
 
     // Relationships --done
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'task_created_by', 'employee_id');
     }
 
-    public function status(): BelongsTo
+    public function status()
     {
         return $this->belongsTo(TaskStatus::class, 'task_status', 'task_status_id');
     }

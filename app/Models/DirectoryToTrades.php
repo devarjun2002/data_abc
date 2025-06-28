@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class DirectoryToTrades extends Model
 {
@@ -20,12 +19,12 @@ class DirectoryToTrades extends Model
     ];
 
     // Relationships --done
-    public function directory(): BelongsTo
+    public function directory()
     {
         return $this->belongsTo(Directory::class, 'directory_id', 'directory_id');
     }
 
-    public function trade(): BelongsTo
+    public function trade()
     {
         return $this->belongsTo(DirectoryTrades::class, 'directory_trades_id', 'directory_trades_id');
     }

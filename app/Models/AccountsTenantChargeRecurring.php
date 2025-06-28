@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AccountsTenantChargeRecurring extends Model
 {
@@ -34,33 +33,33 @@ class AccountsTenantChargeRecurring extends Model
     ];
 
     // Relationships --done
-    public function tenantCharge(): BelongsTo
+    public function tenantCharge()
     {
         return $this->belongsTo(AccountsTenantCharge::class, 'tenant_charge_recurring_tenant_charge_id', 'tenant_charge_id');
     }
 
-    public function tenancy(): BelongsTo
+    public function tenancy()
     {
         return $this->belongsTo(Tenancy::class, 'tenant_charge_recurring_tenancy_id', 'tenancy_id');
     }
 
-    public function frequencyUnit(): BelongsTo
+    public function frequencyUnit()
     {
         return $this->belongsTo(AccountsRecurringFrequencyUnit::class, 'tenant_charge_recurring_frequency_unit', 'recurring_frequency_unit_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'tenant_charge_recurring_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'tenant_charge_recurring_updated_by', 'employee_id');
     }
 
     // Reverse relationships
-    public function tenantChargePayments(): HasMany
+    public function tenantChargePayments()
     {
         return $this->hasMany(AccountsTenantChargePayment::class, 'tenant_charge_payment_id', 'tenant_charge_id');
     }

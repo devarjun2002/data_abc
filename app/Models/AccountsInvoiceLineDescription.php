@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsInvoiceLineDescription extends Model
 {
@@ -24,12 +22,12 @@ class AccountsInvoiceLineDescription extends Model
     ];
 
     // Relationships --done
-    public function nominalCode(): BelongsTo
+    public function nominalCode()
     {
         return $this->belongsTo(AccountsNominalCode::class, 'invoice_line_nominal_code', 'nominal_code_id');
     }
 
-    public function category(): BelongsTo 
+    public function category() 
     {
         return $this->belongsTo(AccountsInvoiceLineDescriptionCategory::class, 'invoice_line_description_category', 'invoice_line_description_category_id');
     }

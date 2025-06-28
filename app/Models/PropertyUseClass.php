@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PropertyUseClass extends Model
 {
@@ -19,7 +18,7 @@ class PropertyUseClass extends Model
     ];
 
     // Relationships --done
-    public function propertyToUseClasses(): BelongsTo
+    public function propertyToUseClasses()
     {
         return $this->belongsTo(PropertyToUseClass::class, 'property_use_class_id', 'property_use_class_id');
     }

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyParking extends Model
 {
@@ -19,12 +18,12 @@ class PropertyParking extends Model
     ];
 
     // Relationships
-    public function properties(): HasMany
+    public function properties()
     {
         return $this->hasMany(Property::class, 'property_parking_id', 'property_parking_id');
     }
 
-    public function propertyToParking(): HasMany
+    public function propertyToParking()
     {
         return $this->hasMany(PropertyToParking::class, 'property_parking_id', 'property_parking_id');
     }

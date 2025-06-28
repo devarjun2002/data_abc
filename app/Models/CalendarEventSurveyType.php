@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CalendarEventSurveyType extends Model
 {
@@ -20,7 +19,7 @@ class CalendarEventSurveyType extends Model
     ];
 
     // Relationships --done
-    public function events(): HasMany
+    public function events()
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_survey_type_id', 'calendar_event_survey_type_id');
     }

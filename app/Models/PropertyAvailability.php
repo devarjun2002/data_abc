@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyAvailability extends Model
 {
@@ -24,12 +23,12 @@ class PropertyAvailability extends Model
     ];
 
     // Relationships --done
-    public function properties(): HasMany
+    public function properties()
     {
         return $this->hasMany(Property::class, 'property_availability', 'property_availability_id');
     }
 
-    public function valuations(): HasMany
+    public function valuations()
     {
         return $this->hasMany(Valuation::class, 'valuation_property_availability', 'property_availability_id');
     }

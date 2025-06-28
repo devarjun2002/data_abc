@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class WorksUpdates extends Model
 {
@@ -29,12 +28,12 @@ class WorksUpdates extends Model
     ];
 
     // Relationships --done
-    public function works(): BelongsTo
+    public function works()
     {
         return $this->belongsTo(Works::class, 'works_updates_works_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'works_updates_created_by');
     }

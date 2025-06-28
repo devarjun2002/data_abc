@@ -28,7 +28,7 @@ class EmployeeMileage extends Model
     ];
 
     // Relationships --done
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'employee_mileage_created_by', 'employee_id');
     }

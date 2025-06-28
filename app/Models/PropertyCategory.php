@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyCategory extends Model
 {
@@ -19,12 +18,12 @@ class PropertyCategory extends Model
     ];
 
     // Relationships --done
-    public function properties(): HasMany
+    public function properties()
     {
         return $this->hasMany(Property::class, 'property_category', 'property_category_id');
     }
 
-    public function valuations(): HasMany
+    public function valuations()
     {
         return $this->hasMany(Valuation::class, 'valuation_property_category', 'property_category_id');
     }

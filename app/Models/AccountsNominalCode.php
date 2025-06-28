@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsNominalCode extends Model
 {
@@ -24,22 +22,22 @@ class AccountsNominalCode extends Model
     ];
 
     // Relationships --done
-    public function vatRate(): BelongsTo
+    public function vatRate()
     {
         return $this->belongsTo(AccountsVatRate::class, 'nominal_code_default_vat_rate', 'vat_rate_id');
     }
 
-    public function nominalCodeType(): BelongsTo 
+    public function nominalCodeType() 
     {
         return $this->belongsTo(AccountsNominalCodeType::class, 'nominal_code_type', 'nominal_code_type_id');
     }
 
-    public function invoiceLines(): HasMany
+    public function invoiceLines()
     {
         return $this->hasMany(AccountsInvoiceLine::class, 'invoice_line_nominal_code', 'nominal_code_id');
     }
 
-    public function invoiceLineDescriptions(): HasMany
+    public function invoiceLineDescriptions()
     {
         return $this->hasMany(AccountsInvoiceLineDescription::class, 'invoice_line_nominal_code', 'nominal_code_id');
     }
@@ -47,7 +45,7 @@ class AccountsNominalCode extends Model
     // Reverse relationships --done
     public function bacsFiles()
     {
-        return $this->hasMany(BacsFile::class, 'bacs_file_nominal_code', 'nominal_code_id');
+        return $this->hasMany(AccountsBacsFile::class, 'bacs_file_nominal_code', 'nominal_code_id');
     }
 
     public function invoiceCreditLines()

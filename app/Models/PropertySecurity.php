@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertySecurity extends Model
 {
@@ -19,7 +18,7 @@ class PropertySecurity extends Model
     ];
 
     // Relationships --done
-    public function propertyToSecurity(): HasMany
+    public function propertyToSecurity()
     {
         return $this->hasMany(PropertyToSecurity::class, 'property_security_id', 'property_security_id');
     }

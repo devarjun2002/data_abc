@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CalendarFiles extends Model
 {
@@ -25,7 +24,7 @@ class CalendarFiles extends Model
     ];
 
     // Relationships --done
-    public function event(): BelongsTo
+    public function event()
     {
         return $this->belongsTo(CalendarEvent::class, 'calendar_event_id', 'calendar_event_id');
     }

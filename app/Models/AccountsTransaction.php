@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AccountsTransaction extends Model
 {
@@ -43,47 +42,47 @@ class AccountsTransaction extends Model
     ];
 
     // Relationships --done
-    public function branch(): BelongsTo
+    public function branch()
     {
         return $this->belongsTo(Branch::class, 'transaction_branch', 'branch_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'transaction_created_by', 'employee_id');
     }
 
-    public function customerType(): BelongsTo
+    public function customerType()
     {
         return $this->belongsTo(CustomerType::class, 'transaction_customer_type', 'customer_type_id');
     }
 
-    public function development(): BelongsTo
+    public function development()
     {
         return $this->belongsTo(Development::class, 'transaction_development', 'development_id');
     }
 
-    public function nominalCode(): BelongsTo
+    public function nominalCode()
     {
         return $this->belongsTo(AccountsNominalCode::class, 'transaction_nominal_code', 'nominal_code_id');
     }
 
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'transaction_property', 'property_id');
     }
 
-    public function tenancy(): BelongsTo
+    public function tenancy()
     {
         return $this->belongsTo(Tenancy::class, 'transaction_tenancy', 'tenancy_id');
     }
 
-    public function transactionType(): BelongsTo
+    public function transactionType()
     {
         return $this->belongsTo(AccountsTransactionType::class, 'transaction_type', 'transaction_type_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'transaction_updated_by', 'employee_id');
     }

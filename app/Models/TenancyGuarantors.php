@@ -19,12 +19,12 @@ class TenancyGuarantors extends Model
     ];
 
     // Relationships --done
-    public function guarantor(): BelongsTo
+    public function guarantor()
     {
         return $this->belongsTo(Guarantor::class, 'guarantor_id', 'guarantor_id');
     }
 
-    public function tenancy(): BelongsTo
+    public function tenancy()
     {
         return $this->belongsTo(Tenancy::class, 'tenancy_id', 'tenancy_id');
     }

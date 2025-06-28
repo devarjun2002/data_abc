@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PropertyOfferSale extends Model
 {
@@ -49,47 +48,47 @@ class PropertyOfferSale extends Model
     ];
 
     // Relationships --done
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'property_offer_sale_created_by', 'employee_id');
     }
 
-    public function employee(): BelongsTo
+    public function employee()
     {
         return $this->belongsTo(Employee::class, 'property_offer_sale_employee', 'employee_id');
     }
 
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'property_offer_sale_property', 'property_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'property_offer_sale_updated_by', 'employee_id');
     }
 
-    public function finance(): BelongsTo
+    public function finance()
     {
         return $this->belongsTo(SaleFinance::class, 'property_offer_sale_finance', 'sale_finance_id');
     }
 
-    public function offerType(): BelongsTo
+    public function offerType()
     {
         return $this->belongsTo(PropertyOfferSaleType::class, 'property_offer_sale_type', 'property_offer_sale_type_id');
     }
 
-    public function surveyStatus(): BelongsTo
+    public function surveyStatus()
     {
         return $this->belongsTo(SurveyStatus::class, 'property_offer_sale_survey', 'survey_status_id');
     }
 
-    public function offerStatus(): BelongsTo
+    public function offerStatus()
     {
         return $this->belongsTo(PropertyOfferStatus::class, 'property_offer_sale_status', 'property_offer_status_id');
     }
 
-    public function revisedOffer(): BelongsTo
+    public function revisedOffer()
     {
         return $this->belongsTo(PropertyOfferSale::class, 'property_offer_sale_revised_offer_id', 'property_offer_sale_id');
     }

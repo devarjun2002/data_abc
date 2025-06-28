@@ -20,7 +20,7 @@ class PropertyOfferSaleChainPosition extends Model
     ];
 
     // Relationships --done
-    public function chains(): HasMany
+    public function chains()
     {
         return $this->hasMany(PropertyOfferSaleChain::class, 'property_offer_sale_chain_position', 'property_offer_sale_chain_position_id');
     }

@@ -28,12 +28,12 @@ class PropertyOfferSaleUpdates extends Model
     ];
 
     // Relationships --done
-    public function offerSale(): BelongsTo
+    public function offerSale()
     {
         return $this->belongsTo(PropertyOfferSale::class, 'property_offer_sale_updates_property_offer_sale_id', 'property_offer_sale_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'property_offer_sale_updates_created_by', 'employee_id');
     }

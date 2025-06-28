@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsTransactionType extends Model
 {
@@ -20,7 +19,7 @@ class AccountsTransactionType extends Model
     ];
 
     // Relationships --done
-    public function transactions(): HasMany
+    public function transactions()
     {
         return $this->hasMany(AccountsTransaction::class, 'transaction_type', 'transaction_type_id');
     }

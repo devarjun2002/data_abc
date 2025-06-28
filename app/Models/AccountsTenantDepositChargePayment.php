@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AccountsTenantDepositChargePayment extends Model
 {
@@ -31,22 +30,22 @@ class AccountsTenantDepositChargePayment extends Model
     ];
 
     // Relationships --done
-    public function paymentMethod(): BelongsTo
+    public function paymentMethod()
     {
         return $this->belongsTo(AccountsPaymentMethod::class, 'tenant_deposit_charge_payment_method', 'payment_method_id');
     }
 
-    public function tenantDepositCharge(): BelongsTo
+    public function tenantDepositCharge()
     {
         return $this->belongsTo(AccountsTenantDepositCharge::class, 'tenant_deposit_charge_payment_tenant_deposit_charge_id', 'tenant_deposit_charge_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'tenant_deposit_charge_payment_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'tenant_deposit_charge_payment_updated_by', 'employee_id');
     }

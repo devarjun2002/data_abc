@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class BulkEmail extends Model
 {
@@ -40,22 +38,22 @@ class BulkEmail extends Model
     ];
 
     // Relationships --done
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'bulk_email_property_id', 'property_id');
     }
 
-    public function customerType(): BelongsTo
+    public function customerType()
     {
         return $this->belongsTo(CustomerType::class, 'bulk_email_customer_type', 'customer_type_id');
     }
 
-    public function applicantRequirement(): BelongsTo
+    public function applicantRequirement()
     {
         return $this->belongsTo(ApplicantRequirement::class, 'bulk_email_app_req_id', 'ar_id');
     }
 
-    public function recipients(): HasMany
+    public function recipients()
     {
         return $this->hasMany(BulkEmailRecipient::class, 'bulk_email_id', 'bulk_email_id');
     }

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyTypeGroup extends Model
 {
@@ -21,7 +20,7 @@ class PropertyTypeGroup extends Model
     ];
 
     // Relationships --done
-    public function propertyTypes(): HasMany
+    public function propertyTypes()
     {
         return $this->hasMany(PropertyType::class, 'property_type_group', 'property_type_group_id');
     }

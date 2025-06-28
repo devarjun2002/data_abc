@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SaleUpdates extends Model
 {
@@ -34,11 +33,11 @@ class SaleUpdates extends Model
     ];
 
     // Relationships --done
-    public function sale(): BelongsTo {
+    public function sale() {
         return $this->belongsTo(Sale::class, 'sale_updates_sale_id', 'sale_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'sale_updates_created_by', 'employee_id');
     }

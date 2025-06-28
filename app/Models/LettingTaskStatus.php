@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class LettingTaskStatus extends Model
 {
@@ -22,7 +21,7 @@ class LettingTaskStatus extends Model
     ];
 
     // Relationships --done
-    public function lettingTasks(): HasMany
+    public function lettingTasks()
     {
         return $this->hasMany(LettingTask::class, 'letting_task_status', 'letting_task_status_id');
     }

@@ -21,12 +21,12 @@ class TenantIncome extends Model
     ];
 
     // Relationships --done
-    public function tenant(): BelongsTo
+    public function tenant()
     {
         return $this->belongsTo(Tenant::class, 'tenant_income_tenant_id', 'tenant_id');
     }
 
-    public function frequency(): BelongsTo
+    public function frequency()
     {
         return $this->belongsTo(IncomeFrequency::class, 'tenant_income_frequency', 'income_frequency_id');
     }

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AnnualLeaveYears extends Model
 {
@@ -21,7 +20,7 @@ class AnnualLeaveYears extends Model
     ];
 
     // Relationships --done
-    public function employees(): HasMany
+    public function employees()
     {
         return $this->hasMany(Employee::class, 'employee_annual_leave_year', 'annual_leave_years_year');
     }

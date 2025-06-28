@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class BulkEmailRecipient extends Model
 {
@@ -20,12 +19,12 @@ class BulkEmailRecipient extends Model
     ];
 
     // Relationships --done
-    public function bulkEmail(): BelongsTo
+    public function bulkEmail()
     {
         return $this->belongsTo(BulkEmail::class, 'bulk_email_id', 'bulk_email_id');
     }
 
-    public function buyer(): BelongsTo
+    public function buyer()
     {
         return $this->belongsTo(Buyer::class, 'buyer_id', 'buyer_id');
     }

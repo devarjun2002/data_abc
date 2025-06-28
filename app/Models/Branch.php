@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Branch extends Model
 {
@@ -92,22 +90,22 @@ class Branch extends Model
     ];
 
     // Relationships --done
-    public function company(): BelongsTo
+    public function company()
     {
         return $this->belongsTo(Company::class, 'branch_company_id', 'company_id');
     }
 
-    public function country(): BelongsTo
+    public function country()
     {
         return $this->belongsTo(Country::class, 'branch_country', 'country_id');
     }
 
-    public function currentBank(): BelongsTo
+    public function currentBank()
     {
         return $this->belongsTo(Bank::class, 'branch_bank_name_current', 'bank_id');
     }
 
-    public function clientBank(): BelongsTo
+    public function clientBank()
     {
         return $this->belongsTo(Bank::class, 'branch_bank_name_client', 'bank_id');
     }

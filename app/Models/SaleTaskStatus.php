@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SaleTaskStatus extends Model
 {
@@ -19,7 +17,7 @@ class SaleTaskStatus extends Model
         'sale_task_status_name',
     ];
 
-    public function tasks(): HasMany {
+    public function tasks() {
         return $this->hasMany(SaleTask::class, 'sale_task_status', 'sale_task_status_id');
     }
 }

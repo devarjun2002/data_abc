@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ApplicantRequirementSuburb extends Model
 {
@@ -21,12 +20,12 @@ class ApplicantRequirementSuburb extends Model
     ];
 
     // Relationships --done
-    public function requirement(): BelongsTo
+    public function requirement()
     {
         return $this->belongsTo(ApplicantRequirement::class, 'applicant_requirement_suburb_requirement_id', 'applicant_requirement_id');
     }
 
-    public function suburb(): BelongsTo
+    public function suburb()
     {
         return $this->belongsTo(Suburb::class, 'applicant_requirement_suburb_suburb_id', 'suburb_id');
     }

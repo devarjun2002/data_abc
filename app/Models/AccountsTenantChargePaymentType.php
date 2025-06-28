@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsTenantChargePaymentType extends Model
 {
@@ -19,7 +18,7 @@ class AccountsTenantChargePaymentType extends Model
     ];
 
     // Relationships --done
-    public function tenantChargePayments(): HasMany
+    public function tenantChargePayments()
     {
         return $this->hasMany(AccountsTenantChargePayment::class, 'accounts_tenant_charge_payment_type', 'accounts_tenant_charge_payment_type_id');
     }

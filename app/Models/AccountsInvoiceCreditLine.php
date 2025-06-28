@@ -37,6 +37,4 @@ class AccountsInvoiceCreditLine extends Model
     {
         return $this->belongsTo(AccountsVatRate::class, 'invoice_credit_line_vat_rate', 'vat_rate_id');
     }
-
-    // Reverse relationships
 }

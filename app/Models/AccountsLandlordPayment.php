@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsLandlordPayment extends Model
 {
@@ -32,28 +30,28 @@ class AccountsLandlordPayment extends Model
     ];
 
     // Relationships --done
-    public function tenancy(): BelongsTo
+    public function tenancy()
     {
         return $this->belongsTo(Tenancy::class, 'landlord_payment_tenancy_id', 'tenancy_id');
     }
 
-    public function paymentMethod(): BelongsTo
+    public function paymentMethod()
     {
         return $this->belongsTo(AccountsPaymentMethod::class, 'landlord_payment_method', 'payment_method_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'landlord_payment_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'landlord_payment_updated_by', 'employee_id');
     }
 
     // Reverse relationships
-    public function bacsFiles(): HasMany
+    public function bacsFiles()
     {
         return $this->hasMany(AccountsBacsFile::class, 'bacs_file_landlord_payment_reference', 'landlord_payment_id');
     }

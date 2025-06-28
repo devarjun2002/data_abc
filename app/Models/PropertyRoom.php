@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyRoom extends Model
 {
@@ -28,12 +26,12 @@ class PropertyRoom extends Model
     ];
 
     // Relationships --done
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
     }
 
-    public function dimensionUnit(): BelongsTo
+    public function dimensionUnit()
     {
         return $this->belongsTo(PropertyAreaUnit::class, 'property_room_dimension_unit', 'property_area_unit_id');
     }

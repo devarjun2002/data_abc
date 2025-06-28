@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsRecurringFrequencyUnit extends Model
 {
@@ -20,7 +19,7 @@ class AccountsRecurringFrequencyUnit extends Model
     ];
 
     // Relationships --done
-    public function recurringInvoices(): HasMany
+    public function recurringInvoices()
     {
         return $this->hasMany(AccountsInvoiceRecurring::class, 'invoice_recurring_frequency_unit', 'recurring_frequency_unit_id');
     }

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyAccessibility extends Model
 {
@@ -22,7 +21,7 @@ class PropertyAccessibility extends Model
     ];
 
     // Relationships --done
-    public function propertyToAccessibilities(): HasMany
+    public function propertyToAccessibilities()
     {
         return $this->hasMany(PropertyToAccessibility::class, 'property_accessibility_id', 'property_accessibility_id');
     }

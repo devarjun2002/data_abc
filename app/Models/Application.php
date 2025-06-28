@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Application extends Model
 {
@@ -93,52 +91,52 @@ class Application extends Model
     ];
 
     // Relationships --done
-    public function accountantTitle(): BelongsTo
+    public function accountantTitle()
     {
         return $this->belongsTo(Title::class, 'application_accountant_title', 'title_id');
     }
 
-    public function bank(): BelongsTo 
+    public function bank() 
     {
         return $this->belongsTo(Bank::class, 'application_bank_name', 'bank_id');
     }
 
-    public function employee(): BelongsTo
+    public function employee()
     {
         return $this->belongsTo(Employee::class, 'application_employee', 'employee_id');
     }
 
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'application_property', 'property_id');
     }
 
-    public function solicitorTitle(): BelongsTo
+    public function solicitorTitle()
     {
         return $this->belongsTo(Title::class, 'application_solicitor_title', 'title_id');
     }
 
-    public function trade2Title(): BelongsTo
+    public function trade2Title()
     {
         return $this->belongsTo(Title::class, 'application_trade2_title', 'title_id');
     }
 
-    public function tradeTitle(): BelongsTo
+    public function tradeTitle()
     {
         return $this->belongsTo(Title::class, 'application_trade_title', 'title_id');
     }
 
-    public function propertyRoom(): BelongsTo
+    public function propertyRoom()
     {
         return $this->belongsTo(PropertyRoomLetting::class, 'application_property_room', 'property_room_letting_id');
     }
 
-    public function status(): BelongsTo
+    public function status()
     {
         return $this->belongsTo(ApplicationStatus::class, 'application_status', 'application_status_id');
     }
 
-    public function type(): BelongsTo
+    public function type()
     {
         return $this->belongsTo(ApplicationType::class, 'application_type', 'application_type_id');
     }

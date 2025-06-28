@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class UtilityMeter extends Model
 {
@@ -24,27 +23,27 @@ class UtilityMeter extends Model
     ];
 
     // Relationships --done
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'utility_meter_property');
     }
 
-    public function utility(): BelongsTo
+    public function utility()
     {
         return $this->belongsTo(Utility::class, 'utility_meter_utility');
     }
 
-    public function meterType(): BelongsTo
+    public function meterType()
     {
         return $this->belongsTo(UtilityMeterType::class, 'utility_meter_type');
     }
 
-    public function meterLocation(): BelongsTo
+    public function meterLocation()
     {
         return $this->belongsTo(UtilityMeterLocation::class, 'utility_meter_location');
     }
 
-    public function provider(): BelongsTo
+    public function provider()
     {
         return $this->belongsTo(UtilityProvider::class, 'utility_meter_provider');
     }

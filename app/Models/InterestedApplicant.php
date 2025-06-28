@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class InterestedApplicant extends Model
 {
@@ -31,27 +29,27 @@ class InterestedApplicant extends Model
     ];
 
     // Relationships --done
-    public function applicant(): BelongsTo
+    public function applicant()
     {
         return $this->belongsTo(Applicant::class, 'interested_applicant_applicant_id', 'applicant_id');
     }
 
-    public function baseApplicant(): BelongsTo
+    public function baseApplicant()
     {
         return $this->belongsTo(Applicant::class, 'interested_applicant_id', 'applicant_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'interested_applicant_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'interested_applicant_updated_by', 'employee_id');
     }
 
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'interested_applicant_property', 'property_id');
     }

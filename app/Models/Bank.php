@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Bank extends Model
 {
@@ -19,27 +18,27 @@ class Bank extends Model
     ];
 
     // Relationships --done
-    public function branchesCurrent(): HasMany
+    public function branchesCurrent()
     {
         return $this->hasMany(Branch::class, 'branch_bank_name_current', 'bank_id');
     }
 
-    public function branchesClient(): HasMany
+    public function branchesClient()
     {
         return $this->hasMany(Branch::class, 'branch_bank_name_client', 'bank_id');
     }
 
-    public function landlords(): HasMany
+    public function landlords()
     {
         return $this->hasMany(Landlord::class, 'landlord_bank_name', 'bank_id');
     }
 
-    public function directoryIndividuals(): HasMany
+    public function directoryIndividuals()
     {
         return $this->hasMany(DirectoryIndividual::class, 'directory_individual_bank_name', 'bank_id');
     }
 
-    public function directories(): HasMany
+    public function directories()
     {
         return $this->hasMany(Directory::class, 'directory_bank_name', 'bank_id');
     }

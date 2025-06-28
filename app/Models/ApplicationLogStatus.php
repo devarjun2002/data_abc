@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ApplicationLogStatus extends Model
 {
@@ -25,22 +24,22 @@ class ApplicationLogStatus extends Model
     ];
 
     // Relationships --done
-    public function employee(): BelongsTo
+    public function employee()
     {
         return $this->belongsTo(Employee::class, 'application_updated_by', 'employee_id');
     }
 
-    public function application(): BelongsTo 
+    public function application() 
     {
         return $this->belongsTo(Application::class, 'application_id', 'applicant_id');
     }
 
-    public function oldStatus(): BelongsTo
+    public function oldStatus()
     {
         return $this->belongsTo(ApplicationStatus::class, 'application_status_old', 'application_status_id');
     }
 
-    public function newStatus(): BelongsTo
+    public function newStatus()
     {
         return $this->belongsTo(ApplicationStatus::class, 'application_status_new', 'application_status_id'); 
     }

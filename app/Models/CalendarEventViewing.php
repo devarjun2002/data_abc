@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CalendarEventViewing extends Model
 {
@@ -38,27 +37,27 @@ class CalendarEventViewing extends Model
     ];
 
     // Relationships --done
-    public function event(): BelongsTo
+    public function event()
     {
         return $this->belongsTo(CalendarEvent::class, 'calendar_event_viewing_calendar_event_id', 'calendar_event_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'calendar_event_viewing_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'calendar_event_viewing_updated_by', 'employee_id');
     }
 
-    public function confidenceLevel(): BelongsTo
+    public function confidenceLevel()
     {
         return $this->belongsTo(CalendarEventConfidence::class, 'calendar_event_viewing_confidence_level', 'calendar_event_confidence_id');
     }
 
-    public function type(): BelongsTo
+    public function type()
     {
         return $this->belongsTo(CalendarEventViewingType::class, 'calendar_event_viewing_type', 'calendar_event_viewing_type_id');
     }

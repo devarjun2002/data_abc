@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyCondition extends Model
 {
@@ -19,7 +18,7 @@ class PropertyCondition extends Model
     ];
 
     // Relationships --done
-    public function valuations(): HasMany
+    public function valuations()
     {
         return $this->hasMany(Valuation::class, 'valuation_condition', 'property_condition_id');
     }

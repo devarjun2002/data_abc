@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ApplicationApplicant extends Model
 {
@@ -51,27 +50,27 @@ class ApplicationApplicant extends Model
     ];
 
     // Relationships --done
-    public function applicant(): BelongsTo
+    public function applicant()
     {
         return $this->belongsTo(Applicant::class, 'application_id', 'applicant_id');
     }
 
-    public function companyTitle(): BelongsTo
+    public function companyTitle()
     {
         return $this->belongsTo(Title::class, 'application_company_title', 'title_id');
     }
 
-    public function title(): BelongsTo
+    public function title()
     {
         return $this->belongsTo(Title::class, 'application_title', 'title_id');
     }
 
-    public function nationality(): BelongsTo
+    public function nationality()
     {
         return $this->belongsTo(Nationality::class, 'application_nationality', 'nationality_id');
     }
 
-    public function employmentStatus(): BelongsTo
+    public function employmentStatus()
     {
         return $this->belongsTo(EmploymentStatus::class, 'application_employment_status', 'employment_status_id');
     }

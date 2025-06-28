@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class EmailTemplate extends Model
 {
@@ -32,17 +31,17 @@ class EmailTemplate extends Model
     ];
 
     // Relationships --done
-    public function category(): BelongsTo
+    public function category()
     {
         return $this->belongsTo(EmailTemplateCategory::class, 'email_template_category', 'email_template_category_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'email_template_created_by', 'employee_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'email_template_updated_by', 'employee_id');
     }

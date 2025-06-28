@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsTenantChargeLine extends Model
 {
@@ -25,17 +23,17 @@ class AccountsTenantChargeLine extends Model
     ];
 
     // Relationships --done
-    public function tenantCharge(): BelongsTo
+    public function tenantCharge()
     {
         return $this->belongsTo(AccountsTenantCharge::class, 'tenant_charge_id', 'tenant_charge_id');
     }
 
-    public function lineType(): BelongsTo 
+    public function lineType() 
     {
         return $this->belongsTo(AccountsTenantChargeLineType::class, 'tenant_charge_line_type', 'tenant_charge_line_type_id');
     }
 
-    public function vatRate(): BelongsTo
+    public function vatRate()
     {
         return $this->belongsTo(AccountsVatRate::class, 'tenant_charge_line_vat_rate', 'vat_rate_id');
     }

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyRentFrequency extends Model
 {
@@ -21,7 +20,7 @@ class PropertyRentFrequency extends Model
     ];
 
     // Relationships --done
-    public function propertyRoomLettings(): HasMany
+    public function propertyRoomLettings()
     {
         return $this->hasMany(PropertyRoomLetting::class, 'property_room_letting_rent_frequency', 'property_rent_frequency_id');
     }

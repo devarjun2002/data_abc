@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AccountsBacsFile extends Model
 {
@@ -46,32 +45,32 @@ class AccountsBacsFile extends Model
     ];
 
     // Relationships --done
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'bacs_file_created_by', 'employee_id');
     }
 
-    public function directory(): BelongsTo
+    public function directory()
     {
         return $this->belongsTo(Directory::class, 'bacs_file_directory_id', 'directory_id');
     }
 
-    public function invoicePayment(): BelongsTo
+    public function invoicePayment()
     {
         return $this->belongsTo(AccountsInvoicePayment::class, 'bacs_file_invoice_payment_reference', 'invoice_payment_id');
     }
 
-    public function landlordPayment(): BelongsTo
+    public function landlordPayment()
     {
         return $this->belongsTo(AccountsLandlordPayment::class, 'bacs_file_landlord_payment_reference', 'landlord_payment_id');
     }
 
-    public function nominalCode(): BelongsTo
+    public function nominalCode()
     {
         return $this->belongsTo(AccountsNominalCode::class, 'bacs_file_nominal_code', 'nominal_code_id');
     }
 
-    public function vatRate(): BelongsTo
+    public function vatRate()
     {
         return $this->belongsTo(AccountsVatRate::class, 'bacs_file_vat_rate', 'vat_rate_id');
     }

@@ -19,12 +19,12 @@ class PropertyToOutsideSpace extends Model
     ];
 
     // Relationships --done
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'property_id', 'property_id');
     }
 
-    public function outsideSpace(): BelongsTo
+    public function outsideSpace()
     {
         return $this->belongsTo(PropertyOutsideSpace::class, 'property_outside_space_id', 'property_outside_space_id');
     }

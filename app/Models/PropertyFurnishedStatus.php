@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyFurnishedStatus extends Model
 {
@@ -20,7 +19,7 @@ class PropertyFurnishedStatus extends Model
     ];
 
     // Relationships --done
-    public function propertyRoomLettings(): HasMany
+    public function propertyRoomLettings()
     {
         return $this->hasMany(PropertyRoomLetting::class, 'property_room_letting_furnished', 'property_furnished_status_id');
     }

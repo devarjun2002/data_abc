@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsPaymentMethod extends Model
 {
@@ -19,17 +18,17 @@ class AccountsPaymentMethod extends Model
     ];
 
     // Relationships --done
-    public function invoicePayments(): HasMany
+    public function invoicePayments()
     {
         return $this->hasMany(AccountsInvoicePayment::class, 'invoice_payment_method', 'payment_method_id');
     }
 
-    public function landlordPayments(): HasMany
+    public function landlordPayments()
     {
         return $this->hasMany(AccountsLandlordPayment::class, 'landlord_payment_method', 'payment_method_id');
     }
 
-    public function tenantChargePayments(): HasMany
+    public function tenantChargePayments()
     {
         return $this->hasMany(AccountsTenantChargePayment::class, 'tenant_charge_payment_method', 'payment_method_id');
     }

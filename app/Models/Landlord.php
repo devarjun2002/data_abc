@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Landlord extends Model
 {
@@ -121,62 +119,62 @@ class Landlord extends Model
     ];
 
     // Relationships --done
-    public function bank(): BelongsTo
+    public function bank()
     {
         return $this->belongsTo(Bank::class, 'landlord_bank_name', 'bank_id');
     }
 
-    public function branch(): BelongsTo
+    public function branch()
     {
         return $this->belongsTo(Branch::class, 'landlord_branch', 'branch_id');
     }
 
-    public function regOfficeCountry(): BelongsTo
+    public function regOfficeCountry()
     {
         return $this->belongsTo(Country::class, 'landlord_company_reg_office_country', 'country_id');
     }
 
-    public function country(): BelongsTo
+    public function country()
     {
         return $this->belongsTo(Country::class, 'landlord_country', 'country_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'landlord_created_by', 'employee_id');
     }
 
-    public function title(): BelongsTo
+    public function title()
     {
         return $this->belongsTo(Title::class, 'landlord_title', 'title_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'landlord_updated_by', 'employee_id');
     }
 
-    public function type(): BelongsTo
+    public function type()
     {
         return $this->belongsTo(BodyType::class, 'landlord_type', 'body_type_id');
     }
 
-    public function nrlStatus(): BelongsTo
+    public function nrlStatus()
     {
         return $this->belongsTo(LandlordNrlStatus::class, 'landlord_nrl_status', 'landlord_nrl_status_id');
     }
 
-    public function status(): BelongsTo
+    public function status()
     {
         return $this->belongsTo(LandlordStatus::class, 'landlord_status', 'landlord_status_id');
     }
 
-    public function capacity(): BelongsTo
+    public function capacity()
     {
         return $this->belongsTo(Capacity::class, 'landlord_capacity', 'capacity_id');
     }
 
-    public function discountGroup(): BelongsTo
+    public function discountGroup()
     {
         return $this->belongsTo(DiscountGroup::class, 'landlord_discount_group', 'discount_group_id');
     }

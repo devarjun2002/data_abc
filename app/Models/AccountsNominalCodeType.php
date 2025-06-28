@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountsNominalCodeType extends Model
 {
@@ -19,7 +18,7 @@ class AccountsNominalCodeType extends Model
     ];
 
     // Relationships --done
-    public function nominalCodes(): HasMany
+    public function nominalCodes()
     {
         return $this->hasMany(AccountsNominalCode::class, 'nominal_code_type', 'nominal_code_type_id');
     }

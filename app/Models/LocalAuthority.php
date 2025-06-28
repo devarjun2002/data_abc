@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class LocalAuthority extends Model
 {
@@ -35,7 +33,7 @@ class LocalAuthority extends Model
     ];
 
     // Relationships --done
-    public function country(): BelongsTo
+    public function country()
     {
         return $this->belongsTo(Country::class, 'local_authority_country', 'country_id');
     }

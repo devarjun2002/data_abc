@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AccountsInvoiceRecurring extends Model
 {
@@ -27,12 +26,12 @@ class AccountsInvoiceRecurring extends Model
     ];
 
     // Relationships --done
-    public function invoice(): BelongsTo
+    public function invoice()
     {
         return $this->belongsTo(AccountsInvoice::class, 'invoice_recurring_invoice_id', 'invoice_id');
     }
 
-    public function frequencyUnit(): BelongsTo
+    public function frequencyUnit()
     {
         return $this->belongsTo(AccountsRecurringFrequencyUnit::class, 'invoice_recurring_frequency_unit', 'recurring_frequency_unit_id');
     }

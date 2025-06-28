@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ApplicantRequirementPropertySubtype extends Model
 {
@@ -20,13 +19,12 @@ class ApplicantRequirementPropertySubtype extends Model
     ];
 
     // Relationships --done
-    public function requirement(): BelongsTo
+    public function applicantRequirement()
     {
-        return $this->belongsTo(ApplicantRequirement::class, 'applicant_requirement_property_subtype_requirement_id', 'applicant_requirement_id');
+        return $this->belongsTo(ApplicantRequirement::class, 'ar_id', 'ar_id');
     }
-
-    public function propertySubtype(): BelongsTo
+    public function propertyType()
     {
-        return $this->belongsTo(PropertyType::class, 'applicant_requirement_property_subtype_type_id', 'property_type_id');
+        return $this->belongsTo(PropertyType::class, 'arps_property_type_id', 'property_type_id');
     }
 }

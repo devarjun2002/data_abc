@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ApplicationType extends Model
 {
@@ -19,7 +18,7 @@ class ApplicationType extends Model
     ];
 
     // Relationships --done
-    public function applications(): HasMany
+    public function applications()
     {
         return $this->hasMany(Application::class, 'application_type', 'application_type_id');
     }

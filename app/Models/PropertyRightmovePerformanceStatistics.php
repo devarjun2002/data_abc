@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PropertyRightmovePerformanceStatistics extends Model
 {
@@ -29,17 +28,17 @@ class PropertyRightmovePerformanceStatistics extends Model
     ];
 
     // Relationships --done
-    public function property(): BelongsTo
+    public function property()
     {
         return $this->belongsTo(Property::class, 'prps_property_id', 'property_id');
     }
 
-    public function availability(): BelongsTo
+    public function availability()
     {
         return $this->belongsTo(PropertyAvailability::class, 'prps_property_availability', 'property_availability_id');
     }
 
-    public function status(): BelongsTo
+    public function status()
     {
         return $this->belongsTo(PropertyStatus::class, 'prps_property_status', 'property_status_id');
     }

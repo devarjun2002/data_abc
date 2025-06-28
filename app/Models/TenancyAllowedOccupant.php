@@ -23,12 +23,12 @@ class TenancyAllowedOccupant extends Model
     ];
 
     // Relationships --done
-    public function tenancy(): BelongsTo
+    public function tenancy()
     {
         return $this->belongsTo(Tenancy::class, 'tenancy_id', 'tenancy_id');
     }
 
-    public function title(): BelongsTo
+    public function title()
     {
         return $this->belongsTo(Title::class, 'tenancy_allowed_occupant_title', 'title_id');
     }

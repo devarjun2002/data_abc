@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Capacity extends Model
 {
@@ -20,7 +19,7 @@ class Capacity extends Model
     ];
 
     // Relationships --done
-    public function landlords(): HasMany
+    public function landlords()
     {
         return $this->hasMany(Landlord::class, 'landlord_capacity', 'capacity_id');
     }

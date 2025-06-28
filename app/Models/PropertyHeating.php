@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyHeating extends Model
 {
@@ -22,7 +21,7 @@ class PropertyHeating extends Model
     ];
 
     // Relationships --done
-    public function propertyToHeating(): HasMany
+    public function propertyToHeating()
     {
         return $this->hasMany(PropertyToHeating::class, 'property_heating_id', 'property_heating_id');
     }

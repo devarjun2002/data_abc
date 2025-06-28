@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Guarantor extends Model
 {
@@ -63,42 +61,42 @@ class Guarantor extends Model
     ];
 
     // Relationships --done
-    public function bank(): BelongsTo
+    public function bank()
     {
         return $this->belongsTo(Bank::class, 'guarantor_bank_name', 'bank_id');
     }
 
-    public function branch(): BelongsTo
+    public function branch()
     {
         return $this->belongsTo(Branch::class, 'guarantor_branch', 'branch_id');
     }
 
-    public function createdBy(): BelongsTo
+    public function createdBy()
     {
         return $this->belongsTo(Employee::class, 'guarantor_created_by', 'employee_id');
     }
 
-    public function title(): BelongsTo
+    public function title()
     {
         return $this->belongsTo(Title::class, 'guarantor_title', 'title_id');
     }
 
-    public function updatedBy(): BelongsTo
+    public function updatedBy()
     {
         return $this->belongsTo(Employee::class, 'guarantor_updated_by', 'employee_id');
     }
 
-    public function country(): BelongsTo
+    public function country()
     {
         return $this->belongsTo(Country::class, 'guarantor_country', 'country_id');
     }
 
-    public function employmentStatus(): BelongsTo
+    public function employmentStatus()
     {
         return $this->belongsTo(EmploymentStatus::class, 'guarantor_employment_status', 'employment_status_id');
     }
 
-    public function referencingProvider(): BelongsTo
+    public function referencingProvider()
     {
         return $this->belongsTo(Directory::class, 'guarantor_referencing_provider', 'directory_id');
     }
