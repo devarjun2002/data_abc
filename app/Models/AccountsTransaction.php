@@ -1,6 +1,14 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsNominalCode;
+use App\Models\AccountsTransactionType;
+use App\Models\Branch;
+use App\Models\CustomerType;
+use App\Models\Development;
+use App\Models\Employee;
+use App\Models\Property;
+use App\Models\Tenancy;
 
 use Illuminate\Database\Eloquent\Model;
 

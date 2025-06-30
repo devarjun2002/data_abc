@@ -1,6 +1,11 @@
 <?php
 
 namespace App\Models;
+use App\Models\Bank;
+use App\Models\Directory;
+use App\Models\DirectoryStatus;
+use App\Models\Employee;
+use App\Models\Title;
 
 use Illuminate\Database\Eloquent\Model;
 

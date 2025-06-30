@@ -22,4 +22,9 @@ class AccountsNominalCodeType extends Model
     {
         return $this->hasMany(AccountsNominalCode::class, 'nominal_code_type', 'nominal_code_type_id');
     }
+    // Reverse Relationships
+public function accountsNominalCodes()
+    {
+        return $this->hasMany(AccountsNominalCode::class, 'nominal_code_type', 'nominal_code_type_id');
+    }
 }

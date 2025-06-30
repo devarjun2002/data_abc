@@ -27,4 +27,9 @@ class PropertyCategory extends Model
     {
         return $this->hasMany(Valuation::class, 'valuation_property_category', 'property_category_id');
     }
+    // Reverse Relationships
+public function tenancies()
+    {
+        return $this->hasMany(Tenancy::class, 'tenancy_type', 'property_category_id');
+    }
 }

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\ApplicantRequirement;
+use App\Models\Suburb;
 
 use Illuminate\Database\Eloquent\Model;
 

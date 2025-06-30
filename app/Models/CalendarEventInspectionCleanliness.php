@@ -16,4 +16,9 @@ class CalendarEventInspectionCleanliness extends Model
     protected $fillable = [
         'calendar_event_inspection_cleanliness_name'
     ];
+    // Reverse Relationships
+public function calendarEventInspections()
+    {
+        return $this->hasMany(CalendarEventInspection::class, 'calendar_event_inspection_gardens', 'calendar_event_inspection_cleanliness_id');
+    }
 }

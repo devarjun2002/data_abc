@@ -22,4 +22,9 @@ class PropertyOutsideSpace extends Model
     {
         return $this->hasMany(PropertyToOutsideSpace::class, 'property_outside_space_id', 'property_outside_space_id');
     }
+    // Reverse Relationships
+public function propertyToOutsideSpaces()
+    {
+        return $this->hasMany(PropertyToOutsideSpace::class, 'property_outside_space_id', 'property_outside_space_id');
+    }
 }

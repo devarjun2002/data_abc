@@ -1,6 +1,29 @@
 <?php
 
 namespace App\Models;
+use App\Models\Applicant;
+use App\Models\Application;
+use App\Models\Branch;
+use App\Models\CalendarEventAttendeeType;
+use App\Models\CalendarEventInspectionType;
+use App\Models\CalendarEventMeetAt;
+use App\Models\CalendarEventRecurring;
+use App\Models\CalendarEventStatus;
+use App\Models\CalendarEventSurveyType;
+use App\Models\CalendarEventTimeOffPay;
+use App\Models\CalendarEventTimeOffReason;
+use App\Models\CalendarEventTimeOffType;
+use App\Models\CalendarEventType;
+use App\Models\Company;
+use App\Models\Development;
+use App\Models\Directory;
+use App\Models\Employee;
+use App\Models\ExtraHoursRewardType;
+use App\Models\Property;
+use App\Models\Tenancy;
+use App\Models\Valuation;
+use App\Models\ValuationAppointmentType;
+use App\Models\ValuationMeetingWith;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -196,5 +219,10 @@ class CalendarEvent extends Model
     public function extraHoursRewardType()
     {
         return $this->belongsTo(ExtraHoursRewardType::class, 'calendar_event_extra_hours_reward_type', 'id');
+    }
+    // Reverse Relationships
+public function calendarFileses()
+    {
+        return $this->hasMany(CalendarFiles::class, 'calendar_event_id', 'calendar_event_id');
     }
 }

@@ -23,4 +23,9 @@ class CalendarEventSurveyType extends Model
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_survey_type_id', 'calendar_event_survey_type_id');
     }
+    // Reverse Relationships
+public function calendarEvents()
+    {
+        return $this->hasMany(CalendarEvent::class, 'calendar_event_survey_type', 'calendar_event_survey_type_id');
+    }
 }

@@ -24,4 +24,9 @@ class ApplicationStatus extends Model
     {
         return $this->hasMany(Application::class, 'application_status', 'application_status_id');
     }
+    // Reverse Relationships
+public function applicationLogStatuses()
+    {
+        return $this->hasMany(ApplicationLogStatus::class, 'application_status_new', 'application_status_id');
+    }
 }

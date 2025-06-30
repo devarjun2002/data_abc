@@ -1,6 +1,17 @@
 <?php
 
 namespace App\Models;
+use App\Models\Bank;
+use App\Models\BodyType;
+use App\Models\Branch;
+use App\Models\Capacity;
+use App\Models\Country;
+use App\Models\Directory;
+use App\Models\DirectoryIndividual;
+use App\Models\Employee;
+use App\Models\FeeType;
+use App\Models\Title;
+use App\Models\VendorStatus;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -155,5 +166,10 @@ class Vendor extends Model
     public function capacity()
     {
         return $this->belongsTo(Capacity::class, 'vendor_capacity');
+    }
+    // Reverse Relationships
+public function propertyVendors()
+    {
+        return $this->hasMany(PropertyVendor::class, 'property_vendor_id', 'vendor_id');
     }
 }

@@ -1,6 +1,13 @@
 <?php
 
 namespace App\Models;
+use App\Models\Bank;
+use App\Models\Branch;
+use App\Models\Country;
+use App\Models\Directory;
+use App\Models\Employee;
+use App\Models\EmploymentStatus;
+use App\Models\Title;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -162,5 +169,10 @@ class Guarantor extends Model
     public function scopeByBranch($query, $branchId)
     {
         return $query->where('guarantor_branch', $branchId);
+    }
+    // Reverse Relationships
+public function tenancyGuarantorses()
+    {
+        return $this->hasMany(TenancyGuarantors::class, 'guarantor_id', 'guarantor_id');
     }
 }

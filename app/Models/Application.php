@@ -1,6 +1,13 @@
 <?php
 
 namespace App\Models;
+use App\Models\ApplicationStatus;
+use App\Models\ApplicationType;
+use App\Models\Bank;
+use App\Models\Employee;
+use App\Models\Property;
+use App\Models\PropertyRoomLetting;
+use App\Models\Title;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -139,5 +146,10 @@ class Application extends Model
     public function type()
     {
         return $this->belongsTo(ApplicationType::class, 'application_type', 'application_type_id');
+    }
+    // Reverse Relationships
+public function calendarEvents()
+    {
+        return $this->hasMany(CalendarEvent::class, 'calendar_event_letting_application', 'application_id');
     }
 }

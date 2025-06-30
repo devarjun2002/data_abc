@@ -17,4 +17,9 @@ class ReferralType extends Model
         'referral_type_name',
     ];
 
+    // Reverse Relationships
+public function referrals()
+    {
+        return $this->hasMany(Referral::class, 'referral_type', 'referral_type_id');
+    }
 }

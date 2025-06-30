@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\Branch;
+use App\Models\Country;
+use App\Models\DevelopmentType;
+use App\Models\Directory;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -100,5 +104,10 @@ class Development extends Model
     public function developmentType()
     {
         return $this->belongsTo(DevelopmentType::class, 'development_type', 'development_type_id');
+    }
+    // Reverse Relationships
+public function keySafes()
+    {
+        return $this->hasMany(KeySafe::class, 'key_safe_development', 'development_id');
     }
 }

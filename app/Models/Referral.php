@@ -1,6 +1,14 @@
 <?php
 
 namespace App\Models;
+use App\Models\CustomerType;
+use App\Models\Directory;
+use App\Models\Employee;
+use App\Models\Property;
+use App\Models\ReferralSalePurchase;
+use App\Models\ReferralStatus;
+use App\Models\ReferralType;
+use App\Models\Valuation;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -94,5 +102,10 @@ class Referral extends Model
     public function status()
     {
         return $this->belongsTo(ReferralStatus::class, 'referral_status', 'referral_status_id');
+    }
+    // Reverse Relationships
+public function referralUpdateses()
+    {
+        return $this->hasMany(ReferralUpdates::class, 'referral_updates_referral_id', 'referral_id');
     }
 }

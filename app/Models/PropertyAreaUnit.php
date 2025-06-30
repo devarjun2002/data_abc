@@ -18,4 +18,9 @@ class PropertyAreaUnit extends Model
         'property_area_unit_singular',
         'property_area_unit_name_short'
     ];
+    // Reverse Relationships
+public function propertyTenancies()
+    {
+        return $this->hasMany(PropertyTenancy::class, 'property_tenancy_size_unit', 'property_area_unit_id');
+    }
 }

@@ -1,6 +1,13 @@
 <?php
 
 namespace App\Models;
+use App\Models\Development;
+use App\Models\Directory;
+use App\Models\Employee;
+use App\Models\Property;
+use App\Models\WorksCategory;
+use App\Models\WorksRoom;
+use App\Models\WorksStatus;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -85,5 +92,10 @@ class Works extends Model
     public function room()
     {
         return $this->belongsTo(WorksRoom::class, 'works_room');
+    }
+    // Reverse Relationships
+public function accountsInvoiceLines()
+    {
+        return $this->hasMany(AccountsInvoiceLine::class, 'invoice_line_works_id', 'works_id');
     }
 }

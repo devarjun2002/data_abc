@@ -18,4 +18,9 @@ class ReferralStatus extends Model
         'referral_status_sort'
     ];
 
+    // Reverse Relationships
+public function referrals()
+    {
+        return $this->hasMany(Referral::class, 'referral_status', 'referral_status_id');
+    }
 }

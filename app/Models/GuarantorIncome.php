@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\Guarantor;
+use App\Models\IncomeFrequency;
 
 use Illuminate\Database\Eloquent\Model;
 

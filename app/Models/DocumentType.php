@@ -16,4 +16,9 @@ class DocumentType extends Model
     protected $fillable = [
         'document_type_name'
     ];
+    // Reverse Relationships
+public function landlordAttachmentses()
+    {
+        return $this->hasMany(LandlordAttachments::class, 'landlord_attachments_document_type_id', 'document_type_id');
+    }
 }

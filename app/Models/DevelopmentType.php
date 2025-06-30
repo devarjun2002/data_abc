@@ -16,4 +16,9 @@ class DevelopmentType extends Model
     protected $fillable = [
         'development_type_name',
     ];
+    // Reverse Relationships
+public function developments()
+    {
+        return $this->hasMany(Development::class, 'development_type', 'development_type_id');
+    }
 }

@@ -1,6 +1,13 @@
 <?php
 
 namespace App\Models;
+use App\Models\Employee;
+use App\Models\Property;
+use App\Models\PropertyRoomLetting;
+use App\Models\RentLegalExpensesInsuranceStatus;
+use App\Models\RentLegalExpensesInsuranceType;
+use App\Models\Tenancy;
+use App\Models\TenancyFixedTermUnit;
 
 use Illuminate\Database\Eloquent\Model;
 

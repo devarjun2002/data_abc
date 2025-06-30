@@ -22,4 +22,9 @@ class AccountsInvoicePaymentType extends Model
     {
         return $this->hasMany(AccountsInvoice::class, 'invoice_payment_type', 'accounts_invoice_payment_type_id');
     }
+    // Reverse Relationships
+public function accountsInvoicePayments()
+    {
+        return $this->hasMany(AccountsInvoicePayment::class, 'invoice_payment_type', 'accounts_invoice_payment_type_id');
+    }
 }

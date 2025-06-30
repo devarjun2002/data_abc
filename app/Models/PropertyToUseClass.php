@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\Property;
+use App\Models\PropertyUseClass;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,5 +29,10 @@ class PropertyToUseClass extends Model
     public function useClass()
     {
         return $this->belongsTo(PropertyUseClass::class, 'property_use_class_id', 'property_use_class_id');
+    }
+    // Reverse Relationships
+public function propertyUseClasses()
+    {
+        return $this->hasMany(PropertyUseClass::class, 'property_use_class_id', 'property_use_class_id');
     }
 }

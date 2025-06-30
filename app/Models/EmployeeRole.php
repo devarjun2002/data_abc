@@ -22,4 +22,9 @@ class EmployeeRole extends Model
     {
         return $this->belongsToMany(Employee::class, 'employee_to_role', 'employee_role_id', 'employee_id');
     }
+    // Reverse Relationships
+public function employeeToRoles()
+    {
+        return $this->hasMany(EmployeeToRole::class, 'employee_role_id', 'employee_role_id');
+    }
 }

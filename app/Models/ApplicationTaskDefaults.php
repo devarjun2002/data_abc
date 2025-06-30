@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\ApplicationTaskStatus;
+use App\Models\ApplicationTaskType;
 
 use Illuminate\Database\Eloquent\Model;
 

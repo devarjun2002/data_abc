@@ -23,4 +23,9 @@ class CalendarEventType extends Model
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_type', 'calendar_event_type_id');
     }
+    // Reverse Relationships
+public function certificates()
+    {
+        return $this->hasMany(Certificate::class, 'certificate_type', 'calendar_event_type_id');
+    }
 }

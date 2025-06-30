@@ -22,4 +22,9 @@ class PropertySecurity extends Model
     {
         return $this->hasMany(PropertyToSecurity::class, 'property_security_id', 'property_security_id');
     }
+    // Reverse Relationships
+public function propertyToSecurities()
+    {
+        return $this->hasMany(PropertyToSecurity::class, 'property_security_id', 'property_security_id');
+    }
 }

@@ -16,4 +16,9 @@ class TaskStatus extends Model
     protected $fillable = [
         'task_status_name',
     ];
+    // Reverse Relationships
+public function tasks()
+    {
+        return $this->hasMany(Task::class, 'task_status', 'task_status_id');
+    }
 }

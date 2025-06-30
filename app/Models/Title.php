@@ -16,4 +16,9 @@ class Title extends Model
     protected $fillable = [
         'title_name',
     ];
+    // Reverse Relationships
+public function tenancyDepositContributors()
+    {
+        return $this->hasMany(TenancyDepositContributor::class, 'tenancy_deposit_contributor_title', 'title_id');
+    }
 }

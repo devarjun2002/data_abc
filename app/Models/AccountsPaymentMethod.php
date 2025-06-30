@@ -32,4 +32,9 @@ class AccountsPaymentMethod extends Model
     {
         return $this->hasMany(AccountsTenantChargePayment::class, 'tenant_charge_payment_method', 'payment_method_id');
     }
+    // Reverse Relationships
+public function accountsTenantDepositChargePayments()
+    {
+        return $this->hasMany(AccountsTenantDepositChargePayment::class, 'tenant_deposit_charge_payment_method', 'payment_method_id');
+    }
 }

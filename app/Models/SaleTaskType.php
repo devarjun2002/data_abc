@@ -21,4 +21,9 @@ class SaleTaskType extends Model
     public function tasks() {
         return $this->hasMany(SaleTask::class, 'sale_task_type', 'sale_task_type_id');
     }
+    // Reverse Relationships
+public function saleTaskDefaultses()
+    {
+        return $this->hasMany(SaleTaskDefaults::class, 'sale_task_defaults_type', 'sale_task_type_id');
+    }
 }

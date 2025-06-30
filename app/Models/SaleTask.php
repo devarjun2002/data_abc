@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\Employee;
+use App\Models\Sale;
+use App\Models\SaleTaskStatus;
+use App\Models\SaleTaskType;
 
 use Illuminate\Database\Eloquent\Model;
 

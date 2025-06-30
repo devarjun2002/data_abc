@@ -17,4 +17,9 @@ class DiscountGroup extends Model
         'discount_group_name',
         'discount_group_sort'
     ];
+    // Reverse Relationships
+public function landlords()
+    {
+        return $this->hasMany(Landlord::class, 'landlord_discount_group', 'discount_group_id');
+    }
 }

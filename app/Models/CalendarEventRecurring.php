@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsRecurringFrequencyUnit;
+use App\Models\CalendarEvent;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,5 +41,10 @@ class CalendarEventRecurring extends Model
     public function frequencyUnit()
     {
         return $this->belongsTo(AccountsRecurringFrequencyUnit::class, 'calendar_event_recurring_frequency_unit', 'accounts_recurring_frequency_unit_id');
+    }
+    // Reverse Relationships
+public function calendarEvents()
+    {
+        return $this->hasMany(CalendarEvent::class, 'calendar_event_recurring_id', 'calendar_event_recurring_id');
     }
 }

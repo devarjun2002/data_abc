@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsPaymentMethod;
+use App\Models\Employee;
+use App\Models\Tenancy;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -49,9 +52,8 @@ class AccountsLandlordPayment extends Model
     {
         return $this->belongsTo(Employee::class, 'landlord_payment_updated_by', 'employee_id');
     }
-
-    // Reverse relationships
-    public function bacsFiles()
+    // Reverse Relationships
+public function accountsBacsFiles()
     {
         return $this->hasMany(AccountsBacsFile::class, 'bacs_file_landlord_payment_reference', 'landlord_payment_id');
     }

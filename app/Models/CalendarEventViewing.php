@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\CalendarEvent;
+use App\Models\CalendarEventConfidence;
+use App\Models\CalendarEventViewingType;
+use App\Models\Employee;
 
 use Illuminate\Database\Eloquent\Model;
 

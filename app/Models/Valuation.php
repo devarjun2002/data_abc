@@ -1,6 +1,31 @@
 <?php
 
 namespace App\Models;
+use App\Models\Branch;
+use App\Models\Capacity;
+use App\Models\ContractType;
+use App\Models\Country;
+use App\Models\Directory;
+use App\Models\Employee;
+use App\Models\FeeType;
+use App\Models\Landlord;
+use App\Models\LettingService;
+use App\Models\Property;
+use App\Models\PropertyAccessArrangement;
+use App\Models\PropertyAreaUnit;
+use App\Models\PropertyCategory;
+use App\Models\PropertyPossessionStatus;
+use App\Models\PropertyPriceQualifier;
+use App\Models\PropertyTenureType;
+use App\Models\PropertyType;
+use App\Models\Title;
+use App\Models\ValuationAvailability;
+use App\Models\ValuationCondition;
+use App\Models\ValuationLeadSource;
+use App\Models\ValuationLostReason;
+use App\Models\ValuationReason;
+use App\Models\ValuationStatus;
+use App\Models\Vendor;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -367,5 +392,10 @@ class Valuation extends Model
     public function livingSpaceUnit()
     {
         return $this->belongsTo(PropertyAreaUnit::class, 'valuation_property_living_space_unit');
+    }
+    // Reverse Relationships
+public function valuationUpdateses()
+    {
+        return $this->hasMany(ValuationUpdates::class, 'valuation_updates_valuation_id', 'valuation_id');
     }
 }

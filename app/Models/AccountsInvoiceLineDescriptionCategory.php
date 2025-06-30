@@ -17,4 +17,9 @@ class AccountsInvoiceLineDescriptionCategory extends Model
         'invoice_line_description_category_name',
         'invoice_line_description_category_sort'
     ];
+    // Reverse Relationships
+public function accountsInvoiceLineDescriptions()
+    {
+        return $this->hasMany(AccountsInvoiceLineDescription::class, 'invoice_line_description_category', 'invoice_line_description_category_id');
+    }
 }

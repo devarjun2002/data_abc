@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\CalendarEventType;
+use App\Models\Directory;
+use App\Models\Employee;
+use App\Models\Property;
 
 use Illuminate\Database\Eloquent\Model;
 

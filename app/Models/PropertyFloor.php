@@ -17,4 +17,9 @@ class PropertyFloor extends Model
         'property_floor_name',
         'property_floor_sort',
     ];
+    // Reverse Relationships
+public function propertyRoomLettings()
+    {
+        return $this->hasMany(PropertyRoomLetting::class, 'property_room_letting_floor', 'property_floor_id');
+    }
 }

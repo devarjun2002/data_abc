@@ -16,4 +16,9 @@ class LandlordStatus extends Model
     protected $fillable = [
         'landlord_status_name',
     ];
+    // Reverse Relationships
+public function landlords()
+    {
+        return $this->hasMany(Landlord::class, 'landlord_status', 'landlord_status_id');
+    }
 }

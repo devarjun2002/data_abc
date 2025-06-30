@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\PropertyToUseClass;
 
 use Illuminate\Database\Eloquent\Model;
 

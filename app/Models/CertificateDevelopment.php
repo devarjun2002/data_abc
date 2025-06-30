@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\CertificateType;
+use App\Models\Development;
+use App\Models\Directory;
+use App\Models\Employee;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -54,5 +58,10 @@ class CertificateDevelopment extends Model
     public function renewalContractor()
     {
         return $this->belongsTo(Directory::class, 'certificate_renewal_contractor', 'directory_id');
+    }
+    // Reverse Relationships
+public function certificateDevelopmentFileses()
+    {
+        return $this->hasMany(CertificateDevelopmentFiles::class, 'certificate_id', 'certificate_development');
     }
 }

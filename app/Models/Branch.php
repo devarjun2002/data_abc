@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Models;
+use App\Models\Bank;
+use App\Models\Company;
+use App\Models\Country;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -109,15 +112,9 @@ class Branch extends Model
     {
         return $this->belongsTo(Bank::class, 'branch_bank_name_client', 'bank_id');
     }
-
-    // Reverse relationships --done
-    public function invoices()
+    // Reverse Relationships
+public function tenancies()
     {
-        return $this->hasMany(AccountsInvoice::class, 'invoice_branch', 'branch_id');
-    }
-
-    public function invoiceCredits()
-    {
-        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_branch', 'branch_id');
+        return $this->hasMany(Tenancy::class, 'tenancy_agent_branch', 'branch_id');
     }
 }

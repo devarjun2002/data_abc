@@ -16,4 +16,9 @@ class ValuationTaskStatus extends Model
     protected $fillable = [
         'valuation_task_status_name',
     ];
+    // Reverse Relationships
+public function valuationTaskDefaultses()
+    {
+        return $this->hasMany(ValuationTaskDefaults::class, 'valuation_task_defaults_status', 'valuation_task_status_id');
+    }
 }

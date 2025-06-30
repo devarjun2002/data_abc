@@ -20,4 +20,9 @@ class PropertyOfferSaleType extends Model
         'property_offer_sale_type_name',
         'property_offer_sale_type_description',
     ];
+    // Reverse Relationships
+public function propertyOfferSales()
+    {
+        return $this->hasMany(PropertyOfferSale::class, 'property_offer_sale_type', 'property_offer_sale_type_id');
+    }
 }

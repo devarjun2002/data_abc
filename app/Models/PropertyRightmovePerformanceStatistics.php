@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Models;
+use App\Models\Property;
+use App\Models\PropertyAvailability;
+use App\Models\PropertyStatus;
 
 use Illuminate\Database\Eloquent\Model;
 

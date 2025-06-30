@@ -23,4 +23,9 @@ class EmployeePermissionsCategory extends Model
     {
         return $this->hasMany(EmployeePermissions::class, 'employee_permissions_category', 'employee_permissions_category_id');
     }
+    // Reverse Relationships
+public function employeePermissionses()
+    {
+        return $this->hasMany(EmployeePermissions::class, 'employee_permissions_category', 'employee_permissions_category_id');
+    }
 }

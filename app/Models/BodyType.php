@@ -16,4 +16,9 @@ class BodyType extends Model
     protected $fillable = [
         'body_type_name'
     ];
+    // Reverse Relationships
+public function landlords()
+    {
+        return $this->hasMany(Landlord::class, 'landlord_type', 'body_type_id');
+    }
 }

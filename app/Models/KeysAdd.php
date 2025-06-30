@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Models;
+use App\Models\Employee;
+use App\Models\KeysAddFrom;
+use App\Models\Property;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -46,5 +49,10 @@ class KeysAdd extends Model
     public function from()
     {
         return $this->belongsTo(KeysAddFrom::class, 'keys_add_from', 'keys_add_from_id');
+    }
+    // Reverse Relationships
+public function keysTransactions()
+    {
+        return $this->hasMany(KeysTransaction::class, 'keys_transaction_set_id', 'keys_add_id');
     }
 }

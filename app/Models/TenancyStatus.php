@@ -17,4 +17,9 @@ class TenancyStatus extends Model
         'tenancy_status_name',
     ];
 
+    // Reverse Relationships
+public function tenancies()
+    {
+        return $this->hasMany(Tenancy::class, 'tenancy_status', 'tenancy_status_id');
+    }
 }

@@ -1,6 +1,13 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsInvoice;
+use App\Models\Branch;
+use App\Models\CustomerType;
+use App\Models\Development;
+use App\Models\Employee;
+use App\Models\Property;
+use App\Models\Tenancy;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -85,10 +92,9 @@ class AccountsInvoiceCredit extends Model
     {
         return $this->belongsTo(Employee::class, 'invoice_credit_updated_by', 'employee_id');
     }
-
-    // Reverse relationships
-    public function invoiceCreditLines()
+    // Reverse Relationships
+public function accountsInvoicePayments()
     {
-        return $this->hasMany(AccountsInvoiceCreditLine::class, 'invoice_credit_id', 'invoice_credit_id');
+        return $this->hasMany(AccountsInvoicePayment::class, 'invoice_payment_type_id', 'invoice_credit_id');
     }
 }

@@ -27,4 +27,9 @@ class EmploymentStatus extends Model
     {
         return $this->hasMany(ApplicationGuarantor::class, 'application_guarantor_employment_status', 'employment_status_id');
     }
+    // Reverse Relationships
+public function guarantors()
+    {
+        return $this->hasMany(Guarantor::class, 'guarantor_employment_status', 'employment_status_id');
+    }
 }

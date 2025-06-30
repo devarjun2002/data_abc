@@ -1,6 +1,16 @@
 <?php
 
 namespace App\Models;
+use App\Models\Bank;
+use App\Models\BodyType;
+use App\Models\Branch;
+use App\Models\Capacity;
+use App\Models\Country;
+use App\Models\DiscountGroup;
+use App\Models\Employee;
+use App\Models\LandlordNrlStatus;
+use App\Models\LandlordStatus;
+use App\Models\Title;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -177,5 +187,10 @@ class Landlord extends Model
     public function discountGroup()
     {
         return $this->belongsTo(DiscountGroup::class, 'landlord_discount_group', 'discount_group_id');
+    }
+    // Reverse Relationships
+public function propertyLandlords()
+    {
+        return $this->hasMany(PropertyLandlord::class, 'property_landlord_id', 'landlord_id');
     }
 }

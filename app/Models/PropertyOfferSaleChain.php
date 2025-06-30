@@ -1,6 +1,11 @@
 <?php
 
 namespace App\Models;
+use App\Models\Employee;
+use App\Models\Property;
+use App\Models\PropertyOfferSale;
+use App\Models\PropertyOfferSaleChainPosition;
+use App\Models\PropertyOfferSaleChainStatus;
 
 use Illuminate\Database\Eloquent\Model;
 

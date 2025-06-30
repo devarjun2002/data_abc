@@ -27,4 +27,9 @@ class PropertyParking extends Model
     {
         return $this->hasMany(PropertyToParking::class, 'property_parking_id', 'property_parking_id');
     }
+    // Reverse Relationships
+public function propertyToParkings()
+    {
+        return $this->hasMany(PropertyToParking::class, 'property_parking_id', 'property_parking_id');
+    }
 }

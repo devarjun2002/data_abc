@@ -18,4 +18,9 @@ class ApplicantRequirementFilterShared extends Model
         'applicant_requirement_filter_description',
         'applicant_requirement_filter_sort'
     ];
+    // Reverse Relationships
+public function applicantRequirements()
+    {
+        return $this->hasMany(ApplicantRequirement::class, 'ar_property_shared', 'applicant_requirement_filter_id');
+    }
 }

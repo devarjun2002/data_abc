@@ -17,4 +17,9 @@ class IncomeFrequency extends Model
         'income_frequency_name',
         'income_frequency_sort'
     ];
+    // Reverse Relationships
+public function tenantIncomes()
+    {
+        return $this->hasMany(TenantIncome::class, 'tenant_income_frequency', 'income_frequency_id');
+    }
 }

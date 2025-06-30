@@ -17,4 +17,9 @@ class DirectoryCategory extends Model
         'directory_category_name',
         'directory_category_contractor'
     ];
+    // Reverse Relationships
+public function directories()
+    {
+        return $this->hasMany(Directory::class, 'directory_category', 'directory_category_id');
+    }
 }

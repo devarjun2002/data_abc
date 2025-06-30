@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsPaymentMethod;
+use App\Models\AccountsTenantDepositCharge;
+use App\Models\Employee;
 
 use Illuminate\Database\Eloquent\Model;
 

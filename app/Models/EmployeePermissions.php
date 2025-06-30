@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\EmployeePermissionsCategory;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,5 +23,10 @@ class EmployeePermissions extends Model
     public function category()
     {
         return $this->belongsTo(EmployeePermissionsCategory::class, 'employee_permissions_category', 'employee_permissions_category_id');
+    }
+    // Reverse Relationships
+public function employeeToPermissionses()
+    {
+        return $this->hasMany(EmployeeToPermissions::class, 'employee_permissions_id', 'employee_permissions_id');
     }
 }

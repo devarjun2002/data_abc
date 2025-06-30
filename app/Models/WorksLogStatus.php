@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Models;
+use App\Models\Employee;
+use App\Models\Works;
+use App\Models\WorksStatus;
 
 use Illuminate\Database\Eloquent\Model;
 

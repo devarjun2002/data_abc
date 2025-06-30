@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\Applicant;
+use App\Models\EmploymentStatus;
+use App\Models\Nationality;
+use App\Models\Title;
 
 use Illuminate\Database\Eloquent\Model;
 

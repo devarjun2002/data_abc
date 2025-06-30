@@ -17,4 +17,9 @@ class CalendarEventConfidence extends Model
         'calendar_event_confidence_name',
         'calendar_event_confidence_sort'
     ];
+    // Reverse Relationships
+public function calendarEventViewings()
+    {
+        return $this->hasMany(CalendarEventViewing::class, 'calendar_event_viewing_confidence_level', 'calendar_event_confidence_id');
+    }
 }

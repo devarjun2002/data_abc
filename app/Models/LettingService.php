@@ -19,4 +19,9 @@ class LettingService extends Model
         'letting_service_archived',
         'letting_service_sort',
     ];
+    // Reverse Relationships
+public function tenancies()
+    {
+        return $this->hasMany(Tenancy::class, 'tenancy_letting_service', 'letting_service_id');
+    }
 }

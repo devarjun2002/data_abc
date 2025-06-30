@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\Application;
+use App\Models\ApplicationTaskStatus;
+use App\Models\ApplicationTaskType;
+use App\Models\Employee;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -21,4 +21,9 @@ class ApplicantRequirementProperties extends Model
         'property_id',
         'arp_date_created',
     ];
+    // Reverse Relationships
+public function applicantRequirementFeedbacks()
+    {
+        return $this->hasMany(ApplicantRequirementFeedback::class, 'applicant_requirement_feedback_arp_id', 'arp_id');
+    }
 }

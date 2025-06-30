@@ -16,4 +16,9 @@ class Gender extends Model
     protected $fillable = [
         'gender_name'
     ];
+    // Reverse Relationships
+public function propertyRoomLettings()
+    {
+        return $this->hasMany(PropertyRoomLetting::class, 'property_room_letting_gender', 'gender_id');
+    }
 }

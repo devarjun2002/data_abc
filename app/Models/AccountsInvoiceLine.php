@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsInvoice;
+use App\Models\AccountsNominalCode;
+use App\Models\AccountsVatRate;
+use App\Models\Works;
 
 use Illuminate\Database\Eloquent\Model;
 

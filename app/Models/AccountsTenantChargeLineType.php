@@ -22,4 +22,9 @@ class AccountsTenantChargeLineType extends Model
     {
         return $this->hasMany(AccountsTenantChargeLine::class, 'tenant_charge_line_type', 'tenant_charge_line_type_id');
     }
+    // Reverse Relationships
+public function accountsTenantChargeLines()
+    {
+        return $this->hasMany(AccountsTenantChargeLine::class, 'tenant_charge_line_type', 'tenant_charge_line_type_id');
+    }
 }

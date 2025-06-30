@@ -37,4 +37,9 @@ class FeeType extends Model
     {
         return $this->hasMany(Valuation::class, 'valuation_multi_sale_fee_type', 'fee_type_id');
     }
+    // Reverse Relationships
+public function tenancies()
+    {
+        return $this->hasMany(Tenancy::class, 'tenancy_tenant_find_with_management_fee_type', 'fee_type_id');
+    }
 }

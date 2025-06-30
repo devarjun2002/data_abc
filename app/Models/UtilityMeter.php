@@ -1,6 +1,11 @@
 <?php
 
 namespace App\Models;
+use App\Models\Property;
+use App\Models\Utility;
+use App\Models\UtilityMeterLocation;
+use App\Models\UtilityMeterType;
+use App\Models\UtilityProvider;
 
 use Illuminate\Database\Eloquent\Model;
 

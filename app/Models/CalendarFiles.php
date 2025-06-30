@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\CalendarEvent;
 
 use Illuminate\Database\Eloquent\Model;
 

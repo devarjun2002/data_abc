@@ -22,4 +22,9 @@ class CalendarEventTimeOffReason extends Model
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_time_off_reason', 'calendar_event_time_off_reason_id');
     }
+    // Reverse Relationships
+public function calendarEvents()
+    {
+        return $this->hasMany(CalendarEvent::class, 'calendar_event_time_off_reason', 'calendar_event_time_off_reason_id');
+    }
 }

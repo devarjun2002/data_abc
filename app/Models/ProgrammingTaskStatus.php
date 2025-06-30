@@ -20,4 +20,9 @@ class ProgrammingTaskStatus extends Model
         'programming_task_status_name',
         'programming_task_status_sort',
     ];
+    // Reverse Relationships
+public function programmingTasks()
+    {
+        return $this->hasMany(ProgrammingTask::class, 'programming_task_status', 'programming_task_status_id');
+    }
 }

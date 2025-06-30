@@ -1,6 +1,15 @@
 <?php
 
 namespace App\Models;
+use App\Models\CommissionType;
+use App\Models\Directory;
+use App\Models\DirectoryIndividual;
+use App\Models\Employee;
+use App\Models\Property;
+use App\Models\PropertyOfferSale;
+use App\Models\SaleCollapsedReason;
+use App\Models\SaleFinance;
+use App\Models\SaleStatus;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -155,5 +164,10 @@ class Sale extends Model
     public function commissionCompletionPaymentType()
     {
         return $this->belongsTo(CommissionType::class, 'sale_commission_completion_payment_type');
+    }
+    // Reverse Relationships
+public function saleUpdateses()
+    {
+        return $this->hasMany(SaleUpdates::class, 'sale_updates_sale_id', 'sale_id');
     }
 }

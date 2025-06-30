@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\Landlord;
+use App\Models\Property;
 
 use Illuminate\Database\Eloquent\Model;
 

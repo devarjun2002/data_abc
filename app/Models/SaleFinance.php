@@ -19,4 +19,9 @@ class SaleFinance extends Model
     protected $fillable = [
         'sale_finance_name',
     ];
+    // Reverse Relationships
+public function propertyOfferSales()
+    {
+        return $this->hasMany(PropertyOfferSale::class, 'property_offer_sale_finance', 'sale_finance_id');
+    }
 }

@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Models;
+use App\Models\Applicant;
+use App\Models\Employee;
+use App\Models\InterestedApplicant;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsNominalCodeType;
+use App\Models\AccountsVatRate;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -41,15 +43,9 @@ class AccountsNominalCode extends Model
     {
         return $this->hasMany(AccountsInvoiceLineDescription::class, 'invoice_line_nominal_code', 'nominal_code_id');
     }
-
-    // Reverse relationships --done
-    public function bacsFiles()
+    // Reverse Relationships
+public function directories()
     {
-        return $this->hasMany(AccountsBacsFile::class, 'bacs_file_nominal_code', 'nominal_code_id');
-    }
-
-    public function invoiceCreditLines()
-    {
-        return $this->hasMany(AccountsInvoiceCreditLine::class, 'invoice_credit_line_nominal_code', 'nominal_code_id');
+        return $this->hasMany(Directory::class, 'directory_nominal_code', 'nominal_code_id');
     }
 }

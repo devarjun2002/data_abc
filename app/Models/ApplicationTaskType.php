@@ -16,4 +16,9 @@ class ApplicationTaskType extends Model
     protected $fillable = [
         'application_task_type_name',
     ];
+    // Reverse Relationships
+public function applicationTaskDefaultses()
+    {
+        return $this->hasMany(ApplicationTaskDefaults::class, 'application_task_defaults_type', 'application_task_type_id');
+    }
 }

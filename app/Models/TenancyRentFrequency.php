@@ -19,4 +19,9 @@ class TenancyRentFrequency extends Model
         'tenancy_rent_frequency_description',
         'tenancy_rent_frequency_short'
     ];
+    // Reverse Relationships
+public function tenancies()
+    {
+        return $this->hasMany(Tenancy::class, 'tenancy_insurance_payable', 'tenancy_rent_frequency_id');
+    }
 }

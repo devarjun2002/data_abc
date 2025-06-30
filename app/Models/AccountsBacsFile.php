@@ -1,6 +1,12 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsInvoicePayment;
+use App\Models\AccountsLandlordPayment;
+use App\Models\AccountsNominalCode;
+use App\Models\AccountsVatRate;
+use App\Models\Directory;
+use App\Models\Employee;
 
 use Illuminate\Database\Eloquent\Model;
 

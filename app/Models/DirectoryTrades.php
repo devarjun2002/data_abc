@@ -16,4 +16,9 @@ class DirectoryTrades extends Model
     protected $fillable = [
         'directory_trades_name'
     ];
+    // Reverse Relationships
+public function directoryToTradeses()
+    {
+        return $this->hasMany(DirectoryToTrades::class, 'directory_trades_id', 'directory_trades_id');
+    }
 }

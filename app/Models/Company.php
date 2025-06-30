@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsVatRate;
+use App\Models\Country;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -58,5 +60,10 @@ class Company extends Model
     public function country()
     {
         return $this->belongsTo(Country::class, 'company_country', 'country_id');
+    }
+    // Reverse Relationships
+public function employees()
+    {
+        return $this->hasMany(Employee::class, 'company_id', 'company_id');
     }
 }

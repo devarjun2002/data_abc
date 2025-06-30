@@ -1,6 +1,13 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsPaymentTerm;
+use App\Models\Branch;
+use App\Models\CustomerType;
+use App\Models\Development;
+use App\Models\Employee;
+use App\Models\Property;
+use App\Models\Tenancy;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -89,20 +96,9 @@ class AccountsInvoice extends Model
     {
         return $this->belongsTo(Employee::class, 'invoice_updated_by', 'employee_id');
     }
-
-    // Reverse relationships --done
-    public function bacsFiles()
+    // Reverse Relationships
+public function invoiceUpdateses()
     {
-        return $this->hasMany(AccountsBacsFile::class, 'bacs_file_invoice_payment_reference', 'invoice_id');
-    }
-
-    public function creditNotes()
-    {
-        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_invoice_id', 'invoice_id');
-    }
-
-    public function invoiceLines()
-    {
-        return $this->hasMany(AccountsInvoiceLine::class, 'invoice_id', 'invoice_id');
+        return $this->hasMany(InvoiceUpdates::class, 'invoice_updates_invoice_id', 'invoice_id');
     }
 }

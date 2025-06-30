@@ -1,6 +1,24 @@
 <?php
 
 namespace App\Models;
+use App\Models\Branch;
+use App\Models\Employee;
+use App\Models\FeeType;
+use App\Models\FixedTermUnit;
+use App\Models\InspectionFrequency;
+use App\Models\LettingService;
+use App\Models\MoveOutReason;
+use App\Models\PaymentMethod;
+use App\Models\Property;
+use App\Models\PropertyCategory;
+use App\Models\PropertyRoomLetting;
+use App\Models\RentAgreement;
+use App\Models\Tenancy;
+use App\Models\TenancyPropertyPart;
+use App\Models\TenancyRenewalStatus;
+use App\Models\TenancyRentFrequency;
+use App\Models\TenancyStatus;
+use App\Models\VatRate;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -300,15 +318,9 @@ class Tenancy extends Model
     {
         return $this->belongsTo(TenancyPropertyPart::class, 'tenancy_property_part', 'tenancy_property_part_id');
     }
-
-    // Reverse relationships
-    public function invoices()
+    // Reverse Relationships
+public function tenancyUpdateses()
     {
-        return $this->hasMany(AccountsInvoice::class, 'invoice_tenancy_id', 'tenancy_id');
-    }
-
-    public function invoiceCredits()
-    {
-        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_tenancy_id', 'tenancy_id');
+        return $this->hasMany(TenancyUpdates::class, 'tenancy_updates_tenancy_id', 'tenancy_id');
     }
 }

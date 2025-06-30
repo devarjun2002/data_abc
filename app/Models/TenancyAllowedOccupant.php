@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\Tenancy;
+use App\Models\Title;
 
 use Illuminate\Database\Eloquent\Model;
 

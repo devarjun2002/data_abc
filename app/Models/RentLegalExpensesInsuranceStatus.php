@@ -17,4 +17,9 @@ class RentLegalExpensesInsuranceStatus extends Model
         'rleis_name',
         'rleis_sort',
     ];
+    // Reverse Relationships
+public function rentLegalExpensesInsurances()
+    {
+        return $this->hasMany(RentLegalExpensesInsurance::class, 'rlei_status', 'rleis_id');
+    }
 }

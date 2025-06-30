@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsRecurringFrequencyUnit;
+use App\Models\AccountsTenantCharge;
+use App\Models\Employee;
+use App\Models\Tenancy;
 
 use Illuminate\Database\Eloquent\Model;
 

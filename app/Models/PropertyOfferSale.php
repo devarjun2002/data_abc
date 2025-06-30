@@ -1,6 +1,13 @@
 <?php
 
 namespace App\Models;
+use App\Models\Employee;
+use App\Models\Property;
+use App\Models\PropertyOfferSale;
+use App\Models\PropertyOfferSaleType;
+use App\Models\PropertyOfferStatus;
+use App\Models\SaleFinance;
+use App\Models\SurveyStatus;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -91,5 +98,10 @@ class PropertyOfferSale extends Model
     public function revisedOffer()
     {
         return $this->belongsTo(PropertyOfferSale::class, 'property_offer_sale_revised_offer_id', 'property_offer_sale_id');
+    }
+    // Reverse Relationships
+public function sales()
+    {
+        return $this->hasMany(Sale::class, 'sale_offer_id', 'property_offer_sale_id');
     }
 }

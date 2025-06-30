@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\Employee;
+use App\Models\PropertyOfferSale;
 
 use Illuminate\Database\Eloquent\Model;
 

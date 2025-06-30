@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\LeaseType;
+use App\Models\Property;
+use App\Models\PropertyAreaUnit;
+use App\Models\TenancyRentFrequency;
 
 use Illuminate\Database\Eloquent\Model;
 

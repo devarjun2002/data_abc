@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\IncomeFrequency;
+use App\Models\Tenant;
 
 use Illuminate\Database\Eloquent\Model;
 

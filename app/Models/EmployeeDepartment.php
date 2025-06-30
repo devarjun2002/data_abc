@@ -17,4 +17,9 @@ class EmployeeDepartment extends Model
         'employee_department_name',
         'employee_department_name2'
     ];
+    // Reverse Relationships
+public function employeeToDepartments()
+    {
+        return $this->hasMany(EmployeeToDepartment::class, 'employee_department_id', 'employee_department_id');
+    }
 }

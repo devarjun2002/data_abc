@@ -32,4 +32,9 @@ class PropertyAvailability extends Model
     {
         return $this->hasMany(Valuation::class, 'valuation_property_availability', 'property_availability_id');
     }
+    // Reverse Relationships
+public function propertyRightmovePerformanceStatisticses()
+    {
+        return $this->hasMany(PropertyRightmovePerformanceStatistics::class, 'prps_property_availability', 'property_availability_id');
+    }
 }

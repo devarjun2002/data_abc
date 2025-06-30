@@ -24,4 +24,9 @@ class ContractType extends Model
     {
         return $this->hasMany(Valuation::class, 'valuation_contract_type', 'contract_type_id');
     }
+    // Reverse Relationships
+public function properties()
+    {
+        return $this->hasMany(Property::class, 'property_contract_type', 'contract_type_id');
+    }
 }

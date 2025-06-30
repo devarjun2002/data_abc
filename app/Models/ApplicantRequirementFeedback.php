@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Models;
+use App\Models\ApplicantRequirement;
+use App\Models\ApplicantRequirementProperties;
+use App\Models\Employee;
 
 use Illuminate\Database\Eloquent\Model;
 

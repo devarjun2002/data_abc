@@ -25,4 +25,9 @@ class PropertyHeating extends Model
     {
         return $this->hasMany(PropertyToHeating::class, 'property_heating_id', 'property_heating_id');
     }
+    // Reverse Relationships
+public function propertyToHeatings()
+    {
+        return $this->hasMany(PropertyToHeating::class, 'property_heating_id', 'property_heating_id');
+    }
 }

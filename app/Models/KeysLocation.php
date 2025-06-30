@@ -16,4 +16,9 @@ class KeysLocation extends Model
     protected $fillable = [
         'keys_location_name'
     ];
+    // Reverse Relationships
+public function keysLogLocations()
+    {
+        return $this->hasMany(KeysLogLocation::class, 'keys_location', 'keys_location_id');
+    }
 }

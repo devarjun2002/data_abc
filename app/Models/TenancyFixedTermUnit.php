@@ -16,4 +16,9 @@ class TenancyFixedTermUnit extends Model
     protected $fillable = [
         'tenancy_fixed_term_unit_name',
     ];
+    // Reverse Relationships
+public function rentLegalExpensesInsurances()
+    {
+        return $this->hasMany(RentLegalExpensesInsurance::class, 'rlei_term_unit', 'tenancy_fixed_term_unit_id');
+    }
 }

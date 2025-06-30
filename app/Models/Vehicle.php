@@ -18,4 +18,9 @@ class Vehicle extends Model
         'vehicle_make_model',
         'vehicle_archived',
     ];
+    // Reverse Relationships
+public function employeeMileages()
+    {
+        return $this->hasMany(EmployeeMileage::class, 'employee_mileage_vehicle_id', 'vehicle_id');
+    }
 }

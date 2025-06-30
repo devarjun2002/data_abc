@@ -1,6 +1,12 @@
 <?php
 
 namespace App\Models;
+use App\Models\Bank;
+use App\Models\BodyType;
+use App\Models\Branch;
+use App\Models\Country;
+use App\Models\Employee;
+use App\Models\Title;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -112,5 +118,10 @@ class Buyer extends Model
     public function companyRegOfficeCountry()
     {
         return $this->belongsTo(Country::class, 'buyer_company_reg_office_country', 'country_id');
+    }
+    // Reverse Relationships
+public function saleBuyerses()
+    {
+        return $this->hasMany(SaleBuyers::class, 'buyer_id', 'buyer_id');
     }
 }

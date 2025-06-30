@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\Directory;
+use App\Models\DirectoryTrades;
 
 use Illuminate\Database\Eloquent\Model;
 

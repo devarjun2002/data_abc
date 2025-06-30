@@ -1,6 +1,12 @@
 <?php
 
 namespace App\Models;
+use App\Models\AnnualLeaveAccrualMethod;
+use App\Models\Branch;
+use App\Models\Company;
+use App\Models\Employee;
+use App\Models\Title;
+use App\Models\Vehicle;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -103,40 +109,9 @@ class Employee extends Model
     {
         return $this->belongsTo(AnnualLeaveAccrualMethod::class, 'employee_annual_leave_accrual_method', 'annual_leave_accrual_method_id');
     }
-
-    // Reverse relationships --done
-    public function bacsFilesCreated()
+    // Reverse Relationships
+public function tenancyUpdateses()
     {
-        return $this->hasMany(AccountsBacsFile::class, 'bacs_file_created_by', 'employee_id');
-    }
-
-    public function createdInvoices()
-    {
-        return $this->hasMany(AccountsInvoice::class, 'invoice_created_by', 'employee_id');
-    }
-
-    public function postedInvoices()
-    {
-        return $this->hasMany(AccountsInvoice::class, 'invoice_posted_by', 'employee_id');
-    }
-
-    public function updatedInvoices()
-    {
-        return $this->hasMany(AccountsInvoice::class, 'invoice_updated_by', 'employee_id');
-    }
-
-    public function createdInvoiceCredits()
-    {
-        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_created_by', 'employee_id');
-    }
-
-    public function postedInvoiceCredits()
-    {
-        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_posted_by', 'employee_id');
-    }
-
-    public function updatedInvoiceCredits()
-    {
-        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_updated_by', 'employee_id');
+        return $this->hasMany(TenancyUpdates::class, 'tenancy_updates_created_by', 'employee_id');
     }
 }

@@ -16,4 +16,9 @@ class TenancyPropertyPart extends Model
     protected $fillable = [
         'tenancy_property_part_name',
     ];
+    // Reverse Relationships
+public function tenancies()
+    {
+        return $this->hasMany(Tenancy::class, 'tenancy_property_part', 'tenancy_property_part_id');
+    }
 }

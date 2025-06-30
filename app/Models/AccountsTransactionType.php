@@ -23,4 +23,9 @@ class AccountsTransactionType extends Model
     {
         return $this->hasMany(AccountsTransaction::class, 'transaction_type', 'transaction_type_id');
     }
+    // Reverse Relationships
+public function accountsTransactions()
+    {
+        return $this->hasMany(AccountsTransaction::class, 'transaction_type', 'transaction_type_id');
+    }
 }

@@ -23,4 +23,9 @@ class CalendarEventMeetAt extends Model
     {
         return $this->hasMany(CalendarEvent::class, 'calendar_event_meet_at', 'calendar_event_meet_at_id');
     }
+    // Reverse Relationships
+public function calendarEvents()
+    {
+        return $this->hasMany(CalendarEvent::class, 'calendar_event_meet_at', 'calendar_event_meet_at_id');
+    }
 }

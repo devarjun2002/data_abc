@@ -23,4 +23,9 @@ class AccountsRecurringFrequencyUnit extends Model
     {
         return $this->hasMany(AccountsInvoiceRecurring::class, 'invoice_recurring_frequency_unit', 'recurring_frequency_unit_id');
     }
+    // Reverse Relationships
+public function calendarEventRecurrings()
+    {
+        return $this->hasMany(CalendarEventRecurring::class, 'calendar_event_recurring_frequency_unit', 'accounts_recurring_frequency_unit_id');
+    }
 }

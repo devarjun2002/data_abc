@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Models;
+use App\Models\Property;
+use App\Models\Tenancy;
+use App\Models\Tenant;
 
 use Illuminate\Database\Eloquent\Model;
 

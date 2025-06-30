@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\Development;
+use App\Models\Employee;
+use App\Models\KeySafeLocation;
+use App\Models\Property;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsInvoice;
+use App\Models\AccountsRecurringFrequencyUnit;
 
 use Illuminate\Database\Eloquent\Model;
 

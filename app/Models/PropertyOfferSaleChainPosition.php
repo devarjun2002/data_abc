@@ -24,4 +24,9 @@ class PropertyOfferSaleChainPosition extends Model
     {
         return $this->hasMany(PropertyOfferSaleChain::class, 'property_offer_sale_chain_position', 'property_offer_sale_chain_position_id');
     }
+    // Reverse Relationships
+public function propertyOfferSaleChains()
+    {
+        return $this->hasMany(PropertyOfferSaleChain::class, 'property_offer_sale_chain_position', 'property_offer_sale_chain_position_id');
+    }
 }

@@ -1,6 +1,12 @@
 <?php
 
 namespace App\Models;
+use App\Models\Branch;
+use App\Models\ContractType;
+use App\Models\Country;
+use App\Models\Employee;
+use App\Models\PropertyStatus;
+use App\Models\PropertyType;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -73,15 +79,9 @@ class Property extends Model
     {
         return $this->belongsTo(ContractType::class, 'property_contract_type', 'contract_type_id');
     }
-
-    // Reverse relationships
-    public function invoices()
+    // Reverse Relationships
+public function tenancyTenantses()
     {
-        return $this->hasMany(AccountsInvoice::class, 'invoice_property_id', 'property_id');
-    }
-
-    public function invoiceCredits()
-    {
-        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_property_id', 'property_id');
+        return $this->hasMany(TenancyTenants::class, 'property_id', 'property_id');
     }
 }

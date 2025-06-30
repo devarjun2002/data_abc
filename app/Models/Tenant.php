@@ -1,6 +1,15 @@
 <?php
 
 namespace App\Models;
+use App\Models\Bank;
+use App\Models\BodyType;
+use App\Models\Branch;
+use App\Models\Country;
+use App\Models\Directory;
+use App\Models\Employee;
+use App\Models\EmploymentStatus;
+use App\Models\IncomeFrequency;
+use App\Models\Title;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -134,5 +143,10 @@ class Tenant extends Model
     public function referencingProvider()
     {
         return $this->belongsTo(Directory::class, 'tenant_referencing_provider');
+    }
+    // Reverse Relationships
+public function tenantIncomes()
+    {
+        return $this->hasMany(TenantIncome::class, 'tenant_income_tenant_id', 'tenant_id');
     }
 }

@@ -20,30 +20,9 @@ class AccountsVatRate extends Model
         'vat_rate_multiplier',
         'vat_rate_external_id'
     ];
-
-    // Reverse relationships --done
-    public function bacsFiles()
-    {
-        return $this->hasMany(AccountsBacsFile::class, 'bacs_file_vat_rate', 'vat_rate_id');
-    }
-
-    public function directories()
+    // Reverse Relationships
+public function directories()
     {
         return $this->hasMany(Directory::class, 'directory_vat_rate', 'vat_rate_id');
-    }
-
-    public function nominalCodes()
-    {
-        return $this->hasMany(AccountsNominalCode::class, 'nominal_code_default_vat_rate', 'vat_rate_id');
-    }
-
-    public function invoiceLines()
-    {
-        return $this->hasMany(AccountsInvoiceLine::class, 'invoice_line_vat_rate', 'vat_rate_id');
-    }
-
-    public function invoiceCreditLines()
-    {
-        return $this->hasMany(AccountsInvoiceCreditLine::class, 'invoice_credit_line_vat_rate', 'vat_rate_id');
     }
 }

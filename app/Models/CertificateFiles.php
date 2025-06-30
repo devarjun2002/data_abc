@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\Certificate;
 
 use Illuminate\Database\Eloquent\Model;
 

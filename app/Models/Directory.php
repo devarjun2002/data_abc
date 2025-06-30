@@ -1,6 +1,16 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsNominalCode;
+use App\Models\AccountsPaymentTerm;
+use App\Models\AccountsVatRate;
+use App\Models\Bank;
+use App\Models\Country;
+use App\Models\DirectoryCategory;
+use App\Models\DirectoryCommissionScheme;
+use App\Models\DirectoryStatus;
+use App\Models\Employee;
+use App\Models\Landlord;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -108,5 +118,10 @@ class Directory extends Model
     public function status()
     {
         return $this->belongsTo(DirectoryStatus::class, 'directory_status', 'directory_status_id');
+    }
+    // Reverse Relationships
+public function referrals()
+    {
+        return $this->hasMany(Referral::class, 'referral_directory_company', 'directory_id');
     }
 }

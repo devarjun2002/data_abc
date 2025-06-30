@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Models;
+use App\Models\Employee;
+use App\Models\PropertyOfferSale;
+use App\Models\PropertyOfferStatus;
 
 use Illuminate\Database\Eloquent\Model;
 

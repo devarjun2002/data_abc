@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Models;
+use App\Models\Applicant;
+use App\Models\Employee;
+use App\Models\Property;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -52,5 +55,10 @@ class InterestedApplicant extends Model
     public function property()
     {
         return $this->belongsTo(Property::class, 'interested_applicant_property', 'property_id');
+    }
+    // Reverse Relationships
+public function interestedApplicantUpdateses()
+    {
+        return $this->hasMany(InterestedApplicantUpdates::class, 'interested_applicant_updates_interested_applicant_id', 'interested_applicant_id');
     }
 }

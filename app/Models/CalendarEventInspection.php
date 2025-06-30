@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\CalendarEvent;
+use App\Models\CalendarEventInspectionCleanliness;
 
 use Illuminate\Database\Eloquent\Model;
 

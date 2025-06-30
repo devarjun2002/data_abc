@@ -1,6 +1,13 @@
 <?php
 
 namespace App\Models;
+use App\Models\Gender;
+use App\Models\Property;
+use App\Models\PropertyFloor;
+use App\Models\PropertyFurnishedStatus;
+use App\Models\PropertyRentFrequency;
+use App\Models\PropertyRoomLettingSize;
+use App\Models\PropertyStatus;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -64,5 +71,10 @@ class PropertyRoomLetting extends Model
     public function gender()
     {
         return $this->belongsTo(Gender::class, 'property_room_letting_gender', 'gender_id');
+    }
+    // Reverse Relationships
+public function tenancies()
+    {
+        return $this->hasMany(Tenancy::class, 'tenancy_property_part_room', 'property_room_letting_id');
     }
 }

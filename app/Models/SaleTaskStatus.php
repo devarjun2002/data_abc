@@ -20,4 +20,9 @@ class SaleTaskStatus extends Model
     public function tasks() {
         return $this->hasMany(SaleTask::class, 'sale_task_status', 'sale_task_status_id');
     }
+    // Reverse Relationships
+public function saleTaskDefaultses()
+    {
+        return $this->hasMany(SaleTaskDefaults::class, 'sale_task_defaults_status', 'sale_task_status_id');
+    }
 }

@@ -23,4 +23,9 @@ class PropertyFurnishedStatus extends Model
     {
         return $this->hasMany(PropertyRoomLetting::class, 'property_room_letting_furnished', 'property_furnished_status_id');
     }
+    // Reverse Relationships
+public function applicantRequirements()
+    {
+        return $this->hasMany(ApplicantRequirement::class, 'ar_property_furnished', 'property_furnished_status_id');
+    }
 }

@@ -16,4 +16,9 @@ class ValuationMeetingWith extends Model
     protected $fillable = [
         'valuation_meeting_with_name'
     ];
+    // Reverse Relationships
+public function calendarEvents()
+    {
+        return $this->hasMany(CalendarEvent::class, 'calendar_event_valuation_meeting_with', 'valuation_meeting_with_id');
+    }
 }

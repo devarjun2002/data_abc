@@ -21,15 +21,9 @@ class CustomerType extends Model
         'customer_type_filename',
         'customer_type_url_search_parameter'
     ];
-
-    // Reverse relationships --done
-    public function invoices()
+    // Reverse Relationships
+public function referrals()
     {
-        return $this->hasMany(AccountsInvoice::class, 'invoice_customer_type', 'customer_type_id');
-    }
-
-    public function invoiceCredits()
-    {
-        return $this->hasMany(AccountsInvoiceCredit::class, 'invoice_credit_customer_type', 'customer_type_id');
+        return $this->hasMany(Referral::class, 'referral_customer_type', 'customer_type_id');
     }
 }

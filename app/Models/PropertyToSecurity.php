@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\Property;
+use App\Models\PropertySecurity;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -16,4 +16,9 @@ class RentLegalExpensesInsuranceType extends Model
     protected $fillable = [
         'rleit_name',
     ];
+    // Reverse Relationships
+public function rentLegalExpensesInsurances()
+    {
+        return $this->hasMany(RentLegalExpensesInsurance::class, 'rlei_policy_type', 'rleit_id');
+    }
 }

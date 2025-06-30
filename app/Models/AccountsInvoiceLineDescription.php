@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsInvoiceLineDescriptionCategory;
+use App\Models\AccountsNominalCode;
 
 use Illuminate\Database\Eloquent\Model;
 

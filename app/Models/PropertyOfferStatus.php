@@ -17,4 +17,9 @@ class PropertyOfferStatus extends Model
         'property_offer_status_name',
         'property_offer_status_sort',
     ];
+    // Reverse Relationships
+public function propertyOfferSaleLogStatuses()
+    {
+        return $this->hasMany(PropertyOfferSaleLogStatus::class, 'property_offer_sale_status_new', 'property_offer_status_id');
+    }
 }

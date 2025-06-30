@@ -16,4 +16,9 @@ class EmailTemplateCategory extends Model
     protected $fillable = [
         'email_template_category_name'
     ];
+    // Reverse Relationships
+public function emailTemplates()
+    {
+        return $this->hasMany(EmailTemplate::class, 'email_template_category', 'email_template_category_id');
+    }
 }

@@ -1,6 +1,15 @@
 <?php
 
 namespace App\Models;
+use App\Models\Applicant;
+use App\Models\ApplicantRequirementFilterShared;
+use App\Models\ApplicantRequirementFilterStudent;
+use App\Models\Branch;
+use App\Models\Employee;
+use App\Models\PropertyAvailability;
+use App\Models\PropertyCategory;
+use App\Models\PropertyFurnishedStatus;
+use App\Models\PropertyType;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -88,5 +97,10 @@ class ApplicantRequirement extends Model
     public function studentFilter()
     {
         return $this->belongsTo(ApplicantRequirementFilterStudent::class, 'ar_property_student', 'applicant_requirement_filter_id');
+    }
+    // Reverse Relationships
+public function bulkEmails()
+    {
+        return $this->hasMany(BulkEmail::class, 'bulk_email_app_req_id', 'ar_id');
     }
 }

@@ -19,4 +19,9 @@ class PropertyStatus extends Model
         'property_status_type',
         'property_status_name_short',
     ];
+    // Reverse Relationships
+public function propertyRoomLettings()
+    {
+        return $this->hasMany(PropertyRoomLetting::class, 'property_room_letting_status', 'property_status_id');
+    }
 }

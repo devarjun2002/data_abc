@@ -16,4 +16,9 @@ class KeysAddFrom extends Model
     protected $fillable = [
         'keys_add_from_name',
     ];
+    // Reverse Relationships
+public function keysAdds()
+    {
+        return $this->hasMany(KeysAdd::class, 'keys_add_from', 'keys_add_from_id');
+    }
 }

@@ -42,4 +42,9 @@ class Bank extends Model
     {
         return $this->hasMany(Directory::class, 'directory_bank_name', 'bank_id');
     }
+    // Reverse Relationships
+public function guarantors()
+    {
+        return $this->hasMany(Guarantor::class, 'guarantor_bank_name', 'bank_id');
+    }
 }

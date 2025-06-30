@@ -23,4 +23,9 @@ class ValuationAppointmentType extends Model
     {
         return $this->hasMany(Valuation::class, 'valuation_appointment_type_id', 'valuation_appointment_type_id');
     }
+    // Reverse Relationships
+public function calendarEvents()
+    {
+        return $this->hasMany(CalendarEvent::class, 'calendar_event_valuation_appointment_type', 'valuation_appointment_type_id');
+    }
 }

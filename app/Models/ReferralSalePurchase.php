@@ -17,4 +17,9 @@ class ReferralSalePurchase extends Model
         'referral_sale_purchase_name',
         'referral_sale_purchase_sort'
     ];
+    // Reverse Relationships
+public function referrals()
+    {
+        return $this->hasMany(Referral::class, 'referral_sale_purchase', 'referral_sale_purchase_id');
+    }
 }

@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\AccountsPaymentTerm;
+use App\Models\Branch;
+use App\Models\Employee;
+use App\Models\Tenancy;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -59,16 +63,9 @@ class AccountsTenantCharge extends Model
     {
         return $this->belongsTo(Employee::class, 'tenant_charge_updated_by', 'employee_id');
     }
-
-
-    // Reverse relationships
-    public function tenantChargePayments()
+    // Reverse Relationships
+public function accountsTenantChargeRecurrings()
     {
-        return $this->hasMany(AccountsTenantChargePayment::class, 'tenant_charge_payment_id', 'tenant_charge_id');
-    }
-
-    public function tenantDepositCharges()
-    {
-        return $this->hasMany(AccountsTenantDepositCharge::class, 'tenant_deposit_charge_id', 'tenant_charge_id');
+        return $this->hasMany(AccountsTenantChargeRecurring::class, 'tenant_charge_recurring_tenant_charge_id', 'tenant_charge_id');
     }
 }

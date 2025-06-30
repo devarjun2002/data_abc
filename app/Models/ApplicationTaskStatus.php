@@ -27,4 +27,9 @@ class ApplicationTaskStatus extends Model
     {
         return $this->hasMany(ApplicationTaskDefaults::class, 'application_task_defaults_status', 'application_task_status_id');
     }
+    // Reverse Relationships
+public function applicationTaskDefaultses()
+    {
+        return $this->hasMany(ApplicationTaskDefaults::class, 'application_task_defaults_status', 'application_task_status_id');
+    }
 }

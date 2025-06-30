@@ -1,3 +1,7 @@
+public function localAuthorities()
+    {
+        return $this->hasMany(LocalAuthority::class, 'local_authority_country', 'country_id');
+    }
 <?php
 
 namespace App\Models;

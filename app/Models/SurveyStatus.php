@@ -17,4 +17,9 @@ class SurveyStatus extends Model
         'survey_status_name',
         'survey_status_sort'
     ];
+    // Reverse Relationships
+public function propertyOfferSales()
+    {
+        return $this->hasMany(PropertyOfferSale::class, 'property_offer_sale_survey', 'survey_status_id');
+    }
 }

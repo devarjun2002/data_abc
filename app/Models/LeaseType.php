@@ -19,4 +19,9 @@ class LeaseType extends Model
     protected $fillable = [
         'lease_type_name',
     ];
+    // Reverse Relationships
+public function propertyTenancies()
+    {
+        return $this->hasMany(PropertyTenancy::class, 'property_tenancy_lease_type', 'lease_type_id');
+    }
 }

@@ -1,6 +1,15 @@
 <?php
 
 namespace App\Models;
+use App\Models\ApplicantLeadSource;
+use App\Models\BodyType;
+use App\Models\Branch;
+use App\Models\CustomerType;
+use App\Models\Employee;
+use App\Models\PropertyOfferSaleType;
+use App\Models\SaleFinance;
+use App\Models\Title;
+use App\Models\Valuation;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -127,35 +136,9 @@ class Applicant extends Model
     {
         return $this->belongsTo(Employee::class, 'applicant_negotiator', 'employee_id');
     }
-
-    // Reverse relationships
-    public function interestedApplicants()
-    {
-        return $this->hasMany(InterestedApplicant::class, 'interested_applicant_applicant_id', 'applicant_id');
-    }
-
-    public function requirements()
-    {
-        return $this->hasMany(ApplicantRequirement::class, 'applicant_requirement_applicant_id', 'applicant_id');
-    }
-
-    public function propertyOfferSaleApplicants()
+    // Reverse Relationships
+public function propertyOfferSaleApplicantses()
     {
         return $this->hasMany(PropertyOfferSaleApplicants::class, 'applicant_id', 'applicant_id');
-    }
-
-    public function properties()
-    {
-        return $this->belongsToMany(Property::class, 'property_applicant', 'applicant_id', 'property_id');
-    }
-
-    public function propertyOfferSales()
-    {
-        return $this->belongsToMany(PropertyOfferSale::class, 'property_offer_sale_applicants', 'applicant_id', 'property_offer_sale_id');
-    }
-
-    public function applications()
-    {
-        return $this->belongsToMany(Application::class, 'application_applicant', 'applicant_id', 'application_id');
     }
 }

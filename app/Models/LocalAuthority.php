@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\Country;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,5 +37,10 @@ class LocalAuthority extends Model
     public function country()
     {
         return $this->belongsTo(Country::class, 'local_authority_country', 'country_id');
+    }
+    // Reverse Relationships
+public function localAuthorityWards()
+    {
+        return $this->hasMany(LocalAuthorityWard::class, 'local_authority_id', 'local_authority_id');
     }
 }

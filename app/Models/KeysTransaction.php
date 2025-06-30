@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Models\CustomerType;
+use App\Models\Employee;
+use App\Models\KeysAdd;
+use App\Models\Property;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -70,5 +74,10 @@ class KeysTransaction extends Model
     public function keySet()
     {
         return $this->belongsTo(KeysAdd::class, 'keys_transaction_set_id', 'keys_add_id');
+    }
+    // Reverse Relationships
+public function keyTransactionUpdateses()
+    {
+        return $this->hasMany(KeyTransactionUpdates::class, 'key_transaction_updates_keys_transaction_id', 'keys_transaction_id');
     }
 }
